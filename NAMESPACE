@@ -1,1 +1,2 @@
-exportPattern("^[[:alpha:]]+")
+export(new_report)
+import(qdap)
