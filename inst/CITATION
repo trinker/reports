@@ -1,0 +1,11 @@
+citHeader("To cite reports in publications, please use:")
+
+
+citEntry(entry = "manual",
+    title = "{reports}: {P}ackage to asssist in report writing",
+    author = "Tyler W. Rinker",
+    organization = "University at Buffalo/SUNY",
+    address = "Buffalo, New York",
+    note = "version 0.1.0",
+    year = "2013",)
+)

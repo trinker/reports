@@ -1,0 +1,12 @@
+Package: reports
+Type: Package
+Title: Assists in writing reports
+Version: 0.1.0
+Date: 2013-02-18
+Author: tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: A group of functions designed to assist and improve LaTEX report writing in APA6 format.
+License: GPL-2
+URL: http://trinker.github.com/reports/
+BugReports: http://github.com/trinker/reports/issues
+Depends: R (>= 2.15) qdap
