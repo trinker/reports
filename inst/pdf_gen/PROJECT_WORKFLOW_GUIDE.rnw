@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[sc]{mathpazo}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{url}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Project Directory and Work Flow}
+\author{}
+\date{}
+\maketitle
+
+The project template includes these main directories and scripts:
+
+\begin{enumerate}
+  \item \textbf{ARTICLES} - A directory to store related articles:
+  \begin{enumerate}
+    \item \textbf{website.txt} a txt file to store websites related to the project
+  \end{enumerate}
+  \item \textbf{OUTLINE} - A directory containing the following .tex files:
+  \begin{enumerate}
+    \item \textbf{outline.tex} an outline skeletal .tex file to outline the structure of  
+    \item \textbf{preamble2.tex} a generic preamble .tex file used by outline.tex  
+  \end{enumerate}  
+  \item \textbf{PRESENTATION} - A directory containing the following .Rnw and .tex files:
+  \begin{enumerate}
+    \item \textbf{xxx.Rmd} a skeletal .Rnw file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
+    \item \textbf{xxx.Rnw} a skeletal .Rnw file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} slides.   
+  \end{enumerate} 
+  \item \textbf{REPORT} - A directory containing the following .Rnw and .tex files:
+  \begin{enumerate}
+    \item \textbf{xxx.bib} an optional .bib file supplied to the \textbf{bib.loc} argument of the \textbf{new\_report} function
+    \item \textbf{preamble.tex} a generic apa6 preamble .tex file used by xxx.tex  
+    \item \textbf{xxx.tex} a skeletal .tex file used to generate an APA6 formatted report
+  \end{enumerate} 
+  \item \textbf{.Rprofile} - An .Rprofile that automatically launches commands, loads libraries and sets options on start up.
+  \item \textbf{notes.txt} - a .txt file to recorde notes related to the report
+  \item \textbf{PROJECT\_WORKFLOW\_GUIDE.Rnw} - The workflow guide
+  \item{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
+  \item{TO\_DO.txt} - A text file documenting project tasks
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+
+
+

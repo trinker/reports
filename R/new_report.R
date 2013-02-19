@@ -2,10 +2,13 @@
 #' 
 #' Generate a report/paper template to increase efficiency.
 #' 
-#' @param name A character vector of the project name.
+#' @param report A character vector of the project name.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
+#' @param name A character vector of the user's name to be used on the report.
+#' @note The user may want to set \code{\link[base]{options}} for \code{bib.loc} 
+#' and \code{name_reports} in the .Rprofile.
 #' @return Creates a report template.
 #' @import qdap
 #' @export
@@ -35,12 +38,16 @@ new_report <- function(report = "report", bib.loc = getOption("bib.loc"),
     invisible(file.copy(pdfloc, y[[1]]))   
     pdfloc2 <- paste0(root, "/", c("preamble2.tex", "outline.tex"))
     invisible(file.copy(pdfloc2, y[[3]]))  
-    pdfloc3 <- paste0(root, "/", c("temp.Rmd"))
+    pdfloc3 <- paste0(root, "/", c("temp.Rmd", "temp.Rnw"))
     invisible(file.copy(pdfloc3, y[[4]])) 
     invisible(file.rename(paste0(y[[4]], "/temp.Rmd"), 
-        paste0(y[[4]], "/",  report, ".Rmd")))    
+        paste0(y[[4]], "/",  report, ".Rmd")))  
+    invisible(file.rename(paste0(y[[4]], "/temp.Rnw"), 
+        paste0(y[[4]], "/",  report, ".Rnw")))      
     pdfloc4 <- paste0(root, "/TEMP.txt")
     invisible(file.copy(pdfloc4, x))
+    pdfloc5 <- paste0(root, "/PROJECT_WORKFLOW_GUIDE.pdf")
+    invisible(file.copy(pdfloc5, x))
     invisible(file.rename(paste0(x, "/TEMP.txt"), 
         paste0(x, "/",  report, ".Rproj"))) 
     invisible(file.rename(paste0(x, "/TEMP.txt"), 

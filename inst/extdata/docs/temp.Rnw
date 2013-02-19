@@ -1,0 +1,35 @@
+% very important to use option [fragile] for frames containing code output!
+\documentclass{beamer}
+\usetheme{Boadilla}
+\begin{document}
+
+<<setup, include=FALSE>>=
+# smaller font size for chunks
+opts_chunk$set(size = 'footnotesize')
+@
+
+\title{Title}
+\author{Author}
+\date{\today}
+
+\maketitle
+
+
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Use R code}
+<<slide-2>>=
+(x=rnorm(20))
+mean(x);var(x)
+@
+\end{frame}
+
+\end{document}

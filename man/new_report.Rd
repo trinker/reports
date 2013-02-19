@@ -7,17 +7,24 @@
     name = getOption("name_reports"), path = getwd())
 }
 \arguments{
-  \item{name}{A character vector of the project name.}
+  \item{report}{A character vector of the project name.}
 
   \item{bib.loc}{Optional path to a .bib resource.}
 
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}
+
+  \item{name}{A character vector of the user's name to be
+  used on the report.}
 }
 \value{
   Creates a report template.
 }
 \description{
   Generate a report/paper template to increase efficiency.
+}
+\note{
+  The user may want to set \code{\link[base]{options}} for
+  \code{bib.loc} and \code{name_reports} in the .Rprofile.
 }
 
