@@ -74,7 +74,7 @@ new_report <- function(report = "report", bib.loc = getOption("bib.loc"),
     }
     temp <- gsub("title{T}", paste0("title{", report, "}"), temp, fixed = TRUE)
     if (!is.null(name)) {
-        temp <- gsub("author{NAME", paste0("title{", name), temp, fixed = TRUE)
+        temp <- gsub("author{NAME", paste0("author{", name), temp, fixed = TRUE)
     }
     cat(paste(temp, collapse="\n"), file=paste0(y[[1]], "/template.tex"))
     invisible(file.rename(paste0(y[[1]], "/template.tex"), 
