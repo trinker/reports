@@ -50,8 +50,6 @@ new_report <- function(report = "report", bib.loc = getOption("bib.loc"),
     invisible(file.copy(pdfloc5, x))
     invisible(file.rename(paste0(x, "/TEMP.txt"), 
         paste0(x, "/",  report, ".Rproj"))) 
-    invisible(file.rename(paste0(x, "/TEMP.txt"), 
-        paste0(x, "/",  report, ".Rproj")))
     rpro <- c("#load the packages used",
         "library(reports)",
         "library(qdap)")
