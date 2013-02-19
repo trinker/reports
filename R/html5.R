@@ -11,7 +11,7 @@
 #' @export
 html5 <- function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {
-	if (system('pandoc -v') == 0) warning("pandoc may not be installed.  See:
+	if (Sys.which("pandoc") == "") warning("pandoc may not be installed.  See:
 	    http://johnmacfarlane.net/pandoc")
     WD <- getwd()
     on.exit(setwd(WD))
