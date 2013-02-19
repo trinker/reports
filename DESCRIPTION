@@ -16,3 +16,5 @@ Imports:
     qdap
 Collate:
     'new_report.R'
+    'update_bib.R'
+    'html5.R'

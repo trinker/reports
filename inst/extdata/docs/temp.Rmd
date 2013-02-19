@@ -1,0 +1,13 @@
+% Title
+% Name
+% Date
+
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+```
+
+# Slide 1
+
+- Point 1
+- Point 2

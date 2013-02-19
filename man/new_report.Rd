@@ -2,13 +2,14 @@
 \alias{new_report}
 \title{Report Template}
 \usage{
-  new_report(name = "report",
-    bib.loc = getOption("bib.loc"), path = getwd())
+  new_report(report = "report",
+    bib.loc = getOption("bib.loc"),
+    name = getOption("name_reports"), path = getwd())
 }
 \arguments{
   \item{name}{A character vector of the project name.}
 
-  \item{bibloc}{Optional path to a .bib resource.}
+  \item{bib.loc}{Optional path to a .bib resource.}
 
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}

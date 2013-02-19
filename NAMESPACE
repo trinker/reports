@@ -1,2 +1,4 @@
+export(html5)
 export(new_report)
+export(update_bib)
 import(qdap)
