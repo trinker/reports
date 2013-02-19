@@ -1,7 +1,7 @@
 reports
 =======
 ![qdapicon](https://dl.dropbox.com/u/61803503/reports.png)   
-reports is package to assist in writing apa6 style reports and presentations.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [knitr](http://yihui.name/knitr/) and [Pandoc](http://johnmacfarlane.net/pandoc/).  The user will want to download these free programs to maximize the effectiveness of the reports package.
+reports is a package that assists in writing apa6 style reports and presentations.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/), [knitr](http://yihui.name/knitr/) and [Pandoc](http://johnmacfarlane.net/pandoc/).  The user will want to download these free programs to maximize the effectiveness of the reports package.
 
 ## Installation
 
@@ -23,7 +23,4 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 For the package pdf help manual [click here](https://dl.dropbox.com/u/61803503/reports.pdf).
 
-## Note
-
-Users will need to install [Pandoc ](http://johnmacfarlane.net/pandoc/) in order to use the html5 function.
 
