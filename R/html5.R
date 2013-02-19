@@ -11,8 +11,10 @@
 #' @export
 html5 <- function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {
-	if (system('pandoc -v')!=0) warning("pandoc may not be installed.  See:
+	if (system('pandoc -v')!=0) {
+        warning("pandoc may not be installed.  See:
 	    http://johnmacfarlane.net/pandoc")
+	}
     WD <- getwd()
     on.exit(setwd(WD))
     setwd(path)    
@@ -24,5 +26,7 @@ html5 <- function(in.file = NULL, out.file = NULL,
     }
     action <- paste0("pandoc -s -S -i -t dzslides --mathjax ", in.file, " -o ", out.file)
     system(action)
-    cat("HTML5 file generated!")
+	if (system('pandoc -v')!=0) {
+        cat("HTML5 conversion completed!")
+	}
 }
