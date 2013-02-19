@@ -20,7 +20,7 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 ## Help
 
-For an intoductory video [click here](http://youtu.be/17WBH1xj6FE)    
+For an intoductory video [click here](http://youtu.be/8CMUzlKjDO8)    
 For the package pdf help manual [click here](https://dl.dropbox.com/u/61803503/reports.pdf).    
 For quick start slides [click here](http://trinker.github.com/reports/slides/reports.html).
 
