@@ -9,12 +9,9 @@
 #' @details The user must have pandoc installed and on their path.  pandoc can be instaleld from: \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @return Creates a report template.
 #' @export
-html5 <- function(in.file = NULL, out.file = NULL, 
+html5 <- 
+function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {
-	if (system('pandoc -v')!=0) {
-        warning("pandoc may not be installed.  See:
-	    http://johnmacfarlane.net/pandoc")
-	}
     WD <- getwd()
     on.exit(setwd(WD))
     setwd(path)    
@@ -24,9 +21,11 @@ html5 <- function(in.file = NULL, out.file = NULL,
     if (is.null(out.file)) {
         out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], "2.html")
     }
-    action <- paste0("pandoc -s -S -i -t dzslides --mathjax ", in.file, " -o ", out.file)
+    myPaths <- c("pandoc",  "~/.cabal/bin/pandoc", 
+        "~/Library/Haskell/bin/pandoc", "C:\\PROGRA~1\\Pandoc\\bin\\pandoc")
+    panloc <- Sys.which(myPaths)
+    opening <- panloc[panloc != ""]
+    action <- paste0(opening, " -s -S -i -t dzslides --mathjax ", in.file, " -o ", out.file)
     system(action)
-	if (system('pandoc -v')!=0) {
-        cat("HTML5 conversion completed!")
-	}
+    cat("HTML5 file generated!")
 }
