@@ -4,14 +4,17 @@
 #' 
 #' @import qdap
 #' @export
-templates <- function(names = TRUE) {
+templates <- function(print.cons = TRUE, names = TRUE) {
     root <- system.file("extdata/doc_library", package = "reports")
-    z <- invisible(lapply(paste0(root, "/", dir(root), "/DESCRIPTION"), function(x) {
-        y <- suppressWarnings(readLines(x))
-        cat(paste0(y, collapse = "\n")); 
-        cat("\n========================\n\n")
-        return(y)
-    }))
+    if (print.cons) {
+    	fls <- paste0(root, "/", dir(root), "/DESCRIPTION")
+        z <- invisible(lapply(fls, function(x) {
+            y <- suppressWarnings(readLines(x))
+            cat(paste0(y, collapse = "\n")); 
+            cat("\n========================\n\n")
+            return(y)
+        }))
+    }
     if (names) {
     	z <- dir(root)
     }

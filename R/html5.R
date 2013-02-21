@@ -15,16 +15,16 @@
 html5 <- 
 function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {
-    WD <- getwd()  
+    WD <- getwd()
+    on.exit(setwd(WD))
+    setwd(path)    
     if (is.null(in.file)) {
         in.file <- dir(path)[tools::file_ext(dir(path)) == "md"][1]
     }
     if (is.null(out.file)) {
         out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], "2.html")
     }
-    opening <- wheresPandoc()
-    action <- paste0(opening, " -s -S -i -t dzslides --mathjax ", in.file, 
-        " -o ", out.file)
+    action <- paste0(wheresPandoc(), " -s -S -i -t dzslides --mathjax ", in.file, " -o ", out.file)
     system(action)
     cat("HTML5 file generated!")
 }

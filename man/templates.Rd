@@ -2,7 +2,7 @@
 \alias{templates}
 \title{View Templates}
 \usage{
-  templates(names = TRUE)
+  templates(print.cons = TRUE, names = TRUE)
 }
 \description{
   View all the reports package templates.
