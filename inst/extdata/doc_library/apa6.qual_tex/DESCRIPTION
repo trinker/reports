@@ -1,0 +1,9 @@
+Template: apa6.qual
+Date: 2013-02-20
+Author: Tyler Rinker
+Doc Type: tex
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: This is a .tex APA6 template for qualitative researchers.  Uses the 
+             apa6e docuemnt class with floats left in place and reference heading 
+             centered.
+License: GPL-2

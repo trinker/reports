@@ -1,0 +1,9 @@
+Template: apa6.mod.quant
+Date: 2013-02-20
+Author: Tyler Rinker
+Doc Type: rnw
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: This is a .tex APA6 template for quantitative researchers.  Uses the 
+             apa6e docuemnt class with floats left in place, reference heading 
+             centered, float warning removed and abstract removed.
+License: GPL-2

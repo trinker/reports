@@ -1,0 +1,115 @@
+%====================
+%  Document Class
+%====================
+\documentclass[leavefloats]{apa6e}
+
+%====================
+%  Packages
+%====================
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,bibencoding=latin1]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{mdwlist}
+\usepackage{ragged2e}
+\usepackage{textcomp}
+\usepackage{etoolbox}
+\usepackage{geometry}
+\usepackage{float}
+\restylefloat{figure}
+\usepackage{microtype}  %disable ligitures
+\DisableLigatures{encoding = *, family = *}
+\usepackage{lscape}           %for landscape
+\usepackage[section]{placeins}
+\usepackage{setspace}
+\usepackage{appendix}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\setlength{\parindent}{1 em}
+\usepackage{color}
+\usepackage{ifthen}
+
+
+%====================
+%  Custom Commands
+%====================
+%--------------------
+% possessive citation
+%--------------------
+\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})}
+\newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}
+
+%====================
+%  Formatting
+%====================
+
+
+%-----------------------------
+% redefine bibligraphy heading
+%-----------------------------
+\defbibheading{bibliography}{%
+\section{\normalfont\refname}}
+
+%====================
+%  Other
+%====================
+
+\addbibresource{.bib} %change this
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+# set global chunk options
+opts_chunk$set(fig.path='figure/minimal-', fig.align='center', fig.show='hold')
+options(replace.assign=TRUE,width=90)
+library(ggplot2); library(xtable)
+@
+
+\title{Title: Long}
+\shorttitle{Title}
+\author{NAME}
+\date{\today}
+\authornote{\dots}
+\abstract{This is an example of an abstract in APA.}
+\maketitle
+
+%==========================================================================
+%                       Document
+%==========================================================================
+%Intro gets no heading.  State the significance (importance and extend the field); hypothesis research questions; lit review/theoretical framework
+\section{Method}
+\subsection{Participants}
+\subsection{Research Design}
+\subsection{Measures }
+\subsection{Procedure}
+
+\section{Results}
+<<foo, fig.height=4>>=
+1+1
+plot(rnorm(100))
+@
+
+<<foo2, fig.height=4, echo = FALSE, results = 'asis'>>=
+xtable(anova(lm(disp~mpg, data=mtcars)))
+@
+
+\section{Discussion}
+
+%==========================================================================
+%                       Bibliography
+%==========================================================================
+\clearpage
+\printbibliography
+
+%==========================================================================
+%                       Appendices
+%==========================================================================
+%\appendix
+%\section{Feedback Coding Guide}
+%\label{a1}
+\end{document}

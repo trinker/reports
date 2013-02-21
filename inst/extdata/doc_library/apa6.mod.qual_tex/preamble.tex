@@ -1,0 +1,102 @@
+%====================
+%  Document Class
+%====================
+\documentclass[leavefloats]{apa6e}
+
+%====================
+%  Packages
+%====================
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,bibencoding=latin1]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{mdwlist}
+\usepackage{ragged2e}
+\usepackage{textcomp}
+\usepackage{etoolbox}
+\usepackage{geometry}
+\usepackage{float}
+\restylefloat{figure}
+\usepackage{microtype}  %disable ligitures
+\DisableLigatures{encoding = *, family = *}
+\usepackage{lscape}           %for landscape
+\usepackage[section]{placeins}
+\usepackage{setspace}
+\usepackage{appendix}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\setlength{\parindent}{1 em}
+\usepackage{color}
+\usepackage{ifthen}
+
+
+%====================
+%  Custom Commands
+%====================
+%--------------------
+% possessive citation
+%--------------------
+\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})}
+\newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}
+
+%====================
+%  Formatting
+%====================
+%-----------------------
+% force abstract removal
+%-----------------------
+\makeatletter
+\renewcommand{\maketitle}{%
+\thispagestyle{titlepage}%
+\vspace*{1in}%
+\Centering\@title\\\@author%
+\vfill%
+\ifdefined%
+\apaSIXe@leavefloats{}
+\fi
+\RaggedRight%
+\mspart{\@title}%
+}
+\makeatother
+
+%-----------------------------------------
+% force floats in apa6e and remove warning
+%-----------------------------------------
+\makeatletter
+\renewenvironment{figure}[1][]{%
+\ifthenelse{\equal{#1}{}}{%
+\@float{figure}
+}{%
+\@float{figure}[#1]%
+}%
+\centering
+}{%
+\end@float
+}
+\renewenvironment{table}[1][]{%
+\ifthenelse{\equal{#1}{}}{%
+\@float{table}
+}{%
+\@float{table}[#1]%
+}%
+\centering
+}{%
+\end@float
+}
+\makeatother
+
+%-----------------------------
+% redefine bibligraphy heading
+%-----------------------------
+\defbibheading{bibliography}{%
+\section{\normalfont\refname}}
+
+%====================
+%  Other
+%====================

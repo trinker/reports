@@ -1,31 +1,30 @@
 #' Convert md to HTML5 Slides
 #' 
-#' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 slides.
+#' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
+#' slides.
 #' 
 #' @param in.file A character vector of the md file.
-#' @param out.file A character vector of the outfile.  If NULL over writes the original HTML file.
+#' @param out.file A character vector of the outfile.  If NULL over writes the 
+#' original HTML file.
 #' @param path The path to where the project should be created.  Default is the 
 #' PRESENTATION directory.
-#' @details The user must have pandoc installed and on their path.  pandoc can be instaleld from: \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+#' @details The user must have pandoc installed and on their path.  pandoc can 
+#' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @return Creates a report template.
 #' @export
 html5 <- 
 function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {
-    WD <- getwd()
-    on.exit(setwd(WD))
-    setwd(path)    
+    WD <- getwd()  
     if (is.null(in.file)) {
         in.file <- dir(path)[tools::file_ext(dir(path)) == "md"][1]
     }
     if (is.null(out.file)) {
         out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], "2.html")
     }
-    myPaths <- c("pandoc",  "~/.cabal/bin/pandoc", 
-        "~/Library/Haskell/bin/pandoc", "C:\\PROGRA~1\\Pandoc\\bin\\pandoc")
-    panloc <- Sys.which(myPaths)
-    opening <- panloc[panloc != ""]
-    action <- paste0(opening, " -s -S -i -t dzslides --mathjax ", in.file, " -o ", out.file)
+    opening <- wheresPandoc()
+    action <- paste0(opening, " -s -S -i -t dzslides --mathjax ", in.file, 
+        " -o ", out.file)
     system(action)
     cat("HTML5 file generated!")
 }

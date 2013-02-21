@@ -1,100 +1,13 @@
-%=========================================================================
-%       PREAMBLE
-%=========================================================================
-\documentclass[leavefloats]{apa6e}
-\usepackage[american]{babel}
-\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-\usepackage[style=apa,backend=biber,bibencoding=latin1]{biblatex}
-\DeclareLanguageMapping{american}{american-apa}
-
-\usepackage{enumerate}
-\usepackage{hyperref}
-\usepackage{rotating}
-\usepackage{graphicx}
-\usepackage{mdwlist}
-\usepackage{ragged2e}
-\usepackage{textcomp}
-%\usepackage[justification=justified,singlelinecheck=false,font=small,format=plain,labelfont=bf,up,textfont=normal,up]{caption}
-\usepackage{etoolbox}
-\usepackage{geometry}
-\usepackage{float}
-\restylefloat{figure}
-\usepackage{microtype}  %disable ligitures
-\DisableLigatures{encoding = *, family = *}
-\usepackage{lscape}           %for landscape
-
-%--------------------------
-\makeatletter
-\renewcommand{\maketitle}{%
-\thispagestyle{titlepage}%
-\vspace*{1in}%
-\Centering\@title\\\@author%
-\vfill%
-\ifdefined%
-\apaSIXe@leavefloats{}
-\fi
-\RaggedRight%
-\mspart{\@title}%
-}
-\makeatother
-%---------------
-
-\usepackage[section]{placeins}
-
-\usepackage{setspace}
-\usepackage{appendix}
-\usepackage{float}
-\usepackage{subfig}
-\usepackage{amsmath}
- %\numberwithin{equation}{subsection} %changes labeling of equations
-
-\setlength{\parindent}{1 em}
-\usepackage{color}
-\usepackage{ifthen}
-\makeatletter
-\renewenvironment{figure}[1][]{%
-\ifthenelse{\equal{#1}{}}{%
-\@float{figure}
-}{%
-\@float{figure}[#1]%
-}%
-\centering
-}{%
-\end@float
-}
-\renewenvironment{table}[1][]{%
-\ifthenelse{\equal{#1}{}}{%
-\@float{table}
-}{%
-\@float{table}[#1]%
-}%
-\centering
-}{%
-\end@float
-}
-%====================================
-% possessive citation
-%===================================
-\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})}
-\newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}
-%====================================
-% table column spaces between cline
-%===================================
-%\usepackage{array}
-%\newcolumntype{R}{@{\extracolsep{10pt}}r@{\extracolsep{0pt}}}%
-\usepackage{booktabs}
-
-\defbibheading{bibliography}{%
-\section{\normalfont\refname}}
-%=========================================================================
-%			1 INCH MARGIN
-%=========================================================================
-%\addtolength{\oddsidemargin}{-.875in}
-%\addtolength{\evensidemargin}{-.875in}
-%\addtolength{\textwidth}{1.75in}
-
-%\addtolength{\topmargin}{-1.2in}
-%\addtolength{\textheight}{2.80in}
-%=========================================================================
-%\abstract{This is an example of an abstract in APA.   I could go on and on about how great my paper is but will just use a random selection of text and you can imagine how great it is.}
+\documentclass{article}
+\usepackage{outlines}
+\usepackage{enumitem}
+\setenumerate[1]{label=\Roman*.}
+\setenumerate[2]{label=\Alph*.}
+\setenumerate[3]{label=\roman*.}
+\setenumerate[4]{label=\alph*.}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\title{Outline}
