@@ -9,6 +9,7 @@
 #' @export
 update_bib <- function(report = getwd(), bib.loc = getOption("bib.loc")) {
     x <- paste0(report, "/REPORT/")
+    z <- paste0(report, "/PRESENTATION/")
     y <- dir(x)
     current <- y[tools::file_ext(y) == "bib"]
     current
@@ -22,5 +23,6 @@ update_bib <- function(report = getwd(), bib.loc = getOption("bib.loc")) {
         }
     }
     invisible(file.copy(bib.loc, x))
+    invisible(file.copy(bib.loc, z))
     cat("bib file updated!")
 }

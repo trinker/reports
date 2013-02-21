@@ -5,9 +5,17 @@
 ```{r setup, include=FALSE}
 # set global chunk options
 opts_chunk$set(cache=TRUE)
+library(knitr); library(knitcitations)
+#bib <- read.bibtex(.bib)
+#cite in text using `r citet(bib[1])`
 ```
 
 # Slide 1
 
 - Point 1
 - Point 2
+
+# References
+```{r, echo=FALSE, results='asis'}
+#bibliography("html") 
+```

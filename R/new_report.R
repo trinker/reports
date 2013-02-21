@@ -86,6 +86,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     bib <- NULL
     if(!is.null(bib.loc) & file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
+        invisible(file.copy(bib.loc, y[[4]]))
         bib <- dir(y[[1]])[tools::file_ext(dir(y[[1]])) == "bib"]
         if (!is.null(getOption("bib.loc"))) {
             bibL <- paste0("options(bib.loc = \"", getOption("bib.loc"), "\")")
@@ -113,6 +114,14 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
         invisible(file.rename(file.path(y[[1]], drin), 
             file.path(y[[1]], paste0(report, ".", tools::file_ext(drin)))))
+        if (!is.null(bib)) {
+            dr2 <- dir(y[[4]])
+            drin2 <- dr2[tools::file_ext(dr2) %in% "Rmd"]
+            temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
+            temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
+                temp2, fixed = TRUE)
+        cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
+        }
     }
     cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
 }

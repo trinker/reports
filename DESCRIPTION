@@ -15,7 +15,9 @@ BugReports: http://github.com/trinker/reports/issues
 Depends:
     R (>= 2.15)
 Imports:
-    qdap
+    qdap,
+    knitr,
+    knitcitations
 Collate:
     'new_report.R'
     'update_bib.R'
