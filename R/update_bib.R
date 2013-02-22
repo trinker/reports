@@ -7,10 +7,11 @@
 #' @return Updates bib from master/global bib
 #' @import qdap
 #' @export
-update_bib <- function(report = getwd(), bib.loc = getOption("bib.loc")) {
+update_bib <-
+function(report = getwd(), bib.loc = getOption("bib.loc")) {
     x <- paste0(report, "/REPORT/")
     z <- paste0(report, "/PRESENTATION/")
-    y <- dir(x)
+    y <- dir(z)
     current <- y[tools::file_ext(y) == "bib"]
     current
     if (is.null(bib.loc)) stop("please supply the path to the .bib file")    
@@ -22,7 +23,7 @@ update_bib <- function(report = getwd(), bib.loc = getOption("bib.loc")) {
             stop("update_bib aborted")
         }
     }
-    invisible(file.copy(bib.loc, x))
-    invisible(file.copy(bib.loc, z))
-    cat("bib file updated!")
+    suppressWarnings(try(file.copy(bib.loc, x, overwrite = TRUE)))
+    invisible(file.copy(bib.loc, z, overwrite = TRUE))
+    cat("bib files updated!")
 }

@@ -1,7 +1,9 @@
+%===============================================================================
+% http://www.uncg.edu/cmp/reu/presentations/Charles%20Batts%20-%20Beamer%20Tutorial.pdf 
+% http://yihui.name/knitr/
 % Very important to use option [fragile] for frames containing code output!
-% Remmeber to run bibtex on the .tex file after running in RStudio
-%see: http://www.math.umbc.edu/
-%see: http://yihui.name/knitr/
+% Remember to run bibtex on the .tex file after running in RStudio
+%===============================================================================
 \documentclass[xcolor=dvipsnames]{beamer} 
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
