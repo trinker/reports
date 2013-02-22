@@ -97,6 +97,14 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     if (!is.null(bib.loc) & !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
+    if (!is.null(bib)) {
+        dr2 <- dir(y[[4]])
+        drin2 <- dr2[tools::file_ext(dr2) %in% "Rmd"]
+        temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
+        temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
+        temp2, fixed = TRUE)
+        cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
+    }
     if (!type) {
         fp <- file.path(root, template)
         invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
@@ -113,15 +121,22 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         }
         cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
         invisible(file.rename(file.path(y[[1]], drin), 
-            file.path(y[[1]], paste0(report, ".", tools::file_ext(drin)))))
-        if (!is.null(bib)) {
-            dr2 <- dir(y[[4]])
-            drin2 <- dr2[tools::file_ext(dr2) %in% "Rmd"]
-            temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
-            temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
-                temp2, fixed = TRUE)
-        cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
+            file.path(y[[1]], paste0(report, ".", tools::file_ext(drin)))))       
+        dr2 <- dir(y[[4]])
+        drin3 <- dr2[tools::file_ext(dr2) %in% "Rnw"]
+        temp3 <- suppressWarnings(readLines(file.path(y[[4]], drin3)))
+        if (!is.null(name)) {
+            temp3 <- gsub("author{Author}", paste0("author{", name, "}"), 
+                temp3, fixed = TRUE)
         }
+        if (!is.null(bib)) {
+            temp3 <- gsub("addbibresource{.bib}", paste0("addbibresource{", bib, 
+                "}"), temp3, fixed = TRUE) 
+        }
+        cat(paste(temp3, collapse="\n"), file=file.path(y[[4]], drin3))
+    } else {
+        fp <- file.path(root, template)
+        invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))        
     }
     cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
 }
