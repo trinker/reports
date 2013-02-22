@@ -4,6 +4,12 @@
 #' 
 #' @import qdap
 #' @export
+#' @examples
+#' \dontrun{
+#' templates()
+#' templates(FALSE)
+#' new_report("new", templates(FALSE)[4])
+#' }
 templates <- function(print.cons = TRUE, names = TRUE) {
     root <- system.file("extdata/doc_library", package = "reports")
     if (print.cons) {

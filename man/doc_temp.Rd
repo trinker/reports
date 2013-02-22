@@ -13,6 +13,9 @@
   will contain a .docx document whereas \code{"rnw" and
   "tex"} contain both \code{doc.rnw}/\code{doc.tex} and
   \code{preamble.tex} files.}
+
+  \item{path}{The path to where the project should be
+  created.  Default is the current working directory.}
 }
 \value{
   Creates a document template framework for template

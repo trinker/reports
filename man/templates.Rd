@@ -7,4 +7,11 @@
 \description{
   View all the reports package templates.
 }
+\examples{
+\dontrun{
+templates()
+templates(FALSE)
+new_report("new", templates(FALSE)[4])
+}
+}
 

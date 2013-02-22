@@ -26,4 +26,9 @@
   pandoc can be instaleld from: \cr
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
+\examples{
+\dontrun{
+html5()  #assumes location of html file out of the box
+}
+}
 

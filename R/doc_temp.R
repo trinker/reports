@@ -9,6 +9,8 @@
 #' (\code{"doc", "rnw" or "tex"}).  \code{"doc"} will contain a .docx document 
 #' whereas \code{"rnw" and "tex"} contain both \code{doc.rnw}/\code{doc.tex} and 
 #' \code{preamble.tex} files.
+#' @param path The path to where the project should be created.  Default is the 
+#' current working directory.
 #' @details templates must contain the following two items:
 #' \itemize{
 #' \item{DESCRIPTION}{ - A file used to keep track of users and package 
@@ -29,7 +31,8 @@
 #' submission.
 #' @export
 #' @import qdap
-doc_temp <- function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
+doc_temp <- 
+function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
     tn <- paste0(temp.name, "_", doc.type)
     if(file.exists(file.path(path, tn))) {
         cat(paste0("\"", file.path(path, tn), 

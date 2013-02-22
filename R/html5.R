@@ -12,6 +12,10 @@
 #' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @return Creates a report template.
 #' @export
+#' @examples 
+#' \dontrun{
+#' html5()  #assumes location of html file out of the box
+#' }
 html5 <- 
 function(in.file = NULL, out.file = NULL, 
     path = paste0(getwd(), "/PRESENTATION")) {

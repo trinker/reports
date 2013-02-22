@@ -1,6 +1,7 @@
 export(doc_temp)
 export(html5)
 export(new_report)
+export(presentation)
 export(templates)
 export(update_bib)
 import(qdap)

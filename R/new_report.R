@@ -12,9 +12,14 @@
 #' @note The user may want to set \code{\link[base]{options}} for \code{bib.loc} 
 #' and \code{name_reports} in the .Rprofile.
 #' @return Creates a report template.
-#' @seealso \code{link[reports]{doc_temp}}
+#' @seealso \code{link[reports]{doc_temp}},
+#' \href{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
 #' @import qdap
 #' @export
+#' @examples 
+#' \dontrun{
+#' new_report()
+#' }
 new_report <- function(report = "report", template = "apa6.mod.qual_tex", 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
     path = getwd()) {
