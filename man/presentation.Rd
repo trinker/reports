@@ -7,11 +7,16 @@
     path = getwd(), name = getOption("name_reports"))
 }
 \arguments{
-  \item{report}{A character vector of the project name.}
+  \item{presentation}{A character vector of the project
+  name.}
 
-  \item{template}{A character vector of the internal
-  reports template or an external path to a template in the
-  reports package style.}
+  \item{rnw}{logical.  If \code{TRUE} the docuemnts will be
+  .Rnw and .tex files.  If \code{FALSE} the documents will
+  be .pptx and .docx files.}
+
+  \item{theme}{\href{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}{Beamer
+  theme} to use.  If \code{NULL} \code{presentation} will
+  allow the user to choose interactively.}
 
   \item{bib.loc}{Optional path to a .bib resource.}
 

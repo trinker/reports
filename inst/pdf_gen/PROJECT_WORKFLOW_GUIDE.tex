@@ -75,6 +75,7 @@ The project template includes these main directories and scripts:
   \item \textbf{ARTICLES} - A directory to store related articles:
   \begin{enumerate}
     \item \textbf{website.txt} a txt file to store websites related to the project
+    \item \textbf{notes.xlsx/notes.csv} a speadsheet to store notes on the articles; the two letter functions of the reports package are useful at this point in the process
   \end{enumerate}
   \item \textbf{OUTLINE} - A directory containing the following .tex files:
   \begin{enumerate}
@@ -86,11 +87,12 @@ The project template includes these main directories and scripts:
     \item \textbf{xxx.Rmd} a skeletal .Rnw file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
     \item \textbf{xxx.Rnw} a skeletal .Rnw file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} slides.   
   \end{enumerate} 
-  \item \textbf{REPORT} - A directory containing the following .Rnw and .tex files:
+  \item \textbf{REPORT} - A directory containing the following files:
   \begin{enumerate}
     \item \textbf{xxx.bib} an optional .bib file supplied to the \textbf{bib.loc} argument of the \textbf{new\_report} function
-    \item \textbf{preamble.tex} a generic apa6 preamble .tex file used by xxx.tex  
-    \item \textbf{xxx.tex} a skeletal .tex file used to generate an APA6 formatted report
+    \item \textbf{preamble.tex} a generic apa6 preamble .tex file used by xxx.tex (generated for tex templates only) 
+    \item \textbf{xxx.tex}, \textbf{xxx.Rnw} or \textbf{xxx.doc} a skeletal file used to generate an APA6 formatted report
+    \item \textbf{DESCRIPTION} description of the template used
   \end{enumerate} 
   \item \textbf{.Rprofile} - An .Rprofile that automatically launches commands, loads libraries and sets options on start up.
   \item \textbf{notes.txt} - a .txt file to recorde notes related to the report
@@ -98,6 +100,16 @@ The project template includes these main directories and scripts:
   \item{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
   \item{TO\_DO.txt} - A text file documenting project tasks
 \end{enumerate}
+
+\vspace{3 mm}
+\hrule
+\vspace{3 mm}
+\noindent \textbf{\underline{Useful Websites:}} \vspace{1.5 mm} \\ 
+\textbf{reports Package} - \href{https://github.com/trinker/reports}{https://github.com/trinker/reports}\\ 
+\textbf{RStudio} - \href{http://www.rstudio.com/}{http://www.rstudio.com/}\\
+\textbf{knitr} - \href{http://yihui.name/knitr/}{http://yihui.name/knitr/}\\
+\textbf{Beamer} - \url{http://www.math.umbc.edu/~rouben/beamer/}\\
+\textbf{Beamer Themes} - \url{http://deic.uab.es/~iblanes/beamer_gallery/}\\
 
 \end{document}
 

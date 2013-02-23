@@ -5,7 +5,8 @@
   new_report(report = "report",
     template = "apa6.mod.qual_tex",
     bib.loc = getOption("bib.loc"),
-    name = getOption("name_reports"), path = getwd())
+    name = getOption("name_reports"), path = getwd(),
+    AN.xlsx = TRUE)
 }
 \arguments{
   \item{report}{A character vector of the project name.}
@@ -21,6 +22,10 @@
 
   \item{name}{A character vector of the user's name to be
   used on the report.}
+
+  \item{AN.xlsx}{logical.  If \code{TRUE} the article notes
+  (AN) will be in .xlsx format.  If \code{FALSE} the
+  document will be a .csv file..}
 }
 \value{
   Creates a report template.
@@ -32,13 +37,16 @@
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc} and \code{name_reports} in the .Rprofile.
 }
+\section{Warning}{
+  Introductory video:
+  \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
+}
 \examples{
 \dontrun{
 new_report()
 }
 }
 \seealso{
-  \code{link[reports]{doc_temp}},
-  \href{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
+  \code{\link[reports]{doc_temp}}
 }
 

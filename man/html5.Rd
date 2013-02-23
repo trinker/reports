@@ -3,6 +3,7 @@
 \title{Convert md to HTML5 Slides}
 \usage{
   html5(in.file = NULL, out.file = NULL,
+    ref.page = "References", refs.font.size = 14,
     path = paste0(getwd(), "/PRESENTATION"))
 }
 \arguments{
@@ -10,6 +11,14 @@
 
   \item{out.file}{A character vector of the outfile.  If
   NULL over writes the original HTML file.}
+
+  \item{ref.page}{The title of the reference page (adds
+  hanging indent and reduces font size).  If \code{NULL}
+  references slide will not be adjusted.  If reference
+  title is not found a warning will print.}
+
+  \item{refs.font.size}{The font size to make the
+  references.}
 
   \item{path}{The path to where the project should be
   created.  Default is the PRESENTATION directory.}
@@ -28,6 +37,7 @@
 }
 \examples{
 \dontrun{
+#Run after running knitr on an Rmd file
 html5()  #assumes location of html file out of the box
 }
 }

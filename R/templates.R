@@ -2,8 +2,17 @@
 #' 
 #' View all the reports package templates.
 #' 
+#' @param print.cons logical.  If \code{TRUE} The template information id 
+#' printed to the console.
+#' @param names logical.  If \code{TRUE} only the names of the templates will be 
+#' returned.
+#' @details This function prints (via \code{\link[base]{cat}}) to the console to 
+#' view possible templates (feel free to submit your own; see 
+#' \code{\link[reports]{doc_temp}} for details) as well ass optionally returning 
+#' a vector of ames that the user can pass to other functions.
 #' @import qdap
 #' @export
+#' @seealso \code{\link[reports]{doc_temp}}
 #' @examples
 #' \dontrun{
 #' templates()

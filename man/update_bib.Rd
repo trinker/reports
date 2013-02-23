@@ -6,7 +6,7 @@
     bib.loc = getOption("bib.loc"))
 }
 \arguments{
-  \item{project}{Path to the report project.}
+  \item{report}{Path to the report project.}
 
   \item{bib.loc}{Optional path to a .bib resource.}
 }

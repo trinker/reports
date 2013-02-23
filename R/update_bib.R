@@ -2,7 +2,7 @@
 #' 
 #' Updates the report directory bib file with a global/master bib file.
 #' 
-#' @param project Path to the report project.
+#' @param report Path to the report project.
 #' @param bib.loc Optional path to a .bib resource.
 #' @return Updates bib from master/global bib
 #' @import qdap

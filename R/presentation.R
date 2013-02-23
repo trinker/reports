@@ -2,9 +2,12 @@
 #' 
 #' Generate a report/paper template to increase efficiency.
 #' 
-#' @param report A character vector of the project name.
-#' @param template A character vector of the internal reports template or an 
-#' external path to a template in the reports package style.
+#' @param presentation A character vector of the project name.
+#' @param rnw logical.  If \code{TRUE} the docuemnts will be .Rnw and .tex 
+#' files.  If \code{FALSE} the documents will be .pptx and .docx files.
+#' @param theme \href{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}{Beamer theme}
+#' to use.  If \code{NULL} \code{presentation} will allow the user to choose 
+#' interactively.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.

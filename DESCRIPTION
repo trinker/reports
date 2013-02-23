@@ -9,6 +9,8 @@ Description: reports is a package that assists in writing apa6 style reports
     and presentations.  The package is designed to be used with RStudio,
     MikTex/Tex Live, knitr and Pandoc.  The user will want to download these
     free programs to maximize the effectiveness of the reports package.
+    Functions with two letter names are general text formatting functions for
+    copying text from articles for inclusion as a citation.
 License: GPL-2
 URL: http://trinker.github.com/reports/
 BugReports: http://github.com/trinker/reports/issues
@@ -28,3 +30,7 @@ Collate:
     'templates.R'
     'update_bib.R'
     'wheresPandoc.R'
+    'cw.R'
+    'gq.R'
+    'll.R'
+    'ca.R'

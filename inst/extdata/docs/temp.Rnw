@@ -4,28 +4,30 @@
 % Very important to use option [fragile] for frames containing code output!
 % Remember to run bibtex on the .tex file after running in RStudio
 %===============================================================================
-\documentclass{beamer}
+\documentclass[xcolor=dvipsnames]{beamer} 
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[style=apa, backend=biber,doi,url]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{.bib} 
-\usetheme{Boadilla}
+\usetheme{}
+\usecolortheme[named=Blue]{structure} 
 
 \begin{document}
 
 <<setup, include=FALSE>>=
 # smaller font size for chunks
+library(xtable)
 opts_chunk$set(size = 'footnotesize')
 @
-
+%========================
 \title{Title}
-\author{Author}
+\author{Name}
 \date{\today}
 
 \maketitle
-
+%========================
 \begin{frame}
 \frametitle{Introduction}
 \begin{itemize}
@@ -34,20 +36,20 @@ opts_chunk$set(size = 'footnotesize')
 \end{itemize}
 \end{frame}
 
-
+%========================
 \begin{frame}[fragile]
 \frametitle{Use R code}
-<<slide-2>>=
-(x=rnorm(20))
-mean(x);var(x)
+see Table~\ref{T1}
+<<slide-2, results='asis', echo=FALSE>>=
+xtable(anova(lm(mpg~disp, data=mtcars)), caption = "A table", label = "T1")
 @
 \end{frame}
 
-
+%========================
 \begin{frame}[allowframebreaks]
     \frametitle{\centerline{References}}
     \printbibliography
 \end{frame}
-
+%========================
 
 \end{document}

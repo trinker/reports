@@ -31,7 +31,7 @@
   templates must contain the following two items: \itemize{
   \item{DESCRIPTION}{ - A file used to keep track of users
   and package information.  All fields must be filled in.}
-  \item{documents}{ - A minimal working document template.
+  \item{documents}{ - A minimal working document template.}
   \itemize{ \item{If \code{doc.type = rnw}}{ - Must
   contain: doc.rnw (preamble included)} \item{If
   \code{doc.type = tex}}{ - Must contain: doc.tex and

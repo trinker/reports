@@ -6,7 +6,8 @@
 # set global chunk options
 opts_chunk$set(cache=TRUE)
 library(knitr); library(knitcitations)
-#bib <- read.bibtex(.bib)
+BIB <- system.file("extdata/docs/example.bib", package = "reports") #test .bib
+bib <- read.bibtex(BIB)
 #cite in text using `r citet(bib[1])`
 ```
 
@@ -15,7 +16,14 @@ library(knitr); library(knitcitations)
 - Point 1
 - Point 2
 
+# Slide 2
+
+`r citet(bib[1])`    
+`r citet(bib[2])`    
+`r citet(bib[3])`    
+`r citet(bib[4])`    
+
 # References
 ```{r, echo=FALSE, results='asis'}
-#bibliography("html") 
+bibliography("html") 
 ```

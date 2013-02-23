@@ -9,11 +9,14 @@
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @param name A character vector of the user's name to be used on the report.
+#' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
+#' .xlsx format.  If \code{FALSE} the document will be a .csv file..
 #' @note The user may want to set \code{\link[base]{options}} for \code{bib.loc} 
 #' and \code{name_reports} in the .Rprofile.
 #' @return Creates a report template.
-#' @seealso \code{link[reports]{doc_temp}},
-#' \href{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
+#' @seealso \code{\link[reports]{doc_temp}}
+#' @section Warning: Introductory video:
+#' \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
 #' @import qdap
 #' @export
 #' @examples 
@@ -22,7 +25,7 @@
 #' }
 new_report <- function(report = "report", template = "apa6.mod.qual_tex", 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
-    path = getwd()) {
+    path = getwd(), AN.xlsx = TRUE) {
     if(file.exists(file.path(path, report))) {
         cat(paste0("\"", file.path(path, report), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
@@ -38,6 +41,12 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     WD <- getwd(); on.exit(setwd(WD))
     setwd(x)
     y <- invisible(folder(REPORT, ARTICLES, OUTLINE, PRESENTATION))
+    AN <- system.file("extdata/docs", package = "reports")
+    if (AN.xlsx) {
+        invisible(file.copy(file.path(AN, "notes.xlsx"), y[[2]])) 
+    } else {
+        invisible(file.copy(file.path(AN, "notes.csv"), y[[2]])) 
+    }
     cat("http://", file = file.path(y[[2]], "websites.txt"))
     cat(file = file.path(x, "TO_DO.txt"))
     cat(file = file.path(x, "NOTES.txt"))

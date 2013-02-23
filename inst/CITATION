@@ -7,5 +7,5 @@ citEntry(entry = "manual",
     organization = "University at Buffalo/SUNY",
     address = "Buffalo, New York",
     note = "version 0.1.0",
-    year = "2013",)
+    year = "2013"
 )
