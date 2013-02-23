@@ -34,11 +34,11 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
     } 
     text <- clean(paste2(text, " "))
     text <- Trim(iconv(text, "", "ASCII", "byte"))
-    ser <- c("- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
+    ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
     	"<c2><bd>")
-    reps <- c("", "``", "''", "\\ldots", "", "", "'", "'", "'", "'", "\\ldots", 
+    reps <- c("`", "'", "", "``", "''", "\\ldots", "", "", "'", "'", "'", "'", "\\ldots", 
         "$-$", "$-$", "a", "e", "half")
     Encoding(text) <-"latin1"
     text <- clean(mgsub(ser, reps, text))
