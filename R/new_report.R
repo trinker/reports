@@ -8,17 +8,19 @@
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
-#' @param name A character vector of the user's name to be used on the report.
+#' @param name A character string of the user's name to be used on the report.
+#' @param sources A vector of path(s) to other scripts to be sourced in the 
+#' report project upon startup (adds this location to the report project's 
+#' \code{.Rprofile}).
 #' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
 #' .xlsx format.  If \code{FALSE} the document will be a .csv file..
-#' @note The user may want to set \code{\link[base]{options}} for \code{bib.loc} 
-#' and \code{name_reports} in the .Rprofile.
-#' @section Warning: Using spaces and underscores in project names may result in 
-#' LaTeX not compiling.  It is prefereable to use periods and hyphens instead.
+#' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
+#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the users
+#' primary \code{.Rprofile}.
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}}
 #' @section Additional Guide: Introductory video
-#' \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
+#' \url{http://youtu.be/cokNUTGtoM4}
 #' @import qdap
 #' @export
 #' @examples 
@@ -27,7 +29,8 @@
 #' }
 new_report <- function(report = "report", template = "apa6.mod.qual_tex", 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
-    path = getwd(), AN.xlsx = TRUE) {
+    sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE) {
+    report <- gsub("\\s+", "_", report)
     if(file.exists(file.path(path, report))) {
         cat(paste0("\"", file.path(path, report), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
@@ -103,6 +106,13 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
+    rpro3 <- sources
+    if (!is.null(rpro3)){
+        rpro3 <- c("", "#Source these location(s):", 
+            paste0("source(\"", rpro3, "\")"))
+    }
+
+
     bib <- NULL
     if(!is.null(bib.loc) & file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
@@ -113,7 +123,8 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
             rpro <- c(rpro, bibL)
         }
     }
-    cat(paste(c(rpro, rpro2), collapse = "\n"), file = file.path(x, ".Rprofile"))
+    cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), 
+        file = file.path(x, ".Rprofile"))
     if (!is.null(bib.loc) & !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
@@ -124,7 +135,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
         temp2, fixed = TRUE)
         cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
-    }
+    } 
     if (!type) {
         fp <- file.path(root, template)
         invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
@@ -134,14 +145,16 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         if (!is.null(bib)) {
             temp <- gsub("\\.bib", bib, temp)
         }
-        temp <- gsub("title\\{.+?\\}", paste0("title{", report,"}") , temp)
+        temp <- gsub("title\\{.+?\\}", paste0("title{", gsub("_", " ", report),
+            "}") , temp)
         if (!is.null(name)) {
             fxbs <- gsub("\\", "\\\\", paste0("author{", name,"}"), fixed = TRUE)
             temp <- gsub("author\\{.+?\\}", fxbs , temp)
         }
         cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
         invisible(file.rename(file.path(y[[1]], drin), 
-            file.path(y[[1]], paste0(report, ".", tools::file_ext(drin)))))       
+            file.path(y[[1]], paste0(report, ".", 
+            tools::file_ext(drin)))))       
         dr2 <- dir(y[[4]])
         drin3 <- dr2[tools::file_ext(dr2) %in% "Rnw"]
         temp3 <- suppressWarnings(readLines(file.path(y[[4]], drin3)))

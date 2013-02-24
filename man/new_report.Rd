@@ -5,7 +5,8 @@
   new_report(report = "report",
     template = "apa6.mod.qual_tex",
     bib.loc = getOption("bib.loc"),
-    name = getOption("name_reports"), path = getwd(),
+    name = getOption("name_reports"),
+    sources = getOption("sources_reports"), path = getwd(),
     AN.xlsx = TRUE)
 }
 \arguments{
@@ -20,8 +21,12 @@
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}
 
-  \item{name}{A character vector of the user's name to be
+  \item{name}{A character string of the user's name to be
   used on the report.}
+
+  \item{sources}{A vector of path(s) to other scripts to be
+  sourced in the report project upon startup (adds this
+  location to the report project's \code{.Rprofile}).}
 
   \item{AN.xlsx}{logical.  If \code{TRUE} the article notes
   (AN) will be in .xlsx format.  If \code{FALSE} the
@@ -33,19 +38,15 @@
 \description{
   Generate a report/paper template to increase efficiency.
 }
-\note{
+\section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
-  \code{bib.loc} and \code{name_reports} in the .Rprofile.
-}
-\section{Warning}{
-  Using spaces and underscores in project names may result
-  in LaTeX not compiling.  It is prefereable to use periods
-  and hyphens instead.
+  \code{bib.loc}, \code{name_reports} and
+  \code{sources_reports} in the users primary
+  \code{.Rprofile}.
 }
 
 \section{Additional Guide}{
-  Introductory video
-  \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
+  Introductory video \url{http://youtu.be/cokNUTGtoM4}
 }
 \examples{
 \dontrun{

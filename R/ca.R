@@ -1,6 +1,6 @@
-#' Format Text Lines to LaTeX List
+#' Capitalize Every Word of String
 #' 
-#' Itemizes lines of text into a LaTeX list.   
+#' Capitalizes every word of a string. 
 #' 
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
@@ -9,6 +9,8 @@
 #' @details This capitalizes every word of a string.  
 #' @return Returns a charcter vector every word capitalized.
 #' @export
+#' @examples
+#' ca("the flexible, efficient way to do reports.")
 ca <- function(text = "clipboard", copy2clip = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL

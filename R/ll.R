@@ -11,12 +11,19 @@
 #' @details This function formats text for use with LaTeX as a list.  
 #' @return Returns a charcter vector with a LaTeX list formatted text.
 #' @export
+#' @examples
+#' x <- readLines(n = 3)
+#' one, two buckle my shoe
+#' three, four close the door
+#' five, six pick up sticks
+#' ll(, x)
+#' ll(FALSE, x)
 ll <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
 	copy2clip = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
-    if (text == "clipboard") {
+    if (length(text) == 1 && text == "clipboard") {
         if (Sys.info()["sysname"] == "Darwin") {        
             pcon <- pipe("pbpaste")
             text <- scan(pcon, what="character", quiet=TRUE)

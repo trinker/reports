@@ -1,6 +1,6 @@
 \name{ca}
 \alias{ca}
-\title{Format Text Lines to LaTeX List}
+\title{Capitalize Every Word of String}
 \usage{
   ca(text = "clipboard", copy2clip = TRUE)
 }
@@ -15,9 +15,12 @@
   Returns a charcter vector every word capitalized.
 }
 \description{
-  Itemizes lines of text into a LaTeX list.
+  Capitalizes every word of a string.
 }
 \details{
   This capitalizes every word of a string.
+}
+\examples{
+ca("the flexible, efficient way to do reports.")
 }
 
