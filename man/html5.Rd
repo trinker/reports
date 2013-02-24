@@ -10,7 +10,9 @@
   \item{in.file}{A character vector of the md file.}
 
   \item{out.file}{A character vector of the outfile.  If
-  NULL over writes the original HTML file.}
+  \code{"replace"} over writes the original HTML file.
+  Default, \code{NULL}, uses the root name of the
+  \code{in.file} plus a number 2.}
 
   \item{ref.page}{The title of the reference page (adds
   hanging indent and reduces font size).  If \code{NULL}

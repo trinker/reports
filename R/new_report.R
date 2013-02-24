@@ -15,7 +15,7 @@
 #' and \code{name_reports} in the .Rprofile.
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}}
-#' @section Warning: Introductory video:
+#' @section Additional Guide: Introductory video
 #' \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
 #' @import qdap
 #' @export
@@ -50,6 +50,8 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     cat("http://", file = file.path(y[[2]], "websites.txt"))
     cat(file = file.path(x, "TO_DO.txt"))
     cat(file = file.path(x, "NOTES.txt"))
+    EXF <- "#Source the following project functions on startup"
+    cat(EXF, file = file.path(x, "extra_functions.R"))
     dat <- data.frame(inf=c("doc", "rnw", "tex"), outf=c(TRUE, FALSE, FALSE), 
         stringsAsFactors = FALSE)
     root <- system.file("extdata/doc_library", package = "reports")
@@ -94,9 +96,11 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         file.path(x, paste0(report, ".Rproj"))))
     pdfloc5 <- file.path(root2, "PROJECT_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
-    rpro <- c("#load the packages used",
-        "library(reports)",
-        "library(qdap)")
+    rpro <- c("#Load the packages used",
+        "library(reports); library(qdap); library(knitr); library(knitcitations)", 
+        "")  
+    rpro2 <- c("", "#Source \"extra_functions.R\":",
+        "source(file.path(getwd(), \"extra_functions.R\"))")
     bib <- NULL
     if(!is.null(bib.loc) & file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
@@ -107,7 +111,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
             rpro <- c(rpro, bibL)
         }
     }
-    cat(paste(rpro, collapse = "\n"), file = file.path(x, ".Rprofile"))
+    cat(paste(c(rpro, rpro2), collapse = "\n"), file = file.path(x, ".Rprofile"))
     if (!is.null(bib.loc) & !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }

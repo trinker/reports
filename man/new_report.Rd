@@ -37,8 +37,8 @@
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc} and \code{name_reports} in the .Rprofile.
 }
-\section{Warning}{
-  Introductory video:
+\section{Additional Guide}{
+  Introductory video
   \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
 }
 \examples{
