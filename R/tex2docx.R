@@ -40,5 +40,5 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", bib.loc)
     }
     system(action)
-    cat("docx file generated!")
+    cat("docx file generated!\n")
 }

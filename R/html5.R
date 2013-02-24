@@ -71,5 +71,5 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
         }
         cat(paste0(NEW, collapse = "\n"), file=out.file)                                 
     }
-    cat("HTML5 file generated!")
+    cat("HTML5 file generated!\n")
 }
