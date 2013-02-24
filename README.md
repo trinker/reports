@@ -1,6 +1,6 @@
 reports
 =======
-reports is a package that assists in writing apa6 style reports and presentations.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[texLive](http://www.tug.org/texlive/), [knitr](http://yihui.name/knitr/) and [Pandoc](http://johnmacfarlane.net/pandoc/).  The user will want to download these free programs to maximize the effectiveness of the reports package.
+reports is a package that assists in writing apa6 style reports and presentations.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[texLive](http://www.tug.org/texlive/), [knitr](http://yihui.name/knitr/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html) and [Pandoc](http://johnmacfarlane.net/pandoc/).  The user will want to download these free programs to maximize the effectiveness of the reports package.
 
 ## Installation
 
