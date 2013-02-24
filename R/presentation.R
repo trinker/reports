@@ -1,6 +1,7 @@
 #' Presentation Template
 #' 
-#' Generate a presentation template to increase efficiency.
+#' Generate a presentation template to increase efficiency.  This isa lighter 
+#' weight version of \code{\link[reports]{new_report}}.
 #' 
 #' @param presentation A character vector of the project name.
 #' @param rnw logical.  If \code{TRUE} the docuemnts will be .Rnw and .tex 

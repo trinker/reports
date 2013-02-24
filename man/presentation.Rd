@@ -35,6 +35,8 @@
 }
 \description{
   Generate a presentation template to increase efficiency.
+  This isa lighter weight version of
+  \code{\link[reports]{new_report}}.
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
