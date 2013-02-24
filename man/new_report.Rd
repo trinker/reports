@@ -37,6 +37,12 @@
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc} and \code{name_reports} in the .Rprofile.
 }
+\section{Warning}{
+  Using spaces and underscores in project names may result
+  in LaTeX not compiling.  It is prefereable to use periods
+  and hyphens instead.
+}
+
 \section{Additional Guide}{
   Introductory video
   \url{http://www.youtube.com/watch?v=qBgsJG546gE&feature=youtu.be}
