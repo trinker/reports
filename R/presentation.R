@@ -50,6 +50,8 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     y <- invisible(folder(OUTLINE, PRESENTATION))
     cat(file = file.path(x, "TO_DO.txt"))
     cat(file = file.path(x, "NOTES.txt"))
+    EXF <- "#Source the following project functions on startup"
+    cat(EXF, file = file.path(x, "extra_functions.R"))
     root <- system.file("extdata/present", package = "reports")
     pdfloc <- file.path(root, "outline")
     pdfloc2 <- file.path(root, "pres")
@@ -66,9 +68,11 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     }
     invisible(file.rename(file.path(y[[2]], "temp.Rmd"), 
          file.path(y[[2]], paste0(presentation, ".Rmd")))) 
-    rpro <- c("#load the packages used",
-        "library(reports)",
-        "library(qdap)")
+    rpro <- c("#Load the packages used",
+        "library(reports); library(qdap); library(knitr); library(knitcitations)", 
+        "")  
+    rpro2 <- c("", "#Source \"extra_functions.R\":",
+        "source(file.path(getwd(), \"extra_functions.R\"))")
     bib <- NULL  
     invisible(file.copy(file.path(root, "TEMP.txt"), x))
     invisible(file.rename(file.path(x, "TEMP.txt"), 
@@ -81,7 +85,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
             rpro <- c(rpro, bibL)
         }
     }
-    cat(paste(rpro, collapse = "\n"), file = file.path(x, ".Rprofile"))
+    cat(paste(c(rpro, rpro2), collapse = "\n"), file = file.path(x, ".Rprofile"))
     if (!is.null(bib.loc) & !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }

@@ -43,8 +43,8 @@ The project template includes these main directories and scripts:
   \item \textbf{extra\_functions.R} - An R script to put functions related to the report.  By default this is sourced on start up in RStudio.  
   \item \textbf{NOTES.txt} - a .txt file to record notes related to the report
   \item \textbf{PROJECT\_WORKFLOW\_GUIDE.Rnw} - The workflow guide
-  \item{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
-  \item{TO\_DO.txt} - A text file documenting project tasks
+  \item \textbf{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
+  \item \textbf{TO\_DO.txt} - A text file documenting project tasks
 \end{enumerate}
 
 \vspace{3 mm}
