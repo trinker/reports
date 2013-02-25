@@ -122,7 +122,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     }
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), 
         file = file.path(x, ".Rprofile"))
-    if (!is.null(bib.loc) & !file.exists(bib.loc)) {
+    if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
     if (!is.null(bib)) {

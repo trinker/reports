@@ -100,7 +100,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     }
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), file = file.path(x, 
         ".Rprofile"))
-    if (!is.null(bib.loc) & !file.exists(bib.loc)) {
+    if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
     if (!is.null(bib)) {
