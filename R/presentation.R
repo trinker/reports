@@ -90,7 +90,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     invisible(file.copy(file.path(root, "TEMP.txt"), x))
     invisible(file.rename(file.path(x, "TEMP.txt"), 
         file.path(x, paste0(presentation, ".Rproj"))))
-    if(!is.null(bib.loc) & file.exists(bib.loc)){
+    if(!is.null(bib.loc) && file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[2]]))
         bib <- dir(y[[2]])[tools::file_ext(dir(y[[2]])) == "bib"]
         if (!is.null(getOption("bib.loc"))) {

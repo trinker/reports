@@ -111,7 +111,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
             paste0("source(\"", rpro3, "\")"))
     }
     bib <- NULL
-    if(!is.null(bib.loc) & file.exists(bib.loc)){
+    if(!is.null(bib.loc) && file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
         invisible(file.copy(bib.loc, y[[4]]))
         bib <- dir(y[[1]])[tools::file_ext(dir(y[[1]])) == "bib"]
