@@ -22,16 +22,16 @@ Imports:
     knitr,
     knitcitations
 Collate:
+    'ca.R'
+    'cw.R'
     'doc_temp.R'
+    'gq.R'
     'html5.R'
+    'll.R'
     'new_report.R'
     'presentation.R'
     'reports-package.R'
     'templates.R'
+    'tex2docx.R'
     'update_bib.R'
     'wheresPandoc.R'
-    'cw.R'
-    'gq.R'
-    'll.R'
-    'ca.R'
-    'tex2docx.R'

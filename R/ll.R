@@ -12,7 +12,7 @@
 #' @return Returns a charcter vector with a LaTeX list formatted text.
 #' @export
 #' @examples
-#' \dontrun{}
+#' \dontrun{
 #' x <- readLines(n = 3)
 #' one, two buckle my shoe
 #' three, four close the door
