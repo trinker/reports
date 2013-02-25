@@ -12,12 +12,14 @@
 #' @return Returns a charcter vector with a LaTeX list formatted text.
 #' @export
 #' @examples
+#' \dontrun{}
 #' x <- readLines(n = 3)
 #' one, two buckle my shoe
 #' three, four close the door
 #' five, six pick up sticks
 #' ll(, x)
 #' ll(FALSE, x)
+#' }
 ll <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
 	copy2clip = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {
