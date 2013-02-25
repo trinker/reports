@@ -61,6 +61,8 @@
 \setcounter{tocdepth}{2}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{times}
+\usepackage{textcomp}
 
 \begin{document}
 
@@ -82,10 +84,10 @@ The project template includes these main directories and scripts:
     \item \textbf{outline.tex} an outline skeletal .tex file to outline the structure of  
     \item \textbf{preamble2.tex} a generic preamble .tex file used by outline.tex  
   \end{enumerate}  
-  \item \textbf{PRESENTATION} - A directory containing the following .Rnw and .tex files:
+  \item \textbf{PRESENTATION} - A directory containing the following .Rnw/.pptx and .tex files:
   \begin{enumerate}
     \item \textbf{xxx.Rmd} a skeletal .Rnw file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
-    \item \textbf{xxx.Rnw} a skeletal .Rnw file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} slides.   
+    \item \textbf{xxx.Rnw} a skeletal .Rnw/.docx file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} or .pptx slides (rnw/tex templates generate .Rnw slides where as doc templates produce .pptx slides.   
   \end{enumerate} 
   \item \textbf{REPORT} - A directory containing the following files:
   \begin{enumerate}
@@ -101,7 +103,8 @@ The project template includes these main directories and scripts:
   \item \textbf{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
   \item \textbf{TO\_DO.txt} - A text file documenting project tasks
 \end{enumerate}
-
+\vspace{1.5 mm}
+{\scriptsize \textbf{\emph{*Note: additional files/directores may be created, varying by template. See \texttildelow report\_name/REPORT/DESCRIPTION for more on individual templates.}}}
 \vspace{3 mm}
 \hrule
 \vspace{3 mm}

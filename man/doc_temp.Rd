@@ -36,12 +36,17 @@
   contain: doc.rnw (preamble included)} \item{If
   \code{doc.type = tex}}{ - Must contain: doc.tex and
   preamble.tex} \item{If \code{doc.type = docx}}{ - Must
-  contain: doc.docx} } } To be submitted a .tex template
-  must run in Debian TeXLive on Linux Mint and MikTex on
-  Windows.  After a template has been tested it can be sent
-  as a .zip file to \code{reports.rpackage@gmail.com}.
-  Please note that the template folder/directory name must
-  end in _tex, _rnw or _doc to indicate to users type of
-  template.
+  contain: doc.docx} } } Additional project files and
+  directores can be stored in the \code{inst}
+  directory.Files in this directory will be placed in the
+  main directoy of the templace created by
+  \code{\link[reports]{new_report}}
+
+  To be submitted a .tex template must run in Debian
+  TeXLive on Linux Mint and MikTex on Windows.  After a
+  template has been tested it can be sent as a .zip file to
+  \code{reports.rpackage@gmail.com}.  Please note that the
+  template folder/directory name must end in _tex, _rnw or
+  _doc to indicate to users type of template.
 }
 

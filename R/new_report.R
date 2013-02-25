@@ -74,7 +74,6 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     }
     type <- dat[dat[, 1] %in% type, 2]
     pdfloc <- file.path(root, template)
-    pdfloc <- pdfloc[!pdfloc %in% "DESCRIPTION"]
     invisible(file.copy(pdfloc, y[[1]]))   
     if (type) {
        fls <- "outline.docx"
@@ -111,8 +110,6 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         rpro3 <- c("", "#Source these location(s):", 
             paste0("source(\"", rpro3, "\")"))
     }
-
-
     bib <- NULL
     if(!is.null(bib.loc) & file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
@@ -170,6 +167,13 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     } else {
         fp <- file.path(root, template)
         invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))        
+    }
+    ins <- file.path(pdfloc, "inst")
+    if (file.exists(ins)) {
+        ins2 <- file.path(ins, dir(ins))
+        invisible(lapply(ins2, function(zz) {
+           file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
+        }))
     }
     cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
 }
