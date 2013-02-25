@@ -27,11 +27,13 @@
   This function formats text for use with LaTeX as a list.
 }
 \examples{
+\dontrun{}
 x <- readLines(n = 3)
 one, two buckle my shoe
 three, four close the door
 five, six pick up sticks
 ll(, x)
 ll(FALSE, x)
+}
 }
 
