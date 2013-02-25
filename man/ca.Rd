@@ -12,7 +12,7 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a charcter vector every word capitalized.
+  Returns a character vector every word capitalized.
 }
 \description{
   Capitalizes every word of a string.

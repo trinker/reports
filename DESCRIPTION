@@ -35,3 +35,4 @@ Collate:
     'tex2docx.R'
     'update_bib.R'
     'wheresPandoc.R'
+    'pad.R'

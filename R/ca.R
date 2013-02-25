@@ -7,7 +7,7 @@
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @details This capitalizes every word of a string.  
-#' @return Returns a charcter vector every word capitalized.
+#' @return Returns a character vector every word capitalized.
 #' @export
 #' @examples
 #' ca("the flexible, efficient way to do reports.")
