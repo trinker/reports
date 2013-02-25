@@ -3,7 +3,7 @@ Type: Package
 Title: Assists in the workflow of writing reports
 Version: 0.1.0
 Date: 2013-02-18
-Author: tyler Rinker
+Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: reports is a package that assists in writing apa6 style reports
     and presentations.  The package is designed to be used with RStudio,
@@ -18,21 +18,31 @@ LazyData: TRUE
 Depends:
     R (>= 2.15)
 Imports:
-    qdap,
     knitr,
     knitcitations
 Collate:
-    'ca.R'
-    'cw.R'
+    'CA.R'
+    'clean.R'
+    'CW.R'
+    'delete.R'
     'doc_temp.R'
-    'gq.R'
+    'GQ.R'
     'html5.R'
-    'll.R'
+    'LL.R'
+    'mgsub.R'
     'new_report.R'
+    'pad.R'
+    'paste2.R'
     'presentation.R'
+    'reducer.R'
     'reports-package.R'
+    'scrubber.R'
+    'strWrap.R'
     'templates.R'
     'tex2docx.R'
+    'Trim.R'
+    'unblanker.R'
     'update_bib.R'
+    'url_dl.R'
+    'wc.R'
     'wheresPandoc.R'
-    'pad.R'

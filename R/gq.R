@@ -1,6 +1,6 @@
 #' Format Quotes
 #' 
-#' Tool to format text taken from articles for LaTeX.  Combines multiple stringed text into one string.  Removes non ascii characters and hyphens
+#' Tool to format text taken from articles for LaTeX.  Combines multiple stringed text into one string.  Removes non ascii characters and hyphens.
 #' 
 #' @param quotes logical.  If \code{TRUE} LaTeX style quotes (2 backticks and two single quotes) are wrapped around the text.
 #' @param block If \code{TRUE} LaTeX block quote code tags are used instead of the backticks and single quotes.
@@ -10,9 +10,8 @@
 #' clipboard.
 #' @details This function formats text for use with LaTeX documents.  
 #' @return Returns a charcter vector with LaTeX formatted text.
-#' @import qdap
 #' @export
-gq <- 
+GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
     if (Sys.info()["sysname"] != "Windows") {
         readClipboard <- writeClipboard <- NULL

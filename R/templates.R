@@ -10,7 +10,6 @@
 #' view possible templates (feel free to submit your own; see 
 #' \code{\link[reports]{doc_temp}} for details) as well ass optionally returning 
 #' a vector of ames that the user can pass to other functions.
-#' @import qdap
 #' @export
 #' @seealso \code{\link[reports]{doc_temp}}
 #' @examples

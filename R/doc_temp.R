@@ -34,7 +34,6 @@
 #' @return Creates a document template framework for template personal use or 
 #' submission.
 #' @export
-#' @import qdap
 doc_temp <- 
 function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
     tn <- paste0(temp.name, "_", doc.type)

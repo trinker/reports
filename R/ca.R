@@ -10,8 +10,8 @@
 #' @return Returns a character vector every word capitalized.
 #' @export
 #' @examples
-#' ca("the flexible, efficient way to do reports.")
-ca <- function(text = "clipboard", copy2clip = TRUE) { 
+#' CA("the flexible, efficient way to do reports.")
+CA <- function(text = "clipboard", copy2clip = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  

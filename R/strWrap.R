@@ -1,22 +1,7 @@
-#' Count Words
-#' 
-#' Tool to count words from text taken from articles.
-#' 
-#' @param text character vector or text copied to the clipboard.  Default is to 
-#' read from the clipboard.
-#' @details This function counts the number of words in a text chunk.  Useful 
-#' for determining if block quotes are needed in APA6.  While the function 
-#' accepts vectors the real increase in work flow productivity is copying from 
-#' the clipboard.
-#' @export
-#' @examples
-#' \dontrun{
-#' CW("I like icecream")
-#' }
-CW <- 
-function(text = "clipboard") {
+strWrap <-
+function(text = "clipboard", width = 70, copy2clip = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {
-        readClipboard <- NULL
+        writeClipboard <- NULL
     }  
     if (text == "clipboard") {
         if (Sys.info()["sysname"] == "Darwin") {        
@@ -33,5 +18,17 @@ function(text = "clipboard") {
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
-    wc(paste2(text), names=F)
+    x <- gsub("\\s+", " ", gsub("\n|\t", " ", text))
+    x <- strwrap(x, width = width)
+    if(copy2clip){
+        if (Sys.info()["sysname"] == "Windows") {
+            writeClipboard(x, format = 1)
+        }
+        if (Sys.info()["sysname"] == "Darwin") {           
+            j <- pipe("pbcopy", "w")                       
+            writeLines(x, con = j)                               
+            close(j)                                    
+        }             
+    }
+    writeLines(x)
 }

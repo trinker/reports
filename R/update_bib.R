@@ -5,7 +5,6 @@
 #' @param report Path to the report project.
 #' @param bib.loc Optional path to a .bib resource.
 #' @return Updates bib from master/global bib
-#' @import qdap
 #' @export
 update_bib <-
 function(report = getwd(), bib.loc = getOption("bib.loc")) {

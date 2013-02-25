@@ -4,7 +4,8 @@
 \usage{
   presentation(presentation = "presentation", rnw = TRUE,
     theme = "Madrid", bib.loc = getOption("bib.loc"),
-    name = getOption("name_reports", sources = getOption("sources_reports"), path = getwd()))
+    name = getOption("name_reports"),
+    sources = getOption("sources_reports"), path = getwd())
 }
 \arguments{
   \item{presentation}{A character vector of the project

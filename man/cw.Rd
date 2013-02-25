@@ -1,8 +1,8 @@
-\name{cw}
-\alias{cw}
+\name{CW}
+\alias{CW}
 \title{Count Words}
 \usage{
-  cw(text = "clipboard")
+  CW(text = "clipboard")
 }
 \arguments{
   \item{text}{character vector or text copied to the
@@ -20,10 +20,7 @@
 }
 \examples{
 \dontrun{
-cw("I like icecream")
+CW("I like icecream")
 }
-}
-\seealso{
-  \code{\link[qdap]{word.count}}
 }
 

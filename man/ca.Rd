@@ -1,8 +1,8 @@
-\name{ca}
-\alias{ca}
+\name{CA}
+\alias{CA}
 \title{Capitalize Every Word of String}
 \usage{
-  ca(text = "clipboard", copy2clip = TRUE)
+  CA(text = "clipboard", copy2clip = TRUE)
 }
 \arguments{
   \item{text}{character vector or text copied to the
@@ -21,6 +21,6 @@
   This capitalizes every word of a string.
 }
 \examples{
-ca("the flexible, efficient way to do reports.")
+CA("the flexible, efficient way to do reports.")
 }
 

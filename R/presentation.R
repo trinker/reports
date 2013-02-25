@@ -21,7 +21,6 @@
 #' primary \code{.Rprofile}. 
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{new_report}}
-#' @import qdap
 #' @export
 #' @examples
 #' \dontrun{
@@ -31,8 +30,8 @@
 #' }
 presentation <- function(presentation = "presentation", rnw = TRUE, 
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
-    name = getOption("name_reports", sources = getOption("sources_reports"),
-    path = getwd())) {
+    name = getOption("name_reports"), sources = getOption("sources_reports"),
+    path = getwd()) {
     if(file.exists(file.path(path, presentation))) {
         cat(paste0("\"", file.path(path, presentation), 
             "\" already exists:\nDo you want to overwrite?\n\n"))

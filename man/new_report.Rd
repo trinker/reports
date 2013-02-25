@@ -54,6 +54,7 @@ new_report()
 }
 }
 \seealso{
-  \code{\link[reports]{doc_temp}}
+  \code{\link[reports]{doc_temp}},
+  \code{\link[reports]{presentation}}
 }
 

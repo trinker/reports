@@ -17,10 +17,10 @@
 #' one, two buckle my shoe
 #' three, four close the door
 #' five, six pick up sticks
-#' ll(, x)
-#' ll(FALSE, x)
+#' LL(, x)
+#' LL(FALSE, x)
 #' }
-ll <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
+LL <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
 	copy2clip = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL

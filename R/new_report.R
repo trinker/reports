@@ -18,10 +18,10 @@
 #' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the users
 #' primary \code{.Rprofile}.
 #' @return Creates a report template.
-#' @seealso \code{\link[reports]{doc_temp}}
+#' @seealso \code{\link[reports]{doc_temp}},
+#' \code{\link[reports]{presentation}}
 #' @section Additional Guide: Introductory video
 #' \url{http://youtu.be/cokNUTGtoM4}
-#' @import qdap
 #' @export
 #' @examples 
 #' \dontrun{

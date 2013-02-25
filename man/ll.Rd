@@ -1,8 +1,8 @@
-\name{ll}
-\alias{ll}
+\name{LL}
+\alias{LL}
 \title{Format Text Lines to LaTeX List}
 \usage{
-  ll(enumerate = TRUE, text = "clipboard",
+  LL(enumerate = TRUE, text = "clipboard",
     copy2clip = TRUE)
 }
 \arguments{
@@ -32,8 +32,8 @@ x <- readLines(n = 3)
 one, two buckle my shoe
 three, four close the door
 five, six pick up sticks
-ll(, x)
-ll(FALSE, x)
+LL(, x)
+LL(FALSE, x)
 }
 }
 
