@@ -1,12 +1,16 @@
-#' Upload a Local Repo to GitHub
+#' Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)
+#' 
+#' (WARNING: CURRENTLY NOT FUNCTIONING)
 #' 
 #' Allows uploading a local repository to GitHub without first creating the 
 #' repository in the clouds. 
 #' 
 #' @param user GitHub user name (character string).
 #' @param password GitHub password (character string).
-#' @param repo
-#' @param gitpath
+#' @param repo Character string naming the repo; default attempts to ude the 
+#' report project directory name.
+#' @param gitpath Path to the location of git.  If \code{NULL} 
+#' \code{repo2github} will attempt to locate the path if necessary.
 #' @return Creates GitHub reopository.
 #' @author SimonO101 of stackoverflow.com and tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} 
@@ -24,7 +28,7 @@
 #' repo2github()
 #' }
 repo2github <- function(user = getOption("github.user"), password = "", 
-	repo = "three", gitpath = NULL) {
+	repo = basename(getwd()), gitpath = NULL) {
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
      	url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
