@@ -5,9 +5,9 @@
 #' Allows uploading a local repository to GitHub without first creating the 
 #' repository in the clouds. 
 #' 
-#' @param user GitHub user name (character string).
 #' @param password GitHub password (character string).
-#' @param repo Character string naming the repo; default attempts to ude the 
+#' @param user GitHub user name (character string).
+#' @param repo Character string naming the repo; default attempts to use the 
 #' report project directory name.
 #' @param gitpath Path to the location of git.  If \code{NULL} 
 #' \code{repo2github} will attempt to locate the path if necessary.
@@ -27,8 +27,8 @@
 #' \dontrun{
 #' repo2github()
 #' }
-repo2github <- function(user = getOption("github.user"), password = "", 
-	repo = basename(getwd()), gitpath = NULL) {
+repo2github <- function(password = "", repo = basename(getwd()), 
+	user = getOption("github.user"), gitpath = NULL) {
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
         cmd1 <- paste0("curl -u '", user, ":", password, 
