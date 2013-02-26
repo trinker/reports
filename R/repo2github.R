@@ -31,13 +31,7 @@ repo2github <- function(user = getOption("github.user"), password = "",
 	repo = basename(getwd()), gitpath = NULL) {
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
-     	url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
-        tmp <- tempfile( fileext = ".zip" )
-        download.file(url,tmp)
-        unzip(tmp, exdir = tempdir())       
-        system(paste0(tempdir(), "/curl http://curl.haxx.se/ca/cacert.pem -o " , 
-            tempdir() , "/curl-ca-bundle.crt"))
-        cmd1 <- paste0(tempdir(), "/curl -u '", user, ":", password, 
+        cmd1 <- paste0("curl -u '", user, ":", password, 
             "' https://api.github.com/user/repos -d '{\"name\":\"", repo, "\"}'")
     } else {
         if (is.null(gitpath)){  
@@ -49,7 +43,13 @@ repo2github <- function(user = getOption("github.user"), password = "",
             gitpath <- c("\"C:\\Program Files (x86)\\Git\\bin\\git\"",
                 "\"C:\\Program Files\\Git\\bin\\git\"")[test][1]
         }
-        cmd1 <- paste0("curl -u '", user, ":", password, 
+        url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
+        tmp <- tempfile( fileext = ".zip" )
+        download.file(url,tmp)
+        unzip(tmp, exdir = tempdir())       
+        system(paste0(tempdir(), "/curl http://curl.haxx.se/ca/cacert.pem -o " , 
+            tempdir() , "/curl-ca-bundle.crt"))
+        cmd1 <- paste0(tempdir(), "/curl -u '", user, ":", password, 
             "' https://api.github.com/user/repos -d '{\"name\":\"", repo, "\"}'")
     }
     system(cmd1)   
