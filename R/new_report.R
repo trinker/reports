@@ -176,7 +176,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         }))
     }
 #===============     
-    #eventual addition of git argument
+    #eventual addition of git argument (add to presentation as well)
     git <- FALSE
     if (git) {
         root3 <- system.file("extdata/docs", package = "reports")
