@@ -18,6 +18,8 @@
 #' \code{NULL}.
 #' @details The user must have pandoc installed and on their path.  pandoc can 
 #' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+#' @author Tyler Rinker <tyler.rinker@@gmail.com> & Ananda Mahto
+#' @references \url{http://stackoverflow.com/a/14971683/1000343}
 #' @export
 #' @examples 
 #' \dontrun{
