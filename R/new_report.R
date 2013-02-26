@@ -175,5 +175,17 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
            file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
         }))
     }
+#===============     
+    #eventual addition of git argument
+    git <- FALSE
+    if (git) {
+        root3 <- system.file("extdata/docs", package = "reports")
+        invisible(file.copy(file.path(root3, "git"), x, 
+          overwrite = TRUE, recursive = TRUE, copy.mode = TRUE))
+        file.rename(file.path(x, "git"), file.path(x, ".git."))
+        a <- paste0("attrib +h ", file.path(x, ".git."))
+        system(a)
+    }
+#===============    
     cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
 }
