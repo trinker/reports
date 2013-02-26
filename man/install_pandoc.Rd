@@ -8,7 +8,7 @@
   Installs Pandoc on your system.
 }
 \description{
-  Download Pandoc ffrom the command line.
+  Windows users download Pandoc from the command line.
 }
 \examples{
 \dontrun{

@@ -1,14 +1,13 @@
 #' Download Pandoc
 #' 
-#' Download Pandoc ffrom the command line. 
+#' Windows users download Pandoc from the command line. 
 #' 
 #' @return Installs Pandoc on your system.
-#' @author Gergely Daroczi and Gabor Grothendieck.
+#' @author Gergely Daroczi, Gabor Grothendieck and Tyler Rinker<tyler.rinker@@gmail.com>.
 #' @references \url{http://stackoverflow.com/a/15072501/1000343}
 #' \url{http://johnmacfarlane.net/pandoc/}
 #' @keywords transcript
 #' @seealso \code{\link[qdap]{dir_map}}
-#' @export
 #' @examples
 #' \dontrun{
 #' install_pandoc()
