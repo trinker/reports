@@ -46,3 +46,4 @@ Collate:
     'url_dl.R'
     'wc.R'
     'wheresPandoc.R'
+    'install_pandoc.R'
