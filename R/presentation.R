@@ -17,7 +17,7 @@
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the users
+#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the user's
 #' primary \code{.Rprofile}. 
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{new_report}}

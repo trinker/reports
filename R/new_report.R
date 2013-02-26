@@ -15,7 +15,7 @@
 #' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
 #' .xlsx format.  If \code{FALSE} the document will be a .csv file..
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the users
+#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the user's
 #' primary \code{.Rprofile}.
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}},

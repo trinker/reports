@@ -42,7 +42,7 @@
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc}, \code{name_reports} and
-  \code{sources_reports} in the users primary
+  \code{sources_reports} in the user's primary
   \code{.Rprofile}.
 }
 \examples{
