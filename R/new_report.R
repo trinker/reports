@@ -114,7 +114,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
         "library(reports); library(knitr); library(knitcitations)", 
-        "")  
+    	"# library(pander)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
     rpro3 <- sources
