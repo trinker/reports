@@ -9,6 +9,7 @@
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @param name A character string of the user's name to be used on the report.
+#' @param github.user GitHub user name (character string).
 #' @param sources A vector of path(s) to other scripts to be sourced in the 
 #' report project upon startup (adds this location to the report project's 
 #' \code{.Rprofile}).
@@ -38,7 +39,9 @@
 #' }
 new_report <- function(report = "report", template = getOption("temp_reports"), 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
-    sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE) {
+    github.user = getOption("github.user"), sources = getOption("sources_reports"), 
+    path = getwd(), AN.xlsx = TRUE) {
+	if (is.null(template)) template <- "apa6.mod.quant_rnw"
     report <- gsub("\\s+", "_", report)
     if(file.exists(file.path(path, report))) {
         cat(paste0("\"", file.path(path, report), 
@@ -125,9 +128,13 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         invisible(file.copy(bib.loc, y[[4]]))
         bib <- dir(y[[1]])[tools::file_ext(dir(y[[1]])) == "bib"]
         if (!is.null(getOption("bib.loc"))) {
-            bibL <- paste0("options(bib.loc = \"", getOption("bib.loc"), "\")")
+            bibL <- paste0("options(bib.loc = \"", bib.loc, "\")")
             rpro <- c(rpro, bibL)
         }
+    }
+    if (!is.null(!is.null(github.user) && file.exists(github.user))) {
+        git <- paste0("options(github.user = \"", github.user, "\")")
+        rpro <- c(rpro, git)
     }
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), 
         file = file.path(x, ".Rprofile"))

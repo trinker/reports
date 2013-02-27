@@ -11,6 +11,7 @@
 #' interactively.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param name A character vector of the user's name to be used on the report.
+#' @param github.user GitHub user name (character string).
 #' @param sources A vector of path(s) to other scripts to be sourced in the 
 #' report project upon startup (adds this location to the report project's 
 #' \code{.Rprofile}).
@@ -36,8 +37,8 @@
 #' }
 presentation <- function(presentation = "presentation", rnw = TRUE, 
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
-    name = getOption("name_reports"), sources = getOption("sources_reports"),
-    path = getwd()) {
+    name = getOption("name_reports"), github.user = getOption("github.user"), 
+	sources = getOption("sources_reports"), path = getwd()) {
     if(file.exists(file.path(path, presentation))) {
         cat(paste0("\"", file.path(path, presentation), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
@@ -82,7 +83,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     invisible(file.rename(file.path(y[[2]], "temp.Rmd"), 
          file.path(y[[2]], paste0(presentation, ".Rmd")))) 
     rpro <- c("#Load the packages used",
-        "library(reports); library(qdap); library(knitr); library(knitcitations)", 
+        "library(reports); library(knitr); library(knitcitations)", 
         "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
@@ -103,6 +104,10 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
             rpro <- c(rpro, bibL)
         }
     }
+    if (!is.null(!is.null(github.user) && file.exists(github.user))) {
+        git <- paste0("options(github.user = \"", github.user, "\")")
+        rpro <- c(rpro, git)
+    }    
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), file = file.path(x, 
         ".Rprofile"))
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {

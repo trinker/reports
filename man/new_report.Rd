@@ -6,6 +6,7 @@
     template = getOption("temp_reports"),
     bib.loc = getOption("bib.loc"),
     name = getOption("name_reports"),
+    github.user = getOption("github.user"),
     sources = getOption("sources_reports"), path = getwd(),
     AN.xlsx = TRUE)
 }
@@ -23,6 +24,8 @@
 
   \item{name}{A character string of the user's name to be
   used on the report.}
+
+  \item{github.user}{GitHub user name (character string).}
 
   \item{sources}{A vector of path(s) to other scripts to be
   sourced in the report project upon startup (adds this

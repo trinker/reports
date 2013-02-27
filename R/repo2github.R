@@ -9,14 +9,14 @@
 #' @param project.dir The path to the root directory of the report/presentation.
 #' @param repo Character string naming the repo; default attempts to use the 
 #' report project directory name.
-#' @param user GitHub user name (character string).
+#' @param github.user GitHub user name (character string).
 #' @param gitpath Path to the location of git.  If \code{NULL} 
 #' \code{repo2github} will attempt to locate the path if necessary.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon and Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} 
 #' @section GitHub Website: \url{https://github.com/}
-#' @note To use \code{repo2github} the user must have initiallized 
+#' @note To use \code{repo2github} the user must have initialized 
 #' \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
 #' with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
 #' user will also need to have a \href{https://github.com/}{GitHub} site 
@@ -29,11 +29,11 @@
 #' repo2github()
 #' }
 repo2github <- function(password, project.dir = getwd(), 
-	repo = basename(getwd()), user = getOption("github.user"), gitpath = NULL) {
+	repo = basename(getwd()),github.user = getOption("github.user"), gitpath = NULL) {
 #CReates the repo (this works)
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
-        cmd1 <- paste0("curl -u '", user, ":", password, 
+        cmd1 <- paste0("curl -u '", github.user, ":", password, 
             "' https://api.github.com/user/repos -d '{\"name\":\"", repo, "\"}'")
     } else {
         if (is.null(gitpath)){  
@@ -53,7 +53,7 @@ repo2github <- function(password, project.dir = getwd(),
             tempdir() , "/curl-ca-bundle.crt"))
      	json <- paste0(" { \"name\":\"" , repo , "\" } ") #string we desire formatting
 	    json <- shQuote(json , type = "cmd" )
-        cmd1 <- paste0( tempdir() ,"/curl -i -u \"" , user , ":" , password , 
+        cmd1 <- paste0( tempdir() ,"/curl -i -u \"" , github.user , ":" , password , 
             "\" https://api.github.com/user/repos -d " , json )
 	
     }
@@ -65,7 +65,7 @@ repo2github <- function(password, project.dir = getwd(),
 # git push origin master
 #
 #I thought I could do:     
-#system(paste0(gitpath, " remote add origin git://github.com:", user, "/", repo, ".git"))    
+#system(paste0(gitpath, " remote add origin git://github.com:", github.user, "/", repo, ".git"))    
     
     cat("repo pushed to github\n")
 }  

@@ -5,6 +5,7 @@
   presentation(presentation = "presentation", rnw = TRUE,
     theme = "Madrid", bib.loc = getOption("bib.loc"),
     name = getOption("name_reports"),
+    github.user = getOption("github.user"),
     sources = getOption("sources_reports"), path = getwd())
 }
 \arguments{
@@ -23,6 +24,8 @@
 
   \item{name}{A character vector of the user's name to be
   used on the report.}
+
+  \item{github.user}{GitHub user name (character string).}
 
   \item{sources}{A vector of path(s) to other scripts to be
   sourced in the report project upon startup (adds this

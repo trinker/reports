@@ -4,7 +4,7 @@
 \usage{
   repo2github(password, project.dir = getwd(),
     repo = basename(getwd()),
-    user = getOption("github.user"), gitpath = NULL)
+    github.user = getOption("github.user"), gitpath = NULL)
 }
 \arguments{
   \item{password}{GitHub user password (character string).}
@@ -15,7 +15,7 @@
   \item{repo}{Character string naming the repo; default
   attempts to use the report project directory name.}
 
-  \item{user}{GitHub user name (character string).}
+  \item{github.user}{GitHub user name (character string).}
 
   \item{gitpath}{Path to the location of git.  If
   \code{NULL} \code{repo2github} will attempt to locate the
@@ -32,7 +32,7 @@
   first creating the repository in the clouds.
 }
 \note{
-  To use \code{repo2github} the user must have initiallized
+  To use \code{repo2github} the user must have initialized
   \code{\link[reports]{new_report}} or
   \code{\link[reports]{presentation}} with a \code{.git}
   file by selecting the argument \code{git = TRUE}.  The
