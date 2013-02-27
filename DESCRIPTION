@@ -22,6 +22,10 @@ Depends:
 Imports:
     knitr,
     knitcitations
+Suggests:
+    pander,
+    qdap,
+    ProjectTemplate
 Collate:
     'CA.R'
     'clean.R'
