@@ -7,10 +7,10 @@
 \description{
   reports is a package that assists in writing reports and
   presentations by providing a frame work that brings
-  together existing R and Latex tools.  The package is
-  designed to be used with RStudio, MikTex/TexLive, knitr
-  and Pandoc.  The user will want to download these free
-  programs to maximize the effectiveness of the reports
-  package.
+  together existing R and LaTeX tools.  The package is
+  designed to be used with RStudio, MikTex/TexLive, knitr,
+  knitcitations, Pandoc and pander.  The user will want to
+  download these free programs to maximize the
+  effectiveness of the reports package.
 }
 
