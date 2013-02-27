@@ -39,7 +39,7 @@
 }
 \description{
   Generate a presentation template to increase efficiency.
-  This isa lighter weight version of
+  This is a lighter weight version of
   \code{\link[reports]{new_report}}.
 }
 \section{Suggestion}{

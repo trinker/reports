@@ -1,6 +1,6 @@
 #' Presentation Template
 #' 
-#' Generate a presentation template to increase efficiency.  This isa lighter 
+#' Generate a presentation template to increase efficiency.  This is a lighter 
 #' weight version of \code{\link[reports]{new_report}}.
 #' 
 #' @param presentation A character vector of the project name.
