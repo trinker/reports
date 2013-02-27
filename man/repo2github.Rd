@@ -2,23 +2,27 @@
 \alias{repo2github}
 \title{Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)}
 \usage{
-  repo2github(password = "", repo = basename(getwd()),
+  repo2github(password, project.dir = getwd(),
+    repo = basename(getwd()),
     user = getOption("github.user"), gitpath = NULL)
 }
 \arguments{
-  \item{password}{GitHub password (character string).}
+  \item{password}{GitHub user password (character string).}
 
-  \item{user}{GitHub user name (character string).}
+  \item{project.dir}{The path to the root directory of the
+  report/presentation.}
 
   \item{repo}{Character string naming the repo; default
   attempts to use the report project directory name.}
+
+  \item{user}{GitHub user name (character string).}
 
   \item{gitpath}{Path to the location of git.  If
   \code{NULL} \code{repo2github} will attempt to locate the
   path if necessary.}
 }
 \value{
-  Creates GitHub reopository.
+  Creates GitHub repository.
 }
 \description{
   (WARNING: CURRENTLY NOT FUNCTIONING)
@@ -50,8 +54,7 @@ repo2github()
 }
 }
 \author{
-  SimonO101 of stackoverflow.com and tyler Rinker
-  <tyler.rinker@gmail.com>
+  Simon O'Hanlon and Tyler Rinker <tyler.rinker@gmail.com>
 }
 \references{
   \url{http://stackoverflow.com/a/15047013/1000343}

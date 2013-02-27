@@ -23,7 +23,7 @@
 #' }
 #' }
 #' Additional project files and directores can be stored in the \code{inst}  
-#' directory.Files in this directory will be placed in the main directoy of the 
+#' directory.  Files in this directory will be placed in the main directoy of the 
 #' templace created by \code{\link[reports]{new_report}}
 #' 
 #' To be submitted a .tex template must run in Debian TeXLive on Linux Mint and 

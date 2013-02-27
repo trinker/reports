@@ -43,7 +43,6 @@ Collate:
     'Trim.R'
     'unblanker.R'
     'update_bib.R'
-    'url_dl.R'
     'wc.R'
     'wheresPandoc.R'
     'install_pandoc.R'

@@ -24,8 +24,8 @@
 }
 \description{
   Tool to format text taken from articles for LaTeX.
-  Combines multiple stringed text into one string.  Removes
-  non ascii characters and hyphens.
+  Combines multiple s tringed text into one string.
+  Removes non ascii characters and hyphens.
 }
 \details{
   This function formats text for use with LaTeX documents.

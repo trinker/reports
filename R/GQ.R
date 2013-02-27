@@ -1,9 +1,12 @@
 #' Format Quotes
 #' 
-#' Tool to format text taken from articles for LaTeX.  Combines multiple stringed text into one string.  Removes non ascii characters and hyphens.
+#' Tool to format text taken from articles for LaTeX.  Combines multiple s
+#' tringed text into one string.  Removes non ascii characters and hyphens.
 #' 
-#' @param quotes logical.  If \code{TRUE} LaTeX style quotes (2 backticks and two single quotes) are wrapped around the text.
-#' @param block If \code{TRUE} LaTeX block quote code tags are used instead of the backticks and single quotes.
+#' @param quotes logical.  If \code{TRUE} LaTeX style quotes (2 backticks and 
+#' two single quotes) are wrapped around the text.
+#' @param block If \code{TRUE} LaTeX block quote code tags are used instead of 
+#' the backticks and single quotes.
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 

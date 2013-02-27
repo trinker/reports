@@ -17,8 +17,14 @@
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the user's
-#' primary \code{.Rprofile}. 
+#' \code{bib.loc}, \code{github.user}  and \code{sources_reports} in the user's
+#' primary \code{.Rprofile}:
+#' \enumerate{ 
+#'   \item{\bold{bib.loc} - The path to the users primary bibliography}
+#'   \item{\bold{github.user} - GitHub user name}
+#'   \item{\bold{sources_reports} - Path(s) to additional files/scripts that 
+#'   should be included to be sourced in the project startup}
+#' }
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{new_report}}
 #' @export

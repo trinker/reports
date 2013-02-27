@@ -3,7 +3,7 @@
 \title{Report Template}
 \usage{
   new_report(report = "report",
-    template = "apa6.mod.qual_tex",
+    template = getOption("temp_reports"),
     bib.loc = getOption("bib.loc"),
     name = getOption("name_reports"),
     sources = getOption("sources_reports"), path = getwd(),
@@ -30,7 +30,7 @@
 
   \item{AN.xlsx}{logical.  If \code{TRUE} the article notes
   (AN) will be in .xlsx format.  If \code{FALSE} the
-  document will be a .csv file..}
+  document will be a .csv file.}
 }
 \value{
   Creates a report template.
@@ -40,9 +40,17 @@
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
-  \code{bib.loc}, \code{name_reports} and
-  \code{sources_reports} in the user's primary
-  \code{.Rprofile}.
+  \code{bib.loc}, \code{name_reports}, \code{temp_reports},
+  \code{github.user} and \code{sources_reports} in the
+  user's primary \code{.Rprofile}: \enumerate{
+  \item{\bold{bib.loc} - The path to the users primary
+  bibliography} \item{\bold{name_reports} - The name to use
+  on reports} \item{\bold{temp_reports} - The primary
+  template to use to generate reports (see
+  \code{template})} \item{\bold{github.user} - GitHub user
+  name} \item{\bold{sources_reports} - Path(s) to
+  additional files/scripts that should be included to be
+  sourced in the project startup} }
 }
 
 \section{Additional Guide}{

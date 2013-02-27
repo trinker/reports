@@ -52,11 +52,11 @@ LL <- latexlist <- function(enumerate=TRUE, text = "clipboard",
     ncol=1)
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
+            writeClipboard(zz, format = 1)
         }
         if (Sys.info()["sysname"] == "Darwin") {           
             j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
+            writeLines(zz, con = j)                               
             close(j)                                    
         }             
     }

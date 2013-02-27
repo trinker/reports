@@ -37,9 +37,9 @@
   \code{doc.type = tex}}{ - Must contain: doc.tex and
   preamble.tex} \item{If \code{doc.type = docx}}{ - Must
   contain: doc.docx} } } Additional project files and
-  directores can be stored in the \code{inst}
-  directory.Files in this directory will be placed in the
-  main directoy of the templace created by
+  directores can be stored in the \code{inst} directory.
+  Files in this directory will be placed in the main
+  directoy of the templace created by
   \code{\link[reports]{new_report}}
 
   To be submitted a .tex template must run in Debian

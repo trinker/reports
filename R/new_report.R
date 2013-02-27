@@ -13,10 +13,19 @@
 #' report project upon startup (adds this location to the report project's 
 #' \code{.Rprofile}).
 #' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
-#' .xlsx format.  If \code{FALSE} the document will be a .csv file..
+#' .xlsx format.  If \code{FALSE} the document will be a .csv file.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-#' \code{bib.loc}, \code{name_reports} and \code{sources_reports} in the user's
-#' primary \code{.Rprofile}.
+#' \code{bib.loc}, \code{name_reports}, \code{temp_reports}, \code{github.user} 
+#' and \code{sources_reports} in the user's primary \code{.Rprofile}:
+#' \enumerate{ 
+#'   \item{\bold{bib.loc} - The path to the users primary bibliography}
+#'   \item{\bold{name_reports} - The name to use on reports}
+#'   \item{\bold{temp_reports} - The primary template to use to generate reports 
+#'   (see \code{template})}
+#'   \item{\bold{github.user} - GitHub user name}
+#'   \item{\bold{sources_reports} - Path(s) to additional files/scripts that 
+#'   should be included to be sourced in the project startup}
+#' }
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}},
 #' \code{\link[reports]{presentation}}
@@ -27,7 +36,7 @@
 #' \dontrun{
 #' new_report()
 #' }
-new_report <- function(report = "report", template = "apa6.mod.qual_tex", 
+new_report <- function(report = "report", template = getOption("temp_reports"), 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
     sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE) {
     report <- gsub("\\s+", "_", report)
@@ -101,7 +110,7 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
     pdfloc5 <- file.path(root2, "PROJECT_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
-        "library(reports); library(qdap); library(knitr); library(knitcitations)", 
+        "library(reports); library(knitr); library(knitcitations)", 
         "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
@@ -174,18 +183,6 @@ new_report <- function(report = "report", template = "apa6.mod.qual_tex",
         invisible(lapply(ins2, function(zz) {
            file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
         }))
-    }
-#===============     
-    #eventual addition of git argument (add to presentation as well)
-    git <- FALSE
-    if (git) {
-        root3 <- system.file("extdata/docs", package = "reports")
-        invisible(file.copy(file.path(root3, "git"), x, 
-          overwrite = TRUE, recursive = TRUE, copy.mode = TRUE))
-        file.rename(file.path(x, "git"), file.path(x, ".git."))
-        a <- paste0("attrib +h ", file.path(x, ".git."))
-        system(a)
-    }
-#===============    
+    }  
     cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
 }

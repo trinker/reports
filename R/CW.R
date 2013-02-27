@@ -33,5 +33,5 @@ function(text = "clipboard") {
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
-    wc(paste2(text), names=F)
+    wc(paste2(text))
 }

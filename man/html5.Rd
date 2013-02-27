@@ -45,7 +45,7 @@ html5()  #assumes location of html file out of the box
 }
 }
 \author{
-  Tyler Rinker <tyler.rinker@gmail.com> & Ananda Mahto
+  Ananda Mahto & Tyler Rinker <tyler.rinker@gmail.com>
 }
 \references{
   \url{http://stackoverflow.com/a/14971683/1000343}

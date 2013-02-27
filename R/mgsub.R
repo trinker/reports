@@ -1,10 +1,5 @@
 mgsub <-
-function(pattern, replacement = NULL, text.var, leadspace = FALSE, 
-    trailspace = FALSE, fixed = TRUE, ...){
-    if (leadspace | trailspace) {
-        replacement <- spaste(replacement, trailing = trailspace, 
-            leading = leadspace)
-    }
+function(pattern, replacement = NULL, text.var, fixed = TRUE, ...){
     key <- data.frame(pat=pattern, rep=replacement, 
         stringsAsFactors = FALSE)
     msubs <-function(K, x, ...){
@@ -17,4 +12,3 @@ function(pattern, replacement = NULL, text.var, leadspace = FALSE,
     x <- Trim(msubs(K=key, x=text.var, ...))
     return(x)
 }
-
