@@ -26,6 +26,9 @@ bib <- read.bibtex(BIB)
 `r citet(bib[3])`    
 `r citet(bib[4])`    
 
+# 
+[[[cokNUTGtoM4]]]
+
 # References
 ```{r, echo=FALSE, results='asis'}
 bibliography("html") 
