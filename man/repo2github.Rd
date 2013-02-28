@@ -2,9 +2,8 @@
 \alias{repo2github}
 \title{Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)}
 \usage{
-  repo2github(password,
-    project.dir = getOption("last.report"),
-    repo = basename(getOption("last.report")),
+  repo2github(password, project.dir = getwd(),
+    repo = basename(getwd()),
     github.user = getOption("github.user"), gitpath = NULL)
 }
 \arguments{
@@ -42,6 +41,15 @@
 }
 \section{GitHub Website}{
   \url{https://github.com/}
+}
+
+\section{Warning}{
+  The arguments \code{project.dir} and \code{repo} use
+  \code{\link[base]{gewtwd}}.  This assumes is the current
+  working directoy is the root directory and is done for
+  convienence.  The user should ensure that either their
+  working directory is the root directory or supply the
+  correct root directory/name to these arguments.
 }
 
 \section{Suggestion}{

@@ -16,6 +16,11 @@
 #' @author Simon O'Hanlon and Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} 
 #' @section GitHub Website: \url{https://github.com/}
+#' @section Warning: The arguments \code{project.dir} and \code{repo} use 
+#' \code{\link[base]{gewtwd}}.  This assumes is the current working directoy is 
+#' the root directory and is done for convienence.  The user should ensure that 
+#' either their working directory is the root directory or supply the correct 
+#' root directory/name to these arguments.
 #' @note To use \code{repo2github} the user must have initialized 
 #' \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
 #' with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
@@ -28,9 +33,9 @@
 #' \dontrun{
 #' repo2github()
 #' }
-repo2github <- function(password, project.dir = getOption("last.report"), 
-	repo = basename(getOption("last.report")), 
-	github.user = getOption("github.user"), gitpath = NULL) {
+repo2github <- function(password, project.dir = getwd(), 
+	repo = basename(getwd()), github.user = getOption("github.user"), 
+	gitpath = NULL) {
 	#Create the repo
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
@@ -62,7 +67,7 @@ repo2github <- function(password, project.dir = getOption("last.report"),
     #Now to push the directory to github
     #be careful that github.user is correct or git will get messed up
     #could probably do with some references to how git will get confused and how to solve it
-    if (is.null(project.dir)) stop(""\project.dir\" must be supplied")
+    if (is.null(project.dir)) stop("\"project.dir\" must be supplied")
     system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
     system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
     system( paste0( "cd ", project.dir , " && " , gitpath , 
