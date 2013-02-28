@@ -62,6 +62,7 @@ repo2github <- function(password, project.dir = getOption("last.report"),
     #Now to push the directory to github
     #be careful that github.user is correct or git will get messed up
     #could probably do with some references to how git will get confused and how to solve it
+    if (is.null(project.dir)) stop(""\project.dir\" must be supplied")
     system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
     system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
     system( paste0( "cd ", project.dir , " && " , gitpath , 
