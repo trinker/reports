@@ -53,3 +53,4 @@ Collate:
     'wheresPandoc.R'
     'install_pandoc.R'
     'repo2github.R'
+    'US.R'
