@@ -16,6 +16,9 @@
 #' paths to be spplied to \code{in.file} and \code{out.file}.  Paths can be 
 #' supplied to \code{in.file} and \code{out.file} by setting \code{path} to 
 #' \code{NULL}.
+#' @param youtube logical.  If \code{TRUE} \href{http://www.youtube.com}{youtube} 
+#' tags and urls wrapped with \code{[[[ ]]]} (e.g., [[[cokNUTGtoM4]]] will be 
+#' embedded into the html5 slides.
 #' @details The user must have pandoc installed and on their path.  pandoc can 
 #' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
@@ -28,7 +31,8 @@
 #' }
 html5 <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.font.size = 14, path = paste0(getwd(), "/PRESENTATION")) {
+        refs.font.size = 14, path = paste0(getwd(), "/PRESENTATION"),
+		youtube = TRUE) {
     if (!is.null(path)) {
         WD <- getwd()
         on.exit(setwd(WD))
@@ -70,6 +74,18 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             HTML5 <- HTML5[HTML5 != "DELETEMEIMEDIATELY"]
             splpoint <-which(grepl("Transition effect", HTML5))
             NEW <- c(HTML5[1:(splpoint - 1)], HI, na.omit(HTML5[splpoint:max(len)]))
+        }
+        if (youtube) {
+            yt <- which(grepl("[[[", NEW, fixed = TRUE) & grepl("]]]", NEW, fixed = TRUE)) 
+        	if (!identical(yt, integer(0))) {
+        		yt2 <- mgsub(c("<p>[[[", "]]]</p>"), "", NEW[yt])   
+                yt2b <- strsplit(yt2, "v=")
+        	    yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
+             	tags <- sapply(yt2c, function(x) x[1])
+        	    yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
+                    tags, "\" frameborder=\"0\"> </iframe>")
+        	    NEW[yt] <- yt3  
+        	}
         }
         cat(paste0(NEW, collapse = "\n"), file=out.file)                                 
     }

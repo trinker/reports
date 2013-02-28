@@ -4,7 +4,8 @@
 \usage{
   html5(in.file = NULL, out.file = NULL,
     ref.page = "References", refs.font.size = 14,
-    path = paste0(getwd(), "/PRESENTATION"))
+    path = paste0(getwd(), "/PRESENTATION"),
+    youtube = TRUE)
 }
 \arguments{
   \item{in.file}{A character vector of the md file.}
@@ -28,6 +29,11 @@
   \code{in.file} and \code{out.file}.  Paths can be
   supplied to \code{in.file} and \code{out.file} by setting
   \code{path} to \code{NULL}.}
+
+  \item{youtube}{logical.  If \code{TRUE}
+  \href{http://www.youtube.com}{youtube} tags and urls
+  wrapped with \code{[[[ ]]]} (e.g., [[[cokNUTGtoM4]]] will
+  be embedded into the html5 slides.}
 }
 \description{
   Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
