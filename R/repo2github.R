@@ -28,9 +28,10 @@
 #' \dontrun{
 #' repo2github()
 #' }
-repo2github <- function(password, project.dir = getwd(), 
-	repo = basename(getwd()),github.user = getOption("github.user"), gitpath = NULL) {
-#CReates the repo (this works)
+repo2github <- function(password, project.dir = getOption("last.report"), 
+	repo = basename(getOption("last.report")), 
+	github.user = getOption("github.user"), gitpath = NULL) {
+	#Create the repo
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
         cmd1 <- paste0("curl -u '", github.user, ":", password, 
@@ -57,15 +58,15 @@ repo2github <- function(password, project.dir = getwd(),
             "\" https://api.github.com/user/repos -d " , json )
 	
     }
-    system(cmd1)   
-#Now to push the directory to github (does not work)
-    
-#git commands needed:
-# git remote add origin git@github.com:USER/REPO.git
-# git push origin master
-#
-#I thought I could do:     
-#system(paste0(gitpath, " remote add origin git://github.com:", github.user, "/", repo, ".git"))    
-    
+    system(cmd1)  
+    #Now to push the directory to github
+    #be careful that github.user is correct or git will get messed up
+    #could probably do with some references to how git will get confused and how to solve it
+    system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
+    system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
+    system( paste0( "cd ", project.dir , " && " , gitpath , 
+        " commit -m \"Initial commit\"" ) )
+    system( paste0( "cd ", project.dir , " && " , gitpath, 
+        " remote add origin https://github.com:", github.user, "/", repo, ".git") )      
     cat("repo pushed to github\n")
 }  

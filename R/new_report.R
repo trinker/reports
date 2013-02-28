@@ -53,7 +53,9 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
             delete(paste0(path, "/", report))
         }
     }
-    x <- suppressWarnings(invisible(folder(folder.name=file.path(path, report))))
+    suppressWarnings(invisible(dir.create(file.path(path, report),
+        recursive = TRUE))) 
+    x <- file.path(path, report)
     REPORT <- ARTICLES <- OUTLINE <- PRESENTATION <- NULL
     WD <- getwd(); on.exit(setwd(WD))
     setwd(x)
@@ -136,6 +138,8 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         git <- paste0("options(github.user = \"", github.user, "\")")
         rpro <- c(rpro, git)
     }
+	LR <- paste0("options(last.report = \"", x, "\")")
+	rpro <- c(rpro, LR)
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), 
         file = file.path(x, ".Rprofile"))
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {

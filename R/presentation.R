@@ -108,6 +108,8 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
         git <- paste0("options(github.user = \"", github.user, "\")")
         rpro <- c(rpro, git)
     }    
+	LR <- paste0("options(last.report = \"", x, "\")")
+	rpro <- c(rpro, LR)    
     cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), file = file.path(x, 
         ".Rprofile"))
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {

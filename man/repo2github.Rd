@@ -2,8 +2,9 @@
 \alias{repo2github}
 \title{Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)}
 \usage{
-  repo2github(password, project.dir = getwd(),
-    repo = basename(getwd()),
+  repo2github(password,
+    project.dir = getOption("last.report"),
+    repo = basename(getOption("last.report")),
     github.user = getOption("github.user"), gitpath = NULL)
 }
 \arguments{
