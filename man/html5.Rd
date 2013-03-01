@@ -3,9 +3,8 @@
 \title{Convert md to HTML5 Slides}
 \usage{
   html5(in.file = NULL, out.file = NULL,
-    ref.page = "References", refs.font.size = 14,
-    path = paste0(getwd(), "/PRESENTATION"),
-    youtube = TRUE)
+    ref.page = "References", refs.cex = 14,
+    path = paste0(getwd(), "/PRESENTATION"), hi.cex = 25)
 }
 \arguments{
   \item{in.file}{A character vector of the md file.}
@@ -20,8 +19,7 @@
   references slide will not be adjusted. If reference title
   is not found a warning will print.}
 
-  \item{refs.font.size}{The font size to make the
-  references.}
+  \item{refs.cex}{The font size to make the references.}
 
   \item{path}{The path to where the documents reside/should
   be created. Default is the PRESENTATION directory.  This
@@ -30,19 +28,32 @@
   supplied to \code{in.file} and \code{out.file} by setting
   \code{path} to \code{NULL}.}
 
-  \item{youtube}{logical.  If \code{TRUE}
-  \href{http://www.youtube.com}{youtube} tags and urls
-  wrapped with \code{[[[ ]]]} (e.g., [[[cokNUTGtoM4]]] will
-  be embedded into the html5 slides.}
+  \item{hi.cex}{The font size to make the hanging indent
+  coded text if \code{hi} code chunk is used.}
 }
 \description{
-  Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert md to HTML5 slides.
+  Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
+  convert md to HTML5 slides and provides minor
+  modifications (e.g., embedded youtube and hanging indent
+  text).
 }
 \details{
   The user must have pandoc installed and on their path.
   pandoc can be instaleld from: \cr
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+}
+\section{Code Chunks}{
+  The following convience code chunks are implemented:
+  \enumerate{ \item{\bold{hi} - Wraping text with this code
+  chunk will result in hangingin indentation.  Use
+  \code{hi.cex} to control the font size of the text.}
+  \item{\bold{yt} - Wrap a youtube url or tag to embed a
+  youtube video} } Code chunks use the following form:
+  \code{\bold{[[[text]]]=code.tag}} (e.g.,
+  \bold{[[[cokNUTGtoM4]]]=yt=code.tag} embeds a youtube
+  video.  Currently this is a convenience feature that may
+  have unexpected results and may need additional tweaking
+  within the html output.  User additions are welcomed.
 }
 \examples{
 \dontrun{

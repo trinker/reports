@@ -1,7 +1,8 @@
 #' Convert md to HTML5 Slides
 #' 
-#' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
-#' slides.
+#' Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
+#' slides and provides minor modifications (e.g., embedded youtube and hanging 
+#' indent text).
 #' 
 #' @param in.file A character vector of the md file.
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 
@@ -10,17 +11,26 @@
 #' @param ref.page The title of the reference page (adds hanging indent and 
 #' reduces font size).  If \code{NULL} references slide will not be adjusted.  
 #' If reference title is not found a warning will print.
-#' @param refs.font.size The font size to make the references.
+#' @param refs.cex The font size to make the references.
 #' @param path The path to where the documents reside/should be created.  
 #' Default is the PRESENTATION directory.  This conveniently allows for non 
 #' paths to be spplied to \code{in.file} and \code{out.file}.  Paths can be 
 #' supplied to \code{in.file} and \code{out.file} by setting \code{path} to 
 #' \code{NULL}.
-#' @param youtube logical.  If \code{TRUE} \href{http://www.youtube.com}{youtube} 
-#' tags and urls wrapped with \code{[[[ ]]]} (e.g., [[[cokNUTGtoM4]]] will be 
-#' embedded into the html5 slides.
+#' @param hi.cex The font size to make the hanging indent coded text if \code{hi}
+#' code chunk is used.
 #' @details The user must have pandoc installed and on their path.  pandoc can 
 #' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+#' @section Code Chunks: The following convience code chunks are implemented:
+#' \enumerate{ 
+#'   \item{\bold{hi} - Wraping text with this code chunk will result in 
+#'   hangingin indentation.  Use \code{hi.cex} to control the font size of the text.}
+#'   \item{\bold{yt} - Wrap a youtube url or tag to embed a youtube video}
+#' }
+#' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
+#' \bold{[[[cokNUTGtoM4]]]=yt=code.tag} embeds a youtube video.  Currently this 
+#' is a convenience feature that may have unexpected results and may need 
+#' additional tweaking within the html output.  User additions are welcomed.
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/14971683/1000343}
 #' @export
@@ -31,8 +41,8 @@
 #' }
 html5 <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.font.size = 14, path = paste0(getwd(), "/PRESENTATION"),
-		youtube = TRUE) {
+        refs.cex = 14, path = paste0(getwd(), "/PRESENTATION"), 
+		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
         on.exit(setwd(WD))
@@ -75,19 +85,36 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             splpoint <-which(grepl("Transition effect", HTML5))
             NEW <- c(HTML5[1:(splpoint - 1)], HI, na.omit(HTML5[splpoint:max(len)]))
         }
-        if (youtube) {
-            yt <- which(grepl("[[[", NEW, fixed = TRUE) & grepl("]]]", NEW, fixed = TRUE)) 
-        	if (!identical(yt, integer(0))) {
-        		yt2 <- mgsub(c("<p>[[[", "]]]</p>"), "", NEW[yt])   
-                yt2b <- strsplit(yt2, "v=")
-        	    yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
-             	tags <- sapply(yt2c, function(x) x[1])
-        	    yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
-                    tags, "\" frameborder=\"0\"> </iframe>")
-        	    NEW[yt] <- yt3  
-        	}
+        lchunk <- grepl("[[[", NEW, fixed = TRUE)
+        yt <- which(lchunk & grepl("]]]=yt", NEW, fixed = TRUE)) 
+        if (!identical(yt, integer(0))) {
+            yt2 <- mgsub(c("<p>[[[", "]]]=yt</p>"), "", NEW[yt], fixed = TRUE) 
+            yt2b <- strsplit(yt2, "v=")
+            yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
+            tags <- sapply(yt2c, function(x) x[1])
+            yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
+                tags, "\" frameborder=\"0\"> </iframe>")
+            NEW[yt] <- yt3  
+      	}
+        lchunk <- grepl("[[[", NEW, fixed = TRUE)
+        hi <- which(lchunk & grepl("]]]=hi", NEW, fixed = TRUE)) 
+        if (!identical(hi, integer(0))) {
+            reps <-lapply(strsplit(NEW[hi], "]]]=hi<br>"), function(x) {
+        	    mgsub(pattern = c("[[[", "<p>", "]]]=hi</p>"), replacement = "", x)
+            })
+            reps <- lapply(reps, function(x) {
+                paste0("<p class=\"hangingindent\" style=\"font-size:", hi.cex, 
+                    "px;\">", x, "</p>")	
+            })
+            ends <- c(hi -1, length(NEW))
+            starts <- c(1, hi + 1)
+            out <- c()
+            for (i in seq_along(length(reps))){
+            	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
+       	    }
+            out <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
         }
-        cat(paste0(NEW, collapse = "\n"), file=out.file)                                 
+        cat(paste0(out, collapse = "\n"), file=out.file)                                 
     }
     cat("HTML5 file generated!\n")
 }
