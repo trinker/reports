@@ -1,8 +1,8 @@
-#' Convert md to HTML5 Slides
+#' Convert md to HTML5 DZSlides
 #' 
 #' Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
-#' slides and provides minor modifications (e.g., embedded youtube and hanging 
-#' indent text).
+#' DZSlides slides and provides minor modifications (e.g., embedded youtube and 
+#' hanging indent text).
 #' 
 #' @param in.file A character vector of the md file.
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 
@@ -39,9 +39,9 @@
 #' @examples 
 #' \dontrun{
 #' #Run after running knitr on an Rmd file
-#' html5()  #assumes location of html file out of the box
+#' dzslides()  #assumes location of html file out of the box
 #' }
-html5 <-
+dzslides <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
         refs.cex = 15, path = paste0(getwd(), "/PRESENTATION"), 
 		hi.cex = 25) {

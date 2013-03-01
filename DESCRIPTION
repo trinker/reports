@@ -33,7 +33,6 @@ Collate:
     'delete.R'
     'doc_temp.R'
     'GQ.R'
-    'html5.R'
     'LL.R'
     'mgsub.R'
     'new_report.R'
@@ -54,3 +53,4 @@ Collate:
     'install_pandoc.R'
     'repo2github.R'
     'US.R'
+    'dzslides.R'

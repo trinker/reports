@@ -1,8 +1,8 @@
-\name{html5}
-\alias{html5}
-\title{Convert md to HTML5 Slides}
+\name{dzslides}
+\alias{dzslides}
+\title{Convert md to HTML5 DZSlides}
 \usage{
-  html5(in.file = NULL, out.file = NULL,
+  dzslides(in.file = NULL, out.file = NULL,
     ref.page = "References", refs.cex = 15,
     path = paste0(getwd(), "/PRESENTATION"), hi.cex = 25)
 }
@@ -33,7 +33,7 @@
 }
 \description{
   Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert md to HTML5 slides and provides minor
+  convert md to HTML5 DZSlides slides and provides minor
   modifications (e.g., embedded youtube and hanging indent
   text).
 }
@@ -60,7 +60,7 @@
 \examples{
 \dontrun{
 #Run after running knitr on an Rmd file
-html5()  #assumes location of html file out of the box
+dzslides()  #assumes location of html file out of the box
 }
 }
 \author{
