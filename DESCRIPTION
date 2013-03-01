@@ -54,3 +54,4 @@ Collate:
     'repo2github.R'
     'US.R'
     'dzslides.R'
+    'reveal.js.R'

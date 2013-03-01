@@ -20,7 +20,7 @@
 
   \item{template}{A character string of the internal
   reports template or an external path to a template in the
-  reports package style.  This argument allows te user to
+  reports package style.  This argument allows the user to
   change the contents of the report directoy that is
   generated.}
 

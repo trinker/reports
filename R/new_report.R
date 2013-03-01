@@ -8,7 +8,7 @@
 #' will be used as the main directory name and all sub directories and files.
 #' @param template A character string of the internal reports template or an 
 #' external path to a template in the reports package style.  This argument 
-#' allows te user to change the contents of the report directoy that is generated.
+#' allows the user to change the contents of the report directoy that is generated.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
