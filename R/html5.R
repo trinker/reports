@@ -80,7 +80,7 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             start2 <- reps[1]  
             HTML5[start2:end][HTML5[start2:end] == "<p>"] <- "DELETEMEIMEDIATELY"
             SUB <- paste0("<p class=\"hangingindent\" style=\"font-size:", 
-                refs.font.size, "px;\">")
+                refs.cex, "px;\">")
             HTML5[reps] <- gsub("<p>", SUB, HTML5[reps])
             reprms <- which(HTML5 == "<p>" & len > (start + 1) & len < end)            
             HTML5 <- HTML5[HTML5 != "DELETEMEIMEDIATELY"]
