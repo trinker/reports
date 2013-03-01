@@ -206,9 +206,9 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
 
 
 
-#' Prints an reports Object
+#' Prints a reports Object
 #' 
-#' Prints an reports object.
+#' Prints a reports object.
 #' 
 #' @param x The reports object.
 #' @param \ldots ignored

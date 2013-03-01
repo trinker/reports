@@ -1,6 +1,6 @@
 \name{print.reports}
 \alias{print.reports}
-\title{Prints an reports Object}
+\title{Prints a reports Object}
 \usage{
   \method{print}{reports} (x, ...)
 }
@@ -10,6 +10,6 @@
   \item{\ldots}{ignored}
 }
 \description{
-  Prints an reports object.
+  Prints a reports object.
 }
 
