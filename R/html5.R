@@ -114,9 +114,9 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             for (i in seq_along(length(reps))){
             	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
        	    }
-            out <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
+            NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
         }
-        cat(paste0(out, collapse = "\n"), file=out.file)                                 
+        cat(paste0(NEW, collapse = "\n"), file=out.file)                                 
     }
     cat("HTML5 file generated!\n")
 }
