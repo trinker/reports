@@ -28,7 +28,7 @@
 #'   \item{\bold{yt} - Wrap a youtube url or tag to embed a youtube video}
 #' }
 #' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
-#' \bold{[[[cokNUTGtoM4]]]=yt=code.tag} embeds a youtube video.  Currently this 
+#' \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.  Currently this 
 #' is a convenience feature that may have unexpected results and may need 
 #' additional tweaking within the html output.  When using embedded youtube 
 #' slide titles and text are ignored but may effect the spacing of the player.  
@@ -43,7 +43,7 @@
 #' }
 html5 <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.cex = 14, path = paste0(getwd(), "/PRESENTATION"), 
+        refs.cex = 25, path = paste0(getwd(), "/PRESENTATION"), 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
