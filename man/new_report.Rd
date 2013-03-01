@@ -11,11 +11,18 @@
     AN.xlsx = TRUE)
 }
 \arguments{
-  \item{report}{A character vector of the project name.}
+  \item{report}{A character vector of length two or one:
+  (1) the main directory name and (2) sub directory names
+  (i.e., all the file contents will be imrpinted with this
+  name). If the length of \code{report} is one this name
+  will be used as the main directory name and all sub
+  directories and files.}
 
-  \item{template}{A character vector of the internal
+  \item{template}{A character string of the internal
   reports template or an external path to a template in the
-  reports package style.}
+  reports package style.  This argument allows te user to
+  change the contents of the report directoy that is
+  generated.}
 
   \item{bib.loc}{Optional path to a .bib resource.}
 

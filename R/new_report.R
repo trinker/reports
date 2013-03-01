@@ -2,9 +2,13 @@
 #' 
 #' Generate a report/paper template to increase efficiency.
 #' 
-#' @param report A character vector of the project name.
-#' @param template A character vector of the internal reports template or an 
-#' external path to a template in the reports package style.
+#' @param report A character vector of length two or one: (1) the main directory 
+#' name and (2) sub directory names (i.e., all the file contents will be 
+#' imrpinted with this name). If the length of \code{report} is one this name 
+#' will be used as the main directory name and all sub directories and files.
+#' @param template A character string of the internal reports template or an 
+#' external path to a template in the reports package style.  This argument 
+#' allows te user to change the contents of the report directoy that is generated.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
@@ -41,21 +45,23 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
     github.user = getOption("github.user"), sources = getOption("sources_reports"), 
     path = getwd(), AN.xlsx = TRUE) {
-	if (is.null(template)) template <- "apa6.mod.quant_rnw"
+    if (is.null(template)) template <- "apa6.mod.quant_rnw"
     report <- gsub("\\s+", "_", report)
-    if(file.exists(file.path(path, report))) {
-        cat(paste0("\"", file.path(path, report), 
+    main <- head(report, 1)	
+    report <- tail(report, 1)
+    if(file.exists(file.path(path, main))) {
+        cat(paste0("\"", file.path(path, main), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("new_report aborted")
         } else {
-            delete(paste0(path, "/", report))
+            delete(file.path(path, main))
         }
     }
-    suppressWarnings(invisible(dir.create(file.path(path, report),
+    suppressWarnings(invisible(dir.create(file.path(path, main),
         recursive = TRUE))) 
-    x <- file.path(path, report)
+    x <- file.path(path, main)
     REPORT <- ARTICLES <- OUTLINE <- PRESENTATION <- NULL
     WD <- getwd(); on.exit(setwd(WD))
     setwd(x)
@@ -112,7 +118,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     invisible(file.copy(pdfloc4, x))
     invisible(file.rename(file.path(x, "TEMP.txt"), 
         file.path(x, paste0(report, ".Rproj"))))
-    pdfloc5 <- file.path(root2, "PROJECT_WORKFLOW_GUIDE.pdf")
+    pdfloc5 <- file.path(root2, "REPORT_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
         "library(reports); library(knitr); library(knitcitations)", 
@@ -193,5 +199,26 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
            file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
         }))
     }  
-    cat(paste0("Report \"", report, "\" created:\n", x, "\n"))    
+    o <- paste0("Report \"", report, "\" created:\n", x, "\n")
+    class(o) <- "reports"
+    return(o)    
 }
+
+
+
+#' Prints an reports Object
+#' 
+#' Prints an reports object.
+#' 
+#' @param x The reports object.
+#' @param \ldots ignored
+#' @method print reports
+#' @S3method print reports
+print.reports <-
+function(x, ...) {
+    class(x) <- NULL
+    cat(x)
+}
+
+
+

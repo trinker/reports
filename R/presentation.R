@@ -3,7 +3,10 @@
 #' Generate a presentation template to increase efficiency.  This is a lighter 
 #' weight version of \code{\link[reports]{new_report}}.
 #' 
-#' @param presentation A character vector of the project name.
+#' @param presentation A character vector of length two or one: (1) the main directory 
+#' name and (2) sub directory names (i.e., all the file contents will be 
+#' imrpinted with this name). If the length of \code{report} is one this name 
+#' will be used as the main directory name and all sub directories and files.
 #' @param rnw logical.  If \code{TRUE} the docuemnts will be .Rnw and .tex 
 #' files.  If \code{FALSE} the documents will be .pptx and .docx files.
 #' @param theme \href{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}{Beamer theme}
@@ -39,22 +42,26 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name_reports"), github.user = getOption("github.user"), 
 	sources = getOption("sources_reports"), path = getwd()) {
-    if(file.exists(file.path(path, presentation))) {
+    presentation <- gsub("\\s+", "_", presentation)
+    main <- head(presentation, 1)	
+    presentation <- tail(presentation, 1)	
+    if(file.exists(file.path(path, main))) {
         cat(paste0("\"", file.path(path, presentation), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("presentation aborted")
         } else {
-            delete(paste0(path, "/", presentation))
+            delete(file.path(path, presentation))
         }
     }
     if (is.null(theme) & rnw) {
         cat("Choose a theme:\n\n") 
         theme <- c(themes)[menu(c(themes))]      
     }
-    x <- suppressWarnings(invisible(folder(folder.name=file.path(path, 
-        presentation))))
+    suppressWarnings(invisible(dir.create(file.path(path, main),
+        recursive = TRUE))) 
+    x <- file.path(path, main)
     OUTLINE <- PRESENTATION <- NULL
     WD <- getwd(); on.exit(setwd(WD))
     setwd(x)    
@@ -137,5 +144,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
             fixed = TRUE)
         cat(paste(temp, collapse="\n"), file=file.path(y[[2]], drin))
     }
-    cat(paste0("Presentation \"", presentation, "\" created:\n", x, "\n"))    
+    o <- paste0("Presentation \"", presentation, "\" created:\n", x, "\n")
+    class(o) <- "reports"
+    return(o)    
 }
