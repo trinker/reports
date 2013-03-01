@@ -27,7 +27,7 @@ bib <- read.bibtex(BIB)
 `r citet(bib[4])`    
 
 # 
-[[[cokNUTGtoM4]]]
+[[[cokNUTGtoM4]]]=yt
 
 # References
 ```{r, echo=FALSE, results='asis'}
