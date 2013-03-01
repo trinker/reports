@@ -30,7 +30,7 @@
 #' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
 #' \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.  Currently this 
 #' is a convenience feature that may have unexpected results and may need 
-#' additional tweaking within the html output.  When using embedded youtube 
+#' additional tweaking within the html output.  When using embedded youtube, 
 #' slide titles and text are ignored but may effect the spacing of the player.  
 #' User additions are welcomed.
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
@@ -43,7 +43,7 @@
 #' }
 html5 <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.cex = 25, path = paste0(getwd(), "/PRESENTATION"), 
+        refs.cex = 15, path = paste0(getwd(), "/PRESENTATION"), 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
