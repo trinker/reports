@@ -47,11 +47,33 @@
 }
 \section{Code Chunks}{
   The following convience code chunks are implemented:
-  \enumerate{ \item{\bold{hi} - Wraping text with this code
-  chunk will result in hangingin indentation.  Use
-  \code{hi.cex} to control the font size of the text.}
-  \item{\bold{yt} - Wrap a youtube url or tag to embed a
-  youtube video} } Code chunks use the following form:
+  \enumerate{ \item{\bold{bg-} - Place after a slide title
+  to change background color.  Currently takes
+  \code{bg-soothe}, \code{bg-blackout} and
+  \code{bg-alert}.} \item{\bold{frag-} - Using a dash/space
+  (- ) has the usual effect of text appearing however
+  special effects can be applied to text by using the
+  dash/space followed by the text and followed by
+  \code{[[[]]]=frag-} and last a fragment style.  Valid
+  styles include: \code{grow}, \code{shrink},
+  \code{roll-in}, \code{fade-out}, \code{highlight-red},
+  \code{highlight-green}, or \code{highlight-blue}.}
+  \item{\bold{hi} - Wraping text with this code chunk will
+  result in hangingin indentation.  Use \code{hi.cex} to
+  control the font size of the text.} \item{\bold{notes} -
+  Wrap presenter notes that work when slides are uploded to
+  the Internet. Press "s" to get the speaker notes window.}
+  \item{\bold{small} - Wrap text to produce small font.}
+  \item{\bold{sud} & \bold{eud}- Wrap a group of slides to
+  give the nested up and down capabilities. start-up-down
+  (sud) goes directly above the begining side in the .Rmd
+  file, end-up-down (eud) goes directly at the end of the
+  last slide in the nested group, however there should be a
+  space between text and this code tag.} \item{\bold{yt} &
+  \bold{yt-ap} - Wrap a youtube url or tag to embed a
+  youtube video.  If the suffix \code{-ap} is sued the
+  youtube video will autoplay when slide is clicked.} }
+  Code chunks use the following form:
   \code{\bold{[[[text]]]=code.tag}} (e.g.,
   \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.
   Currently this is a convenience feature that may have

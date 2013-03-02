@@ -23,9 +23,27 @@
 #' Pandoc can be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @section Code Chunks: The following convience code chunks are implemented:
 #' \enumerate{ 
+#'   \item{\bold{bg-} - Place after a slide title to change background color.  
+#'   Currently takes \code{bg-soothe}, \code{bg-blackout} and \code{bg-alert}.} 
+#'   \item{\bold{frag-} - Using a dash/space (- ) has the usual effect of text 
+#'   appearing however special effects can be applied to text by using the 
+#'   dash/space followed by the text and followed by \code{[[[]]]=frag-} and 
+#'   last a fragment style.  Valid styles include: \code{grow}, \code{shrink}, 
+#'   \code{roll-in}, \code{fade-out}, \code{highlight-red}, \code{highlight-green}, 
+#'   or \code{highlight-blue}.}
 #'   \item{\bold{hi} - Wraping text with this code chunk will result in 
 #'   hangingin indentation.  Use \code{hi.cex} to control the font size of the text.}
-#'   \item{\bold{yt} - Wrap a youtube url or tag to embed a youtube video}
+#'   \item{\bold{notes} - Wrap presenter notes that work when slides are uploded 
+#'   to the Internet. Press "s" to get the speaker notes window.}
+#'   \item{\bold{small} - Wrap text to produce small font.}
+#'   \item{\bold{sud} & \bold{eud}- Wrap a group of slides to give the nested up 
+#'   and down capabilities. start-up-down (sud) goes directly above the begining 
+#'   side in the .Rmd file, end-up-down (eud) goes directly at the end of the 
+#'   last slide in the nested group, however there should be a space between 
+#'   text and this code tag.}
+#'   \item{\bold{yt} & \bold{yt-ap} - Wrap a youtube url or tag to embed a 
+#'   youtube video.  If the suffix \code{-ap} is sued the youtube video will 
+#'   autoplay when slide is clicked.}
 #' }
 #' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
 #' \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.  Currently this 
@@ -48,15 +66,8 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
         on.exit(setwd(WD))
         setwd(path) 
     }
-    if(file.exists(file.path(path, "reveal.js"))) {
-        cat(paste0("\"", file.path(path, "reveal.js"), 
-            "\" already exists:\nDo you want to overwrite?\n\n"))
-        ans <- menu(c("Yes", "No")) 
-        if (ans == "2") {
-            stop("new_report aborted")
-        } else {
-            delete(file.path(path, "reveal.js"))
-        }
+    if(file.exists(file.path(path, "reveal_js"))) {
+        delete(file.path(path, "reveal.js"))
     }
     if(is.null(out.dir)) {
         out.dir <- path	
@@ -101,7 +112,55 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
         }
     } else {
         NEW <- suppressWarnings(readLines(of))	
-    }
+    }  
+    small <- which(grepl("]]]=small", NEW, fixed = TRUE)) 
+    if (length(small) > 0) {
+        NEW[small] <- mgsub(c("[[[", "]]]=small"), 
+            c("\n<p>\n<small>\n", "\n</small>\n</p>\n"), NEW[small], fixed = TRUE) 
+  	}
+    NEW <-gsub("<li>", "<li class=\"fragment\">", NEW) 
+    frag <- which(grepl("[[[]]]=frag-", NEW, fixed = TRUE)) 
+    if (length(frag) > 0) {
+        fraginst <- genXtract(NEW[frag], "[[[]]]=frag-", "</li>")
+        inserts <- 	paste0(genX(NEW[frag], "[[[]]]=frag-", "</li>"), "</li>")  
+    	A <- unlist(strsplit(inserts, "fragment>"))[c(TRUE, FALSE)]
+        B <- unlist(strsplit(inserts, "fragment>"))[c(FALSE, TRUE)]
+        NEW[frag] <- mgsub(c("<li", "</li>"), c("<p", "</p>"), paste0(A, 
+        	"\"fragment ", fraginst, "\">", B), fixed=TRUE)
+  	}
+    ud1 <- which(grepl("[[[]]]=sud", NEW, fixed = TRUE))
+    ud2 <- which(grepl("[[[]]]=eud", NEW, fixed = TRUE)) 
+    ext1 <- which.max(c(length(ud1), length(ud2)))
+    ext2 <- which.min(c(length(ud1), length(ud2)))
+    if (length(ud1) != length(ud1)) {
+    	codes <- c("[[[]]]=sud","[[[]]]=eud")
+    	stop(paste0("More ", codes[ext1], " code chunks than ", codes[ext2]))
+    }  
+    if (length(ud1) > 0) { 
+        reps1 <- mgsub(c("<p>[[[]]]=sud # ", "</p>"), 
+            c("</section>\n<section>\n<section>\n<h1>", "</h1>"), NEW[ud1], fixed = TRUE) 
+        reps2 <- mgsub(c("<p>[[[]]]=eud</p>"), 
+            c("</section>"), NEW[ud2], fixed = TRUE) 
+        NEW[ud1] <- reps1
+        NEW[ud2] <- reps2        
+  	}
+    notes <- which(grepl("]]]=notes</p>", NEW, fixed = TRUE)) 
+    if (length(notes) > 0) {
+        nts <- mgsub(c("]]]=notes</p>", "[[["), 
+            c("</aside>\n", "\n<aside class=\"notes\">\n"), NEW[notes], fixed = TRUE) 
+        NEW[notes] <- nts
+  	}
+    lchunk <- grepl("[[[", NEW, fixed = TRUE)
+    yt <- which(lchunk & grepl("]]]=yt-ap", NEW, fixed = TRUE)) 
+    if (!identical(yt, integer(0))) {
+        yt2 <- mgsub(c("<p>[[[", "]]]=yt-ap</p>"), "", NEW[yt], fixed = TRUE) 
+        yt2b <- strsplit(yt2, "v=")
+        yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
+        tags <- sapply(yt2c, function(x) x[1])
+        yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
+            tags, "?rel=0&amp;autoplay=1", "\" frameborder=\"0\"> </iframe>")
+        NEW[yt] <- yt3  
+  	}     
     lchunk <- grepl("[[[", NEW, fixed = TRUE)
     yt <- which(lchunk & grepl("]]]=yt", NEW, fixed = TRUE)) 
     if (!identical(yt, integer(0))) {
@@ -112,7 +171,22 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
         yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
             tags, "\" frameborder=\"0\"> </iframe>")
         NEW[yt] <- yt3  
+  	}  
+    tmp <- tempdir()
+    cat(paste0(NEW, collapse = "\n"), file=file.path(tmp, "temphtml"))
+    NEW <- suppressWarnings(readLines(file.path(tmp, "temphtml")))
+    bg <- which(grepl("[[[]]]=bg", NEW, fixed = TRUE)) 
+    if (length(bg) > 0) {
+    	colscheme <- gsub("^\\s+|\\s+$", "", genXtract(NEW[bg], "bg-", "</h1>"))
+        NEW[bg] <- paste0(genX(NEW[bg], "[[[]]]=bg-", "</h1>"), "</h1>") 
+        NEW[bg-1] <- paste0("<section data-state=\"", colscheme,"\">")
   	}
+    bq <- which(grepl("<blockquote>", NEW, fixed = TRUE)) + 1
+    if (!identical(bq, integer(0))) {      
+        front <- "<blockquote cite=\"http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations\">\n"  
+        NEW <- mgsub(c("<blockquote>"), c(front), NEW, fixed = TRUE)  
+        NEW[bq] <- mgsub(c("<p>", "</p>"), "", NEW[bq], fixed = TRUE)  
+  	}  
     lchunk <- grepl("[[[", NEW, fixed = TRUE)
     hi <- which(lchunk & grepl("]]]=hi", NEW, fixed = TRUE)) 
     if (!identical(hi, integer(0))) {
@@ -130,7 +204,7 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
         	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
    	    }
         NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
-    }
+    } 
     end <- which(grepl("<!-- {{{{ dzslides core", NEW, fixed=TRUE)) - 1
     start <- which(grepl("<body>", NEW, fixed=TRUE))[1] + 1 
     insert <- NEW[start:end]
@@ -141,3 +215,4 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
     cat(paste0(NEW, collapse = "\n"), file=file.path(x, "index.html"))     
     cat("HTML5 reveal.js directory generated: click \"reveal_js/index.html\"!\n")
 }
+

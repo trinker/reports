@@ -4,10 +4,6 @@
 	<head>
 		<meta charset="utf-8">
 
-.hangingindent {
-    padding-left: 40px ;
-    text-indent: -35px ;
-}
 		<title>reveal.js - The HTML Presentation Framework</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
@@ -31,6 +27,14 @@
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
+
+               <script>
+                   .hangingindent {
+                       padding-left: 40px ;
+                       text-indent: -35px ;
+                   }
+               </script>
+
 		<![endif]-->
 	</head>
 
