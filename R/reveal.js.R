@@ -4,6 +4,11 @@
 #' \href{http://lab.hakim.se/reveal-js/}{reveal.js} slides and provides minor 
 #' modifications (e.g., embedded youtube and hanging indent text, etc.).
 #' 
+#' @param theme possible reveal.js themes: c(\code{"sky"}, \code{"beige"}, 
+#' \code{"simple"}, \code{"serif"}, \code{"night"}, \code{"default"}).
+#' @param transition possible reveal.js transitions: c(\code{"default"}, 
+#' \code{"cube"}, \code{"page"}, \code{"concave"}, \code{"zoom"}, 
+#' \code{"linear"}, \code{"fade"}, \code{"none"}).
 #' @param in.file A character vector of the md file.
 #' @param out.dir A character vector of the out directory.  Default uses the 
 #' root name and outputs to a directory called reveal_js. 
@@ -41,9 +46,8 @@
 #'   side in the .Rmd file, end-up-down (eud) goes directly at the end of the 
 #'   last slide in the nested group, however there should be a space between 
 #'   text and this code tag.}
-#'   \item{\bold{yt} & \bold{yt-ap} - Wrap a youtube url or tag to embed a 
-#'   youtube video.  If the suffix \code{-ap} is sued the youtube video will 
-#'   autoplay when slide is clicked.}
+#'   \item{\bold{yt} - Wrap a youtube url or tag to embed a 
+#'   youtube video.}
 #' }
 #' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
 #' \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.  Currently this 
@@ -58,8 +62,9 @@
 #' reveral.js()  #assumes location of html file out of the box
 #' }
 reveal.js <-
-function(in.file = NULL, out.dir = path, ref.page = "References", 
-        refs.cex = 15, path = paste0(getwd(), "/PRESENTATION"), 
+function(theme = "default", transition = "default", in.file = NULL, 
+		out.dir = path, ref.page = "References", refs.cex = 15, 
+		path = paste0(getwd(), "/PRESENTATION"), 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
@@ -158,7 +163,7 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
         yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
         tags <- sapply(yt2c, function(x) x[1])
         yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
-            tags, "?rel=0&amp;autoplay=1", "\" frameborder=\"0\"> </iframe>")
+            tags, "?autoplay=1", "\" frameborder=\"0\"> </iframe>")
         NEW[yt] <- yt3  
   	}     
     lchunk <- grepl("[[[", NEW, fixed = TRUE)
@@ -211,7 +216,13 @@ function(in.file = NULL, out.dir = path, ref.page = "References",
     out <- suppressWarnings(readLines(file.path(x, "index.html")))
     key <- "<!-- SLIDE STUFF HERE -->" 
     locs <- which(grepl(key, out, fixed=TRUE)) 
-    NEW <- c(out[1:locs[1]], insert, out[locs[2]:(length(out))])
+    NEW <- c(out[1:locs[1]], insert, out[locs[2]:(length(out))])  
+    trn <- grepl("transition: Reveal.getQueryHash().transition ||", NEW, fixed=TRUE)
+    NEW[trn] <- paste0("transition: Reveal.getQueryHash().transition || '", 
+        transition, "', // default/cube/page/concave/zoom/linear/fade/none")
+    thm <- grepl("<link rel=\"stylesheet\" href=\"css/theme/", NEW, fixed=TRUE)
+    NEW[thm] <- paste0("<link rel=\"stylesheet\" href=\"css/theme/", theme,
+        ".css\" id=\"theme\">")
     cat(paste0(NEW, collapse = "\n"), file=file.path(x, "index.html"))     
     cat("HTML5 reveal.js directory generated: click \"reveal_js/index.html\"!\n")
 }

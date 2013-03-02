@@ -2,11 +2,21 @@
 \alias{reveal.js}
 \title{Convert md to HTML5 reveal.js}
 \usage{
-  reveal.js(in.file = NULL, out.dir = path,
+  reveal.js(theme = "default", transition = "default",
+    in.file = NULL, out.dir = path,
     ref.page = "References", refs.cex = 15,
     path = paste0(getwd(), "/PRESENTATION"), hi.cex = 25)
 }
 \arguments{
+  \item{theme}{possible reveal.js themes: c(\code{"sky"},
+  \code{"beige"}, \code{"simple"}, \code{"serif"},
+  \code{"night"}, \code{"default"}).}
+
+  \item{transition}{possible reveal.js transitions:
+  c(\code{"default"}, \code{"cube"}, \code{"page"},
+  \code{"concave"}, \code{"zoom"}, \code{"linear"},
+  \code{"fade"}, \code{"none"}).}
+
   \item{in.file}{A character vector of the md file.}
 
   \item{out.dir}{A character vector of the out directory.
@@ -69,10 +79,8 @@
   (sud) goes directly above the begining side in the .Rmd
   file, end-up-down (eud) goes directly at the end of the
   last slide in the nested group, however there should be a
-  space between text and this code tag.} \item{\bold{yt} &
-  \bold{yt-ap} - Wrap a youtube url or tag to embed a
-  youtube video.  If the suffix \code{-ap} is sued the
-  youtube video will autoplay when slide is clicked.} }
+  space between text and this code tag.} \item{\bold{yt} -
+  Wrap a youtube url or tag to embed a youtube video.} }
   Code chunks use the following form:
   \code{\bold{[[[text]]]=code.tag}} (e.g.,
   \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.
