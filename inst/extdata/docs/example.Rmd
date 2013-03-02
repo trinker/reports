@@ -1,0 +1,43 @@
+% Title
+%[[[[Tyler Rinker](https://github.com/trinker)]]]=small
+% Date
+
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+library(knitr); library(knitcitations)
+```
+
+# Slide 1
+this is cool    
+[[[this it a note]]]=notes
+
+# Slide 2
+To run this video use:
+```{r eval=FALSE}
+reveal.js(ref.page=NULL)
+```
+
+# 
+[[[cokNUTGtoM4]]]=yt
+
+[[[]]]=sud
+# Slide A [[[]]]=bg-soothe
+
+# Slide B
+> He was a very important man who was evidently the best situation that he could 
+> possible attend to but that's this slide anyway!
+
+# Slide C   
+
+- rvgvrrg    
+- dvfvgvgfv    
+- dfv    
+- very
+- d [[[]]]=frag-highlight-green 
+
+
+[[[]]]=eud
+
+# Last slide
+For more see: [reveal.js](http://lab.hakim.se/reveal-js/#/)
