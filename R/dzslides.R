@@ -1,8 +1,8 @@
 #' Convert md to HTML5 DZSlides
 #' 
 #' Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
-#' DZSlides slides and provides minor modifications (e.g., embedded youtube and 
-#' hanging indent text).
+#' \href{http://paulrouget.com/dzslides/}{DZSlides} slides and provides minor 
+#' modifications (e.g., embedded youtube and hanging indent text).
 #' 
 #' @param in.file A character vector of the md file.
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 
@@ -19,7 +19,7 @@
 #' \code{NULL}.
 #' @param hi.cex The font size to make the hanging indent coded text if \code{hi}
 #' code chunk is used.
-#' @details The user must have pandoc installed and on their path.  pandoc can 
+#' @details The user must have Pandoc installed and on their path.  Pandoc can 
 #' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @section Code Chunks: The following convience code chunks are implemented:
 #' \enumerate{ 
@@ -87,36 +87,38 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             splpoint <-which(grepl("Transition effect", HTML5))
             NEW <- c(HTML5[1:(splpoint - 1)], HI, na.omit(HTML5[splpoint:max(len)]))
         }
-        lchunk <- grepl("[[[", NEW, fixed = TRUE)
-        yt <- which(lchunk & grepl("]]]=yt", NEW, fixed = TRUE)) 
-        if (!identical(yt, integer(0))) {
-            yt2 <- mgsub(c("<p>[[[", "]]]=yt</p>"), "", NEW[yt], fixed = TRUE) 
-            yt2b <- strsplit(yt2, "v=")
-            yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
-            tags <- sapply(yt2c, function(x) x[1])
-            yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
-                tags, "\" frameborder=\"0\"> </iframe>")
-            NEW[yt] <- yt3  
-      	}
-        lchunk <- grepl("[[[", NEW, fixed = TRUE)
-        hi <- which(lchunk & grepl("]]]=hi", NEW, fixed = TRUE)) 
-        if (!identical(hi, integer(0))) {
-            reps <-lapply(strsplit(NEW[hi], "]]]=hi<br>"), function(x) {
-        	    mgsub(pattern = c("[[[", "<p>", "]]]=hi</p>"), replacement = "", x)
-            })
-            reps <- lapply(reps, function(x) {
-                paste0("<p class=\"hangingindent\" style=\"font-size:", hi.cex, 
-                    "px;\">", x, "</p>")	
-            })
-            ends <- c(hi -1, length(NEW))
-            starts <- c(1, hi + 1)
-            out <- c()
-            for (i in seq_along(length(reps))){
-            	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
-       	    }
-            NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
-        }
-        cat(paste0(NEW, collapse = "\n"), file=out.file)                                 
+    } else {
+        NEW <- suppressWarnings(readLines(out.file))	
     }
-    cat("HTML5 file generated!\n")
+    lchunk <- grepl("[[[", NEW, fixed = TRUE)
+    yt <- which(lchunk & grepl("]]]=yt", NEW, fixed = TRUE)) 
+    if (!identical(yt, integer(0))) {
+        yt2 <- mgsub(c("<p>[[[", "]]]=yt</p>"), "", NEW[yt], fixed = TRUE) 
+        yt2b <- strsplit(yt2, "v=")
+        yt2c <- strsplit(sapply(yt2b, function(x) x[length(x)]), "&")
+        tags <- sapply(yt2c, function(x) x[1])
+        yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
+            tags, "\" frameborder=\"0\"> </iframe>")
+        NEW[yt] <- yt3  
+  	}
+    lchunk <- grepl("[[[", NEW, fixed = TRUE)
+    hi <- which(lchunk & grepl("]]]=hi", NEW, fixed = TRUE)) 
+    if (!identical(hi, integer(0))) {
+        reps <-lapply(strsplit(NEW[hi], "]]]=hi<br>"), function(x) {
+    	    mgsub(pattern = c("[[[", "<p>", "]]]=hi</p>"), replacement = "", x)
+        })
+        reps <- lapply(reps, function(x) {
+            paste0("<p class=\"hangingindent\" style=\"font-size:", hi.cex, 
+                "px;\">", x, "</p>")	
+        })
+        ends <- c(hi -1, length(NEW))
+        starts <- c(1, hi + 1)
+        out <- c()
+        for (i in seq_along(length(reps))){
+        	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
+   	    }
+        NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
+    }
+    cat(paste0(NEW, collapse = "\n"), file=out.file)     
+    cat("HTML5 DZSlides file generated!\n")
 }

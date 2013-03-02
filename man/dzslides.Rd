@@ -33,13 +33,14 @@
 }
 \description{
   Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert md to HTML5 DZSlides slides and provides minor
-  modifications (e.g., embedded youtube and hanging indent
-  text).
+  convert md to HTML5
+  \href{http://paulrouget.com/dzslides/}{DZSlides} slides
+  and provides minor modifications (e.g., embedded youtube
+  and hanging indent text).
 }
 \details{
-  The user must have pandoc installed and on their path.
-  pandoc can be instaleld from: \cr
+  The user must have Pandoc installed and on their path.
+  Pandoc can be instaleld from: \cr
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \section{Code Chunks}{
