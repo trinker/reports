@@ -94,6 +94,9 @@
 \dontrun{
 #Run after running knitr on an Rmd file
 reveral.js()  #assumes location of html file out of the box
+
+# An example .Rmd file can be found:
+system.file("extdata/docs/example.Rmd", package = "reports"))
 }
 }
 
