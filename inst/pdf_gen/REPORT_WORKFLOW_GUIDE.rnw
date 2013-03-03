@@ -32,7 +32,8 @@ The project template includes these main directories and scripts:
   \item \textbf{PRESENTATION} - A directory containing the following .Rnw/.pptx and .tex files:
   \begin{enumerate}
     \item \textbf{xxx.Rmd} a skeletal .Rnw file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
-    \item \textbf{xxx.Rnw} a skeletal .Rnw/.docx file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} or .pptx slides (rnw/tex templates generate .Rnw slides where as doc templates produce .pptx slides.   
+    \item \textbf{xxx.Rnw} a skeletal .Rnw/.docx file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} or .pptx slides (rnw/tex templates generate .Rnw slides where as doc templates produce .pptx slides.  
+     \item \textbf{figure} a directory to store figures for easy sourcing
   \end{enumerate} 
   \item \textbf{REPORT} - A directory containing the following files:
   \begin{enumerate}

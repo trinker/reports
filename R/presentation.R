@@ -87,6 +87,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
         invisible(file.rename(file.path(y[[2]], "temp.pptx"), 
              file.path(y[[2]], paste0(presentation, ".pptx"))))        
     }
+    dir.create(file.path(y[[2]], "figure"), FALSE)
     invisible(file.rename(file.path(y[[2]], "temp.Rmd"), 
          file.path(y[[2]], paste0(presentation, ".Rmd")))) 
     rpro <- c("#Load the packages used",

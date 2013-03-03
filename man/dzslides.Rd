@@ -4,7 +4,7 @@
 \usage{
   dzslides(in.file = NULL, out.file = NULL,
     ref.page = "References", refs.cex = 15,
-    path = paste0(getwd(), "/PRESENTATION"), hi.cex = 25)
+    path = file.path(getwd(), "PRESENTATION"), hi.cex = 25)
 }
 \arguments{
   \item{in.file}{A character vector of the md file.}

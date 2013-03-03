@@ -20,6 +20,8 @@
 #' PRESENTATION directory.  This conveniently allows for non paths to be spplied 
 #' to \code{in.file} and \code{out.file}.  Paths can be supplied to 
 #' \code{in.file} and \code{out.file} by setting \code{path} to \code{NULL}.
+#' @param figure.dir The name of the figures directry where figures are stored.  
+#' This should be in the presentation folder.  By default it is called figure.
 #' @param hi.cex The font size to make the hanging indent coded text if \code{hi}
 #' code chunk is used.
 #' @details Outputs a directoy, revel_js, with an index.html and necessary 
@@ -67,7 +69,7 @@
 reveal.js <-
 function(theme = "default", transition = "default", in.file = NULL, 
 		out.dir = path, ref.page = "References", refs.cex = 15, 
-		path = paste0(getwd(), "/PRESENTATION"), 
+		path = file.path(getwd(), "PRESENTATION"), figure.dir = "figure", 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
@@ -226,7 +228,10 @@ function(theme = "default", transition = "default", in.file = NULL,
     thm <- grepl("<link rel=\"stylesheet\" href=\"css/theme/", NEW, fixed=TRUE)
     NEW[thm] <- paste0("<link rel=\"stylesheet\" href=\"css/theme/", theme,
         ".css\" id=\"theme\">")
+    if (file.exists(file.path(path, figure.dir))) {
+	    fig <- file.path(path, figure.dir)
+	    file.copy(fig, x, recursive = TRUE)
+    }
     cat(paste0(NEW, collapse = "\n"), file=file.path(x, "index.html"))     
     cat("HTML5 reveal.js directory generated: click \"reveal_js/index.html\"!\n")
 }
-

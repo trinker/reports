@@ -43,7 +43,7 @@
 #' }
 dzslides <-
 function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.cex = 15, path = paste0(getwd(), "/PRESENTATION"), 
+        refs.cex = 15, path = file.path(getwd(), "PRESENTATION"), 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()

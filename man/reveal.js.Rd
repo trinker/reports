@@ -5,7 +5,8 @@
   reveal.js(theme = "default", transition = "default",
     in.file = NULL, out.dir = path,
     ref.page = "References", refs.cex = 15,
-    path = paste0(getwd(), "/PRESENTATION"), hi.cex = 25)
+    path = file.path(getwd(), "PRESENTATION"),
+    figure.dir = "figure", hi.cex = 25)
 }
 \arguments{
   \item{theme}{possible reveal.js themes: c(\code{"sky"},
@@ -36,6 +37,10 @@
   \code{out.file}.  Paths can be supplied to \code{in.file}
   and \code{out.file} by setting \code{path} to
   \code{NULL}.}
+
+  \item{figure.dir}{The name of the figures directry where
+  figures are stored. This should be in the presentation
+  folder.  By default it is called figure.}
 
   \item{hi.cex}{The font size to make the hanging indent
   coded text if \code{hi} code chunk is used.}

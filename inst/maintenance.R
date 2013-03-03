@@ -20,3 +20,10 @@ download_repo <- function(repo, user){
 
 download_repo("reports", "trinker")
 
+#=========================
+#access to internal tools 
+#=========================
+wheresPandoc <- reports:::wheresPandoc
+mgsub <- reports:::mgsub
+genX <- reports:::genX
+genXtract <- reports:::genXtract

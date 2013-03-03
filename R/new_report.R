@@ -103,6 +103,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     invisible(file.copy(file.path(root2, fls) , y[[3]]))
     pdfloc3 <- file.path(root2, c("temp.Rmd", "temp.Rnw", "temp.pptx"))
     invisible(file.copy(pdfloc3[1], y[[4]])) 
+    dir.create(file.path(y[[4]], "figure"), FALSE)
     invisible(file.rename(file.path(y[[4]], "temp.Rmd"), 
         file.path(y[[4]], paste0(report, ".Rmd")))) 
     if (type) {

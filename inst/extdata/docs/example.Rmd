@@ -21,6 +21,12 @@ reveal.js(ref.page=NULL)
 # 
 [[[cokNUTGtoM4]]]=yt
 
+# Slide C
+```{r, message=FALSE,echo=FALSE, fig.width=4, fig.height=4, fig.cap=""}
+library(ggplot2)
+qplot(speed, dist, data = cars) + geom_smooth()
+```
+
 [[[]]]=sud
 # Slide A [[[]]]=bg-soothe
 
