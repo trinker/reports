@@ -77,7 +77,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     cat(file = file.path(x, "NOTES.txt"))
     EXF <- "#Source the following project functions on startup"
     cat(EXF, file = file.path(x, "extra_functions.R"))
-    dat <- data.frame(inf=c("doc", "rnw", "tex"), outf=c(TRUE, FALSE, FALSE), 
+    dat <- data.frame(inf=c("doc", "rnw", "tex", "web"), outf=c(1, 2, 2, 3), 
         stringsAsFactors = FALSE)
     root <- system.file("extdata/doc_library", package = "reports")
     if (!template %in% dir(root)) {
@@ -90,31 +90,30 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     root2 <- system.file("extdata/docs", package = "reports")
     t2 <- type <- tail(unlist(strsplit(basename(template), "_")), 1)
     if (all(!dat[, 1] %in% type)) {
-        stop("template must end in \"_doc\", \"_tex\" or \"_rnw\"")
+        stop("template must end in \"_doc\", \"_tex\", \"_rnw\", or \"_web\"")
     }
-    type <- dat[dat[, 1] %in% type, 2]
     pdfloc <- file.path(root, template)
     invisible(file.copy(pdfloc, y[[1]]))   
-    if (type) {
-       fls <- "outline.docx"
-    } else {
-       fls <- c("preamble.tex", "outline.tex")
-    } 
+    outline <- dat[dat[, "inf"] %in% t2, "outf"]
+    fls <- switch(outline,
+       "1" = {"outline.docx"},
+       "2" = {c("preamble.tex", "outline.tex")},
+       "3" = {"outline.Rmd"}
+    )
+#create a .Rmd outline
     invisible(file.copy(file.path(root2, fls) , y[[3]]))
     pdfloc3 <- file.path(root2, c("temp.Rmd", "temp.Rnw", "temp.pptx"))
-    invisible(file.copy(pdfloc3[1], y[[4]])) 
     dir.create(file.path(y[[4]], "figure"), FALSE)
-    invisible(file.rename(file.path(y[[4]], "temp.Rmd"), 
-        file.path(y[[4]], paste0(report, ".Rmd")))) 
-    if (type) {
-        invisible(file.copy(pdfloc3[3], y[[4]]))
-        invisible(file.rename(file.path(y[[4]], "temp.pptx"), 
-            file.path(y[[4]], paste0(report, ".pptx"))))        
-    } else {
-        invisible(file.copy(pdfloc3[2], y[[4]]))
-        invisible(file.rename(file.path(y[[4]], "temp.Rnw"), 
-            file.path(y[[4]], paste0(report, ".Rnw"))))
-    }
+    desc <- suppressWarnings(readLines(file.path(pdfloc, "DESCRIPTION"))) #read in the description file
+    desc.chunk <- "Presentation:"
+    present.type <- Trim(unlist(strsplit(gsub(desc.chunk, "", desc[grepl(desc.chunk, desc)]), ",")))
+    matches <- data.frame(grab = pdfloc3,
+        required = tolower(tools::file_ext(basename(pdfloc3))), stringsAsFactors = FALSE)
+    present.copies <- matches[matches[, "required"] %in% present.type , "grab"]
+    invisible(file.copy(present.copies, y[[4]])) #copy presentation files to folde
+    old.names <- file.path(y[[4]], dir(y[[4]]))
+    new.names <- file.path(y[[4]], gsub("temp.", paste0(report, "."), dir(y[[4]]), fixed = TRUE))
+    file.rename(old.names, new.names)
     pdfloc4 <- file.path(root2, "TEMP.txt")
     invisible(file.copy(pdfloc4, x))
     invisible(file.rename(file.path(x, "TEMP.txt"), 
@@ -158,7 +157,8 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         temp2, fixed = TRUE)
         cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
     } 
-    if (!type) {
+#browser()
+    if (type %in% c("rnw", "tex")) {
         fp <- file.path(root, template)
         invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
         dr <- dir(y[[1]])
@@ -190,8 +190,12 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         }
         cat(paste(temp3, collapse="\n"), file=file.path(y[[4]], drin3))
     } else {
-        fp <- file.path(root, template)
-        invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))        
+        if (type == "doc") {
+            fp <- file.path(root, template)
+            invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))     
+        } else {
+#insert rmd type here
+        }   
     }
     ins <- file.path(pdfloc, "inst")
     if (file.exists(ins)) {
@@ -204,6 +208,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     class(o) <- "reports"
     return(o)    
 }
+
 
 
 

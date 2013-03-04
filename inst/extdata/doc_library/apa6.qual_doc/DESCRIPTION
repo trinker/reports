@@ -5,3 +5,4 @@ Doc Type: doc
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: This is an APA6 template for qualitative researchers.  Uses the apa6e docuemnt class.
 License: GPL-2
+Presentation: pptx, rmd

@@ -7,3 +7,4 @@ Description: This is a .tex APA6 template for qualitative researchers.  Uses the
              apa6e docuemnt class with floats left in place and reference heading 
              centered.
 License: GPL-2
+Presentation: rnw, rmd
