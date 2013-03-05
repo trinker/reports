@@ -8,3 +8,4 @@ Description: This is a .tex APA6 template for quantitative researchers.  Uses th
              centered, float warning removed and abstract removed.
 License: GPL-2
 Presentation: rnw, rmd
+Outline: tex

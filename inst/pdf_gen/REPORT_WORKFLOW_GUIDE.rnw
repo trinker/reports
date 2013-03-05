@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[sc]{mathpazo}
 \usepackage{geometry}
-\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\geometry{verbose,tmargin=1cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 \usepackage{url}
@@ -16,6 +16,7 @@
 \date{}
 \maketitle
 
+\vspace{-1cm}
 The project template includes these main directories and scripts:
 
 \begin{enumerate}
@@ -29,18 +30,20 @@ The project template includes these main directories and scripts:
     \item \textbf{outline.tex} an outline skeletal .tex file to outline the structure of  
     \item \textbf{preamble2.tex} a generic preamble .tex file used by outline.tex  
   \end{enumerate}  
-  \item \textbf{PRESENTATION} - A directory containing the following .Rnw/.pptx and .tex files:
+  \item \textbf{PRESENTATION} - A directory containing one or more of the following: .Rnw, .pptx and/or .Rmd files:
   \begin{enumerate}
-    \item \textbf{xxx.Rmd} a skeletal .Rnw file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
-    \item \textbf{xxx.Rnw} a skeletal .Rnw/.docx file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} or .pptx slides (rnw/tex templates generate .Rnw slides where as doc templates produce .pptx slides.  
+    \item \textbf{xxx.Rmd} a skeletal .Rmd file to create .md files using the \textbf{knit HTML} button.  After running this using the \textbf{html5} function will generate an html5 set of slides.
+    \item \textbf{xxx.Rnw} a skeletal .Rnw file to create a set of \href{http://www.math.umbc.edu/~rouben/beamer/}{beamer} slides.  
+    \item \textbf{xxx.pptx}  skeletal .pptx slides.      
      \item \textbf{figure} a directory to store figures for easy sourcing
   \end{enumerate} 
   \item \textbf{REPORT} - A directory containing the following files:
   \begin{enumerate}
     \item \textbf{xxx.bib} an optional .bib file supplied to the \textbf{bib.loc} argument of the \textbf{new\_report} function
     \item \textbf{preamble.tex} a generic apa6 preamble .tex file used by xxx.tex (generated for tex templates only) 
-    \item \textbf{xxx.tex}, \textbf{xxx.Rnw} or \textbf{xxx.doc} a skeletal file used to generate a formatted report
+    \item \textbf{xxx.tex}, \textbf{xxx.Rnw}, \textbf{xxx.Rmd} or \textbf{xxx.doc} a skeletal file used to generate a formatted report
     \item \textbf{DESCRIPTION} description of the template used
+    \item \textbf{figure} an optional directory to store figures for easy sourcing
   \end{enumerate} 
   \item \textbf{.Rprofile} - An .Rprofile that automatically launches commands, loads libraries and sets options on start up.
   \item \textbf{extra\_functions.R} - An R script to put functions related to the report.  By default this is sourced on start up in RStudio.  
@@ -60,7 +63,8 @@ The project template includes these main directories and scripts:
 \textbf{knitr} - \href{http://yihui.name/knitr/}{http://yihui.name/knitr/}\\
 \textbf{Beamer} - \url{http://www.math.umbc.edu/~rouben/beamer/}\\
 \textbf{Beamer Themes} - \url{http://deic.uab.es/~iblanes/beamer_gallery/}\\
-
+\textbf{dzslides} - \url{http://paulrouget.com/dzslides/}\\
+\textbf{reveal.js} - \url{http://lab.hakim.se/reveal-js/#/}\\
 \end{document}
 
 

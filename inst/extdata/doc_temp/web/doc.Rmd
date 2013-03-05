@@ -1,0 +1,17 @@
+## Title
+## Name
+## Date
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+library(knitr); library(knitcitations)
+#bib <- read.bibtex(file.path(getwd(), "Report", basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+------
+------
+------
+## References
+```{r, echo=FALSE, results='asis'}
+#bibliography("html") 
+```

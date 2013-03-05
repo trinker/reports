@@ -88,25 +88,33 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         }        
     }
     root2 <- system.file("extdata/docs", package = "reports")
-    t2 <- type <- tail(unlist(strsplit(basename(template), "_")), 1)
+    pdfloc <- file.path(root, template)
+    desc <- suppressWarnings(readLines(file.path(pdfloc, "DESCRIPTION"))) #read in the description file
+    desc.chunk1 <- "Outline:"
+    outline.type <- Trim(unlist(strsplit(gsub(desc.chunk1, "", desc[grepl(desc.chunk1, desc)]), ",")))   
+    outline.type <- gsub("rmd", "web", outline.type)
+    type <- tail(unlist(strsplit(basename(template), "_")), 1)
     if (all(!dat[, 1] %in% type)) {
         stop("template must end in \"_doc\", \"_tex\", \"_rnw\", or \"_web\"")
     }
-    pdfloc <- file.path(root, template)
     invisible(file.copy(pdfloc, y[[1]]))   
-    outline <- dat[dat[, "inf"] %in% t2, "outf"]
-    fls <- switch(outline,
-       "1" = {"outline.docx"},
-       "2" = {c("preamble.tex", "outline.tex")},
-       "3" = {"outline.Rmd"}
-    )
-#create a .Rmd outline
+    outline <- dat[dat[, "inf"] %in% outline.type, "outf"]
+    A <- B <- C <- NULL
+    if (any(outline %in%  1)) {
+        A <- "outline.docx"
+    }
+    if (any(outline %in%  2)) {
+        B <- c("preamble.tex", "outline.tex")
+    }
+    if (any(outline %in%  3)) {
+        C <- "outline.Rmd"
+    }
+    fls <- c(A, B, C)
     invisible(file.copy(file.path(root2, fls) , y[[3]]))
     pdfloc3 <- file.path(root2, c("temp.Rmd", "temp.Rnw", "temp.pptx"))
     dir.create(file.path(y[[4]], "figure"), FALSE)
-    desc <- suppressWarnings(readLines(file.path(pdfloc, "DESCRIPTION"))) #read in the description file
-    desc.chunk <- "Presentation:"
-    present.type <- Trim(unlist(strsplit(gsub(desc.chunk, "", desc[grepl(desc.chunk, desc)]), ",")))
+    desc.chunk2 <- "Presentation:"
+    present.type <- Trim(unlist(strsplit(gsub(desc.chunk2, "", desc[grepl(desc.chunk2, desc)]), ",")))
     matches <- data.frame(grab = pdfloc3,
         required = tolower(tools::file_ext(basename(pdfloc3))), stringsAsFactors = FALSE)
     present.copies <- matches[matches[, "required"] %in% present.type , "grab"]
@@ -157,7 +165,6 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
         temp2, fixed = TRUE)
         cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
     } 
-#browser()
     if (type %in% c("rnw", "tex")) {
         fp <- file.path(root, template)
         invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
@@ -189,12 +196,32 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
                 "}"), temp3, fixed = TRUE) 
         }
         cat(paste(temp3, collapse="\n"), file=file.path(y[[4]], drin3))
+        folder(folder.name=file.path(y[[1]], "figure"))
     } else {
         if (type == "doc") {
             fp <- file.path(root, template)
             invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))     
         } else {
-#insert rmd type here
+            fp <- file.path(root, template)
+            invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
+            dr <- dir(y[[1]])
+            drin <- dr[substring(dr, 1, nchar(dr) -4) %in% "doc"]
+            temp <- suppressWarnings(readLines(file.path(y[[1]], drin)))
+            temp <- gsub("Title", report, temp)
+            if (!is.null(bib)) {
+                new.bib <- paste(c("fls <- dir(getwd())", 
+                    "BIB <- file.path(getwd(), fls[tools::file_ext(fls) == \"bib\"])"), 
+                    collapse="\n")
+                temp[grepl("BIB <- system.file", temp)] <- new.bib
+            }
+            temp <- gsub("Date", paste("Date:", Sys.Date()), temp)
+            if (!is.null(name)) {
+                temp <- gsub("Name", name, temp)
+            }
+            cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
+            invisible(file.rename(file.path(y[[1]], drin), 
+                file.path(y[[1]], paste0(report, ".", 
+                tools::file_ext(drin))))) 
         }   
     }
     ins <- file.path(pdfloc, "inst")

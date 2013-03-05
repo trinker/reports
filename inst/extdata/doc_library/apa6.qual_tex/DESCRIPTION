@@ -8,3 +8,5 @@ Description: This is a .tex APA6 template for qualitative researchers.  Uses the
              centered.
 License: GPL-2
 Presentation: rnw, rmd
+Outline: tex
+

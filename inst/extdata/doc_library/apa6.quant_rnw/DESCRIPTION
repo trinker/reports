@@ -8,3 +8,6 @@ Description: This is a .tex APA6 template for quantitative researchers.  Uses th
              centered.
 License: GPL-2
 Presentation: rnw, rmd
+Outline: tex
+
+

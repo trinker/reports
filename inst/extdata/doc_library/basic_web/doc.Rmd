@@ -1,0 +1,29 @@
+## Title
+## Name
+## Date
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+library(knitr); library(knitcitations)
+BIB <- system.file("extdata/docs/example.bib", package = "reports") #test .bib
+bib <- read.bibtex(BIB)
+#
+#Reading in your own bib file:
+#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+------
+## Page 1
+
+`r citet(bib[1])`    
+
+------
+## Page 2
+       
+
+------
+## References
+```{r, echo=FALSE, results='asis'}
+bibliography("html") 
+```
+
