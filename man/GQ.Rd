@@ -20,12 +20,12 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a charcter vector with LaTeX formatted text.
+  Returns a character vector with LaTeX formatted text.
 }
 \description{
   Tool to format text taken from articles for LaTeX.
-  Combines multiple s tringed text into one string.
-  Removes non ascii characters and hyphens.
+  Combines multiple stringed text into one string.  Removes
+  non ascii characters and hyphens.
 }
 \details{
   This function formats text for use with LaTeX documents.

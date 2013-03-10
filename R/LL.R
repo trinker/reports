@@ -9,7 +9,7 @@
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @details This function formats text for use with LaTeX as a list.  
-#' @return Returns a charcter vector with a LaTeX list formatted text.
+#' @return Returns a character vector with a LaTeX list formatted text.
 #' @export
 #' @examples
 #' \dontrun{

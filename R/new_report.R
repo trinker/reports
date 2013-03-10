@@ -4,11 +4,12 @@
 #' 
 #' @param report A character vector of length two or one: (1) the main directory 
 #' name and (2) sub directory names (i.e., all the file contents will be 
-#' imrpinted with this name). If the length of \code{report} is one this name 
+#' imprinted with this name). If the length of \code{report} is one this name 
 #' will be used as the main directory name and all sub directories and files.
 #' @param template A character string of the internal reports template or an 
 #' external path to a template in the reports package style.  This argument 
-#' allows the user to change the contents of the report directoy that is generated.
+#' allows the user to change the contents of the report directory that is 
+#' generated.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.

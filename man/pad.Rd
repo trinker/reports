@@ -10,7 +10,7 @@
 
   \item{padding}{Number of characters to pad.  Default
   makes all elements of a string the number of characters
-  of the element with the maximun characters.}
+  of the element with the maximum characters.}
 
   \item{sort}{logical.  If \code{TRUE} the outcome is
   sorted.}
@@ -22,14 +22,14 @@
   determine if x is numeric (d) or not (s).}
 }
 \value{
-  Returns a charcter vector every element padded with
+  Returns a character vector every element padded with
   0/spaces.
 }
 \description{
   A convenience wrapper for \code{\link[base]{sprintf}}
   that pads the front end of strings with spaces or 0s.
-  Useful for creating multiple unifor directories that will
-  maintain correct order.
+  Useful for creating multiple uniform directories that
+  will maintain correct order.
 }
 \examples{
 pad(sample(1:10, 6))

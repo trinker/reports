@@ -33,12 +33,12 @@
 
   \item{path}{The path to where the documents reside.
   Default is the PRESENTATION directory.  This conveniently
-  allows for non paths to be spplied to \code{in.file} and
+  allows for non paths to be supplied to \code{in.file} and
   \code{out.file}.  Paths can be supplied to \code{in.file}
   and \code{out.file} by setting \code{path} to
   \code{NULL}.}
 
-  \item{figure.dir}{The name of the figures directry where
+  \item{figure.dir}{The name of the figures directory where
   figures are stored. This should be in the presentation
   folder.  By default it is called figure.}
 
@@ -53,15 +53,15 @@
   and hanging indent text, etc.).
 }
 \details{
-  Outputs a directoy, revel_js, with an index.html and
+  Outputs a directory, revel_js, with an index.html and
   necessary
   \href{http://lab.hakim.se/reveal-js/}{reveal.js} files.
   The user must have Pandoc installed and on their path.
-  Pandoc can be instaleld from: \cr
+  Pandoc can be installed from: \cr
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \section{Code Chunks}{
-  The following convience code chunks are implemented:
+  The following convenience code chunks are implemented:
   \enumerate{ \item{\bold{bg-} - Place after a slide title
   to change background color.  Currently takes
   \code{bg-soothe}, \code{bg-blackout} and
@@ -73,21 +73,21 @@
   styles include: \code{grow}, \code{shrink},
   \code{roll-in}, \code{fade-out}, \code{highlight-red},
   \code{highlight-green}, or \code{highlight-blue}.}
-  \item{\bold{hi} - Wraping text with this code chunk will
-  result in hangingin indentation.  Use \code{hi.cex} to
+  \item{\bold{hi} - Wrapping text with this code chunk will
+  result in hanginging indentation.  Use \code{hi.cex} to
   control the font size of the text.} \item{\bold{notes} -
-  Wrap presenter notes that work when slides are uploded to
-  the Internet. Press "s" to get the speaker notes window.}
-  \item{\bold{small} - Wrap text to produce small font.}
-  \item{\bold{sud} & \bold{eud}- Wrap a group of slides to
-  give the nested up and down capabilities. start-up-down
-  (sud) goes directly above the begining side in the .Rmd
-  file, end-up-down (eud) goes directly at the end of the
-  last slide in the nested group, however there should be a
-  space between text and this code tag.} \item{\bold{yt} -
-  Wrap a youtube url or tag to embed a youtube video.} }
-  Code chunks use the following form:
-  \code{\bold{[[[text]]]=code.tag}} (e.g.,
+  Wrap presenter notes that work when slides are uploaded
+  to the Internet. Press "s" to get the speaker notes
+  window.} \item{\bold{small} - Wrap text to produce small
+  font.} \item{\bold{sud} & \bold{eud}- Wrap a group of
+  slides to give the nested up and down capabilities.
+  start-up-down (sud) goes directly above the beginning
+  side in the .Rmd file, end-up-down (eud) goes directly at
+  the end of the last slide in the nested group, however
+  there should be a space between text and this code tag.}
+  \item{\bold{yt} - Wrap a youtube url or tag to embed a
+  youtube video.} } Code chunks use the following form:
+  \bold{[[[text]]]=code.tag} (e.g.,
   \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.
   Currently this is a convenience feature that may have
   unexpected results and may need additional tweaking
@@ -103,5 +103,8 @@ reveral.js()  #assumes location of html file out of the box
 # An example .Rmd file can be found:
 system.file("extdata/docs/example.Rmd", package = "reports"))
 }
+}
+\seealso{
+  \code{\link[reports]{html5}}
 }
 

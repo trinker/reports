@@ -17,7 +17,7 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a charcter vector with a LaTeX list formatted
+  Returns a character vector with a LaTeX list formatted
   text.
 }
 \description{

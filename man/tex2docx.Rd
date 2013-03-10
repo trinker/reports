@@ -16,7 +16,7 @@
 
   \item{path}{The path to where the documents reside/should
   be created. Default is the REPORT directory.  This
-  conveniently allows for non paths to be spplied to
+  conveniently allows for non paths to be supplied to
   \code{in.file} and \code{out.file}.  Paths can be
   supplied to \code{in.file} and \code{out.file} by setting
   \code{path} to \code{NULL}.}
@@ -29,7 +29,7 @@
 }
 \details{
   The user must have pandoc installed and on their path.
-  pandoc can be instaleld from: \cr
+  pandoc can be installed from: \cr
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \examples{

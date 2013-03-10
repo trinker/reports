@@ -5,9 +5,9 @@
 #' 
 #' @param presentation A character vector of length two or one: (1) the main directory 
 #' name and (2) sub directory names (i.e., all the file contents will be 
-#' imrpinted with this name). If the length of \code{report} is one this name 
+#' imprinted with this name). If the length of \code{report} is one this name 
 #' will be used as the main directory name and all sub directories and files.
-#' @param rnw logical.  If \code{TRUE} the docuemnts will be .Rnw and .tex 
+#' @param rnw logical.  If \code{TRUE} the documents will be .Rnw and .tex 
 #' files.  If \code{FALSE} the documents will be .pptx and .docx files.
 #' @param theme \href{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}{Beamer theme}
 #' to use.  If \code{NULL} \code{presentation} will allow the user to choose 

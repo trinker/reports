@@ -1,7 +1,7 @@
 #' Format Quotes
 #' 
-#' Tool to format text taken from articles for LaTeX.  Combines multiple s
-#' tringed text into one string.  Removes non ascii characters and hyphens.
+#' Tool to format text taken from articles for LaTeX.  Combines multiple
+#' stringed text into one string.  Removes non ascii characters and hyphens.
 #' 
 #' @param quotes logical.  If \code{TRUE} LaTeX style quotes (2 backticks and 
 #' two single quotes) are wrapped around the text.
@@ -12,7 +12,7 @@
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @details This function formats text for use with LaTeX documents.  
-#' @return Returns a charcter vector with LaTeX formatted text.
+#' @return Returns a character vector with LaTeX formatted text.
 #' @export
 GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){

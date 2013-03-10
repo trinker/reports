@@ -12,11 +12,11 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector every space repalced with an
+  Returns a character vector every space replaced with an
   underscore.
 }
 \description{
-  A convienence wrapper to replace black spaces with
+  A convenience wrapper to replace black spaces with
   underscores.
 }
 \examples{

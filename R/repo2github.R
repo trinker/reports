@@ -1,42 +1,51 @@
-#' Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)
-#' 
-#' (WARNING: CURRENTLY NOT FUNCTIONING)
-#' 
-#' Allows uploading a local repository to GitHub without first creating the 
-#' repository in the clouds. 
-#' 
-#' @param password GitHub user password (character string).
-#' @param project.dir The path to the root directory of the report/presentation.
-#' @param repo Character string naming the repo; default attempts to use the 
-#' report project directory name.
-#' @param github.user GitHub user name (character string).
-#' @param gitpath Path to the location of git.  If \code{NULL} 
-#' \code{repo2github} will attempt to locate the path if necessary.
-#' @return Creates GitHub repository.
-#' @author Simon O'Hanlon and Tyler Rinker <tyler.rinker@@gmail.com>
-#' @references \url{http://stackoverflow.com/a/15047013/1000343} 
-#' @section GitHub Website: \url{https://github.com/}
-#' @section Warning: The arguments \code{project.dir} and \code{repo} use 
-#' \code{\link[base]{gewtwd}}.  This assumes is the current working directoy is 
-#' the root directory and is done for convienence.  The user should ensure that 
-#' either their working directory is the root directory or supply the correct 
-#' root directory/name to these arguments.
-#' @note To use \code{repo2github} the user must have initialized 
-#' \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
-#' with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
-#' user will also need to have a \href{https://github.com/}{GitHub} site 
-#' established.
-#' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-#' \code{github.user} in the user's primary \code{.Rprofile}.
-#' @export
-#' @examples
-#' \dontrun{
-#' repo2github()
-#' }
+# NOT CURRENTLY EXPORTED OR USED
+#
+# Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)
+# 
+# (WARNING: CURRENTLY NOT FUNCTIONING)
+# 
+# Allows uploading a local repository to GitHub without first creating the 
+# repository in the clouds. 
+# 
+# @param password GitHub user password (character string).
+# @param project.dir The path to the root directory of the report/presentation.
+# @param repo Character string naming the repo; default attempts to use the 
+# report project directory name.
+# @param github.user GitHub user name (character string).
+# @param gitpath Path to the location of git.  If \code{NULL} 
+# \code{repo2github} will attempt to locate the path if necessary.
+# @return Creates GitHub repository.
+# @author Simon O'Hanlon and Tyler Rinker <tyler.rinker@@gmail.com>
+# @references \url{http://stackoverflow.com/a/15047013/1000343} 
+# @section GitHub Website: \url{https://github.com/}
+# @section Warning: The arguments \code{project.dir} and \code{repo} use 
+# \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
+# the root directory and is done for convienence.  The user should ensure that 
+# either their working directory is the root directory or supply the correct 
+# root directory/name to these arguments.
+# @note To use \code{repo2github} the user must have initialized 
+# \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
+# with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
+# user will also need to have a \href{https://github.com/}{GitHub} site 
+# established.
+# @section Suggestion: The user may want to set \code{\link[base]{options}} for 
+# \code{github.user} in the user's primary \code{.Rprofile}.
+# @export
+# @examples
+# \dontrun{
+# repo2github()
+# }
 repo2github <- function(password, project.dir = getwd(), 
 	repo = basename(getwd()), github.user = getOption("github.user"), 
 	gitpath = NULL) {
-	#Create the repo
+
+    #check for password
+    if (is.null(password)) {	
+        cat ("Enter [GitHub password] to continue\n")
+        password <- readLines(n=1)
+    }
+    
+    #Create the repo
     if (Sys.info()["sysname"] != "Windows") {
         gitpath <- "git"
         cmd1 <- paste0("curl -u '", github.user, ":", password, 

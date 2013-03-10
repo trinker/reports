@@ -18,8 +18,8 @@
   This function prints (via \code{\link[base]{cat}}) to the
   console to view possible templates (feel free to submit
   your own; see \code{\link[reports]{doc_temp}} for
-  details) as well as optionally returning a vector of ames
-  that the user can pass to other functions.
+  details) as well as optionally returning a vector of
+  names that the user can pass to other functions.
 }
 \examples{
 \dontrun{

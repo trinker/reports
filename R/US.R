@@ -1,12 +1,12 @@
 #' Insert Underscores in Path
 #' 
-#' A convienence wrapper to replace black spaces with underscores. 
+#' A convenience wrapper to replace black spaces with underscores. 
 #' 
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @return Returns a character vector every space repalced with an underscore.
+#' @return Returns a character vector every space replaced with an underscore.
 #' @export
 #' @examples
 #' US("bad path with spaces")

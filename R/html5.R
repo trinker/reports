@@ -1,33 +1,35 @@
-#' Convert md to HTML5 DZSlides
+#' Convert md to HTML5 Slides
 #' 
 #' Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert md to HTML5 
-#' \href{http://paulrouget.com/dzslides/}{DZSlides} slides and provides minor 
-#' modifications (e.g., embedded youtube and hanging indent text).
+#' \href{http://paulrouget.com/dzslides/}{DZSlides} slides or slidy and provides 
+#' minor modifications (e.g., embedded youtube and hanging indent text).
 #' 
 #' @param in.file A character vector of the md file.
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 
 #' writes the original HTML file.  Default, \code{NULL}, uses the root name of 
 #' the \code{in.file} plus a number 2.
+#' @param type A character string of the desired slidie type; either 
+#' c(\code{"slidy"} or \code{"dzslides"}).
 #' @param ref.page The title of the reference page (adds hanging indent and 
 #' reduces font size).  If \code{NULL} references slide will not be adjusted.  
 #' If reference title is not found a warning will print.
 #' @param refs.cex The font size to make the references.
 #' @param path The path to where the documents reside/should be created.  
 #' Default is the PRESENTATION directory.  This conveniently allows for non 
-#' paths to be spplied to \code{in.file} and \code{out.file}.  Paths can be 
+#' paths to be supplied to \code{in.file} and \code{out.file}.  Paths can be 
 #' supplied to \code{in.file} and \code{out.file} by setting \code{path} to 
 #' \code{NULL}.
 #' @param hi.cex The font size to make the hanging indent coded text if \code{hi}
 #' code chunk is used.
 #' @details The user must have Pandoc installed and on their path.  Pandoc can 
-#' be instaleld from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
-#' @section Code Chunks: The following convience code chunks are implemented:
+#' be installed from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+#' @section Code Chunks: The following convenience code chunks are implemented:
 #' \enumerate{ 
-#'   \item{\bold{hi} - Wraping text with this code chunk will result in 
-#'   hangingin indentation.  Use \code{hi.cex} to control the font size of the text.}
+#'   \item{\bold{hi} - Wrapping text with this code chunk will result in 
+#'   hanginging indentation.  Use \code{hi.cex} to control the font size of the text.}
 #'   \item{\bold{yt} - Wrap a youtube url or tag to embed a youtube video}
 #' }
-#' Code chunks use the following form: \code{\bold{[[[text]]]=code.tag}} (e.g.,
+#' Code chunks use the following form: \bold{[[[text]]]=code.tag} (e.g.,
 #' \bold{[[[cokNUTGtoM4]]]=yt} embeds a youtube video.  Currently this 
 #' is a convenience feature that may have unexpected results and may need 
 #' additional tweaking within the html output.  When using embedded youtube, 
@@ -35,15 +37,17 @@
 #' User additions are welcomed.
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/14971683/1000343}
+#' @seealso \code{\link[reports]{reveal.js}}
 #' @export
 #' @examples 
 #' \dontrun{
 #' #Run after running knitr on an Rmd file
 #' dzslides()  #assumes location of html file out of the box
 #' }
-dzslides <-
-function(in.file = NULL, out.file = NULL, ref.page = "References", 
-        refs.cex = 15, path = file.path(getwd(), "PRESENTATION"), 
+html5 <- 
+function(in.file = NULL, out.file = NULL, type = "dzslides", 
+		ref.page = "References", refs.cex = 15, 
+		path = file.path(getwd(), "PRESENTATION"), 
 		hi.cex = 25) {
     if (!is.null(path)) {
         WD <- getwd()
@@ -59,7 +63,7 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], "2.html")
         }
     }
-    action <- paste0(wheresPandoc(), " -s -S -i -t dzslides --mathjax ", in.file, 
+    action <- paste0(wheresPandoc(), " -s -S -i -t ", type, " --mathjax ", in.file, 
         " -o ", out.file)
     system(action)
     if (!is.null(ref.page)) {
@@ -71,7 +75,9 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
         if (identical(start, integer(0))) {
                 warning("ref.page not found; argument was ignored")
         } else {
-            end <- "</section>"
+        	endsel <- data.frame(type=c("dzslides", "slidy"), 
+                end = c("</section>", "</div>"))
+        	end <- endsel[endsel[, "type"] %in% type, "end"]
             end <- which(grepl(end, HTML5))
             end <- end[c(end - start) > 0][1]
             len <- seq_along(HTML5)
@@ -84,8 +90,13 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
             HTML5[reps] <- gsub("<p>", SUB, HTML5[reps])
             reprms <- which(HTML5 == "<p>" & len > (start + 1) & len < end)            
             HTML5 <- HTML5[HTML5 != "DELETEMEIMEDIATELY"]
-            splpoint <-which(grepl("Transition effect", HTML5))
-            NEW <- c(HTML5[1:(splpoint - 1)], HI, na.omit(HTML5[splpoint:max(len)]))
+            splpoint <- which(grepl("Transition effect", HTML5))
+        	if (type == "dzslides") {
+                NEW <- c(HTML5[1:(splpoint - 1)], HI, na.omit(HTML5[splpoint:max(len)]))
+        	}
+        	if (type == "slidy") {        	
+        	    NEW <- HTML5
+        	}
         }
     } else {
         NEW <- suppressWarnings(readLines(out.file))	
@@ -120,5 +131,5 @@ function(in.file = NULL, out.file = NULL, ref.page = "References",
         NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
     }
     cat(paste0(NEW, collapse = "\n"), file=out.file)     
-    cat("HTML5 DZSlides file generated!\n")
+    cat(paste0("HTML5 ", type, " file generated:\n", file.path(path, out.file), "\n"))
 }
