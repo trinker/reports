@@ -3,3 +3,4 @@
 maintenance.R
 pdf_gen
 testing
+.Rprofile

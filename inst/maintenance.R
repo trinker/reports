@@ -39,3 +39,11 @@ new <- lapply(1:length(txt), function(i){
 })
 out <- paste(unlist(new), collapse="\n")
 cat(out, file=file.path(path.expand("C:/Users/trinker/Desktop"), "spelling.doc"))
+
+
+#==========================
+#Install Needed Packages
+#==========================
+library(pacman)
+p_load(pander, qdap, installr, ProjectTemplate)
+
