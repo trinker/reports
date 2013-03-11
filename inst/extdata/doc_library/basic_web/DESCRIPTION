@@ -1,9 +1,9 @@
 Template: basic
 Date: 2013-03-04
 Doc Type: web
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: What are the unique settings/features of your template
-License: What license is it under?
+Author: Tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: This is a very basic web reports template that uses .rmd files.
+License: GPL-2
 Presentation: rmd
 Outline: rmd

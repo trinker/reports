@@ -57,12 +57,15 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
             L <- "``"         
         }
         LONG <- FALSE
-        if (wc(text) > 39 ) {
+        if (wc(text) > 39  & block) {
             LONG <- TRUE
             L <- "\\begin{quote}\n"
             R <- "\n\\end{quote}"
         }
         x <- paste0(L, text, R)
+    } else {
+        LONG <- FALSE	
+        x <- text	
     }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -75,10 +78,10 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
         }             
     }
     if (LONG) {
-        strWrap(text, copy2clip = FALSE)
+        cat("\\begin{quote}\n");strWrap(text, copy2clip = FALSE)
+        cat("\\end{quote}\n")
     } else {
         strWrap(x, copy2clip = FALSE)
     }
     invisible(x)
 }
-

@@ -1,6 +1,23 @@
-reports 0.1.0
+reports 0.1.2
+----------------------------------------------------------------
+BUG FIXES
+
+* `GQ` did not handle block quotes correctly in what printed to the console.  This behavior has been corrected.
+
+* Fixed the Description file for the basic_web template (missing info).
+
+NEW FEATURES
+
+
+MINOR FEATURES
+
+
+CHANGES
+
+
+reports 0.1.1
 ----------------------------------------------------------------
 
-* The first installation of the reports package
+* The first CRAN installation of the reports package
 
-* Package designed to provide efficient work flow in report writing tasks.
+* Package designed to provide efficient work flow in writing and presenting academic articles and other reports

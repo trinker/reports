@@ -4,7 +4,7 @@
 \title{themes}
 \format{A character vector with 28 elements}
 \description{
-  a vector of available beamer themes
+  a vector of available Beamer themes
 }
 \details{
   \href{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}
