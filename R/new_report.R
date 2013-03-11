@@ -47,6 +47,9 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     github.user = getOption("github.user"), sources = getOption("sources_reports"), 
     path = getwd(), AN.xlsx = TRUE) {
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
+    if (!tail(unlist(strsplit(template, "_")), 1) %in% c("rnw", "web", "doc", "tex")) {
+    	stop("Please supply a correct template name")
+    }
     report <- gsub("\\s+", "_", report)
     main <- head(report, 1)	
     report <- tail(report, 1)
