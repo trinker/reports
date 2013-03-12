@@ -9,11 +9,11 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: reports is a package that assists in writing reports and
     presentations by providing a frame work that brings together existing R,
     LaTeX/.docx and Pandoc tools. The package is designed to be used with
-    RStudio, MiKTex/Tex Live/.docx, knitr, knitcitations, Pandoc and pander.
-    The user will want to download these free programs/packages to maximize the
-    effectiveness of the reports package.  Functions with two letter names are
-    general text formatting functions for copying text from articles for
-    inclusion as a citation.
+    RStudio, MiKTex/Tex Live/LibreOffice, knitr, knitcitations, Pandoc and
+    pander. The user will want to download these free programs/packages to
+    maximize the effectiveness of the reports package.  Functions with two
+    letter names are general text formatting functions for copying text from
+    articles for inclusion as a citation.
 License: GPL-2
 URL: http://trinker.github.com/reports/
 BugReports: http://github.com/trinker/reports/issues
