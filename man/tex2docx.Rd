@@ -34,9 +34,10 @@
 }
 \examples{
 \dontrun{
-DOC <- system.file("extdata/doc_library/apa6.qual_tex",
+DOC <- system.file("extdata/doc_library/apa6.qual_tex/doc.tex",
    package = "reports")
-tex2docx(DOC, "test.docx")
+BIB <- system.file("extdata/docs/example.bib", package = "reports")
+tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)
 }
 }
 

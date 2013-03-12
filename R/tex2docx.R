@@ -17,9 +17,10 @@
 #' @export
 #' @examples 
 #' \dontrun{
-#' DOC <- system.file("extdata/doc_library/apa6.qual_tex", 
+#' DOC <- system.file("extdata/doc_library/apa6.qual_tex/doc.tex", 
 #'    package = "reports")
-#' tex2docx(DOC, "test.docx")  
+#' BIB <- system.file("extdata/docs/example.bib", package = "reports")
+#' tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)   
 #' }
 tex2docx <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"), 
