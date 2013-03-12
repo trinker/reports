@@ -19,6 +19,10 @@
   A convenience wrapper to replace black spaces with
   underscores.
 }
+\section{Warning}{
+  Ligatures are assumed to be "fi", however, these elements
+  may be "ff", "fi", "fl", "ffi" or "ffl".
+}
 \examples{
 US("bad path with spaces")
 }

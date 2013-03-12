@@ -3,14 +3,19 @@
 #' Tool to format text taken from articles for LaTeX.  Combines multiple
 #' stringed text into one string.  Removes non ascii characters and hyphens.
 #' 
-#' @param quotes logical.  If \code{TRUE} LaTeX style quotes (2 backticks and 
-#' two single quotes) are wrapped around the text.
+#' @param quotes logical or c(\code{l}, \code{r}, \code{L}, \code{R}, \code{left} 
+#' or \code{right}).  If \code{TRUE} LaTeX style quotes (2 backticks and 
+#' two single quotes) are wrapped around the text.  If (\code{l}, \code{L} or 
+#' \code{left}) left ticks only are used. If (\code{r}, \code{R} or \code{right}) 
+#' right ticks only are used. 
 #' @param block If \code{TRUE} LaTeX block quote code tags are used instead of 
 #' the backticks and single quotes.
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
+#' @section Warning: Ligatures are assumed to be "fi", however, these elements 
+#' may be "ff", "fi", "fl", "ffi" or "ffl".
 #' @details This function formats text for use with LaTeX documents.  
 #' @return Returns a character vector with LaTeX formatted text.
 #' @export
@@ -35,6 +40,12 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
         }
     } 
     text <- clean(paste2(text, " "))
+    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
+    ligs <- length(gregexpr("([\\?])([a-z])", text)[[1]])
+    if (ligs > 0) {
+        plural <- ifelse(ligs > 1, "ligatures were", "ligature was")
+        warning(paste(ligs, plural, "found: \nCheck output!"))
+    }    
     text <- Trim(iconv(text, "", "ASCII", "byte"))
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 

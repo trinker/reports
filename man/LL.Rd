@@ -26,6 +26,10 @@
 \details{
   This function formats text for use with LaTeX as a list.
 }
+\section{Warning}{
+  Ligatures are assumed to be "fi", however, these elements
+  may be "ff", "fi", "fl", "ffi" or "ffl".
+}
 \examples{
 \dontrun{
 x <- readLines(n = 3)

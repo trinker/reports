@@ -20,6 +20,10 @@
 \details{
   This capitalizes every word of a string.
 }
+\section{Warning}{
+  Ligatures are assumed to be "fi", however, these elements
+  may be "ff", "fi", "fl", "ffi" or "ffl".
+}
 \examples{
 CA("the flexible, efficient way to do reports.")
 }

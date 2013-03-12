@@ -8,6 +8,8 @@
 #' clipboard.
 #' @details This capitalizes every word of a string.  
 #' @return Returns a character vector every word capitalized.
+#' @section Warning: Ligatures are assumed to be "fi", however, these elements 
+#' may be "ff", "fi", "fl", "ffi" or "ffl".
 #' @export
 #' @examples
 #' CA("the flexible, efficient way to do reports.")
@@ -30,6 +32,12 @@ CA <- function(text = "clipboard", copy2clip = TRUE) {
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
+    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
+    ligs <- length(gregexpr("([\\?])([a-z])", text)[[1]])
+    if (ligs > 0) {
+        plural <- ifelse(ligs > 1, "ligatures were", "ligature was")
+        warning(paste(ligs, plural, "found: \nCheck output!"))
+    }
     simpleCap <- function(x) { 
         s <- strsplit(x, " ")[[1]] 
         paste(toupper(substring(s, 1,1)), substring(s, 2), 

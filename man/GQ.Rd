@@ -6,9 +6,12 @@
     copy2clip = TRUE)
 }
 \arguments{
-  \item{quotes}{logical.  If \code{TRUE} LaTeX style quotes
-  (2 backticks and two single quotes) are wrapped around
-  the text.}
+  \item{quotes}{logical or c(\code{l}, \code{r}, \code{L},
+  \code{R}, \code{left} or \code{right}).  If \code{TRUE}
+  LaTeX style quotes (2 backticks and two single quotes)
+  are wrapped around the text.  If (\code{l}, \code{L} or
+  \code{left}) left ticks only are used. If (\code{r},
+  \code{R} or \code{right}) right ticks only are used.}
 
   \item{block}{If \code{TRUE} LaTeX block quote code tags
   are used instead of the backticks and single quotes.}
@@ -29,5 +32,9 @@
 }
 \details{
   This function formats text for use with LaTeX documents.
+}
+\section{Warning}{
+  Ligatures are assumed to be "fi", however, these elements
+  may be "ff", "fi", "fl", "ffi" or "ffl".
 }
 

@@ -1,20 +1,20 @@
 reports 0.1.2
 ----------------------------------------------------------------
+This is a bug fix release
+
 BUG FIXES
 
-* `GQ` did not handle block quotes correctly in what printed to the console.  This behavior has been corrected.
+* `GQ` did not handle block quotes correctly in what printed to the console.  
+  This behavior has been corrected.
+
+* `GQ`, `CA`, `LL` and `US` now parse out ligature "fi" as "fi" rather than "?".  
+  Warnings were added for cases when liigatures are detected.
 
 * Fixed the Description file for the basic_web template (missing info).
 
-* `reveal.js` resulted in an error if a reference page was not supplied.   This behavior has been corrected.
+* `reveal.js` resulted in an error if a reference page was not supplied.   This 
+  behavior has been corrected.
 
-NEW FEATURES
-
-
-MINOR FEATURES
-
-
-CHANGES
 
 
 reports 0.1.1
@@ -22,4 +22,5 @@ reports 0.1.1
 
 * The first CRAN installation of the reports package
 
-* Package designed to provide efficient work flow in writing and presenting academic articles and other reports
+* Package designed to provide efficient work flow in writing and presenting 
+  academic articles and other reports
