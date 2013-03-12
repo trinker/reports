@@ -6,6 +6,8 @@ BUG FIXES
 
 * Fixed the Description file for the basic_web template (missing info).
 
+* `reveal.js` resulted in an error if a reference page was not supplied.   This behavior has been corrected.
+
 NEW FEATURES
 
 

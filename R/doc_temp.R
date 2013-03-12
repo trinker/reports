@@ -53,7 +53,7 @@ function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
         package = "reports")
     fls <- file.path(root, dir(root))
     invisible(file.copy(file.path(root, dir(root)), x))
-    desc <- readLines(file.path(x, "DESCRIPTION"))
+    desc <- suppressWarnings(readLines(file.path(x, "DESCRIPTION")))
     desc[1:2] <- c(paste("Template:", temp.name), paste0(desc[2], Sys.Date()))
     cat(paste(desc, collapse="\n"), file=file.path(x, "DESCRIPTION"))
     folder(folder.name = file.path(tn, "inst"))

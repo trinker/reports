@@ -89,12 +89,13 @@ function(theme = "default", transition = "default", in.file = NULL,
     if (is.null(in.file)) {
         in.file <- dir(path)[tools::file_ext(dir(path)) == "md"][1]
     }
+    if (is.na(in.file)) stop("run Knit HTML on the .Rmd file first")
     out.file <- file.path(x, paste0(unlist(strsplit(in.file, "\\."))[1], ".html"))
     tmp <- tempdir()
     file.copy(in.file, tmp)
     of <- file.path(tmp, basename(out.dir))
     action <- paste0(wheresPandoc(), " -s -S -i -t dzslides --mathjax ", in.file, 
-        " -o ", of)   
+        " -o ", of) 
     system(action)
     if (!is.null(ref.page)) {
         HI <- c(".hangingindent {", "    padding-left: 40px ;", 
@@ -103,7 +104,8 @@ function(theme = "default", transition = "default", in.file = NULL,
         start <- paste0("<h1>", ref.page, "</h1>")
         start <- which(grepl(start, HTML5))                      
         if (identical(start, integer(0))) {
-                warning("ref.page not found; argument was ignored")
+            warning("ref.page not found; argument was ignored")
+            NEW <- suppressWarnings(readLines(of))
         } else {
             end <- "</section>"
             end <- which(grepl(end, HTML5))
@@ -148,8 +150,10 @@ function(theme = "default", transition = "default", in.file = NULL,
     	stop(paste0("More ", codes[ext1], " code chunks than ", codes[ext2]))
     }  
     if (length(ud1) > 0) { 
-        reps1 <- mgsub(c("<p>[[[]]]=sud # ", "</p>"), 
-            c("</section>\n<section>\n<section>\n<h1>", "</h1>"), NEW[ud1], fixed = TRUE) 
+        reps1 <- mgsub(c("<p>[[[]]]=sud # ", "<p>[[[]]]=sud #", "</p>"), 
+            c("</section>\n<section>\n<section>\n<h1>",
+                "</section>\n<section>\n<section>\n<h1>", "</h1>"), 
+        	    NEW[ud1], fixed = TRUE) 
         reps2 <- mgsub(c("<p>[[[]]]=eud</p>"), 
             c("</section>"), NEW[ud2], fixed = TRUE) 
         NEW[ud1] <- reps1
