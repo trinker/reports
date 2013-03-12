@@ -32,7 +32,7 @@ genXtract <- reports:::genXtract
 #Check spelling
 #==========================
 path <- file.path(getwd(), "R")
-txt <- lapply(file.path(path, dir(path)), readLines)
+txt <- suppressWarnings(lapply(file.path(path, dir(path)), readLines))
 txt <- lapply(txt, function(x) x[substring(x, 1, 2) == "#'"])
 new <- lapply(1:length(txt), function(i){
     c("\n", dir(path)[i], "=========", txt[[i]])
@@ -40,6 +40,11 @@ new <- lapply(1:length(txt), function(i){
 out <- paste(unlist(new), collapse="\n")
 cat(out, file=file.path(path.expand("C:/Users/trinker/Desktop"), "spelling.doc"))
 
+#==========================
+#Get Examples to run
+#==========================
+library(acc.roxygen2)
+examples(path = "C:/Users/trinker/GitHub/reports/R/")
 
 #==========================
 #Install Needed Packages

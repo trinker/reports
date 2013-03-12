@@ -33,9 +33,10 @@ CA <- function(text = "clipboard", copy2clip = TRUE) {
         }
     } 
     text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    ligs <- length(gregexpr("([\\?])([a-z])", text)[[1]])
-    if (ligs > 0) {
-        plural <- ifelse(ligs > 1, "ligatures were", "ligature was")
+    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
+    nligs <- length(ligs)
+    if (ligs[1] > 0) {
+        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
         warning(paste(ligs, plural, "found: \nCheck output!"))
     }
     simpleCap <- function(x) { 

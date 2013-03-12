@@ -41,11 +41,12 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
     } 
     text <- clean(paste2(text, " "))
     text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    ligs <- length(gregexpr("([\\?])([a-z])", text)[[1]])
-    if (ligs > 0) {
-        plural <- ifelse(ligs > 1, "ligatures were", "ligature was")
+    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
+    nligs <- length(ligs)
+    if (ligs[1] > 0) {
+        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
         warning(paste(ligs, plural, "found: \nCheck output!"))
-    }    
+    }  
     text <- Trim(iconv(text, "", "ASCII", "byte"))
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 

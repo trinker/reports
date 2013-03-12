@@ -8,7 +8,7 @@
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 
 #' writes the original HTML file.  Default, \code{NULL}, uses the root name of 
 #' the \code{in.file} plus a number 2.
-#' @param type A character string of the desired slidie type; either 
+#' @param type A character string of the desired slide type; either 
 #' c(\code{"slidy"} or \code{"dzslides"}).
 #' @param ref.page The title of the reference page (adds hanging indent and 
 #' reduces font size).  If \code{NULL} references slide will not be adjusted.  
@@ -26,7 +26,7 @@
 #' @section Code Chunks: The following convenience code chunks are implemented:
 #' \enumerate{ 
 #'   \item{\bold{hi} - Wrapping text with this code chunk will result in 
-#'   hanginging indentation.  Use \code{hi.cex} to control the font size of the text.}
+#'   hanging indentation.  Use \code{hi.cex} to control the font size of the text.}
 #'   \item{\bold{yt} - Wrap a youtube url or tag to embed a youtube video}
 #' }
 #' Code chunks use the following form: \bold{[[[text]]]=code.tag} (e.g.,
@@ -42,7 +42,7 @@
 #' @examples 
 #' \dontrun{
 #' #Run after running knitr on an Rmd file
-#' dzslides()  #assumes location of html file out of the box
+#' html5()  #assumes location of html file out of the box
 #' }
 html5 <- 
 function(in.file = NULL, out.file = NULL, type = "dzslides", 

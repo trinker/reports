@@ -15,6 +15,10 @@ BUG FIXES
 * `reveal.js` resulted in an error if a reference page was not supplied.   This 
   behavior has been corrected.
 
+CHANGES
+
+* `install_pandoc` is no longer exported as this functionality can be found in 
+  the installr package
 
 
 reports 0.1.1

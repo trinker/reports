@@ -74,7 +74,7 @@
   \code{roll-in}, \code{fade-out}, \code{highlight-red},
   \code{highlight-green}, or \code{highlight-blue}.}
   \item{\bold{hi} - Wrapping text with this code chunk will
-  result in hanginging indentation.  Use \code{hi.cex} to
+  result in hanging indentation.  Use \code{hi.cex} to
   control the font size of the text.} \item{\bold{notes} -
   Wrap presenter notes that work when slides are uploaded
   to the Internet. Press "s" to get the speaker notes
@@ -98,10 +98,10 @@
 \examples{
 \dontrun{
 #Run after running knitr on an Rmd file
-reveral.js()  #assumes location of html file out of the box
+reveal.js()  #assumes location of html file out of the box
 
 # An example .Rmd file can be found:
-system.file("extdata/docs/example.Rmd", package = "reports"))
+system.file("extdata/docs/example.Rmd", package = "reports")
 }
 }
 \seealso{
