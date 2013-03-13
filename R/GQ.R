@@ -14,8 +14,9 @@
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @section Warning: Ligatures are assumed to be "fi", however, these elements 
-#' may be "ff", "fi", "fl", "ffi" or "ffl".
+#' @section Warning: Ligatures parsing is very good, however, these elements my
+#' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
+#' "ffi" and "ffl".
 #' @details This function formats text for use with LaTeX documents.  
 #' @return Returns a character vector with LaTeX formatted text.
 #' @export
@@ -40,13 +41,14 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE){
         }
     } 
     text <- clean(paste2(text, " "))
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
     ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
+    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
+    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
     nligs <- length(ligs)
     if (ligs[1] > 0) {
         plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(ligs, plural, "found: \nCheck output!"))
-    }  
+        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
+    }
     text <- Trim(iconv(text, "", "ASCII", "byte"))
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 

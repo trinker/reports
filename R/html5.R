@@ -122,13 +122,16 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
             paste0("<p class=\"hangingindent\" style=\"font-size:", hi.cex, 
                 "px;\">", x, "</p>")	
         })
-        ends <- c(hi -1, length(NEW))
-        starts <- c(1, hi + 1)
-        out <- c()
-        for (i in seq_along(length(reps))){
-        	out <- c(out, NEW[starts[i]:ends[i]], unlist(reps[[i]]))
-   	    }
-        NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
+        NEW[hi] <- reps
+        if (is.null(ref.page)) {
+            HI <- c(".hangingindent {", "    padding-left: 40px ;", 
+                "    text-indent: -35px ;", "}")
+            len <- seq_along(NEW)
+            splpoint <- which(grepl("Transition effect", NEW))
+        	if (type == "dzslides") {
+                NEW <- c(NEW[1:(splpoint - 1)], HI, na.omit(NEW[splpoint:max(len)]))
+        	}
+        }
     }
     cat(paste0(NEW, collapse = "\n"), file=out.file)     
     cat(paste0("HTML5 ", type, " file generated:\n", file.path(path, out.file), "\n"))

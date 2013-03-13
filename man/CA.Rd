@@ -21,8 +21,9 @@
   This capitalizes every word of a string.
 }
 \section{Warning}{
-  Ligatures are assumed to be "fi", however, these elements
-  may be "ff", "fi", "fl", "ffi" or "ffl".
+  Ligatures parsing is very good, however, these elements
+  my be incorrect.  If a warning is thrown check the use of
+  "ff", "fi", "fl", "ffi" and "ffl".
 }
 \examples{
 CA("the flexible, efficient way to do reports.")
