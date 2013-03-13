@@ -35,6 +35,12 @@
 #' additional tweaking within the html output.  When using embedded youtube, 
 #' slide titles and text are ignored but may effect the spacing of the player.  
 #' User additions are welcomed.
+#' 
+#' reports based code chunks are for convenience.  For more control many HTML 
+#' tags work with Rmarkdown.  The output code can also be manipulated for finer 
+#' control.  \code{html5} demos can be found at 
+#' \url{http://trinker.github.com/reports/examples/}.
+#' 
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/14971683/1000343}
 #' @seealso \code{\link[reports]{reveal.js}}
@@ -73,7 +79,8 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
         start <- paste0("<h1>", ref.page, "</h1>")
         start <- which(grepl(start, HTML5))                      
         if (identical(start, integer(0))) {
-                warning("ref.page not found; argument was ignored")
+            warning("ref.page not found; argument was ignored")
+            NEW <- HTML5
         } else {
         	endsel <- data.frame(type=c("dzslides", "slidy"), 
                 end = c("</section>", "</div>"))
@@ -111,7 +118,7 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
         yt3 <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"800\" height=\"500\" src=\"http://www.youtube.com/embed/", 
             tags, "\" frameborder=\"0\"> </iframe>")
         NEW[yt] <- yt3  
-  	}
+  	} 
     lchunk <- grepl("[[[", NEW, fixed = TRUE)
     hi <- which(lchunk & grepl("]]]=hi", NEW, fixed = TRUE)) 
     if (!identical(hi, integer(0))) {
@@ -133,6 +140,7 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
         	}
         }
     }
+    NEW <- gsub("</section>", "</section>\n\n", NEW)
     cat(paste0(NEW, collapse = "\n"), file=out.file)     
     cat(paste0("HTML5 ", type, " file generated:\n", file.path(path, out.file), "\n"))
 }

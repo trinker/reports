@@ -57,6 +57,11 @@
 #' additional tweaking within the html output.  When using embedded youtube, 
 #' slide titles and text are ignored but may effect the spacing of the player.  
 #' User additions are welcomed.
+#' 
+#' reports based code chunks are for convenience.  For more control many HTML 
+#' tags work with Rmarkdown.  The output code can also be manipulated for finer 
+#' control.  A \code{reveal.js} demo can be found \url{http://trinker.github.com/reports/examples/}.
+#'   
 #' @export
 #' @seealso \code{\link[reports]{html5}}
 #' @examples 
@@ -135,7 +140,9 @@ function(theme = "default", transition = "default", in.file = NULL,
     frag <- which(grepl("[[[]]]=frag-", NEW, fixed = TRUE)) 
     if (length(frag) > 0) {
         fraginst <- genXtract(NEW[frag], "[[[]]]=frag-", "</li>")
-        inserts <- 	paste0(genX(NEW[frag], "[[[]]]=frag-", "</li>"), "</li>")  
+        fraginst <- 	gsub("</p>", "", fraginst)   
+        inserts <- 	paste0(genX(NEW[frag], "[[[]]]=frag-", "</li>"), "</li>")
+        inserts <- 	gsub("<p>", "", inserts)
     	A <- unlist(strsplit(inserts, "fragment>"))[c(TRUE, FALSE)]
         B <- unlist(strsplit(inserts, "fragment>"))[c(FALSE, TRUE)]
         NEW[frag] <- mgsub(c("<li", "</li>"), c("<p", "</p>"), paste0(A, 
@@ -237,6 +244,7 @@ function(theme = "default", transition = "default", in.file = NULL,
 	    fig <- file.path(path, figure.dir)
 	    file.copy(fig, x, recursive = TRUE)
     }
+    NEW <- gsub("</section>", "</section>\n\n", NEW)    
     cat(paste0(NEW, collapse = "\n"), file=file.path(x, "index.html"))     
     cat("HTML5 reveal.js directory generated: click \"reveal_js/index.html\"!\n")
 }

@@ -1,5 +1,5 @@
 ## Title
-## Name
+## <font size="20" >Name</font>
 ## Date
 ```{r setup, include=FALSE}
 # set global chunk options

@@ -94,6 +94,12 @@
   within the html output.  When using embedded youtube,
   slide titles and text are ignored but may effect the
   spacing of the player. User additions are welcomed.
+
+  reports based code chunks are for convenience.  For more
+  control many HTML tags work with Rmarkdown.  The output
+  code can also be manipulated for finer control.  A
+  \code{reveal.js} demo can be found
+  \url{http://trinker.github.com/reports/examples/}.
 }
 \examples{
 \dontrun{
