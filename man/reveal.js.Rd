@@ -64,11 +64,13 @@
   The following convenience code chunks are implemented:
   \enumerate{ \item{\bold{bg-} - Place after a slide title
   to change background color.  Currently takes
-  \code{bg-soothe}, \code{bg-blackout} and
-  \code{bg-alert}.} \item{\bold{frag-} - Using a dash/space
-  (- ) has the usual effect of text appearing however
-  special effects can be applied to text by using the
-  dash/space followed by the text and followed by
+  \code{bg-soothe}, \code{bg-blackout}, \code{bg-alert},
+  \code{ red }, \code{ orange }, \code{ yellow }, \code{
+  green }, \code{ blue }, \code{ indigo }, \code{ violet },
+  or \code{ brown }.} \item{\bold{frag-} - Using a
+  dash/space (- ) has the usual effect of text appearing
+  however special effects can be applied to text by using
+  the dash/space followed by the text and followed by
   \code{[[[]]]=frag-} and last a fragment style.  Valid
   styles include: \code{grow}, \code{shrink},
   \code{roll-in}, \code{fade-out}, \code{highlight-red},

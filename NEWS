@@ -23,6 +23,9 @@ MINOR FEATURES
 * When initializing a prsentation .Rmd the date is dynamically set to use the 
   date of the `knit2html` call which of course can be set to be static (Yihui Xie).
 
+* The colors red, orange, yellow, green, blue, indigo, violet and brown are now 
+  available as background colors for `reveal.js`.
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 
