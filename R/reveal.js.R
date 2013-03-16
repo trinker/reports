@@ -135,10 +135,13 @@ function(theme = "default", transition = "default", in.file = NULL,
     if (length(small) > 0) {
         NEW[small] <- mgsub(c("[[[", "]]]=small"), 
             c("\n<p>\n<small>\n", "\n</small>\n</p>\n"), NEW[small], fixed = TRUE) 
-  	}
-    NEW <-gsub("<li>", "<li class=\"fragment\">", NEW) 
-    frag <- which(grepl("[[[]]]=frag-", NEW, fixed = TRUE)) 
+  	} 
+    tmp <- tempdir()
+    cat(paste0(NEW, collapse = "\n"), file=file.path(tmp, "temphtml"))
+    NEW <- suppressWarnings(readLines(file.path(tmp, "temphtml")))    
+    frag <- which(grepl("[[[]]]=frag", NEW, fixed = TRUE))     
     if (length(frag) > 0) {
+        NEW[frag] <-gsub("<li>", "<li class=\"fragment\">", NEW[frag])  
         fraginst <- genXtract(NEW[frag], "[[[]]]=frag-", "</li>")
         fraginst <- 	gsub("</p>", "", fraginst)   
         inserts <- 	paste0(genX(NEW[frag], "[[[]]]=frag-", "</li>"), "</li>")
@@ -147,6 +150,7 @@ function(theme = "default", transition = "default", in.file = NULL,
         B <- unlist(strsplit(inserts, "fragment>"))[c(FALSE, TRUE)]
         NEW[frag] <- mgsub(c("<li", "</li>"), c("<p", "</p>"), paste0(A, 
         	"\"fragment ", fraginst, "\">", B), fixed=TRUE)
+        NEW[frag] <- gsub("[[[]]]=frag", "", NEW[frag], fixed=TRUE)   
   	}
     ud1 <- which(grepl("[[[]]]=sud", NEW, fixed = TRUE))
     ud2 <- which(grepl("[[[]]]=eud", NEW, fixed = TRUE)) 

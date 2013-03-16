@@ -27,6 +27,7 @@ wheresPandoc <- reports:::wheresPandoc
 mgsub <- reports:::mgsub
 genX <- reports:::genX
 genXtract <- reports:::genXtract
+Trim <- reports:::Trim
 
 #==========================
 #Check spelling

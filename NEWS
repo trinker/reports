@@ -9,6 +9,10 @@ BUG FIXES
 * `html5` would result in missing text when using the hanging indent code tags 
   `[[[]]]=hi`.  This behavior has been fixed.
 
+* Previously all <li> were converted to fragments and [[[]]]=frag- remove <li>.  
+  This resulted in an ability to specify and unfragmented list. (Fixes 
+  #15 and #17)
+
 NEW FEATURES
 
 
@@ -16,6 +20,8 @@ MINOR FEATURES
 
 * `html5` and `reveal.js` out put now has a space between sections (slides)
 
+* When initializing a prsentation .Rmd the date is dynamically set to use the 
+  date of the `knit2html` call which of course can be set to be static.
 
 IMPROVEMENTS
 
