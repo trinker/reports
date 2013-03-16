@@ -76,7 +76,7 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
         HI <- c(".hangingindent {", "    padding-left: 40px ;", 
             "    text-indent: -35px ;", "}")
         HTML5 <- suppressWarnings(readLines(out.file))
-        start <- paste0("<h1>", ref.page, "</h1>")
+        start <- paste0("<h1>", ref.page)
         start <- which(grepl(start, HTML5))                      
         if (identical(start, integer(0))) {
             warning("ref.page not found; argument was ignored")

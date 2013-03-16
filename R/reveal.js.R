@@ -108,7 +108,7 @@ function(theme = "default", transition = "default", in.file = NULL,
         HI <- c(".hangingindent {", "    padding-left: 40px ;", 
             "    text-indent: -35px ;", "}")
         HTML5 <- suppressWarnings(readLines(of))
-        start <- paste0("<h1>", ref.page, "</h1>")
+        start <- paste0("<h1>", ref.page)
         start <- which(grepl(start, HTML5))                      
         if (identical(start, integer(0))) {
             warning("ref.page not found; argument was ignored")
@@ -203,12 +203,6 @@ function(theme = "default", transition = "default", in.file = NULL,
     tmp <- tempdir()
     cat(paste0(NEW, collapse = "\n"), file=file.path(tmp, "temphtml"))
     NEW <- suppressWarnings(readLines(file.path(tmp, "temphtml")))
-    bg <- which(grepl("[[[]]]=bg", NEW, fixed = TRUE)) 
-    if (length(bg) > 0) {
-    	colscheme <- gsub("^\\s+|\\s+$", "", genXtract(NEW[bg], "bg-", "</h1>"))
-        NEW[bg] <- paste0(genX(NEW[bg], "[[[]]]=bg-", "</h1>"), "</h1>") 
-        NEW[bg-1] <- paste0("<section data-state=\"", colscheme,"\">")
-  	}
     bq <- which(grepl("<blockquote>", NEW, fixed = TRUE)) + 1
     if (!identical(bq, integer(0))) {      
         front <- "<blockquote cite=\"http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations\">\n"  
@@ -233,6 +227,13 @@ function(theme = "default", transition = "default", in.file = NULL,
    	    }
         NEW <- c(out, NEW[starts[length(starts)]:ends[length(ends)]])
     } 
+#browser()
+    bg <- which(grepl("[[[]]]=bg", NEW, fixed = TRUE)) 
+    if (length(bg) > 0) {
+    	colscheme <- gsub("^\\s+|\\s+$", "", genXtract(NEW[bg], "bg-", "</h1>"))
+        NEW[bg] <- paste0(genX(NEW[bg], "[[[]]]=bg-", "</h1>"), "</h1>") 
+        NEW[bg-1] <- paste0("<section data-state=\"", colscheme,"\">")
+  	}  
     end <- which(grepl("<!-- {{{{ dzslides core", NEW, fixed=TRUE)) - 1
     start <- which(grepl("<body>", NEW, fixed=TRUE))[1] + 1 
     insert <- NEW[start:end]
