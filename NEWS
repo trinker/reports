@@ -13,6 +13,9 @@ BUG FIXES
   This resulted in an ability to specify and unfragmented list. (Fixes 
   #15 and #17)
 
+* Previously the user could not specify the background color (via `[[[]]]=bg`) in
+  `reveal.js`.  This has been fixed.
+
 NEW FEATURES
 
 
