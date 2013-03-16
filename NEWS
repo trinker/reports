@@ -21,7 +21,7 @@ MINOR FEATURES
 * `html5` and `reveal.js` out put now has a space between sections (slides)
 
 * When initializing a prsentation .Rmd the date is dynamically set to use the 
-  date of the `knit2html` call which of course can be set to be static.
+  date of the `knit2html` call which of course can be set to be static (Yihui Xie).
 
 IMPROVEMENTS
 
