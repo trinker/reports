@@ -60,3 +60,5 @@ Collate:
     'genX.R'
     'genXtract.R'
     'html5.R'
+    'CN.R'
+    'FT.R'

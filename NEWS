@@ -18,6 +18,11 @@ BUG FIXES
 
 NEW FEATURES
 
+* `CN` a new function that wraps text with courier new HTML a font tag for 
+  supplied text.
+
+* `FT` a new function that detects face, color and size and generates a font tag 
+  for supplied text.
 
 MINOR FEATURES
 
