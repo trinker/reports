@@ -19,16 +19,19 @@ URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 Depends:
-    R (>= 2.15)
+    R (>= 2.15),
+    gdata
 Imports:
+    slidify,
     knitr,
     knitcitations
 Suggests:
-    pander,
-    qdap,
-    installr,
+    ascii,
     brew,
-    ProjectTemplate
+    installr,
+    pander,
+    ProjectTemplate,
+    qdap
 Collate:
     'CA.R'
     'clean.R'
@@ -62,3 +65,7 @@ Collate:
     'html5.R'
     'CN.R'
     'FT.R'
+    'read.notes.R'
+    'truncdf.R'
+    'notes.R'
+    'qconvert.R'

@@ -91,7 +91,7 @@ presentation <- function(presentation = "presentation", rnw = TRUE,
     invisible(file.rename(file.path(y[[2]], "temp.Rmd"), 
          file.path(y[[2]], paste0(presentation, ".Rmd")))) 
     rpro <- c("#Load the packages used",
-        "library(reports); library(knitr); library(knitcitations)", 
+        "library(reports); library(slidify); library(knitr); library(knitcitations)", 
     	"# library(pander)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")

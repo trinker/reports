@@ -22,7 +22,7 @@
 #' BIB <- system.file("extdata/docs/example.bib", package = "reports")
 #' tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)   
 #' }
-tex2docx <-
+tex2docx <- 
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"), 
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
@@ -30,7 +30,8 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)   
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) == "tex"][1]
+            in.file <- dir(path)[tools::file_ext(dir(path)) == "tex"]
+            in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
             out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".docx")

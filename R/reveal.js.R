@@ -79,6 +79,9 @@ function(theme = "default", transition = "default", in.file = NULL,
 		out.dir = path, ref.page = "References", refs.cex = 15, 
 		path = file.path(getwd(), "PRESENTATION"), figure.dir = "figure", 
 		hi.cex = 25) {
+    .Deprecated(msg = paste("reveal.js is deprecated.  Please use the",
+        "functionality of the slidify package."), 
+        old = as.character(sys.call(sys.parent()))[1L])
     if (!is.null(path)) {
         WD <- getwd()
         on.exit(setwd(WD))

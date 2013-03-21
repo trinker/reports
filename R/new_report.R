@@ -38,6 +38,7 @@
 #' @section Additional Guide: Introductory video
 #' \url{http://youtu.be/cokNUTGtoM4}
 #' @export
+#' @import slidify
 #' @examples 
 #' \dontrun{
 #' new_report()
@@ -133,7 +134,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     pdfloc5 <- file.path(root2, "REPORT_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
-        "library(reports); library(knitr); library(knitcitations)", 
+        "library(reports); library(slidify); library(knitr); library(knitcitations)", 
     	"# library(pander)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")

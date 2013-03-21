@@ -6,17 +6,9 @@ BUG FIXES
 * `GQ`, `CA`, `LL` and `US` threw multiple warnings if a ligature was detected.
   This behavior has been corrected.
 
-* `html5` would result in missing text when using the hanging indent code tags 
-  `[[[]]]=hi`.  This behavior has been fixed.
-
-* Previously all <li> were converted to fragments and [[[]]]=frag- remove <li>.  
-  This resulted in an ability to specify and unfragmented list. (Fixes 
-  #15 and #17)
-
-* Previously the user could not specify the background color (via `[[[]]]=bg`) in
-  `reveal.js`.  This has been fixed.
-
 NEW FEATURES
+
+* `
 
 * `CN` a new function that wraps text with courier new HTML a font tag for 
   supplied text.
@@ -34,6 +26,9 @@ MINOR FEATURES
 * The colors red, orange, yellow, green, blue, indigo, violet and brown are now 
   available as background colors for `reveal.js`.
 
+* `notes` is a function that allows the user to view a truncated version of the 
+  notes located in the ARTICLES directory.
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 
@@ -41,6 +36,8 @@ IMPROVEMENTS
 
 
 CHANGES
+
+`
 
 reports 0.1.2
 ----------------------------------------------------------------

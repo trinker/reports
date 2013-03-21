@@ -55,6 +55,9 @@ function(in.file = NULL, out.file = NULL, type = "dzslides",
 		ref.page = "References", refs.cex = 15, 
 		path = file.path(getwd(), "PRESENTATION"), 
 		hi.cex = 25) {
+    .Deprecated(msg = paste("html5 is deprecated.  Please use the",
+        "functionality of the slidify package."), 
+        old = as.character(sys.call(sys.parent()))[1L])
     if (!is.null(path)) {
         WD <- getwd()
         on.exit(setwd(WD))
