@@ -51,6 +51,7 @@ QC <- function(to = "latex", from = "markdown", text = "clipboard",
     }    
     x <- system2(wheresPandoc(), paste0("-f ", from, " -t ", to), input = text, 
         stdout = TRUE)
+    x <- paste(x)
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
             writeClipboard(x, format = 1)
