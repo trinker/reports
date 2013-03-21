@@ -8,7 +8,8 @@ BUG FIXES
 
 NEW FEATURES
 
-* `
+* `QC` quick convert between Pandoc recognized languages.  Meant for a string 
+  rather than an entire file.
 
 * `CN` a new function that wraps text with courier new HTML a font tag for 
   supplied text.

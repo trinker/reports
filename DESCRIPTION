@@ -68,4 +68,4 @@ Collate:
     'read.notes.R'
     'truncdf.R'
     'notes.R'
-    'qconvert.R'
+    'QC.R'

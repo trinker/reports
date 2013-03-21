@@ -13,7 +13,7 @@
 #' @section Warning: Ligatures parsing is very good, however, these elements my
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".
-#' @author mnel of stackoverflow.com and Tyler Rinker<tyler.rinker@gmail.com>.
+#' @author Michael Nelson and Tyler Rinker<tyler.rinker@@gmail.com>.
 #' @references
 #' \href{http://johnmacfarlane.net/pandoc/demos.html}{Pandoc Website}
 #' \url{http://stackoverflow.com/a/15539563/1000343}

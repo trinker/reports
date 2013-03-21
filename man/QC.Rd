@@ -38,7 +38,7 @@ QC(x)
 QC(x, "html")
 }
 \author{
-  mnel of stackoverflow.com and Tyler Rinker<tyler.rinker
+  Michael Nelson and Tyler Rinker<tyler.rinker@gmail.com>.
 }
 \references{
   \href{http://johnmacfarlane.net/pandoc/demos.html}{Pandoc
