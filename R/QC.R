@@ -41,14 +41,16 @@ QC <- function(to = "latex", from = "markdown", text = "clipboard",
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }    
+    if (from != "latex") {
+        ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
+        text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
+        text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
+        nligs <- length(ligs)
+        if (ligs[1] > 0) {
+            plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
+            warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
+        }    
+    }   
     x <- system2(wheresPandoc(), paste0("-f ", from, " -t ", to), input = text, 
         stdout = TRUE)
     x <- paste(x, collapse=" ")
