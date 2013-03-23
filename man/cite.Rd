@@ -1,11 +1,19 @@
 \name{citeL}
 \alias{citeL}
+\alias{posciteL}
+\alias{possciteL}
 \alias{textciteL}
 \title{Format Quotes with Citations}
 \usage{
   citeL(text.loc = NULL, copy2clip = TRUE, citation = TRUE)
 
   textciteL(text.loc = NULL, copy2clip = TRUE,
+    citation = TRUE)
+
+  possciteL(text.loc = NULL, copy2clip = TRUE,
+    citation = TRUE)
+
+  posciteL(text.loc = NULL, copy2clip = TRUE,
     citation = TRUE)
 }
 \arguments{
