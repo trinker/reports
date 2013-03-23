@@ -69,3 +69,5 @@ Collate:
     'truncdf.R'
     'notes.R'
     'QC.R'
+    'CITEhelper.R'
+    'citeL.R'

@@ -1,5 +1,5 @@
 strWrap <-
-function(text = "clipboard", width = 70, copy2clip = TRUE) {
+function(text = "clipboard", width = 70, copy2clip = TRUE, invisible = FALSE) {
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -30,5 +30,8 @@ function(text = "clipboard", width = 70, copy2clip = TRUE) {
             close(j)                                    
         }             
     }
-    writeLines(x)
+    if (!invisible) {
+    	writeLines(x)
+    }
+    return(invisible(x))
 }
