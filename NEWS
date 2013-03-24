@@ -21,6 +21,8 @@ NEW FEATURES
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 
   `?citeL` for more details.
 
+* `md2docx` has been added for a conveinent way to convert an .md file to .docx.
+
 MINOR FEATURES
 
 * `html5` and `reveal.js` out put now has a space between sections (slides)
