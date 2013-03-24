@@ -11,5 +11,8 @@
 #' notes()
 #' }
 notes <- function(col.width =70) {
-    read.notes(trunc = col.width)	
+    mess <- paste0("\n\nPossible causes:\n\n",
+    "1) The main file directory is not set as the working directory\n",
+    "2) ~/ARTICLES/notes.xlsx or ~/ARTICLES/notes.csv does not exist")
+    tryCatch(read.notes(trunc = col.width), error=function(err) stop(mess))
 }
