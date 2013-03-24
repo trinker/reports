@@ -17,6 +17,10 @@ NEW FEATURES
 * `FT` a new function that detects face, color and size and generates a font tag 
   for supplied text.
 
+* The cite family of functions has been introduced.  These functions provide 
+  quick pulling of quotes with citations (in Markdown or LaTeX format).  See 
+  `?citeL` for more details.
+
 MINOR FEATURES
 
 * `html5` and `reveal.js` out put now has a space between sections (slides)

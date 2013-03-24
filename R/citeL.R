@@ -51,6 +51,12 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         } else {
         	x <- paste(L, text, citeK, R, collapse = "\n")
         }    	
+    } else {
+        if (!LONG) {
+            x <- paste(L, text, R, sep="")	
+        } else {
+        	x <- paste(L, text, R, collapse = "\n")
+        }   
     }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -63,9 +69,13 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         }             
     }
     if (LONG) {
-    	bod <- strWrap(paste(text, citeK), copy2clip = FALSE, invisible=TRUE)
-    	body <- paste(paste(" ", bod), collapse="\n")
-        cat(L); cat(body); cat(R); cat("\n")
+        if (citation) {
+            bod <- strWrap(paste(text, citeK), copy2clip = FALSE, invisible=TRUE)
+        } else {
+            bod <- strWrap(text, copy2clip = FALSE, invisible=TRUE)    
+        }    
+        body <- paste(paste(" ", bod), collapse="\n")
+        cat(L); cat(body); cat(R); cat("\n")    	
     } else {
         cat(x)
     }
@@ -97,6 +107,12 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         } else {
         	x <- paste(citeK, "\n", L, paste(text, pgs), R, collapse = "\n")
         }    	
+    } else {
+        if (!LONG) {
+            x <- paste(L, text, R, sep="")	
+        } else {
+        	x <- paste(L, text, R, collapse = "\n")
+        }   
     }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -109,9 +125,15 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         }             
     }
     if (LONG) {
-    	bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
-    	body <- paste(paste(" ", bod), collapse="\n")
-        cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        if (citation) {
+            bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        } else {
+            bod <- strWrap(text, copy2clip = FALSE, invisible=TRUE)    
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(L); cat(body); cat(R); cat("\n")
+        }
     } else {
         cat(x)
     }
@@ -143,6 +165,12 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         } else {
         	x <- paste(citeK, "\n", L, paste(text, pgs), R, collapse = "\n")
         }    	
+    } else {
+        if (!LONG) {
+            x <- paste(L, text, R, sep="")	
+        } else {
+        	x <- paste(L, text, R, collapse = "\n")
+        }   
     }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -155,9 +183,15 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         }             
     }
     if (LONG) {
-    	bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
-    	body <- paste(paste(" ", bod), collapse="\n")
-        cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        if (citation) {
+            bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        } else {
+            bod <- strWrap(text, copy2clip = FALSE, invisible=TRUE)    
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(L); cat(body); cat(R); cat("\n")
+        }
     } else {
         cat(x)
     }
@@ -189,6 +223,12 @@ posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         } else {
         	x <- paste(citeK, "\n", L, paste(text, pgs), R, collapse = "\n")
         }    	
+    } else {
+        if (!LONG) {
+            x <- paste(L, text, R, sep="")	
+        } else {
+        	x <- paste(L, text, R, collapse = "\n")
+        }   
     }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -201,9 +241,15 @@ posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         }             
     }
     if (LONG) {
-    	bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
-    	body <- paste(paste(" ", bod), collapse="\n")
-        cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        if (citation) {
+            bod <- strWrap(paste(text, pgs), copy2clip = FALSE, invisible=TRUE)
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(citeK); cat("\n"); cat(L); cat(body); cat(R); cat("\n")
+        } else {
+            bod <- strWrap(text, copy2clip = FALSE, invisible=TRUE)    
+            body <- paste(paste(" ", bod), collapse="\n")
+            cat(L); cat(body); cat(R); cat("\n")
+        }
     } else {
         cat(x)
     }
