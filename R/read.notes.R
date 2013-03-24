@@ -22,6 +22,7 @@ read.notes <- function(file = NULL, rm.nonquote = TRUE, trunc = 50) {
             },
         stop("invalid file extension:\n \bfile must be a .csv .xls or .xlsx" )
     )  
+	x[, 3] <- gsub("\\\\", "\"", x[, 3])
     colnames(x) <- c("bibkey", "page", "quote", "Q", "notes")
 	if (rm.nonquote) {
 	    x <- x[tolower(as.character(x$Q)) %in% c("yes", "y", "t", "true", "quote"), -4]
