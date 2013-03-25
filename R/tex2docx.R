@@ -49,6 +49,30 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("docx file generated!\n")
 }
 
+#' @rdname docx
+#' @export 
+tex2html <- 
+function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"), 
+    bib.loc = getOption("bib.loc")) {
+    if (!is.null(path)) {
+        WD <- getwd()
+        on.exit(setwd(WD))
+        setwd(path)   
+        if (is.null(in.file)) {
+            in.file <- dir(path)[tools::file_ext(dir(path)) == "tex"]
+            in.file <- in.file[!in.file %in% "preamble.tex"][1]
+        }
+        if (is.null(out.file)) {
+            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".html")
+        }
+    }
+    action <- paste0(wheresPandoc(), " -s ", in.file, " -o ", out.file)
+    if (!is.null(bib.loc)) {
+        action <- paste0(action, " --bibliography=", bib.loc)
+    }
+    system(action)
+    cat("docx file generated!\n")
+}
 
 #' @rdname docx
 #' @export 

@@ -29,7 +29,7 @@
 #' @rdname cite
 #' @return Returns a character vector with LaTeX/markdown formatted text.
 #' @export
-citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- out[[1]]
     if (wc(text) > 39) {
@@ -45,7 +45,7 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
     if (citation) {
     	PP <- grepl("-", out[[2]])
     	PP <- ifelse(PP, "pp", "p")
-    	citeK <- paste("\\cite[", PP, ". ", out[[2]], "]{", out[[3]], "}", sep="")
+    	citeK <- paste("\\parencite[", PP, ". ", out[[2]], "]{", out[[3]], "}", sep="")
         if (!LONG) {
             x <- paste(L, text, R, citeK, sep="")	
         } else {

@@ -23,6 +23,8 @@ NEW FEATURES
 
 * `md2docx` has been added for a conveinent way to convert an .md file to .docx.
 
+* `tex2html` has been added for a conveinent way to convert a .tex file to .html.
+
 MINOR FEATURES
 
 * `html5` and `reveal.js` out put now has a space between sections (slides)

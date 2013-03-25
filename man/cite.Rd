@@ -1,11 +1,12 @@
-\name{citeL}
-\alias{citeL}
+\name{parenciteL}
+\alias{parenciteL}
 \alias{posciteL}
 \alias{possciteL}
 \alias{textciteL}
 \title{Format Quotes with Citations}
 \usage{
-  citeL(text.loc = NULL, copy2clip = TRUE, citation = TRUE)
+  parenciteL(text.loc = NULL, copy2clip = TRUE,
+    citation = TRUE)
 
   textciteL(text.loc = NULL, copy2clip = TRUE,
     citation = TRUE)
