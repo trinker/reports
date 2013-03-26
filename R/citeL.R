@@ -13,8 +13,9 @@
 #' @param citation logical.  If TRUE will include the formatted citation + the 
 #' quote.
 #' @details Each of the functions in the cite family follow a pattern of 
-#' (cite, textcite, posscite, poscite) prefix and (L or M) suffix.  The 
-#' cite and textcite are in the form of LaTeX commands by the same name.  
+#' (cite, parencite, textcite, posscite, poscite) prefix and (L or M) suffix 
+#' (note that currently only parencite and textcite functions exist for markdown).  
+#' The cite and textcite are in the form of LaTeX commands by the same name.  
 #' posscite and poscite are user defined LaTeX function styles that are 
 #' extensions of the textcite command to fit possessive and -s- ending 
 #' possessives.  They can be defined as:
@@ -29,6 +30,61 @@
 #' @rdname cite
 #' @return Returns a character vector with LaTeX/markdown formatted text.
 #' @export
+citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+	out <- CITEhelper(text.loc = text.loc)
+    text <- out[[1]]
+    if (wc(text) > 39) {
+        LONG <- TRUE
+        L <- "\\begin{quote}\n"
+        R <- "\n\\end{quote}"
+    } else {
+    	LONG <- FALSE    	
+        L <- "``"
+        R <- "'' "
+    }
+	citeK <- NULL
+    if (citation) {
+    	PP <- grepl("-", out[[2]])
+    	PP <- ifelse(PP, "pp", "p")
+    	citeK <- paste("\\cite[", PP, ". ", out[[2]], "]{", out[[3]], "}", sep="")
+        if (!LONG) {
+            x <- paste(L, text, R, citeK, sep="")	
+        } else {
+        	x <- paste(L, text, citeK, R, collapse = "\n")
+        }    	
+    } else {
+        if (!LONG) {
+            x <- paste(L, text, R, sep="")	
+        } else {
+        	x <- paste(L, text, R, collapse = "\n")
+        }   
+    }
+    if(copy2clip){
+        if (Sys.info()["sysname"] == "Windows") {
+            writeClipboard(x, format = 1)
+        }
+        if (Sys.info()["sysname"] == "Darwin") {           
+            j <- pipe("pbcopy", "w")                       
+            writeLines(x, con = j)                               
+            close(j)                                    
+        }             
+    }
+    if (LONG) {
+        if (citation) {
+            bod <- strWrap(paste(text, citeK), copy2clip = FALSE, invisible=TRUE)
+        } else {
+            bod <- strWrap(text, copy2clip = FALSE, invisible=TRUE)    
+        }    
+        body <- paste(paste(" ", bod), collapse="\n")
+        cat(L); cat(body); cat(R); cat("\n")    	
+    } else {
+        cat(x)
+    }
+	invisible(x)
+}
+
+#' @rdname cite 
+#' @export 
 parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- out[[1]]
@@ -256,4 +312,90 @@ posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	invisible(x)
 }
 
-  
+#' @param width The widths of a block quote output (for the markdown family only).
+#' @param force.block logical.  If TRUE forces a block less than 40 words to be 
+#' a block quote.
+#' @rdname cite 
+#' @export
+parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
+	copy2clip = TRUE, citation = TRUE, bib.name = "bib") {
+	out <- CITEhelper(text.loc = text.loc, to = "markdown")
+    text <- out[[1]]
+    if ((wc(text) > 39) | force.block) {
+        LONG <- TRUE
+    } else {
+    	LONG <- FALSE    	
+        L <- R <- "\""
+    }
+	if (is.null(citation)) {
+	    citeK <- NULL
+	} else {
+    	citeK <- paste(" `r  citep(x=", bib.name, "[[\"", out[[3]], "\"]],",      
+            " page=\"", out[[2]], "\")`", sep="")
+	}
+    if (!LONG) {
+        x <- paste(L, text, R, citeK, sep="")	
+    } else {
+     	txt <- strWrap(text, copy2clip = FALSE, width = (width - 2), 
+     	    invisible=TRUE) 
+    	txt[length(txt)] <- paste0(txt[length(txt)], "\n")
+  	    txt <- paste(">", txt)
+        x <- paste(c(txt, citeK), collapse="\n") 
+    }    	
+    if(copy2clip){
+        if (Sys.info()["sysname"] == "Windows") {
+            writeClipboard(x, format = 1)
+        }
+        if (Sys.info()["sysname"] == "Darwin") {           
+            j <- pipe("pbcopy", "w")                       
+            writeLines(x, con = j)                               
+            close(j)                                    
+        }             
+    }
+    cat(x)
+	invisible(x)
+}  
+
+#' @rdname cite 
+#' @export
+textciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
+	copy2clip = TRUE, citation = TRUE, bib.name = "bib") {
+	out <- CITEhelper(text.loc = text.loc, to = "markdown")
+    text <- out[[1]]
+    if ((wc(text) > 39) | force.block) {
+        LONG <- TRUE
+    } else {
+    	LONG <- FALSE    	
+        L <- R <- "\""
+    }
+	if (is.null(citation)) {
+	    citeK <- NULL
+	} else {	
+    	citeK <- paste("`r  citet(x=", bib.name, "[[\"", out[[3]], "\"]],",      
+            ")`", sep="")
+	}
+    PP <- grepl("-", out[[2]])
+    PP <- ifelse(PP, "pp. ", "p. ")	
+	pgs <- paste0("(", PP, out[[2]], ")")
+    if (!LONG) {
+        x <- paste(citeK, " ", L, text, R, sep="")	
+    } else {
+     	txt <- strWrap(text, copy2clip = FALSE, width = (width - 2), 
+     	    invisible=TRUE) 
+    	txt[length(txt)] <- paste0(txt[length(txt)], pgs, "\n")
+  	    txt <- paste(">", txt)
+        x <- paste(c(paste(citeK, "\n"), txt), collapse="\n") 
+    }  			
+    if(copy2clip){
+        if (Sys.info()["sysname"] == "Windows") {
+            writeClipboard(x, format = 1)
+        }
+        if (Sys.info()["sysname"] == "Darwin") {           
+            j <- pipe("pbcopy", "w")                       
+            writeLines(x, con = j)                               
+            close(j)                                    
+        }             
+    }
+    cat(x)
+	invisible(x)
+}

@@ -1,5 +1,6 @@
 \name{tex2docx}
 \alias{md2docx}
+\alias{md2tex}
 \alias{tex2docx}
 \alias{tex2html}
 \title{Convert tex/markdown to docx}
@@ -13,6 +14,10 @@
     bib.loc = getOption("bib.loc"))
 
   md2docx(in.file = NULL, out.file = NULL,
+    path = paste0(getwd(), "/REPORT"),
+    bib.loc = getOption("bib.loc"))
+
+  md2tex(in.file = NULL, out.file = NULL,
     path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc"))
 }
