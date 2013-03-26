@@ -27,7 +27,7 @@ NEW FEATURES
 
 MINOR FEATURES
 
-* `html5` and `reveal.js` out put now has a space between sections (slides)
+* `html5` and `reveal.js` output now has a space between sections (slides)
 
 * When initializing a prsentation .Rmd the date is dynamically set to use the 
   date of the `knit2html` call which of course can be set to be static (Yihui Xie).
@@ -37,6 +37,8 @@ MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 
   notes located in the ARTICLES directory.
+
+* A new template `wordpress_web` has been added.
 
 IMPROVEMENTS
 

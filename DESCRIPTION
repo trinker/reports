@@ -28,7 +28,8 @@ Depends:
 Imports:
     slidify,
     knitr,
-    knitcitations
+    knitcitations,
+    markdown
 Suggests:
     ascii,
     brew,

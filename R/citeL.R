@@ -327,7 +327,7 @@ parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE,
     	LONG <- FALSE    	
         L <- R <- "\""
     }
-	if (is.null(citation)) {
+	if (!citation) {
 	    citeK <- NULL
 	} else {
     	citeK <- paste(" `r  citep(x=", bib.name, "[[\"", out[[3]], "\"]],",      
@@ -368,23 +368,25 @@ textciteM <- function(text.loc = NULL, width = 70, force.block = TRUE,
     	LONG <- FALSE    	
         L <- R <- "\""
     }
-	if (is.null(citation)) {
-	    citeK <- NULL
+	if (!citation) {
+	    citeK <- gap <- jump <- NULL
 	} else {	
     	citeK <- paste("`r  citet(x=", bib.name, "[[\"", out[[3]], "\"]],",      
             ")`", sep="")
+    	gap <- " "
+    	jump <- "\n"
 	}
     PP <- grepl("-", out[[2]])
     PP <- ifelse(PP, "pp. ", "p. ")	
-	pgs <- paste0("(", PP, out[[2]], ")")
+	pgs <- paste0(" (", PP, out[[2]], ")")
     if (!LONG) {
-        x <- paste(citeK, " ", L, text, R, sep="")	
+        x <- paste(citeK, gap, L, text, R, sep="")	
     } else {
      	txt <- strWrap(text, copy2clip = FALSE, width = (width - 2), 
      	    invisible=TRUE) 
     	txt[length(txt)] <- paste0(txt[length(txt)], pgs, "\n")
   	    txt <- paste(">", txt)
-        x <- paste(c(paste(citeK, "\n"), txt), collapse="\n") 
+        x <- paste(c(paste(citeK, jump), txt), collapse="\n") 
     }  			
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
