@@ -25,6 +25,8 @@ NEW FEATURES
 
 * `tex2html` has been added for a conveinent way to convert a .tex file to .html.
 
+* `rdirs` reclusively creates multiple directories.
+
 MINOR FEATURES
 
 * `html5` and `reveal.js` output now has a space between sections (slides)
