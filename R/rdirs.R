@@ -33,7 +33,7 @@ rdirs <- function(..., path = getwd(), sep = "_", pad.num = TRUE,
     text.only = FALSE) {
     pieces <- as.character(match.call(expand.dots = FALSE)[[2]])
     plist <- lapply(pieces, "[")
-    nums <- grepl("[0-9][:]|[c(]", pieces)
+    nums <- grepl("[0-9][:]|[c][\\(]|[qcv][\\(]", pieces)
     plist[nums] <- invisible(lapply(pieces[nums], function(x) {
         x <- eval(parse(text=x))
         if (pad.num) {
