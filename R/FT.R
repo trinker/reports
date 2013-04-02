@@ -73,7 +73,7 @@ FT <- function(..., text = "clipboard", copy2clip = TRUE) {
     }
     if (is.null(params)) stop("supply a valid face, color or size to ldots")
     params <- paste(params, collapse=" ")    
-    x <- paste("\"<font",  paste0(paste0(params, ">"), 
+    x <- paste("<font",  paste0(paste0(params, ">"), 
         paste0(text, "</font>")), collapse="")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
