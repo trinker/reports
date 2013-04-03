@@ -1,6 +1,6 @@
 \name{notes}
 \alias{notes}
-\title{View a Notes}
+\title{View Notes}
 \usage{
   notes(col.width = 70, notes.col = TRUE)
 }
@@ -15,7 +15,7 @@
   Returns a truncated view of user notes.
 }
 \description{
-  Allos a truncated view of your notes
+  Allows a truncated view of your notes
   (main_dir/ARTICLES/notes).
 }
 \examples{

@@ -17,6 +17,12 @@ NEW FEATURES
 * `FT` a new function that detects face, color and size and generates a font tag 
   for supplied text.
 
+* `YT` a new function that wraps a YouTube tag or url to generate an HTML iframe 
+  tag.
+
+* `IM` a new function that wraps an image path or url to generate a flexible 
+  HTML tag.
+
 * The cite family of functions has been introduced.  These functions provide 
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 
   `?citeL` for more details.
