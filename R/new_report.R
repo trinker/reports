@@ -219,7 +219,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
                     collapse="\n")
                 temp[grepl("BIB <- system.file", temp)] <- new.bib
             }
-            temp <- gsub("Date", paste("Date:", Sys.Date()), temp)
+            gsub("Date(?![()])", paste("Date:", Sys.Date()), x, perl=TRUE)
             if (!is.null(name)) {
                 temp <- gsub("Name", name, temp)
             }
