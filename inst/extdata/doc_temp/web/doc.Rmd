@@ -5,7 +5,7 @@
 # set global chunk options
 opts_chunk$set(cache=TRUE)
 library(knitr); library(knitcitations)
-#bib <- read.bibtex(file.path(getwd(), "Report", basename(getOption("bib.loc"))))
+#bib <- read.bibtex(file.path(getwd(), "REPORT", basename(getOption("bib.loc"))))
 #cite in text using `r citet(bib[1])`
 ```
 ------
