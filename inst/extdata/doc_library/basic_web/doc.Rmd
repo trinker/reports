@@ -1,6 +1,6 @@
-## Title
-## <font size="20" >Name</font>
-## `r as.character(format(Sys.Date(), format="%B %d, %Y"))`
+# Title
+## Name
+### `r as.character(format(Sys.Date(), format="%B %d, %Y"))`
 ```{r setup, include=FALSE}
 # set global chunk options
 opts_chunk$set(cache=TRUE)
