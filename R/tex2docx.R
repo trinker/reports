@@ -1,4 +1,4 @@
-#' Convert tex/markdown to docx 
+#' Convert tex/markdown to docx/tex/html
 #' 
 #' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert tex/markdown
 #' to docx for those colleagues who use docx. 

@@ -3,7 +3,7 @@
 \alias{md2tex}
 \alias{tex2docx}
 \alias{tex2html}
-\title{Convert tex/markdown to docx}
+\title{Convert tex/markdown to docx/tex/html}
 \usage{
   tex2docx(in.file = NULL, out.file = NULL,
     path = paste0(getwd(), "/REPORT"),

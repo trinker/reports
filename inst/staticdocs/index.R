@@ -55,7 +55,7 @@ list(
         "tex2html"
       )
     ),
-    sd_section("USer Defined Templates", 
+    sd_section("User Defined Templates", 
       "Function to create user defined template",
       c(
         "doc_temp"
