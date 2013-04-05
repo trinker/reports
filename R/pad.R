@@ -16,10 +16,11 @@
 #' @export
 #' @seealso \code{\link[base]{sprintf}}
 #' @examples
-#' pad(sample(1:10, 6))
-#' pad(sample(1:10, 6), sort=FALSE)
-#' pad(as.character(sample(1:10, 6)))
-#' pad(as.character(sample(1:10, 6)), 4)
+#' pad(sample(1:10, 10))
+#' pad(sample(1:10, 10), sort=FALSE)
+#' pad(as.character(sample(1:10, 10)))
+#' pad(as.character(sample(1:10, 10)), sort=FALSE)
+#' pad(as.character(sample(1:10, 10)), 4)
 pad <- function(x, padding=max(nchar(as.character(x))), sort = TRUE, type="detect") {
     poss <- c("detect", "numeric", "character", "d", "s")
     if (!type %in% poss) stop("type must be: \"detect\", \"numeric\"\\\"d\" or \"character\"\\\"s\"")

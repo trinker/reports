@@ -32,10 +32,11 @@
   will maintain correct order.
 }
 \examples{
-pad(sample(1:10, 6))
-pad(sample(1:10, 6), sort=FALSE)
-pad(as.character(sample(1:10, 6)))
-pad(as.character(sample(1:10, 6)), 4)
+pad(sample(1:10, 10))
+pad(sample(1:10, 10), sort=FALSE)
+pad(as.character(sample(1:10, 10)))
+pad(as.character(sample(1:10, 10)), sort=FALSE)
+pad(as.character(sample(1:10, 10)), 4)
 }
 \seealso{
   \code{\link[base]{sprintf}}
