@@ -45,8 +45,7 @@ x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 ## delete(fx)
 }
 \seealso{
-  \code{\link[reports]{folder}},
-  \code{\link[base]{delete}},
+  \code{\link[reports]{folder}}, \code{delete},
   \code{\link[base]{dir.create}}
 }
 \keyword{directory,}

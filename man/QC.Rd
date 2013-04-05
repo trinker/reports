@@ -9,8 +9,8 @@
   \item{to}{Pandoc type you're converting to (defualt is
   \code{"latex"}).}
 
-  \item{to}{Pandoc type you're converting from (defualt is
-  \code{"markdown"}).}
+  \item{from}{Pandoc type you're converting from (defualt
+  is \code{"markdown"}).}
 
   \item{text}{character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}

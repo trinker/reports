@@ -3,7 +3,7 @@
 #' Uses Pandoc to convert from one form to another. 
 #' 
 #' @param to Pandoc type you're converting to (defualt is \code{"latex"}).
-#' @param to Pandoc type you're converting from (defualt is \code{"markdown"}).
+#' @param from Pandoc type you're converting from (defualt is \code{"markdown"}).
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 

@@ -315,6 +315,7 @@ posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @param width The widths of a block quote output (for the markdown family only).
 #' @param force.block logical.  If TRUE forces a block less than 40 words to be 
 #' a block quote.
+#' @param bib.name Optional path to a .bib resource.
 #' @rdname cite 
 #' @export
 parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 

@@ -16,7 +16,7 @@
 #' @return Generates recursive sub directories.  Invisibly returns the names of
 #' the sub-directories.
 #' @seealso  \code{\link[reports]{folder}}, 
-#' \code{\link[base]{delete}}, 
+#' \code{delete}, 
 #' \code{\link[base]{dir.create}}
 #' @keywords file, directory, folder
 #' @export

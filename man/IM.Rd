@@ -13,7 +13,7 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{console}{logical.  If TRUE prints the output to the
+  \item{print}{logical.  If TRUE prints the output to the
   console.}
 }
 \value{

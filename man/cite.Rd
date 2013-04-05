@@ -49,6 +49,8 @@
 
   \item{force.block}{logical.  If TRUE forces a block less
   than 40 words to be a block quote.}
+
+  \item{bib.name}{Optional path to a .bib resource.}
 }
 \value{
   Returns a character vector with LaTeX/markdown formatted

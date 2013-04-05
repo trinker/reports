@@ -6,7 +6,7 @@ list(
       c(
         "new_report",
         "presentation",
-        "template"
+        "templates"
       )
     ),
     sd_section("Text Formatting",

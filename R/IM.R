@@ -10,7 +10,7 @@
 #' slashes in local paths.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param console logical.  If TRUE prints the output to the console.
+#' @param print logical.  If TRUE prints the output to the console.
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
 #' @examples
