@@ -2,7 +2,7 @@ library(staticdocs)
 list(
   index = list(
     sd_section("Template",
-      "Functions to generate a report templates.",  
+      "Functions to generate report/presentation templates.",  
       c(
         "new_report",
         "presentation",
