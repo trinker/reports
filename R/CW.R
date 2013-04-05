@@ -10,9 +10,7 @@
 #' the clipboard.
 #' @export
 #' @examples
-#' \dontrun{
 #' CW("I like icecream")
-#' }
 CW <- 
 function(text = "clipboard") {
     if (Sys.info()["sysname"] != "Windows") {
