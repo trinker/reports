@@ -47,7 +47,7 @@ list(
       )
     ),
     sd_section("Document Conversion",
-      "Functions to reshape data.",
+      "Functions to convert documents.",
       c(
         "md2docx",
         "md2tex",
