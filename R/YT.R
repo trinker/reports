@@ -10,8 +10,8 @@
 #' video.
 #' @export
 #' @examples
-#' YT("kws1PX1Dw9w")
-#' YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
+#' ## YT("kws1PX1Dw9w")
+#' ## YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
 YT <- function(text = "clipboard", copy2clip = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL

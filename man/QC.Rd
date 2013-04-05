@@ -34,8 +34,8 @@
 }
 \examples{
 x <- "\\\\*note: I *like* chocolate **milk** too ***much***!"
-QC(x)
-QC(x, "html")
+QC(text=x)
+QC(text=x, "html")
 }
 \author{
   Michael Nelson and Tyler Rinker<tyler.rinker@gmail.com>.

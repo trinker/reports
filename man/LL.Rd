@@ -32,13 +32,11 @@
   "ff", "fi", "fl", "ffi" and "ffl".
 }
 \examples{
-\dontrun{
-x <- readLines(n = 3)
-one, two buckle my shoe
-three, four close the door
-five, six pick up sticks
+x <- c(
+"one, two buckle my shoe",
+"three, four close the door",
+"five, six pick up sticks")
 LL(, x)
 LL(FALSE, x)
-}
 }
 

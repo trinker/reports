@@ -19,8 +19,8 @@
 #' @export
 #' @examples
 #' FT(6, text="guy")
-#' FT(6, black, text="guy")
-#' FT(6, black, times_new_roman, text="guy")
+#' FT(6, blue, text="guy")
+#' FT(6, red, times_new_roman, text="guy")
 FT <- function(..., text = "clipboard", copy2clip = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL

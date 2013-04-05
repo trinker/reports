@@ -19,7 +19,7 @@
   Wrap a YouTube tag or url to generate an HTML iframe tag.
 }
 \examples{
-YT("kws1PX1Dw9w")
-YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
+## YT("kws1PX1Dw9w")
+## YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
 }
 

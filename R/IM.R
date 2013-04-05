@@ -49,6 +49,9 @@ IM <- function(text = "clipboard", copy2clip = TRUE, print = TRUE) {
     }
     if (print) {
         cat(x)
+        invisible(x)
+    } else {
+        x	
     }
-    x
+    
 } 

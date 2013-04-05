@@ -20,8 +20,8 @@
 #' @export
 #' @examples
 #' x <- "\\*note: I *like* chocolate **milk** too ***much***!"
-#' QC(x)
-#' QC(x, "html")
+#' QC(text=x)
+#' QC(text=x, "html")
 QC <- function(to = "latex", from = "markdown", text = "clipboard", 
     copy2clip = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {

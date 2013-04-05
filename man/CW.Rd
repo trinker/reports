@@ -19,8 +19,6 @@
   clipboard.
 }
 \examples{
-\dontrun{
 CW("I like icecream")
-}
 }
 
