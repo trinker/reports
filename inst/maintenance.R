@@ -51,5 +51,69 @@ examples(path = "C:/Users/trinker/GitHub/reports/R/")
 #Install Needed Packages
 #==========================
 library(pacman)
-p_load(pander, qdap, installr, ProjectTemplate)
+p_load(pander, qdap, installr, ProjectTemplate, slidify)
 
+#========================
+#staticdocs dev version
+#========================
+#packages
+library(highlight); library(staticdocs)
+
+#STEP 1: create static doc  
+build_package(package="C:/Users/trinker/GitHub/reports", 
+    base_path="C:/Users/trinker/Desktop/reports_dev/", examples = TRUE)
+
+library(reports); library(qdap); library(acc.roxygen2)
+#STEP 2: reshape index
+path <- "C:/Users/trinker/Desktop/reports_dev"
+path2 <- paste0(path, "/index.html")
+rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
+extras <- qcv(folder, QQ)
+expand_statdoc(path2, to.icon = extras, readme = rdme)
+
+#STEP 3: move to trinker.guthub
+library(reports)
+file <- "C:/Users/trinker/GitHub/trinker.github.com/"
+delete(paste0(file, "reports_dev"))
+file.copy(path, file, TRUE, TRUE)
+delete(path)
+#==========================
+#staticdocs current version
+#==========================
+#packages
+library(highlight); library(staticdocs)
+
+#STEP 1: create static doc  
+#right now examples are FALSE in the future this will be true
+#in the future qdap2 will be the go to source
+#NOTE:  If this occurrs:
+## Loading reports
+## Error in importIntoEnv(pkgenv, exports, nsenv, exports) : 
+##   cannot change value of locked binding for 'CA'
+#
+# RESTART AND DON"T LOAD QDAP
+build_package(package="C:/Users/trinker/GitHub/reports", 
+    base_path="C:/Users/trinker/Desktop/reports/", examples = TRUE)
+
+library(reports); library(qdap); library(acc.roxygen2)
+#STEP 2: reshape index
+path <- "C:/Users/trinker/Desktop/reports"
+path2 <- paste0(path, "/index.html")
+rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
+extras <- qcv(folder, QQ)
+expand_statdoc(path2, to.icon = extras, readme = rdme)
+
+#STEP 3: move to trinker.guthub
+library(reports)
+file <- "C:/Users/trinker/GitHub/trinker.github.com/"
+delete(paste0(file, "reports"))
+file.copy(path, file, TRUE, TRUE)
+delete(path)
+
+#==========================
+#move project directions
+#==========================
+outpdf <- paste0(getwd(), "/inst/extdata/docs/")
+inpdf <- paste0(getwd(), "/inst/pdf_gen/PROJECT_WORKFLOW_GUIDE.pdf")
+file.copy(inpdf, outpdf,, TRUE)
+file.copy(inpdf, "C:/Users/trinker/Dropbox/Public/packages",, TRUE)
