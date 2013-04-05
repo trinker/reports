@@ -5,13 +5,13 @@
   FT(..., text = "clipboard", copy2clip = TRUE)
 }
 \arguments{
-  \item{\\ldots}{1 to 3 arguments of c(`face`, `size`
-  and/or `color`).  face accepts one of the following
-  c("arial", "arial_black", "comic_sans_ms", "courier",
-  "courier_new", "georgia", "helvetica", "impact",
-  "palatino", "times_new_roman", "trebuchet_ms",
-  "verdanaBrowse").  size is any valid whole number.  color
-  can be any R color or hex value.}
+  \item{\ldots}{1 to 3 arguments of c(`face`, `size` and/or
+  `color`).  face accepts one of the following c("arial",
+  "arial_black", "comic_sans_ms", "courier", "courier_new",
+  "georgia", "helvetica", "impact", "palatino",
+  "times_new_roman", "trebuchet_ms", "verdanaBrowse").
+  size is any valid whole number.  color can be any R color
+  or hex value.}
 
   \item{text}{character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}

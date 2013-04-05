@@ -3,7 +3,7 @@
 #' Wraps text with a font tags. Conveniently detects c(`face`, `size` and/or 
 #' `color`) and creates a font tag with the supplied text.
 #'
-#' @param \\ldots 1 to 3 arguments of c(`face`, `size` and/or `color`).  face 
+#' @param \ldots 1 to 3 arguments of c(`face`, `size` and/or `color`).  face 
 #' accepts one of the following c("arial", "arial_black", "comic_sans_ms", 
 #' "courier", "courier_new", "georgia", "helvetica", "impact", "palatino", 
 #' "times_new_roman", "trebuchet_ms", "verdanaBrowse").  size is any valid whole 
