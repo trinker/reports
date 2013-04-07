@@ -372,7 +372,7 @@ textciteM <- function(text.loc = NULL, width = 70, force.block = TRUE,
 	if (!citation) {
 	    citeK <- gap <- jump <- NULL
 	} else {	
-    	citeK <- paste("`r  citet(x=", bib.name, "[[\"", out[[3]], "\"]],",      
+    	citeK <- paste("`r  citet(x=", bib.name, "[[\"", out[[3]], "\"]]",      
             ")`", sep="")
     	gap <- " "
     	jump <- "\n"
