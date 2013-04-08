@@ -33,7 +33,7 @@
 citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "&euml;", "&aacute;"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "\\&euml;", "\\&aacute;"), 
     	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
@@ -91,7 +91,7 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "&euml;", "&aacute;"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "\\&euml;", "\\&aacute;"), 
     	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
@@ -149,7 +149,7 @@ parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "&euml;", "&aacute;"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "\\&euml;", "\\&aacute;"), 
     	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
@@ -210,7 +210,7 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "&euml;", "&aacute;"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "\\&euml;", "\\&aacute;"), 
     	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
@@ -271,7 +271,7 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "&euml;", "&aacute;"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "\\&euml;", "\\&aacute;"), 
     	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
