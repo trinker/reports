@@ -1,4 +1,6 @@
-read.notes <- function(file = NULL, rm.nonquote = TRUE, trunc = 50) {
+read.notes <-
+function(file = NULL, rm.nonquote = TRUE, trunc = 50, 
+    notes.col = TRUE) {
 	if (is.null(file)) {
 	    loc <- file.path(getwd(), "ARTICLES")
 	    locfls <- dir(loc)
@@ -29,10 +31,19 @@ read.notes <- function(file = NULL, rm.nonquote = TRUE, trunc = 50) {
 	}
 	x$bibkey <- mgsub(c("\\{", "}"), "", x$bibkey)
 	x[, 1:ncol(x)] <- lapply(1:ncol(x), function(i) as.character(x[, i]))
-	if (trunc > 0) {
-	    print(truncdf(x, trunc))
-	    return(invisible(x))
+	if (!notes.col) {
+     	if (trunc > 0) {
+	        print(truncdf(x, trunc)[-4])
+	        return(invisible(x))
+	    } else {
+	        x
+	    }	
 	} else {
-	    x
+	    if (trunc > 0) {
+	        print(truncdf(x, trunc)[-4])
+	        return(invisible(x))
+	    } else {
+	        x
+	    }
 	}
 }

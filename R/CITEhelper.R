@@ -1,7 +1,7 @@
 CITEhelper <- function(text.loc = NULL, from = "markdown", to = "latex",
     copy2clip = TRUE, citation = TRUE){
     if (is.null(text.loc)) {
-        nts <- notes(notes.col = FALSE)[, -4]
+        nts <- notes(notes.col = FALSE)
         cat("\n\n\bPlease select a row number from the entries above:\n\n")
         text.loc <- as.numeric(readLines(n=1))
     } else {
