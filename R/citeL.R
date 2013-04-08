@@ -33,8 +33,9 @@
 citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;"), 
-    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
+    	    "\\&eacute;"), 
+    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a", "\\'e"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
@@ -91,8 +92,9 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;"), 
-    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
+    	    "\\&eacute;"), 
+    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a", "\\'e"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
@@ -149,8 +151,9 @@ parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;"), 
-    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
+    	    "\\&eacute;"), 
+    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a", "\\'e"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
@@ -210,8 +213,9 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;"), 
-    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
+    	    "\\&eacute;"), 
+    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a", "\\'e"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
@@ -271,8 +275,9 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
-    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;"), 
-    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a"), 
+    	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
+    	    "\\&eacute;"), 
+    	c("\\textemdash ", "\\textendash ", "\\\"e", "\\'a", "\\'e"), 
         out[[1]], fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
