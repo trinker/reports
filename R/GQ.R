@@ -57,9 +57,9 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<eb>")
+    	"<c2><bd>", "<eb>", "<e1>")
     reps <- c("`", "'", "", "``", "''", "\\ldots", "", "", "'", "'", "'", "'", "\\ldots", 
-        "\\textendash ", "\\textemdash ", "a", "e", "half", "\\\"a")
+        "\\textendash ", "\\textemdash ", "a", "e", "half", "\\\"e", "\\'a")
     Encoding(text) <-"latin1"
     text <- clean(mgsub(ser, reps, text))
     quotes <- as.character(substitute(quotes))
@@ -152,9 +152,9 @@ function(text = "clipboard", copy2clip = TRUE){
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>")
+    	"<c2><bd>", "<97>", "<eb>", "<e1>")
     reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
-        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;")
+        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;")
     Encoding(text) <-"latin1"
     x <- clean(mgsub(ser, reps, text))
     if(copy2clip){
