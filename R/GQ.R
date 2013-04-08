@@ -59,7 +59,7 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
     	"<c2><bd>", "<eb>")
     reps <- c("`", "'", "", "``", "''", "\\ldots", "", "", "'", "'", "'", "'", "\\ldots", 
-        "\\textendash", "\\textemdash", "a", "e", "half", "\\\"a")
+        "\\textendash ", "\\textemdash ", "a", "e", "half", "\\\"a")
     Encoding(text) <-"latin1"
     text <- clean(mgsub(ser, reps, text))
     quotes <- as.character(substitute(quotes))
