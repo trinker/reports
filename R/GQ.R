@@ -154,7 +154,7 @@ function(text = "clipboard", copy2clip = TRUE){
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
     	"<c2><bd>", "<97>")
     reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
-        "&#8211;", "&#8212;", "a", "e", "half", "&#8212;")
+        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;")
     Encoding(text) <-"latin1"
     x <- clean(mgsub(ser, reps, text))
     if(copy2clip){
