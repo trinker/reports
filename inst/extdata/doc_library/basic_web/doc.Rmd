@@ -6,8 +6,7 @@
 opts_chunk$set(cache=TRUE)
 library(knitr); library(knitcitations)
 fls <- dir(getwd())
-BIB <- file.path(getwd(), fls[tools::file_ext(fls) == "bib"])
-bib <- read.bibtex(BIB)
+bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 #
 #Reading in your own bib file:
 #bib <- read.bibtex(getOption("bib.loc"))
