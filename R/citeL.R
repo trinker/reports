@@ -32,7 +32,8 @@
 #' @export
 citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
-    text <- out[[1]]
+    text <- mgsub(c("\\&\\#8212;", "\\&\\#8211;"), c("$-$"), out[[1]], 
+        fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
         L <- "\\begin{quote}\n"
@@ -87,7 +88,8 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @export 
 parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
-    text <- out[[1]]
+    text <- mgsub(c("\\&\\#8212;", "\\&\\#8211;"), c("$-$"), out[[1]], 
+        fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
         L <- "\\begin{quote}\n"
@@ -142,7 +144,8 @@ parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @export 
 textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
-    text <- out[[1]]
+    text <- mgsub(c("\\&\\#8212;", "\\&\\#8211;"), c("$-$"), out[[1]], 
+        fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
         L <- "\\begin{quote}\n"
@@ -200,7 +203,8 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @export 
 possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
-    text <- out[[1]]
+    text <- mgsub(c("\\&\\#8212;", "\\&\\#8211;"), c("$-$"), out[[1]], 
+        fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
         L <- "\\begin{quote}\n"
@@ -258,7 +262,8 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @export 
 posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
-    text <- out[[1]]
+    text <- mgsub(c("\\&\\#8212;", "\\&\\#8211;"), c("$-$"), out[[1]], 
+        fixed=TRUE)
     if (wc(text) > 39) {
         LONG <- TRUE
         L <- "\\begin{quote}\n"
