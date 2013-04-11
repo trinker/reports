@@ -14,17 +14,20 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
             x <- read.xls(file,  header = TRUE, 
                 sep = ",", as.is=FALSE, na.strings= c(NA, ""), 
                 strip.white = TRUE, stringsAsFactors = FALSE, 
-                blank.lines.skip = TRUE)
+                blank.lines.skip = TRUE)[, 1:5]
             },
         csv = {
             x <- read.csv(file,  header = TRUE, 
                 sep = ",", as.is=FALSE, na.strings= c(NA, ""), 
                 strip.white = TRUE, stringsAsFactors = FALSE, 
-                blank.lines.skip = TRUE)
+                blank.lines.skip = TRUE)[, 1:5]
             },
         stop("invalid file extension:\n \bfile must be a .csv .xls or .xlsx" )
     )  
-	x[, 3] <- gsub("\\\\", "\"", x[, 3])
+	nis.na <- Negate(is.na)
+	browser()
+	x <- x[rowSums(t(apply(x, 1, nis.na))) != 0, ]	
+	x[, 3] <- remove2backslahes(x[, 3])  #remove backslashes for quotes only
     colnames(x) <- c("bibkey", "page", "quote", "Q", "notes")
 	if (rm.nonquote) {
 	    x <- x[tolower(as.character(x$Q)) %in% c("yes", "y", "t", "true", "quote"), -4]
@@ -46,4 +49,26 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
 	        x
 	    }
 	}
+}
+
+remove2backslahes <- function(x){
+    ## Compliments of mathematical.coffee
+    ## browsURL("http://stackoverflow.com/a/15939139/1000343")
+    ## split into parts separated by '$'.
+    ## Add a space at the end of every string to deal with '$'
+    ##   at the end of the string (as
+    ##      strsplit('a$', '$', fixed=T)
+    ##   is just 'a' in R)
+    bits <- strsplit(paste(x, ""), "$", fixed=T)
+
+    ## apply the regex to every second part (starting with the first)
+    ## and always to the last bit (because of the ' ' we added)
+    sapply(bits, function (x) {
+        idx <- unique(c(seq(1, length(x), by=2), length(x)))
+        x[idx] <- gsub("\\", "\"", x[idx], fixed=T)
+        # join back together
+        x <- paste(x, collapse="$")
+        # remove that last " " we added
+        substring(x, 1, nchar(x) - 1)
+    }, USE.NAMES=FALSE)
 }
