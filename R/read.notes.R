@@ -25,8 +25,7 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
         stop("invalid file extension:\n \bfile must be a .csv .xls or .xlsx" )
     )  
 	nis.na <- Negate(is.na)
-	browser()
-	x <- x[rowSums(t(apply(x, 1, nis.na))) != 0, ]	
+	x <- x[rowSums(t(apply(x, 1, nis.na))) != 0, ]	#remove empty rows
 	x[, 3] <- remove2backslahes(x[, 3])  #remove backslashes for quotes only
     colnames(x) <- c("bibkey", "page", "quote", "Q", "notes")
 	if (rm.nonquote) {
