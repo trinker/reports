@@ -73,9 +73,14 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     y <- invisible(folder(REPORT, ARTICLES, OUTLINE, PRESENTATION))
     AN <- system.file("extdata/docs", package = "reports")
     if (AN.xlsx) {
-        invisible(file.copy(file.path(AN, "notes.xlsx"), y[[2]])) 
+        invisible(file.copy(file.path(AN, "notes.xlsx"), y[[2]]))   
+    invisible(file.rename(file.path(y[[2]], "notes.xlsx"), 
+        file.path(y[[2]], paste0("notes_", report, ".xlsx"))))          
     } else {
         invisible(file.copy(file.path(AN, "notes.csv"), y[[2]])) 
+    invisible(file.rename(file.path(y[[2]], "notes.csv"), 
+        file.path(y[[2]], paste0("notes_", report, ".csv")))) 
+
     }
     cat("http://", file = file.path(y[[2]], "websites.txt"))
     cat(file = file.path(x, "TO_DO.txt"))

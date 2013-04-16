@@ -1,6 +1,6 @@
 read.notes <-
 function(file = NULL, rm.nonquote = TRUE, trunc = 50, 
-    notes.col = TRUE) {
+    notes.col = TRUE, print = TRUE) {
 	if (is.null(file)) {
 	    loc <- file.path(getwd(), "ARTICLES")
 	    locfls <- dir(loc)
@@ -11,10 +11,7 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
     ext <- tools::file_ext(file)
     switch(ext, 
         xlsx = {
-            x <- read.xls(file,  header = TRUE, 
-                sep = ",", as.is=FALSE, na.strings= c(NA, ""), 
-                strip.white = TRUE, stringsAsFactors = FALSE, 
-                blank.lines.skip = TRUE)[, 1:5]
+        	x <- read.xlsx(file, 1)[, 1:5]
             },
         csv = {
             x <- read.csv(file,  header = TRUE, 
@@ -33,21 +30,39 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
 	}
 	x$bibkey <- mgsub(c("\\{", "}"), "", x$bibkey)
 	x[, 1:ncol(x)] <- lapply(1:ncol(x), function(i) as.character(x[, i]))
-	if (!notes.col) {
-     	if (trunc > 0) {
-	        print(truncdf(x, trunc)[-4])
-	        return(invisible(x))
+	if (!print) {
+    	if (!notes.col) {
+     	    if (trunc > 0) {
+	            truncdf(x, trunc)[-5]
+	            return(invisible(x))
+	        } else {
+	            x
+	        }	
 	    } else {
-	        x
-	    }	
-	} else {
-	    if (trunc > 0) {
-	        print(truncdf(x, trunc)[-4])
-	        return(invisible(x))
-	    } else {
-	        x
+	        if (trunc > 0) {
+	            truncdf(x, trunc)
+	            return(invisible(x))
+	        } else {
+	            x
+	        }
 	    }
-	}
+	} else {
+    	if (!notes.col) {
+     	    if (trunc > 0) {
+	            print(truncdf(x, trunc)[-5])
+	            return(invisible(x))
+	        } else {
+	            x
+	        }	
+	    } else {
+	        if (trunc > 0) {
+	            print(truncdf(x, trunc))
+	            return(invisible(x))
+	        } else {
+	            x
+	        }
+	    }
+    }
 }
 
 remove2backslahes <- function(x){

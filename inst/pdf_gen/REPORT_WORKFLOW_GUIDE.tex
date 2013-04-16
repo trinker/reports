@@ -11,7 +11,6 @@
 }
 \makeatother
 
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
@@ -63,6 +62,7 @@
 \usepackage{hyperref}
 \usepackage{times}
 \usepackage{textcomp}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 
 \begin{document}
 
@@ -78,7 +78,7 @@ The project template includes these main directories and scripts:
   \item \textbf{ARTICLES} - A directory to store related articles:
   \begin{enumerate}
     \item \textbf{website.txt} a txt file to store websites related to the project
-    \item \textbf{notes.xlsx/notes.csv} a speadsheet to store notes on the articles; the two letter functions of the reports package are useful at this point in the process
+    \item \textbf{notes\_xxx.xlsx/notes\_xxx.csv} a speadsheet to store notes on the articles; the \textbf{QQ} function is useful to import PDF text; the \href{http://trinker.github.io/reports/cite.html}{cite family} of functions are useful for formatting quoted text from the notes\_xxx document (where xxx is the report name)
   \end{enumerate}
   \item \textbf{OUTLINE} - A directory containing the following .tex files:
   \begin{enumerate}
@@ -118,6 +118,7 @@ The project template includes these main directories and scripts:
 \textbf{knitr} - \href{http://yihui.name/knitr/}{http://yihui.name/knitr/}\\
 \textbf{Beamer} - \url{http://www.math.umbc.edu/~rouben/beamer/}\\
 \textbf{Beamer Themes} - \url{http://deic.uab.es/~iblanes/beamer_gallery/}\\
+\textbf{slidify} - \url{http://ramnathv.github.io/slidify/}\\    
 \textbf{dzslides} - \url{http://paulrouget.com/dzslides/}\\
 \textbf{reveal.js} - \url{http://lab.hakim.se/reveal-js/#/}\\
 \end{document}

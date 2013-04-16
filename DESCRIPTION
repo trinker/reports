@@ -24,7 +24,7 @@ BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 Depends:
     R (>= 2.15),
-    gdata
+    xlsx
 Imports:
     slidify,
     knitr,
