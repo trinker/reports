@@ -1,19 +1,19 @@
 CITEhelper <- function(text.loc = NULL, from = "markdown", to = "latex",
     copy2clip = TRUE, citation = TRUE){
     if (is.null(text.loc)) {
-        nts <- notes2(notes.col = FALSE)
+        nts <- notes2()[, -4]
         cat("\n\n\bPlease select a row number from the entries above:\n\n")
         text.loc <- as.numeric(readLines(n=1))
     } else {
     	if (is.character(text.loc)) {
-    	    nts <- notes(col.width=FALSE)
+    	    nts <- notes2()
     	    nts <- nts[grepl(text.loc, nts[, "bibkey"], ignore.case=TRUE), ]
     	    print(truncdf(nts, end = 70))
             cat("\n\n\bPlease select a row number from the entries above:\n\n")
             text.loc <- as.numeric(readLines(n=1))
 	
         } else {
-            nts <- notes(col.width=FALSE)
+            nts <- notes2()
         }
     }
     if(text.loc > nrow(nts)) stop("text.loc exceeds number of note entries")

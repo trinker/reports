@@ -2,7 +2,7 @@
 \alias{notes}
 \title{View Notes}
 \usage{
-  notes(col.width = 70, notes.col = TRUE)
+  notes(col.width = 70, notes.col = FALSE)
 }
 \arguments{
   \item{col.width}{An integer value of the maximum width of

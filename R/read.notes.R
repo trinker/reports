@@ -33,10 +33,10 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
 	if (!print) {
     	if (!notes.col) {
      	    if (trunc > 0) {
-	            truncdf(x, trunc)[-5]
-	            return(invisible(x))
+	            truncdf(x, trunc)[, 1:3]
+	            return(invisible(x[, 1:3]))
 	        } else {
-	            x
+	            x[, 1:3]
 	        }	
 	    } else {
 	        if (trunc > 0) {
@@ -49,10 +49,10 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
 	} else {
     	if (!notes.col) {
      	    if (trunc > 0) {
-	            print(truncdf(x, trunc)[-5])
-	            return(invisible(x))
+	            print(truncdf(x, trunc)[, 1:3])
+	            return(invisible(x[, 1:3]))
 	        } else {
-	            x
+	            x[, 1:3]
 	        }	
 	    } else {
 	        if (trunc > 0) {
