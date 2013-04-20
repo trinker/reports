@@ -37,7 +37,7 @@ NEW FEATURES
 * `rdirs` reclusively creates multiple directories.
 
 * The sync family of functions has been introduced.  These functions provide 
-  quick between directories.  See `?sync` for more details.
+  quick syncing between directories.  See `?sync` for more details.
 
 MINOR FEATURES
 
