@@ -9,8 +9,8 @@
 #' will be copied to other (dir1 and dir2 will contain identical contents).
 #' @param recursive logical. Should directories and contents be recursively 
 #' copied?
-#' @param \ldots For \code{sync} \ldots  are other arguments passed to 
-#' \code{\link[base]{file.copy}}.  For \code{sync_img} and \code{sync_rnp} 
+#' @param \ldots For the \code{sync} function \ldots  are other arguments passed 
+#' to \code{\link[base]{file.copy}}.  For \code{sync_img} and \code{sync_rnp} 
 #' \ldots  are additional arguments passed to \code{sync}.  
 #' @rdname sync
 #' @return Syncs files between directories.

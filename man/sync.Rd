@@ -27,10 +27,10 @@
   \item{recursive}{logical. Should directories and contents
   be recursively copied?}
 
-  \item{\ldots}{For \code{sync} \ldots are other arguments
-  passed to \code{\link[base]{file.copy}}.  For
-  \code{sync_img} and \code{sync_rnp} \ldots are additional
-  arguments passed to \code{sync}.}
+  \item{\ldots}{For the \code{sync} function \ldots are
+  other arguments passed to \code{\link[base]{file.copy}}.
+  For \code{sync_img} and \code{sync_rnp} \ldots are
+  additional arguments passed to \code{sync}.}
 }
 \value{
   Syncs files between directories.
