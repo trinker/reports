@@ -116,7 +116,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
             Rmd[9] <- "widgets     : [mathjax, quiz, bootstrap]"
             piece1 <- "--- dt:10\n\n<script>\nhandleDomLoadedExtra = function(){};\n</script>\n\n"
             piece2 <- "```{r setup, include=FALSE}\n# set global chunk options\nopts_chunk$set(cache=FALSE)\n"
-            piece3 <- "library(knitcitations)\nBIB <- system.file(\"extdata/docs/example.bib\", package = \"reports\") #test .bib\n"
+            piece3 <- "library(reports); library(knitcitations)\nBIB <- system.file(\"extdata/docs/example.bib\", package = \"reports\") #test .bib\n"
             piece4 <- "bib <- read.bibtex(BIB)\n#\n#Reading in your own bib file:\n"
             piece5 <- "#bib <- read.bibtex(dir()[tools::file_ext(dir()) == \"bib\"][1])\n"
             piece6 <- "#cite in text using `r citet(bib[1])`\n```\n"
