@@ -8,6 +8,8 @@
 #' @param text character vector url/path copied to the clipboard. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths.
+#' @param width the width of the image.
+#' @param height the height of the image.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
 #' @param print logical.  If TRUE prints the output to the console.
@@ -15,7 +17,8 @@
 #' @export
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg")
-IM <- function(text = "clipboard", copy2clip = TRUE, print = TRUE) { 
+IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
+    print = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -35,7 +38,7 @@ IM <- function(text = "clipboard", copy2clip = TRUE, print = TRUE) {
     } 
     text <- chartr("\\", "/", text)
     front <- "<div style=\"width:420px;margin:auto;\">\n    <p><img src=\""
-    end <- "\" width=\"400\" height=\"300\"></p>\n</div>\n"
+    end <- paste0("\" width=\"", width, "\" height=\"", height, "\"></p>\n</div>\n")
     x <- paste0(front, text, end)
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
