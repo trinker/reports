@@ -34,7 +34,7 @@ YT <- function(text = "clipboard", copy2clip = TRUE) {
     yt2 <- strsplit(sapply(yt1, function(x) x[length(x)]), "&")
     tags <- sapply(yt2, function(x) x[1])
     x <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/", 
-        tags, "?autoplay=1", "\" frameborder=\"0\"></iframe>")
+        tags, "?autoplay=0", "\" frameborder=\"0\"></iframe>")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
             writeClipboard(x, format = 1)

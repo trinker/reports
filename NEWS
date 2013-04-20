@@ -8,6 +8,9 @@ BUG FIXES
 
 NEW FEATURES
 
+* `new_report` and `presentation` utilize the slidify package to render the .Rmd 
+  files associated with the presentation.
+
 * `QC` quick convert between Pandoc recognized languages.  Meant for a string 
   rather than an entire file.
 

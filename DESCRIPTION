@@ -27,6 +27,7 @@ Depends:
     xlsx
 Imports:
     slidify,
+    slidifyLibraries,
     knitr,
     knitcitations,
     markdown
