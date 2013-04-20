@@ -81,6 +81,7 @@ new_report()
 }
 \seealso{
   \code{\link[reports]{doc_temp}},
-  \code{\link[reports]{presentation}}
+  \code{\link[reports]{presentation}},
+  \code{\link[slidify]{author}}
 }
 

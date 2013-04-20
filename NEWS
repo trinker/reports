@@ -41,14 +41,6 @@ NEW FEATURES
 
 MINOR FEATURES
 
-* `html5` and `reveal.js` output now has a space between sections (slides)
-
-* When initializing a prsentation .Rmd the date is dynamically set to use the 
-  date of the `knit2html` call which of course can be set to be static (Yihui Xie).
-
-* The colors red, orange, yellow, green, blue, indigo, violet and brown are now 
-  available as background colors for `reveal.js`.
-
 * `notes` is a function that allows the user to view a truncated version of the 
   notes located in the ARTICLES directory.
 
@@ -62,7 +54,9 @@ IMPROVEMENTS
 
 CHANGES
 
-`
+* `html5` and `reveal.js` are nor Deprecated.  The birth of the slidify package 
+  makes maintaining these functions pointless.  These functions will be removed 
+  from the reports package upon the next update.
 
 reports 0.1.2
 ----------------------------------------------------------------

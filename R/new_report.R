@@ -102,7 +102,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     } else {
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE))
         y[[4]] <- file.path(x, "PRESENTATION")
-        suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE)    )
+        suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE))
         setwd(x)
         new_Rmd <- file.path(y[[4]], "index.Rmd")
         Rmd <- suppressWarnings(readLines(new_Rmd )) 
