@@ -1,6 +1,6 @@
 \name{IM}
 \alias{IM}
-\title{Convert path/url to HTML Tag}
+\title{Convert path/url to HTML Image Tag}
 \usage{
   IM(text = "clipboard", width = 400, height = 300,
     copy2clip = TRUE, print = TRUE)

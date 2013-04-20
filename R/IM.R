@@ -1,4 +1,4 @@
-#' Convert path/url to HTML Tag
+#' Convert path/url to HTML Image Tag
 #' 
 #' Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
 #' lacks flexibility with centering and sizing.  \code{IM} enables conrol of 
