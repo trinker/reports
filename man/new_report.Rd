@@ -48,7 +48,7 @@
   for convenience.}
 
   \item{\ldots}{Other arguments passed to
-  \code{\link[slidify]{author}}}
+  \code{\link[slidify]{author}}.}
 }
 \value{
   Creates a report template.

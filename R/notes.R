@@ -6,7 +6,7 @@
 #' @param notes.col logical,  If TRUE the notes column will be displayed.
 #' @return Returns a truncated view of user notes.
 #' @export
-#' @import XLConnect
+#' @import xlsx
 #' @examples 
 #' \dontrun{
 #' notes()
