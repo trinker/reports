@@ -43,7 +43,8 @@ list(
       c(
         "delete",
         "pad",
-        "rdirs"
+        "rdirs",
+        "sync"
       )
     ),
     sd_section("Document Conversion",
@@ -62,7 +63,7 @@ list(
       )
     ),
     sd_section("Decapricated",
-      "Functions that will eventually be removed from the reports package.",
+      "Functions that will be removed from the reports package in version 0.1.4.",
       c(
       "html5",
       "reveal.js"
