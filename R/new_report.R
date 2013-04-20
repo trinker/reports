@@ -126,7 +126,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
             piece10 <- "ul.nav li::before { content: \"\"; } \nul.nav li{ font-size: 18px; line-height: 24px;}\n</style>\n"
             Rmd[11] <- paste0(piece1, piece2, piece3, piece4, piece5, piece6, piece7, piece8, piece9, piece10)
             Rmd[25] <- "--- .refs\n## References\n```{r, echo=FALSE, results='asis'}\nbibliography(\"html\")\n```"
-            Rmd[23] <- paste0(Rmd[23], "\n", "`r citet(bib[1])`\n")
+            Rmd[23] <- paste0(Rmd[23], "\n", "`r citet(bib[1])`\n\n---\n`r YT(\"kws1PX1Dw9w\")`")
         }
         cat(paste(Rmd, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rmd")))
         delete(new_Rmd)
