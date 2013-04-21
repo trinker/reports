@@ -39,6 +39,8 @@ NEW FEATURES
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.
 
+* `HR` a function for quick html hyperrefs.
+
 MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 

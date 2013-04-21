@@ -1,45 +1,43 @@
-#' Convert path/url to HTML Image Tag
+#' Convert path/url to HTML href Tag
 #' 
-#' Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
-#' lacks flexibility with centering and sizing.  \code{IM} enables conrol of 
-#' centering via altering the numeric value in \code{width:420px} and sizing via 
-#' the numeric values supplied to height and width.
+#' Wrap a path/url to generate an HTML href tag.
 #' 
-#' @param text character vector url/path copied to the clipboard. Default is to 
+#' @param text character vector of text to hyperref from.  Defualt uses the 
+#' \code{link[base]{basename}} of the path.
+#' @param path character vector url/path copied to the clipboard. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths.
-#' @param width the width of the image.
-#' @param height the height of the image.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
 #' @param print logical.  If TRUE prints the output to the console.
-#' @return Returns a character vector of an HTML image tag that embeds an image. 
+#' @return Returns a character vector of an HTML href tag. 
 #' @export
 #' @examples
-#' IM("http://cran.r-project.org/Rlogo.jpg")
-IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
-    print = TRUE) { 
+#' ## HR("new", "assets/img/fry_admin_1.mp4")
+HR <- function(text = NULL, path = "clipboard", copy2clip = TRUE, 
+    print = TRUE) {
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
-    if (length(text) == 1 && text == "clipboard") {
+    if (length(path) == 1 && path == "clipboard") {
         if (Sys.info()["sysname"] == "Darwin") {        
             pcon <- pipe("pbpaste")
-            text <- scan(pcon, what="character", quiet=TRUE)
+            path <- scan(pcon, what="character", quiet=TRUE)
             close(pcon)
         }                                             
         if (Sys.info()["sysname"] == "Windows") {
-            text <- readClipboard()
+            path <- readClipboard()
         }
         if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
           warning("not Windows or Darwin:
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
-    text <- chartr("\\", "/", text)
-    front <- "<div style=\"width:420px;margin:auto;\">\n    <p><img src=\""
-    end <- paste0("\" width=\"", width, "\" height=\"", height, "\"></p>\n</div>\n")
-    x <- paste0(front, text, end)
+    path <- chartr("\\", "/", path)
+    if (is.null(text)) {
+        text <- basename(path)
+    }
+    x <- paste0("<a href=\"", path, "\">", text, "</a>\n")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
             writeClipboard(x, format = 1)
@@ -57,3 +55,4 @@ IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE,
         x	
     }
 } 
+
