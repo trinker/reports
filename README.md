@@ -14,6 +14,10 @@ download the [zip ball](https://github.com/trinker/reports/zipball/master) or [t
 # install.packages("devtools")
 
 library(devtools)
+#Install the development versions of slidify and its libraries
+install_github('slidify', 'ramnathv', ref = 'dev')
+install_github('slidifyLibraries', 'ramnathv', ref = 'dev')
+
 install_github("reports", "trinker")
 ```
 
