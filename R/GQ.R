@@ -21,7 +21,6 @@
 #' "ffi" and "ffl".
 #' @return \code{GQ} - Returns formatted text for use with LaTeX documents. 
 #' @rdname QQ
-#' @return Returns a character vector with LaTeX formatted text.
 #' @export
 GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE, 
@@ -116,7 +115,7 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
 #' use in the directory notes.xslx or notes.csv.  Combines multiple stringed 
 #' text into one string.  Removes non ascii characters and hyphens.
 #' 
-#' @return \code{GQ} - Returns formatted text for use with notes.xslx or 
+#' @return \code{QQ} - Returns formatted text for use with notes.xslx or 
 #' notes.csv. 
 #' @rdname QQ
 #' @export

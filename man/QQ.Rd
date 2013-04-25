@@ -33,9 +33,7 @@
   \code{GQ} - Returns formatted text for use with LaTeX
   documents.
 
-  Returns a character vector with LaTeX formatted text.
-
-  \code{GQ} - Returns formatted text for use with
+  \code{QQ} - Returns formatted text for use with
   notes.xslx or notes.csv.
 }
 \description{
