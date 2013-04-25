@@ -3,7 +3,7 @@
 \title{Convert path/url to HTML href Tag}
 \usage{
   HR(text = NULL, path = "clipboard", copy2clip = TRUE,
-    print = TRUE)
+    print = FALSE)
 }
 \arguments{
   \item{text}{character vector of text to hyperref from.
@@ -13,12 +13,13 @@
   \item{path}{character vector url/path copied to the
   clipboard. Default is to read from the clipboard.  Note
   that Windows users do not have to reorient slashes in
-  local paths.}
+  local paths if reading from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE prints the output to the
+  \item{print}{logical.  If TRUE \code[base]{cat} prints
+  the output to the console.  If FALSE returns to the
   console.}
 }
 \value{

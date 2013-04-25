@@ -6,16 +6,17 @@
 #' \code{link[base]{basename}} of the path.
 #' @param path character vector url/path copied to the clipboard. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
-#' slashes in local paths.
+#' slashes in local paths if reading from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE prints the output to the console.
+#' @param print logical.  If TRUE \code[base]{cat} prints the output to the 
+#' console.  If FALSE returns to the console.
 #' @return Returns a character vector of an HTML href tag. 
 #' @export
 #' @examples
 #' ## HR("new", "assets/img/fry_admin_1.mp4")
 HR <- function(text = NULL, path = "clipboard", copy2clip = TRUE, 
-    print = TRUE) {
+    print = FALSE) {
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  

@@ -7,18 +7,19 @@
 #' 
 #' @param text character vector url/path copied to the clipboard. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
-#' slashes in local paths.
+#' slashes in local paths if reading from the clipboard.
 #' @param width the width of the image.
 #' @param height the height of the image.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE prints the output to the console.
+#' @param print logical.  If TRUE \code[base]{cat} prints the output to the 
+#' console.  If FALSE returns to the console.
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg")
 IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
-    print = TRUE) { 
+    print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
