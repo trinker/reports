@@ -41,6 +41,9 @@ NEW FEATURES
 
 * `HR` a function for quick html hyperrefs.
 
+* spacing functions `HS` (horizontal space) and `VS` (vertical space) have been 
+  added.
+
 MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 

@@ -19,7 +19,7 @@
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg")
 IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
-    print = FALSE) { 
+    print = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  

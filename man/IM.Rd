@@ -3,7 +3,7 @@
 \title{Convert path/url to HTML Image Tag}
 \usage{
   IM(text = "clipboard", width = 400, height = 300,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = TRUE, print = TRUE)
 }
 \arguments{
   \item{text}{character vector url/path copied to the
