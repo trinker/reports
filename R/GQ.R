@@ -21,7 +21,6 @@
 #' "ffi" and "ffl".
 #' @return \code{GQ} - Returns formatted text for use with LaTeX documents. 
 #' @rdname QQ
-#' @return Returns a character vector with LaTeX formatted text.
 #' @export
 GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE, 
