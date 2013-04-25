@@ -33,7 +33,11 @@
   \code{GQ} - Returns formatted text for use with LaTeX
   documents.
 
+<<<<<<< HEAD
   \code{QQ} - Returns formatted text for use with
+=======
+  \code{GQ} - Returns formatted text for use with
+>>>>>>> 52e39b5e06f83c3e0fcfdc2b56ad7b27ed21d939
   notes.xslx or notes.csv.
 }
 \description{
