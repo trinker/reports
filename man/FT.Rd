@@ -1,6 +1,6 @@
 \name{FT}
 \alias{FT}
-\title{Wrap Text With Font Tag}
+\title{Wrap Text With HTML Font Tag}
 \usage{
   FT(..., text = "clipboard", copy2clip = TRUE)
 }

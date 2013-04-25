@@ -1,4 +1,4 @@
-#' Wrap Text With Font Tag
+#' Wrap Text With HTML Font Tag
 #' 
 #' Wraps text with a font tags. Conveniently detects c(`face`, `size` and/or 
 #' `color`) and creates a font tag with the supplied text.

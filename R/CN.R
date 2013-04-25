@@ -1,4 +1,4 @@
-#' Wrap Text With Courier New Font Tag
+#' Wrap Text With HTML Courier New Font Tag
 #' 
 #' Wraps text with a courier new font tag. A specified version of \code{QF} but 
 #' more convient for constant use of courier new tags. 

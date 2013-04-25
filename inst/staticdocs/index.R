@@ -17,15 +17,21 @@ list(
         "CW",
         "GQ",
         "FT",
-        "HR",
-        "HS",
-        "IM",
         "LL",
         "QC",
         "US",
-        "YT"
+        "WP"
       )
     ),
+    sd_section("Insert HTML Objects",
+      "Functions to format text.",  
+      c(
+        "HR",
+        "HS",
+        "IM",
+        "YT"
+      )
+    ),    
     sd_section("Citations",
       "Function to assist in citing text.",
       c(

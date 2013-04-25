@@ -16,8 +16,9 @@
   \code{left}) left ticks only are used. If (\code{r},
   \code{R} or \code{right}) right ticks only are used.}
 
-  \item{block}{If \code{TRUE} LaTeX block quote code tags
-  are used instead of the backticks and single quotes.}
+  \item{block}{logical.  If \code{TRUE} LaTeX block quote
+  code tags are used instead of the backticks and single
+  quotes.}
 
   \item{text}{character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}

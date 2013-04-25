@@ -9,8 +9,8 @@
 #' two single quotes) are wrapped around the text.  If (\code{l}, \code{L} or 
 #' \code{left}) left ticks only are used. If (\code{r}, \code{R} or \code{right}) 
 #' right ticks only are used. 
-#' @param block If \code{TRUE} LaTeX block quote code tags are used instead of 
-#' the backticks and single quotes.
+#' @param block logical.  If \code{TRUE} LaTeX block quote code tags are used 
+#' instead of the backticks and single quotes.
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 

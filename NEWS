@@ -24,7 +24,7 @@ NEW FEATURES
   generate an HTML iframe tag.
 
 * `IM` a new function that wraps an image path or url to generate a flexible 
-  HTML tag.
+  HTML tag with optional hyperlink.
 
 * The cite family of functions has been introduced.  These functions provide 
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 

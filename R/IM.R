@@ -2,45 +2,64 @@
 #' 
 #' Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
 #' lacks flexibility with centering and sizing.  \code{IM} enables conrol of 
-#' centering via altering the numeric value in \code{width:420px} and sizing via 
+#' centering via altering the sty/center commands and control of sizing via 
 #' the numeric values supplied to height and width.
 #' 
-#' @param path character vector url/path copied to the clipboard. Default is to 
+#' @param path character vector url/path to the image. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths if reading from the clipboard.
 #' @param width the width of the image.
 #' @param height the height of the image.
+#' @param sty the width of the style (used for centering).
+#' @param center logical.  If TRUE the image will be centered, if FALSE image 
+#' will be left justified.
+#' @param link character vector url/path to hyperlink the image to.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE \code[base]{cat} prints the output to the 
+#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
 #' console.  If FALSE returns to the console.
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
 #' @examples
-#' IM("http://cran.r-project.org/Rlogo.jpg")
-IM <- function(path = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
-    print = TRUE) { 
+#' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
+#' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
+#' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
+IM <- function(path = "clipboard", width = 400, height = 300, sty = width*1.05, 
+    center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
-    if (length(text) == 1 && text == "clipboard") {
+    if (length(path) == 1 && path == "clipboard") {
         if (Sys.info()["sysname"] == "Darwin") {        
             pcon <- pipe("pbpaste")
-            text <- scan(pcon, what="character", quiet=TRUE)
+            path <- scan(pcon, what="character", quiet=TRUE)
             close(pcon)
         }                                             
         if (Sys.info()["sysname"] == "Windows") {
-            text <- readClipboard()
+            path <- readClipboard()
         }
         if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
           warning("not Windows or Darwin:
                 \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
         }
     } 
-    text <- chartr("\\", "/", text)
-    front <- "<div style=\"width:420px;margin:auto;\">\n    <p><img src=\""
+    path <- chartr("\\", "/", path)
+    front <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p><img src=\"")
     end <- paste0("\" width=\"", width, "\" height=\"", height, "\"></p>\n</div>\n")
-    x <- paste0(front, text, end)
+    if (center & is.null(link)) {
+        x <- paste0(front, path, end)
+    } else {
+        x <- paste0("<img src=\"", path, "\" width=\"", width, "\" height=\"", height, "\">")
+    }
+    if (!is.null(link)) {
+        x <- paste0("<a href=\"", link, "\">", x, "</a>")
+        if (center) {
+            x <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p>", x,
+                "</p>\n</div>\n")
+        } else {
+            x <- paste0(x, "\n") 
+        }
+    }
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
             writeClipboard(x, format = 1)
@@ -57,4 +76,4 @@ IM <- function(path = "clipboard", width = 400, height = 300, copy2clip = TRUE,
     } else {
         x	
     }
-} 
+}

@@ -2,12 +2,12 @@
 \alias{HR}
 \title{Convert path/url to HTML href Tag}
 \usage{
-  HR(text = NULL, path = "clipboard", copy2clip = TRUE,
+  HR(path = "clipboard", text = NULL, copy2clip = TRUE,
     print = FALSE)
 }
 \arguments{
   \item{text}{character vector of text to hyperref from.
-  Defualt uses the \code{link[base]{basename}} of the
+  Defualt uses the \code{\link[base]{basename}} of the
   path.}
 
   \item{path}{character vector url/path copied to the
@@ -18,9 +18,9 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE \code[base]{cat} prints
-  the output to the console.  If FALSE returns to the
-  console.}
+  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
+  prints the output to the console.  If FALSE returns to
+  the console.}
 }
 \value{
   Returns a character vector of an HTML href tag.
@@ -29,6 +29,10 @@
   Wrap a path/url to generate an HTML href tag.
 }
 \examples{
-## HR("new", "assets/img/fry_admin_1.mp4")
+## HR("assets/img/fry_admin_1.mp4","new")
+
+HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)
+HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", print = TRUE)
+HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", "click me", print = TRUE)
 }
 

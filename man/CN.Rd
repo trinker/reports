@@ -1,6 +1,6 @@
 \name{CN}
 \alias{CN}
-\title{Wrap Text With Courier New Font Tag}
+\title{Wrap Text With HTML Courier New Font Tag}
 \usage{
   CN(text = "clipboard", copy2clip = TRUE)
 }
