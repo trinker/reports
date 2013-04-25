@@ -2,11 +2,11 @@
 \alias{IM}
 \title{Convert path/url to HTML Image Tag}
 \usage{
-  IM(text = "clipboard", width = 400, height = 300,
+  IM(path = "clipboard", width = 400, height = 300,
     copy2clip = TRUE, print = TRUE)
 }
 \arguments{
-  \item{text}{character vector url/path copied to the
+  \item{path}{character vector url/path copied to the
   clipboard. Default is to read from the clipboard.  Note
   that Windows users do not have to reorient slashes in
   local paths if reading from the clipboard.}

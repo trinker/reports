@@ -5,7 +5,7 @@
 #' centering via altering the numeric value in \code{width:420px} and sizing via 
 #' the numeric values supplied to height and width.
 #' 
-#' @param text character vector url/path copied to the clipboard. Default is to 
+#' @param path character vector url/path copied to the clipboard. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths if reading from the clipboard.
 #' @param width the width of the image.
@@ -18,7 +18,7 @@
 #' @export
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg")
-IM <- function(text = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
+IM <- function(path = "clipboard", width = 400, height = 300, copy2clip = TRUE, 
     print = TRUE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
