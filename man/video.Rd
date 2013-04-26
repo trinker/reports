@@ -3,9 +3,9 @@
 \alias{YT}
 \title{Video (YouTube/Vimeo) url to iframe HTML Tag}
 \usage{
-  YT(text = "clipboard", copy2clip = TRUE)
+  YT(text = "clipboard", copy2clip = TRUE, print = FALSE)
 
-  VM(text = "clipboard", copy2clip = TRUE)
+  VM(text = "clipboard", copy2clip = TRUE, print = FALSE)
 }
 \arguments{
   \item{text}{character vector url/tag copied to the
@@ -13,6 +13,10 @@
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
+
+  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
+  prints the output to the console.  If FALSE returns to
+  the console.}
 }
 \value{
   Returns a character vector of an HTML iframe tag that
@@ -27,8 +31,8 @@
   videos.
 }
 \examples{
-## YT("kws1PX1Dw9w")
-## YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
-## VM("http://vimeo.com/54007714")
+YT("kws1PX1Dw9w", print = TRUE)
+YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+VM("http://vimeo.com/54007714", print = TRUE)
 }
 

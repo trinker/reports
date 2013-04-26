@@ -5,17 +5,19 @@
 #' @param text character vector url/tag copied to the clipboard. Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
-#' clipboard.  
+#' clipboard. 
+#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
+#' console.  If FALSE returns to the console. 
 #' @details Use \code{YT} for YouTube videos and \code{VM} for Vimeo videos.
 #' @return Returns a character vector of an HTML iframe tag that embeds a YouTube 
 #' or Vimeo video.
 #' @export
 #' @rdname video
 #' @examples
-#' ## YT("kws1PX1Dw9w")
-#' ## YT("http://www.youtube.com/watch?v=kws1PX1Dw9w")
-#' ## VM("http://vimeo.com/54007714")
-YT <- function(text = "clipboard", copy2clip = TRUE) { 
+#' YT("kws1PX1Dw9w", print = TRUE)
+#' YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+#' VM("http://vimeo.com/54007714", print = TRUE)
+YT <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -46,15 +48,20 @@ YT <- function(text = "clipboard", copy2clip = TRUE) {
             j <- pipe("pbcopy", "w")                       
             writeLines(x, con = j)                               
             close(j)                                    
-        }             
+        }  
     }
-    return(x)
+    if (print) {
+        cat(x)
+        invisible(x)
+    } else {
+        x	
+    }
 } 
 
 
 #' @export
 #' @rdname video
-VM <- function(text = "clipboard", copy2clip = TRUE) { 
+VM <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -86,5 +93,10 @@ VM <- function(text = "clipboard", copy2clip = TRUE) {
             close(j)                                    
         }             
     }
-    return(x)
+    if (print) {
+        cat(x)
+        invisible(x)
+    } else {
+        x	
+    }
 }
