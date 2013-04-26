@@ -22,6 +22,12 @@
 #' @return \code{GQ} - Returns formatted text for use with LaTeX documents. 
 #' @rdname QQ
 #' @export
+#' @examples
+#' x1 <- "Note Many functions in reports assume (a) you're using RStudio (b) the
+#' main report directory is set as the working directory. While
+#' the default behavior is less flexible it increases efficiency."
+#' GQ(text=x1)
+#' QQ(x1)
 GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE, 
     invisible = FALSE){
@@ -56,10 +62,11 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<eb>", "<e1>", "<e9>", "<97>", "--", "---")
-    reps <- c("`", "'", "", "``", "''", "\\ldots", "", "", "'", "'", "'", "'", "\\ldots", 
-        "\\textendash ", "\\textemdash ", "a", "e", "half", "\\\"e", "\\'a", 
-    	"\\'e","\\textemdash ", "\\textendash ", "\\textemdash ")
+    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
+        "<ef><ac><81>", "<ef><ac><82>", "ﬁ", "ﬂ")
+    reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
+        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
+        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "fi", "fl")
     Encoding(text) <-"latin1"
     text <- clean(mgsub(ser, reps, text))
     quotes <- as.character(substitute(quotes))
@@ -152,10 +159,11 @@ function(text = "clipboard", copy2clip = TRUE){
     ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
     	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''")
+    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
+        "<ef><ac><81>", "<ef><ac><82>", "ﬁ", "ﬂ")
     reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
         "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
-        "&eacute;","&mdash;", "\"", "\"")
+        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "fi", "fl")
     Encoding(text) <-"latin1"
     x <- clean(mgsub(ser, reps, text))
     if(copy2clip){

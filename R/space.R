@@ -5,13 +5,15 @@
 #' @param n Number of spaces to insert.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
+#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
+#' console.  If FALSE returns to the console. 
 #' @details \code{HS} returns horizontal space (using \code{&nbsp;}) and \code{VS}
 #' returns vertical space (using \code{</br>}).
 #' @export
 #' @rdname space
 #' @examples
 #' paste0("reports", HS(10), "end")
-#' paste0("reports", VS(4), "end")
+#' paste0("reports", VS(4, print = TRUE), "end")
 HS <- function(n=1, copy2clip = TRUE) {
     x <- paste(rep("&nbsp;", n), collapse="")
     if(copy2clip){
@@ -29,7 +31,7 @@ HS <- function(n=1, copy2clip = TRUE) {
 
 #' @export
 #' @rdname space
-VS <- function(n=1, copy2clip = TRUE) {
+VS <- function(n=1, copy2clip = TRUE, print = FALSE) {
     x <- paste(rep("</br>", n), collapse="")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -41,5 +43,10 @@ VS <- function(n=1, copy2clip = TRUE) {
             close(j)                                    
         }             
     }
-    return(x)
+    if (print) {
+        cat(x)
+        invisible(x)
+    } else {
+        x	
+    }
 }

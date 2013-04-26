@@ -52,4 +52,11 @@
   my be incorrect.  If a warning is thrown check the use of
   "ff", "fi", "fl", "ffi" and "ffl".
 }
+\examples{
+x1 <- "Note Many functions in reports assume (a) you're using RStudio (b) the
+main report directory is set as the working directory. While
+the default behavior is less flexible it increases efficiency."
+GQ(text=x1)
+QQ(x1)
+}
 
