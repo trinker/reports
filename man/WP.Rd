@@ -1,6 +1,6 @@
 \name{WP}
 \alias{WP}
-\title{Convert Windows Ppath}
+\title{Convert Windows Path}
 \usage{
   WP(clipboard = TRUE, quotes = TRUE, copy2clip = TRUE)
 }
@@ -20,7 +20,7 @@
   Reorients Windows path backslashes to forward slashes.
 }
 \examples{
-## WP(FALSE)  #using readline
+## WP(FALSE)  #using readline <br>
 ## C:\\Users\\trinker\\Desktop\\doc
 }
 

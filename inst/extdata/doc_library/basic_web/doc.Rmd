@@ -4,7 +4,7 @@
 ```{r setup, include=FALSE}
 # set global chunk options
 opts_chunk$set(cache=TRUE)
-library(knitr); library(knitcitations)
+library(reports); library(knitr); library(knitcitations)
 fls <- dir(getwd())
 bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 #
