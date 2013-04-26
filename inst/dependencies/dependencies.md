@@ -27,7 +27,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Examples](https://github.com/ramnathv/slidifyexamples)    
 <hr>
 # knitr 
-<a href="http://yihui.name/knitr/"><img src="http://i.imgur.com/zy6wB.png" width="250" height="100"></a>
+<a href="http://yihui.name/knitr/"><img src="http://yihui.name/knitr/images/knit-logo.png" width="120" height="90"></a>
 
 
 [Website](http://yihui.name/knitr/)     

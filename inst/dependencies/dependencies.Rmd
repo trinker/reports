@@ -28,7 +28,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Examples](https://github.com/ramnathv/slidifyexamples)    
 <hr>
 # knitr 
-`r IM("http://i.imgur.com/zy6wB.png", 250, 100, center=FALSE, link="http://yihui.name/knitr/")`
+`r IM("http://yihui.name/knitr/images/knit-logo.png", 120, 90, center=FALSE, link="http://yihui.name/knitr/")`
 
 [Website](http://yihui.name/knitr/)     
 [Github](https://github.com/yihui/knitr)     
