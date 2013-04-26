@@ -73,7 +73,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>
 # Markdown
-`r IM("http://daringfireball.net/graphics/logos/", 80, 80, center=FALSE, link="http://daringfireball.net/projects/markdown/")`
+`r IM("http://daringfireball.net/graphics/logos/", 160, 90, center=FALSE, link="http://daringfireball.net/projects/markdown/")`
   
 
 [Markdown](http://daringfireball.net/projects/markdown/)     

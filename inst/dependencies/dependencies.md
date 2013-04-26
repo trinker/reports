@@ -78,7 +78,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>
 # Markdown
-<a href="http://daringfireball.net/projects/markdown/"><img src="http://daringfireball.net/graphics/logos/" width="80" height="80"></a>
+<a href="http://daringfireball.net/projects/markdown/"><img src="http://daringfireball.net/graphics/logos/" width="160" height="90"></a>
 
   
 
