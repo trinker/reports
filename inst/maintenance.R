@@ -76,6 +76,11 @@ file <- "C:/Users/trinker/GitHub/trinker.github.com/"
 delete(paste0(file, "reports_dev"))
 file.copy(path, file, TRUE, TRUE)
 delete(path)
+
+#STEP 4: copy dependencies page to trinker.guthub
+file2 <- "C:/Users/trinker/GitHub/trinker.github.com/reports_dev"
+path2 <- "C:/Users/trinker/GitHub/reports/inst/dependencies/dependencies.html"
+file.copy(path2, file2, TRUE, TRUE)
 #==========================
 #staticdocs current version
 #==========================
@@ -109,6 +114,11 @@ delete(paste0(file, "reports"))
 file.copy(path, file, TRUE, TRUE)
 delete(path)
 
+#STEP 4: copy dependencies page to trinker.guthub
+file2 <- "C:/Users/trinker/GitHub/trinker.github.com/reports"
+path2 <- "C:/Users/trinker/GitHub/reports/inst/dependencies/dependencies.html"
+file.copy(path2, file2, TRUE, TRUE)
+#==========================
 #==========================
 #move project directions
 #==========================

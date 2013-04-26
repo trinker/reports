@@ -1,0 +1,78 @@
+# List of [Reports Package](https://github.com/trinker/reports) Dependencies
+
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+library(reports); library(knitr); library(knitcitations)
+```
+<hr>
+# LaTeX
+`r IM("http://www.cec-2009.org/files/submission/LaTeXLogo.png", 100, 50, center=FALSE, link="http://www.latex-project.org/")`
+
+Windows users [miktex.org](http://miktex.org/)     
+Mac users [tug.org/mactex](http://tug.org/mactex/)     
+Linux users [www.tug.org/texlive](http://www.tug.org/texlive/) 
+
+[Cookbook](http://www.personal.ceu.hu/tex/cookbook.html)
+
+### Beamer (LaTeX slides) sites:    
+[Tutorial](http://www.math.umbc.edu/~rouben/beamer/)     
+[Slide Tutorial](http://www.uncg.edu/cmp/reu/presentations/Charles%20Batts%20-%20Beamer%20Tutorial.pdf)       
+[Themes](http://deic.uab.es/~iblanes/beamer_gallery/)    
+<hr>
+# slidify 
+`r IM("http://ramnathv.github.com/slidifyExamples/examples/io2012/assets/img/slidify_logo.png", 150, 100, center=FALSE, link="https://github.com/ramnathv/slidify")`
+
+[Website](http://ramnathv.github.io/slidify/)     
+[Github](https://github.com/ramnathv/slidify)     
+[Examples](https://github.com/ramnathv/slidifyexamples)    
+<hr>
+# knitr 
+`r IM("http://i.imgur.com/zy6wB.png", 250, 100, center=FALSE, link="http://yihui.name/knitr/")`
+
+[Website](http://yihui.name/knitr/)     
+[Github](https://github.com/yihui/knitr)     
+[Demos](http://yihui.name/knitr/demos)    
+<hr>
+# Pandoc
+`r IM("http://www.uniquesquared.com/blog/wp-content/uploads/2011/03/swiss-army-knife.jpg", 150, 100, center=FALSE, link="http://johnmacfarlane.net/pandoc/")`
+
+[Website](http://johnmacfarlane.net/pandoc/)       
+[Demos](http://johnmacfarlane.net/pandoc/demos.html) 
+<hr>
+# RStudio
+`r IM("http://www.osxtoy.com/wp-content/uploads/2011/03/RStudio_logo.png", 80, 80, center=FALSE, link="http://www.rstudio.com/")`
+
+[Website](http://www.rstudio.com/)       
+[Download](http://www.rstudio.com/ide/download/) 
+<hr>
+# knitcitations
+
+[Website](http://carlboettiger.info/2012/05/30/knitcitations.html)     
+[Github](https://github.com/cboettig/knitcitations)     
+[on CRAN](http://cran.r-project.org/web/packages/knitcitations/)  
+<hr>
+# R
+`r IM("http://www.thinkr.spatialfiltering.com/images/Rlogo.png", 80, 80, center=FALSE, link="http://cran.us.r-project.org/")`
+   
+[CRAN](http://cran.us.r-project.org/)  
+<hr>
+# Libre Office
+`r IM("http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png", 80, 80, center=FALSE, link="http://www.libreoffice.org/")`
+   
+[Website](http://www.libreoffice.org/) 
+[Download](http://www.libreoffice.org/download)
+<hr>
+# HTML code help
+`r IM("http://upload.wikimedia.org/wikipedia/commons/2/25/HTML5_Shiny_Icon.svg", 80, 80, center=FALSE, link="http://www.w3schools.com/html/html5_intro.asp")`
+*Sometimes it's easier to use html code to get a task done*    
+
+[Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    
+[All Tags](http://www.w3schools.com/tags/tag_phrase_elements.asp)       
+[Special Characters](http://www.utexas.edu/learn/html/spchar.html)    
+[Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
+
+<hr>
+`r IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", link="http://www.latex-project.org/")`
+
+
