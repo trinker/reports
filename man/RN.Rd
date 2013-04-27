@@ -24,9 +24,9 @@
   slides
 }
 \examples{
-RN("some fancy notes")
+RN("some fancy notes", print = TRUE)
 RN("1) some
 2) fancy
-3) notes")
+3) notes", print = TRUE)
 }
 

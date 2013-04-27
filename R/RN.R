@@ -11,10 +11,10 @@
 #' @return Returns a character vector wrapped with a courier new font tag.
 #' @export
 #' @examples
-#' RN("some fancy notes")
+#' RN("some fancy notes", print = TRUE)
 #' RN("1) some 
 #' 2) fancy 
-#' 3) notes")
+#' 3) notes", print = TRUE)
 RN <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
