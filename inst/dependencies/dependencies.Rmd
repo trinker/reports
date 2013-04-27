@@ -64,7 +64,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
-`r IM("http://upload.wikimedia.org/wikipedia/commons/2/25/HTML5_Shiny_Icon.svg", 80, 80, center=FALSE, link="http://www.w3schools.com/html/html5_intro.asp")`
+`r IM("http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png", 80, 80, center=FALSE, link="http://www.w3schools.com/html/html5_intro.asp")`
 *Sometimes it's easier to use html code to get a task done*    
 
 [Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    

@@ -68,7 +68,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
-<a href="http://www.w3schools.com/html/html5_intro.asp"><img src="http://upload.wikimedia.org/wikipedia/commons/2/25/HTML5_Shiny_Icon.svg" width="80" height="80"></a>
+<a href="http://www.w3schools.com/html/html5_intro.asp"><img src="http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png" width="80" height="80"></a>
 
 *Sometimes it's easier to use html code to get a task done*    
 
