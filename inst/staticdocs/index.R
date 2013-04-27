@@ -29,6 +29,7 @@ list(
         "HR",
         "HS",
         "IM",
+        "RN",
         "SC",
         "YT"
       )
