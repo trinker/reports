@@ -6,6 +6,8 @@
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
+#' @param width the width of the player.
+#' @param height the height of the player.
 #' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
 #' console.  If FALSE returns to the console. 
 #' @details Use \code{YT} for YouTube videos and \code{VM} for Vimeo videos.
@@ -17,7 +19,8 @@
 #' YT("kws1PX1Dw9w", print = TRUE)
 #' YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
 #' VM("http://vimeo.com/54007714", print = TRUE)
-YT <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
+YT <- function(text = "clipboard", copy2clip = TRUE, width = 640, height = 360,
+    print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -38,7 +41,8 @@ YT <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) {
     yt1 <- strsplit(text, "v=")
     yt2 <- strsplit(sapply(yt1, function(x) x[length(x)]), "&")
     tags <- sapply(yt2, function(x) x[1])
-    x <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/", 
+    x <- paste0("<iframe class=\"youtube-player\" type=\"text/html\" width=\"", 
+        width, "\" height=\"", height, "\" src=\"http://www.youtube.com/embed/", 
         tags, "?autoplay=0", "\" frameborder=\"0\"></iframe>")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
@@ -61,7 +65,8 @@ YT <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) {
 
 #' @export
 #' @rdname video
-VM <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
+VM <- function(text = "clipboard", copy2clip = TRUE, width = 640, height = 360,
+    print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
     }  
@@ -82,7 +87,8 @@ VM <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) {
     vm <- rev(unlist(strsplit(text, "/")))[1]
     link <- paste0("src=\"http://player.vimeo.com/video/", vm, "\"")
     x <- paste0("<iframe ", link, 
-       " width=\"640\" height=\"360\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+       " width=\"", width, "\" height=\"", height, 
+       "\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
     if(copy2clip){
         if (Sys.info()["sysname"] == "Windows") {
             writeClipboard(x, format = 1)
