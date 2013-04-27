@@ -2,8 +2,8 @@
 \alias{IM}
 \title{Convert path/url to HTML Image Tag}
 \usage{
-  IM(path = "clipboard", width = 400, height = 300,
-    sty = width * 1.05, center = TRUE, link = NULL,
+  IM(path = "clipboard", width = NULL, height = NULL,
+    sty = NULL, center = TRUE, link = NULL,
     copy2clip = TRUE, print = FALSE)
 }
 \arguments{

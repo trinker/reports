@@ -46,6 +46,8 @@ NEW FEATURES
 
 * `SC` a function to quickly generate special HTML characters.
 
+* `RN` a function to quickly add reveal.js notes to an HTML reveal.js slide.
+
 MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 

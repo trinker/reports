@@ -24,7 +24,7 @@
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
-IM <- function(path = "clipboard", width = 400, height = 300, sty = width*1.05, 
+IM <- function(path = "clipboard", width = NULL, height = NULL, sty = NULL, 
     center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
     if (Sys.info()["sysname"] != "Windows") {
         writeClipboard <- NULL
@@ -45,11 +45,17 @@ IM <- function(path = "clipboard", width = 400, height = 300, sty = width*1.05,
     } 
     path <- chartr("\\", "/", path)
     front <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p><img src=\"")
-    end <- paste0("\" width=\"", width, "\" height=\"", height, "\"></p>\n</div>\n")
+    if(!is.null(width)) {
+    	width <- paste0(" ", "width=\"", width, "\"")
+    }
+    if(!is.null(height)){
+    	heigth <- paste0(" ", "height=\"", height, "\"")
+    }
+    end <- paste0(width, height, "></p>\n</div>\n")
     if (center & is.null(link)) {
         x <- paste0(front, path, end)
     } else {
-        x <- paste0("<img src=\"", path, "\" width=\"", width, "\" height=\"", height, "\">")
+        x <- paste0("<img src=\"", path, "\"", width, height, ">")
     }
     if (!is.null(link)) {
         x <- paste0("<a href=\"", link, "\">", x, "</a>")
