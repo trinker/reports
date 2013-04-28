@@ -2,7 +2,7 @@
 \alias{WP}
 \title{Convert Windows Path}
 \usage{
-  WP(clipboard = TRUE, quotes = TRUE, copy2clip = TRUE)
+  WP(text = "clipboard", quotes = TRUE, copy2clip = TRUE)
 }
 \arguments{
   \item{clipboard}{logical.  If TRUE copies the path from

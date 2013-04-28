@@ -65,7 +65,7 @@ IMPROVEMENTS
 
 CHANGES
 
-* `html5` and `reveal.js` are nor Deprecated.  The birth of the slidify package 
+* `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
   makes maintaining these functions pointless.  These functions will be removed 
   from the reports package upon the next update.
 

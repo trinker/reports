@@ -1,5 +1,6 @@
 \name{sync}
 \alias{sync}
+\alias{sync_all}
 \alias{sync_img}
 \alias{sync_rnp}
 \title{File Syncing}
@@ -13,6 +14,8 @@
   sync_rnp(dir1 = file.path(getwd(), "REPORT", "figure"),
     dir2 = file.path(getwd(), "PRESENTATION", "figure"),
     ...)
+
+  sync_all()
 }
 \arguments{
   \item{dir1}{The path to the first directory.}
@@ -44,6 +47,10 @@
 
   \code{sync_rnp} - A wrapper for sync to easily sync the
   files in ~/REPORT/figure and ~/PRESENTATION/figure.
+
+  \code{sync_rnp} - A wrapper for sync to easily sync all
+  files between ~/REPORT/figure, ~/PRESENTATION/figure, and
+  ~/PRESENTATION/assets/img.
 }
 \seealso{
   \code{\link[base]{file.copy}}

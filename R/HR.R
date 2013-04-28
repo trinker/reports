@@ -21,22 +21,8 @@
 #' HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", "click me", print = TRUE)
 HR <- function(path = "clipboard", text = NULL, copy2clip = TRUE, 
     print = FALSE) {
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
-    if (length(path) == 1 && path == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            path <- scan(pcon, what="character", quiet=TRUE)
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            path <- readClipboard()
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (path == "clipboard") {
+        path <- read_clip()
     } 
     path <- chartr("\\", "/", path)
     if (is.null(text)) {
@@ -44,20 +30,8 @@ HR <- function(path = "clipboard", text = NULL, copy2clip = TRUE,
     }
     x <- paste0("<a href=\"", path, "\">", text, "</a>\n")
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
-    if (print) {
-        cat(x)
-        invisible(x)
-    } else {
-        x	
-    }
+    prin(x = x, print = print)
 } 
 

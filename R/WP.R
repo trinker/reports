@@ -12,27 +12,12 @@
 #' ## WP(FALSE)  #using readline <br>    
 #' ## C:\Users\trinker\Desktop\doc
 WP <- 
-function(clipboard = TRUE, quotes = TRUE, copy2clip = TRUE) {
-    if (!clipboard) {
+function(text = "clipboard", quotes = TRUE, copy2clip = TRUE) {
+    if (text != "clipboard") {
         cat("Please enter the path:\n\n")
         text <- readline()
     } else {
-        if (Sys.info()["sysname"] != "Windows") {
-            writeClipboard <- NULL
-        }  
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+        text <- read_clip()
     }
     z <- chartr("\\", "/", text)
     if (quotes) {
@@ -41,14 +26,7 @@ function(clipboard = TRUE, quotes = TRUE, copy2clip = TRUE) {
         x <- z
     }
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     return(z)
 }

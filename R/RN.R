@@ -17,22 +17,8 @@
 #' 2) fancy 
 #' 3) notes", print = TRUE)
 RN <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
     if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- scan(pcon, what="character", quiet=TRUE)
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- readClipboard()
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+        text <- read_clip()
     } 
     text <- chartr("\\", "/", text)
     x <- paste0(paste(paste(unlist(strsplit(text, "\n")), "<br>"), 

@@ -23,51 +23,20 @@
 #' LL(FALSE, x)
 LL <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
 	copy2clip = TRUE) {
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
-    if (length(text) == 1 && text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- scan(pcon, what="character", quiet=TRUE)
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- readClipboard()
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (length(text) > 1 && text == "clipboard") {
+        text <- read_clip()
     } 
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }
+    text <- sapply(text, text_fix)
     if (enumerate) {
         x <- "enumerate"
     } else {
         x <- "itemize"
     }
     z <- paste("  \\item ", text, sep ="")
-    zz <- as.matrix(unlist(list(
-        paste0("\\begin{", x, "}"),
-        z,
-        paste0("\\end{", x, "}"))), 
-    ncol=1)
+    zz <- as.matrix(unlist(list(paste0("\\begin{", x, "}"), z,
+        paste0("\\end{", x, "}"))), ncol=1)
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(zz, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(zz, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(zz)
     }
     dimnames(zz) <- list(c(rep("", nrow(zz))), c(""))
     return(noquote(zz))

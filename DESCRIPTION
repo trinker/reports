@@ -40,7 +40,6 @@ Suggests:
     qdap
 Collate:
     'CA.R'
-    'clean.R'
     'CW.R'
     'delete.R'
     'doc_temp.R'
@@ -61,7 +60,6 @@ Collate:
     'FT.R'
     'notes.R'
     'QC.R'
-    'CITEhelper.R'
     'citeL.R'
     'rdirs.R'
     'IM.R'

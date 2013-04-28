@@ -57,15 +57,8 @@ SC <- function(text, copy2clip = TRUE) {
         x <- outs[ins %in% text]
     }
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
-    }   
+        write_clip(x)
+    }
     x 
 }
 

@@ -24,45 +24,17 @@
 #' QC(text=x, "html")
 QC <- function(to = "latex", from = "markdown", text = "clipboard", 
     copy2clip = TRUE) {
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
     if (length(text) == 1 && text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- scan(pcon, what="character", quiet=TRUE)
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- readClipboard()
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+        text <- read_clip()
     } 
     if (from != "latex") {
-        ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-        text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-        text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-        nligs <- length(ligs)
-        if (ligs[1] > 0) {
-            plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-            warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-        }    
+        ext <- text_fix(text)  
     }   
     x <- system2(wheresPandoc(), paste0("-f ", from, " -t ", to), input = text, 
         stdout = TRUE)
     x <- paste(x, collapse=" ")
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     return(x)    
 }

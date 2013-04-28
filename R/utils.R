@@ -31,6 +31,34 @@ write_clip <- function(x) {
     )
 }
 
+text_fix <- function(text) {
+    text <- clean(paste2(text, " "))
+    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
+    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
+    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
+    nligs <- length(ligs)
+    if (ligs[1] > 0) {
+        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
+        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
+    }
+    text <- Trim(iconv(text, "", "ASCII", "byte"))
+    ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
+        "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
+    	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
+    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
+        "<ef><ac><81>", "<ef><ac><82>", "ﬁ", "ﬂ")
+    reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
+        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
+        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "fi", "fl")
+    Encoding(text) <-"latin1"
+    clean(mgsub(ser, reps, text))
+}
+
+simpleCap <- function(x) { 
+    s <- strsplit(x, " ")[[1]] 
+    paste(toupper(substring(s, 1,1)), substring(s, 2), sep="", collapse=" ") 
+} 
+
 prin <- function(x, print) {
     if (print) {
         cat(x)
@@ -78,37 +106,20 @@ function(text.var, rm.quote = TRUE, fix.comma = TRUE, ...){
     x
 }
 
+clean <-
+function(text.var) {
+    gsub("\\s+", " ", gsub("\r|\n|\t", " ", text.var))
+}
+
 strWrap <-
 function(text = "clipboard", width = 70, copy2clip = TRUE, invisible = FALSE) {
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
     if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+        text <- read_clip()
     } 
     x <- gsub("\\s+", " ", gsub("\n|\t", " ", text))
     x <- strwrap(x, width = width)
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     if (!invisible) {
     	writeLines(x)
@@ -384,3 +395,30 @@ function(pattern, replacement = NULL, text.var, fixed = TRUE, ...){
     return(x)
 }
 
+CITEhelper <- function(text.loc = NULL, from = "markdown", to = "latex",
+    copy2clip = TRUE, citation = TRUE){
+    if (is.null(text.loc)) {
+        nts <- notes2()[, -4]
+        cat("\n\n\bPlease select a row number from the entries above:\n\n")
+        text.loc <- as.numeric(readLines(n=1))
+    } else {
+    	if (is.character(text.loc)) {
+    	    nts <- notes2()
+    	    nts <- nts[grepl(text.loc, nts[, "bibkey"], ignore.case=TRUE), ]
+    	    print(truncdf(nts, end = 70))
+            cat("\n\n\bPlease select a row number from the entries above:\n\n")
+            text.loc <- as.numeric(readLines(n=1))
+	
+        } else {
+            nts <- notes2()
+        }
+    }
+    if(text.loc > nrow(nts)) stop("text.loc exceeds number of note entries")
+    txt <- nts[text.loc, "quote"]
+    out <- list(QC(to=to, from=from, text=txt, copy2clip = FALSE))
+    if(citation) {
+        out[["pgs"]] <- nts[text.loc, "page"]
+        out[["bibkey"]] <- nts[text.loc, "bibkey"]
+    }   
+    return(out)
+}

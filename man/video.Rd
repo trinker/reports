@@ -3,14 +3,14 @@
 \alias{YT}
 \title{Video (YouTube/Vimeo) url to iframe HTML Tag}
 \usage{
-  YT(text = "clipboard", copy2clip = TRUE, width = 640,
+  YT(path = "clipboard", copy2clip = TRUE, width = 640,
     height = 360, print = FALSE)
 
-  VM(text = "clipboard", copy2clip = TRUE, width = 640,
+  VM(path = "clipboard", copy2clip = TRUE, width = 640,
     height = 360, print = FALSE)
 }
 \arguments{
-  \item{text}{character vector url/tag copied to the
+  \item{path}{character vector url/tag copied to the
   clipboard. Default is to read from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to

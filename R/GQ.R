@@ -31,44 +31,10 @@
 GQ <- 
 function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE, 
     invisible = FALSE){
-    if (Sys.info()["sysname"] != "Windows") {
-        readClipboard <- writeClipboard <- NULL
-    }    
-    if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (length(text) == 1 && text == "clipboard") {
+        text <- read_clip()
     } 
-    text <- clean(paste2(text, " "))
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }
-    text <- Trim(iconv(text, "", "ASCII", "byte"))
-    ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
-        "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
-    	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
-        "<ef><ac><81>", "<ef><ac><82>", "ﬁ", "ﬂ")
-    reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
-        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
-        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "fi", "fl")
-    Encoding(text) <-"latin1"
-    text <- clean(mgsub(ser, reps, text))
+    text <- QC(text=text_fix(text), from="markdown", to="latex") 
     quotes <- as.character(substitute(quotes))
     if (!quotes %in% c("FALSE", "F")) {
         if (quotes %in% c("l", "L", "left")){
@@ -89,32 +55,26 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
         }
         x <- paste0(L, text, R)
     } else {
-        LONG <- FALSE	
-        x <- text	
+        LONG <- FALSE   
+        x <- text       
     }
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     xout <- strWrap(text, copy2clip = FALSE, invisible=TRUE)
     if (!invisible) {
         if (LONG) {
-    	    body <- paste0(paste(paste(" ", xout), collapse="\n"), "\n")
+            body <- paste0(paste(paste(" ", xout), collapse="\n"), "\n")
             cat("\\begin{quote}\n"); cat(body)
             cat("\\end{quote}\n")
         } else {
-        	body <- paste0(paste(xout, collapse="\n"), "\n")
+            body <- paste0("``", paste2(xout), "''\n")
             cat(body)
         }
     }
     invisible(x)
 }
+
 
 #' Format Quotes
 #' 
@@ -128,53 +88,12 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
 #' @export
 QQ <- 
 function(text = "clipboard", copy2clip = TRUE){
-    if (Sys.info()["sysname"] != "Windows") {
-        readClipboard <- writeClipboard <- NULL
-    }  
-    if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (length(text) == 1 && text == "clipboard") {
+        text <- read_clip()
     } 
-    text <- clean(paste2(text, " "))
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }
-    text <- Trim(iconv(text, "", "ASCII", "byte"))
-    ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
-        "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
-    	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
-        "<ef><ac><81>", "<ef><ac><82>", "ﬁ", "ﬂ")
-    reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
-        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
-        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "fi", "fl")
-    Encoding(text) <-"latin1"
-    x <- clean(mgsub(ser, reps, text))
+    x <- text_fix(text)
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     strWrap(x, copy2clip = FALSE)
     invisible(x)

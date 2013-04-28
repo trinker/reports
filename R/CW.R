@@ -13,23 +13,8 @@
 #' CW("I like icecream")
 CW <- 
 function(text = "clipboard") {
-    if (Sys.info()["sysname"] != "Windows") {
-        readClipboard <- NULL
-    }  
-    if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (length(text) == 1 && text == "clipboard") {
+        text <- read_clip()
     } 
-    wc(paste2(text))
+    wc(text_fix(paste2(text)))
 }

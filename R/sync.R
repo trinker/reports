@@ -49,7 +49,7 @@ sync_img <- function(dir1 = file.path(getwd(), "PRESENTATION", "figure"),
     sync(dir1 = dir1, dir2 = dir2, ...)
 }
 
-#' Sync Images2
+#' Sync Images
 #' 
 #' \code{sync_rnp} - A wrapper for sync to easily sync the files in 
 #' ~/REPORT/figure and ~/PRESENTATION/figure.
@@ -59,5 +59,23 @@ sync_img <- function(dir1 = file.path(getwd(), "PRESENTATION", "figure"),
 sync_rnp <- function(dir1 = file.path(getwd(), "REPORT", "figure"), 
     dir2 = file.path(getwd(), "PRESENTATION", "figure"), ...) {
     sync(dir1 = dir1, dir2 = dir2, ...)
+}
+
+#' Sync Images
+#' 
+#' \code{sync_rnp} - A wrapper for sync to easily sync all files between 
+#' ~/REPORT/figure, ~/PRESENTATION/figure, and ~/PRESENTATION/assets/img.
+#' 
+#' @rdname sync
+#' @export
+sync_all <- function() {
+	dir1 <- file.path(getwd(), "REPORT", "figure") 
+    dir2 <- file.path(getwd(), "PRESENTATION", "figure")
+    dir3 <- file.path(getwd(), "PRESENTATION", "assets", "img")
+    suppressMessages(sync(dir1 = dir2, dir2 = dir1))
+    suppressMessages(sync(dir1 = dir2, dir2 = dir1))
+    suppressMessages(sync(dir1 = dir3, dir2 = dir2))
+    message(paste(c("The following directories have been synced:\n", dir1, 
+        dir2, dir3), collapse = "\n"))
 }
 

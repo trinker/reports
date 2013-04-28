@@ -14,45 +14,16 @@
 #' @examples
 #' US("bad path with spaces")
 US <- function(text = "clipboard", copy2clip = TRUE){
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
-    if (text == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            text <- paste(scan(pcon, what="character", 
-                quiet=TRUE), collapse=" ")
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            text <- paste(readClipboard(), collapse=" ")
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (length(text) == 1 && text == "clipboard") {
+        text <- read_clip()
     } 
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }
+    text <- text_fix(text)
     und <- function(x) { 
         gsub("\\s+", "_", x)
     } 
     x <- unlist(lapply(tolower(text), und)) 
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     return(x)
 }

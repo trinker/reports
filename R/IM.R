@@ -40,7 +40,7 @@ IM <- function(path = "clipboard", width = NULL, height = NULL, sty = NULL,
     }
     end <- paste0(width, height, "></p>\n</div>\n")
     if (center & is.null(link)) {
-        x <- paste0(front, path, end)
+        x <- paste0(front, path, "\"", end)
     } else {
         x <- paste0("<img src=\"", path, "\"", width, height, ">")
     }

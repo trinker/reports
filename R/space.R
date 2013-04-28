@@ -16,14 +16,7 @@
 HS <- function(n=1, copy2clip = TRUE) {
     x <- paste(rep("&nbsp;", n), collapse="")
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     return(x)
 }
@@ -33,14 +26,7 @@ HS <- function(n=1, copy2clip = TRUE) {
 VS <- function(n=1, copy2clip = TRUE) {
     x <- paste(rep("</br>", n), collapse="")
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     x
 }

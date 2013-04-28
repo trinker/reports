@@ -68,7 +68,8 @@ library(reports); library(qdap); library(acc.roxygen2)
 path <- "C:/Users/trinker/Desktop/reports_dev"
 path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
-expand_statdoc(path2, readme = rdme, to.icon = c("sync_img", "sync_rnp", "VS", "VM"))
+expand_statdoc(path2, readme = rdme, 
+    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2"))
 
 #STEP 3: move to trinker.guthub
 library(reports)
@@ -105,7 +106,8 @@ path <- "C:/Users/trinker/Desktop/reports"
 path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 #extras <- qcv(folder, QQ)
-expand_statdoc(path2, readme = rdme)
+expand_statdoc(path2, readme = rdme, 
+    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2"))
 
 #STEP 3: move to trinker.guthub
 library(reports)

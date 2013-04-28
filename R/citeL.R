@@ -65,14 +65,7 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
         }   
     }
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
     if (LONG) {
         if (citation) {
