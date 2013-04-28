@@ -1,6 +1,6 @@
 #' Convert path/url to HTML Image Tag
 #' 
-#' Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
+#' \code{IM} - Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
 #' lacks flexibility with centering and sizing.  \code{IM} enables conrol of 
 #' centering via altering the sty/center commands and control of sizing via 
 #' the numeric values supplied to height and width.
@@ -20,28 +20,15 @@
 #' console.  If FALSE returns to the console.
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
+#' @rdname image
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
 IM <- function(path = "clipboard", width = NULL, height = NULL, sty = NULL, 
     center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
-    if (Sys.info()["sysname"] != "Windows") {
-        writeClipboard <- NULL
-    }  
-    if (length(path) == 1 && path == "clipboard") {
-        if (Sys.info()["sysname"] == "Darwin") {        
-            pcon <- pipe("pbpaste")
-            path <- scan(pcon, what="character", quiet=TRUE)
-            close(pcon)
-        }                                             
-        if (Sys.info()["sysname"] == "Windows") {
-            path <- readClipboard()
-        }
-        if(!Sys.info()["sysname"] %in% c("Darwin", "Windows")) {
-          warning("not Windows or Darwin:
-                \b\b\b\b\b\b\b\bmay not be able to read from the clipboard")
-        }
+    if (path == "clipboard") {
+        path <- read_clip()
     } 
     path <- chartr("\\", "/", path)
     front <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p><img src=\"")
@@ -67,19 +54,26 @@ IM <- function(path = "clipboard", width = NULL, height = NULL, sty = NULL,
         }
     }
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
-    if (print) {
-        cat(x)
-        invisible(x)
-    } else {
-        x	
-    }
+    prin(x = x, print = print)
+}
+
+#' Convert path/url to HTML Image Tag
+#'
+#' \code{IM2} - A wrapper for \code{IM} that sets the base path to "assets/img/".  
+#' This allows the users to just specify the image name that resides in the 
+#' directory: "assets/img/".
+#' 
+#' @param image character vector name of the image. Default is to read from the 
+#' clipboard. 
+#' @param \ldots other arguments passed to \code{IM}. 
+#' @export
+#' @rdname image
+IM2 <- function(image = "clipboard", ...) { 
+    if (image == "clipboard") {
+        image <- read_clip()
+    } 
+    path <- file.path("assets/img", chartr("\\", "/", image))
+    IM(path = path, ...)
 }

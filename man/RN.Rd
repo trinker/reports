@@ -25,6 +25,7 @@
 }
 \examples{
 RN("some fancy notes", print = TRUE)
+RN("1) some\\n2) fancy\\n3) notes")
 RN("1) some
 2) fancy
 3) notes", print = TRUE)

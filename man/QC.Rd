@@ -1,6 +1,6 @@
 \name{QC}
 \alias{QC}
-\title{Pandoc Convert a String}
+\title{Quick Convert: Pandoc Convert a String}
 \usage{
   QC(to = "latex", from = "markdown", text = "clipboard",
     copy2clip = TRUE)

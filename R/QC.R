@@ -1,4 +1,4 @@
-#' Pandoc Convert a String
+#' Quick Convert: Pandoc Convert a String
 #' 
 #' Uses Pandoc to convert from one form to another. 
 #' 

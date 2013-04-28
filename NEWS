@@ -23,8 +23,10 @@ NEW FEATURES
 * `YT` and `VM` are new functions that wraps a YouTube/Vimeo tag or url to 
   generate an HTML iframe tag.
 
-* `IM` a new function that wraps an image path or url to generate a flexible 
-  HTML tag with optional hyperlink.
+* `IM` and `IM2` new functions that wraps an image path or url to generate a 
+  flexible HTML tag with optional hyperlink.  `IM2` is a wrapper for `IM` and 
+  assumes the location of the local image file is in "assets/img/", menaing the 
+  user only needs supply the name of the local image.
 
 * The cite family of functions has been introduced.  These functions provide 
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 

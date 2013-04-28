@@ -12,6 +12,7 @@
 #' @export
 #' @examples
 #' RN("some fancy notes", print = TRUE)
+#' RN("1) some\n2) fancy\n3) notes")
 #' RN("1) some 
 #' 2) fancy 
 #' 3) notes", print = TRUE)
@@ -34,22 +35,11 @@ RN <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) {
         }
     } 
     text <- chartr("\\", "/", text)
-    x <- paste0(paste(paste("  ", unlist(strsplit(text, "\n"))), collapse="\n"), "\n")
+    x <- paste0(paste(paste(unlist(strsplit(text, "\n")), "<br>"), 
+        collapse="\n"), "\n")
     x <- paste0("<aside class=\"notes\">\n",x, "</aside>\n")
     if(copy2clip){
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(x, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(x, con = j)                               
-            close(j)                                    
-        }             
+        write_clip(x)
     }
-    if (print) {
-        cat(x)
-        invisible(x)
-    } else {
-        x	
-    }
+    prin(x = x, print = print)
 }
