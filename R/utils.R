@@ -4,6 +4,7 @@ write_clip <- function(x) {
     ## This is code I submitted but was modified by the package maintainers.
     ## The idea to keep this function as a modular unit makes sense and was 
     ## subsequently applied to the reports package
+	
     OS <- Sys.info()["sysname"]
     
     if(!(OS %in% c("Darwin", "Windows", "Linux"))) {
@@ -69,12 +70,14 @@ prin <- function(x, print) {
 }
 
 read_clip <- function() {
+	    ## The code for this helper function comes from the oveRflow package.  
+    ## # https://raw.github.com/sebastian-c/oveRflow/master/R/writeClip.R
+    ## This is code I submitted but was modified by the package maintainers.
+    ## The idea to keep this function as a modular unit makes sense and was 
+    ## subsequently applied to the reports package
+	
     OS <- Sys.info()["sysname"]
-    
-    if(!(OS %in% c("Darwin", "Windows"))) {
-        stop("Copying to clipboard not supported on your OS")
-    }
-    
+
     if (OS != "Windows") {
         readClipboard <- NULL
     } 
@@ -86,7 +89,8 @@ read_clip <- function() {
             out <- scan(pcon, what="character", quiet=TRUE)
             close(pcon)
         },
-        "Windows" = {out <- readClipboard()}
+        "Windows" = {out <- readClipboard()},
+        readLines("clipboard")
     )
     out
 }
