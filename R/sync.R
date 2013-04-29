@@ -17,15 +17,16 @@
 #' @seealso 
 #' \code{\link[base]{file.copy}}
 #' @export
-sync <- function(dir1, dir2, one_way = FALSE, recursive = TRUE, ...) {
+sync <- 
+function(dir1, dir2, one_way = FALSE, recursive = TRUE, ...) {
     a <- dir(dir1)
     b <- dir(dir2)
-    a_unique <- setdiff(a, b)
+    b_unique <- setdiff(b, a)
     invisible(lapply(file.path(dir2, b_unique), function(x) {
         file.copy(x, dir1, recursive = recursive, ...)
     }))
     if (!one_way) {
-        b_unique <- setdiff(b, a)
+        a_unique <- setdiff(a, b)    	
         invisible(lapply(file.path(dir1, a_unique), function(x) {
             file.copy(x, dir2, recursive = recursive, ...)
         }))
@@ -72,10 +73,15 @@ sync_all <- function() {
 	dir1 <- file.path(getwd(), "REPORT", "figure") 
     dir2 <- file.path(getwd(), "PRESENTATION", "figure")
     dir3 <- file.path(getwd(), "PRESENTATION", "assets", "img")
-    suppressMessages(sync(dir1 = dir2, dir2 = dir1))
-    suppressMessages(sync(dir1 = dir2, dir2 = dir1))
+	dirs <- c(dir1, dir2, dir3)
+	if (file.exists(dir1)) {
+        suppressMessages(sync(dir1 = dir2, dir2 = dir1))
+        suppressMessages(sync(dir1 = dir3, dir2 = dir1))  
+	} else {
+        dirs <- dirs[2:3]
+	}
     suppressMessages(sync(dir1 = dir3, dir2 = dir2))
-    message(paste(c("The following directories have been synced:\n", dir1, 
-        dir2, dir3), collapse = "\n"))
+    message(paste(c("The following directories have been synced:\n", dirs), 
+        collapse = "\n"))
 }
 
