@@ -22,9 +22,9 @@
 #' @export
 #' @rdname image
 #' @examples
-#' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
+#' IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
-#' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
+#' IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 IM <- function(path = "clipboard", width = 540, height = IE(width, 360), 
 	sty = IE(width, width*1.05, 480), center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {

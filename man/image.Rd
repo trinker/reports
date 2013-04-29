@@ -58,8 +58,8 @@
   "assets/img/".
 }
 \examples{
-IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
+IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
-IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
+IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 }
 
