@@ -1,4 +1,4 @@
-#' Flexible \code{ifelse} Like Functionality for Arguments
+#' Flexible ifelse Like Functionality for Arguments
 #' 
 #' Use in the place of \code{ifelse} for arguments (particularly if \code{NULL} is 
 #' an option.

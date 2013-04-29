@@ -1,6 +1,6 @@
 \name{IE}
 \alias{IE}
-\title{Flexible \code{ifelse} Like Functionality for Arguments}
+\title{Flexible ifelse Like Functionality for Arguments}
 \usage{
   IE(input, out1, out2 = NULL, FUN = is.numeric)
 }
