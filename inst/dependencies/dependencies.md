@@ -86,9 +86,9 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [R Markdown](http://www.rstudio.com/ide/docs/authoring/using_markdown)     
 
 <hr>
-<div style="width:420px;margin:auto;">
-    <p><a href="https://github.com/trinker/reports"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="400" height="300"></a></p>
+<p class="rightJustified"><a href="#"> Back to Top </a></p>  
+<div style="width:567px;margin:auto;">
+    <p><a href="https://github.com/trinker/reports"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></a></p>
 </div>
-
 
 

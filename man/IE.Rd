@@ -1,0 +1,30 @@
+\name{IE}
+\alias{IE}
+\title{Flexible \code{ifelse} Like Functionality for Arguments}
+\usage{
+  IE(input, out1, out2 = NULL, FUN = is.numeric)
+}
+\arguments{
+  \item{input}{An object to be tested.}
+
+  \item{out1}{The output if test is \code{TRUE}.}
+
+  \item{out2}{The output if test is \code{FALSE}.}
+
+  \item{FUN}{A function that results in a logical output.}
+}
+\value{
+  Returns output 1 (out1) or output 2 (out2) as a function
+  of the logical test.
+}
+\description{
+  Use in the place of \code{ifelse} for arguments
+  (particularly if \code{NULL} is an option.
+}
+\examples{
+IE(25, 360)
+IE("char", 360)
+IE(NULL, 360)
+IE(NULL, 360, FUN = is.null)
+}
+

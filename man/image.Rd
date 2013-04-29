@@ -3,9 +3,10 @@
 \alias{IM2}
 \title{Convert path/url to HTML Image Tag}
 \usage{
-  IM(path = "clipboard", width = NULL, height = NULL,
-    sty = NULL, center = TRUE, link = NULL,
-    copy2clip = TRUE, print = FALSE)
+  IM(path = "clipboard", width = 540,
+    height = IE(width, 360),
+    sty = IE(width, width * 1.05, 480), center = TRUE,
+    link = NULL, copy2clip = TRUE, print = FALSE)
 
   IM2(image = "clipboard", ...)
 }

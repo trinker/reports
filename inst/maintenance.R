@@ -53,6 +53,14 @@ examples(path = "C:/Users/trinker/GitHub/reports/R/")
 library(pacman)
 p_load(pander, qdap, installr, ProjectTemplate, slidify)
 
+#=========================
+# update dependencies page
+#=========================
+depends <- readLines(file.path(getwd(), "inst/dependencies/dependencies.html"))
+top <- readLines(file.path(getwd(), "inst/dependencies/top_part.html"))
+new <- depends[which(grepl("</head>" , depends)):length(depends)]
+cat(paste(c(top, new), collapse="\n"), file=file.path(getwd(), "inst/dependencies/dependencies.html"))
+
 #========================
 #staticdocs dev version
 #========================

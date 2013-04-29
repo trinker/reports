@@ -25,18 +25,19 @@
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", print=TRUE, link = "http://cran.r-project.org")
-IM <- function(path = "clipboard", width = NULL, height = NULL, sty = NULL, 
-    center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
+IM <- function(path = "clipboard", width = 540, height = IE(width, 360), 
+	sty = IE(width, width*1.05, 480), center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
     path <- chartr("\\", "/", path)
+    sty <- sty 
     front <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p><img src=\"")
+    if(!is.null(height)){
+    	height <- paste0(" ", "height=\"", height, "\"")
+    }
     if(!is.null(width)) {
     	width <- paste0(" ", "width=\"", width, "\"")
-    }
-    if(!is.null(height)){
-    	heigth <- paste0(" ", "height=\"", height, "\"")
     }
     end <- paste0(width, height, "></p>\n</div>\n")
     if (center & is.null(link)) {

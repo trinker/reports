@@ -29,6 +29,7 @@ list(
         "HR",
         "HS",
         "IM",
+        "RF",
         "RN",
         "SC",
         "YT"
@@ -67,11 +68,17 @@ list(
       )
     ),
     sd_section("User Defined Templates", 
-      "Function to create user defined template",
+      "Function to create user defined template.",
       c(
         "doc_temp"
       )
     ),
+    sd_section("reports Tools", 
+      "Exported tools used within reports.",
+      c(
+        "IE"
+      )
+    ),    
     sd_section("Decapricated",
       "Functions that will be removed from the reports package in version 0.1.4.",
       c(

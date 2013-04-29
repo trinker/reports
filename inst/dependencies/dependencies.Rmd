@@ -80,6 +80,6 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [R Markdown](http://www.rstudio.com/ide/docs/authoring/using_markdown)     
 
 <hr>
+<p class="rightJustified"><a href="#"> Back to Top… </a></p>  
 `r IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", link="https://github.com/trinker/reports")`
-
 
