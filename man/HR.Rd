@@ -2,18 +2,21 @@
 \alias{HR}
 \title{Convert path/url to HTML href Tag}
 \usage{
-  HR(path = "clipboard", text = NULL, copy2clip = TRUE,
-    print = FALSE)
+  HR(path = "clipboard", text = NULL, new_win = TRUE,
+    copy2clip = TRUE, print = FALSE)
 }
 \arguments{
-  \item{text}{character vector of text to hyperref from.
-  Defualt uses the \code{\link[base]{basename}} of the
-  path.}
-
   \item{path}{character vector url/path copied to the
   clipboard. Default is to read from the clipboard.  Note
   that Windows users do not have to reorient slashes in
   local paths if reading from the clipboard.}
+
+  \item{text}{character vector of text to hyperref from.
+  Defualt uses the \code{\link[base]{basename}} of the
+  path.}
+
+  \item{new_win}{logical.  If \code{TRUE} the link will
+  open in a new window.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
