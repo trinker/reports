@@ -22,6 +22,6 @@
   invloved with this action.
 }
 \examples{
-RF()
+## RF()
 }
 

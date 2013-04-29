@@ -11,7 +11,7 @@
 #' clipboard. 
 #' @export
 #' @examples
-#' RF()
+#' ## RF()
 RF <- function(print = FALSE, copy2clip = TRUE) {
     x <- c("<script>", "$('ul.incremental li').addClass('fragment')",
         "</script>")
