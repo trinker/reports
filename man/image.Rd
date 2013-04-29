@@ -6,7 +6,8 @@
   IM(path = "clipboard", width = 540,
     height = IE(width, 360),
     sty = IE(width, width * 1.05, 480), center = TRUE,
-    link = NULL, copy2clip = TRUE, print = FALSE)
+    link = NULL, new_win = TRUE, copy2clip = TRUE,
+    print = FALSE)
 
   IM2(image = "clipboard", ...)
 }
@@ -29,6 +30,9 @@
 
   \item{link}{character vector url/path to hyperlink the
   image to.}
+
+  \item{new_win}{logical.  If \code{TRUE} the link will
+  open in a new window.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}

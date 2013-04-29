@@ -16,6 +16,7 @@
 #' @param center logical.  If TRUE the image will be centered, if FALSE image 
 #' will be left justified.
 #' @param link character vector url/path to hyperlink the image to.
+#' @param new_win logical.  If \code{TRUE} the link will open in a new window.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
 #' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
@@ -28,7 +29,8 @@
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 IM <- function(path = "clipboard", width = 540, height = IE(width, 360), 
-	sty = IE(width, width*1.05, 480), center = TRUE, link = NULL, copy2clip = TRUE, print = FALSE) { 
+	sty = IE(width, width*1.05, 480), center = TRUE, link = NULL, new_win = TRUE,
+    copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -48,7 +50,12 @@ IM <- function(path = "clipboard", width = 540, height = IE(width, 360),
         x <- paste0("<img src=\"", path, "\"", width, height, ">")
     }
     if (!is.null(link)) {
-        x <- paste0("<a href=\"", link, "\">", x, "</a>")
+        if (new_win) {
+            tar <- "target=\"_blank\""	
+        } else {
+            tar <- NULL
+        }    	
+        x <- paste0("<a href=\"", link, "\"", tar, ">", x, "</a>")
         if (center) {
             x <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p>", x,
                 "</p>\n</div>\n")

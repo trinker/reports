@@ -4,7 +4,7 @@
 
 <hr>
 # LaTeX
-<a href="http://www.latex-project.org/"><img src="http://www.cec-2009.org/files/submission/LaTeXLogo.png" width="100" height="50"></a>
+<a href="http://www.latex-project.org/"target="_blank"><img src="http://www.cec-2009.org/files/submission/LaTeXLogo.png" width="100" height="50"></a>
 
 
 Windows users [miktex.org](http://miktex.org/)     
@@ -19,7 +19,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Themes](http://deic.uab.es/~iblanes/beamer_gallery/)    
 <hr>
 # slidify 
-<a href="https://github.com/ramnathv/slidify"><img src="http://ramnathv.github.com/slidifyExamples/examples/io2012/assets/img/slidify_logo.png" width="150" height="100"></a>
+<a href="https://github.com/ramnathv/slidify"target="_blank"><img src="http://ramnathv.github.com/slidifyExamples/examples/io2012/assets/img/slidify_logo.png" width="150" height="100"></a>
 
 
 [Website](http://ramnathv.github.io/slidify/)     
@@ -27,7 +27,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Examples](https://github.com/ramnathv/slidifyexamples)    
 <hr>
 # knitr 
-<a href="http://yihui.name/knitr/"><img src="http://yihui.name/knitr/images/knit-logo.png" width="120" height="90"></a>
+<a href="http://yihui.name/knitr/"target="_blank"><img src="http://yihui.name/knitr/images/knit-logo.png" width="120" height="90"></a>
 
 
 [Website](http://yihui.name/knitr/)     
@@ -35,14 +35,14 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Demos](http://yihui.name/knitr/demos)    
 <hr>
 # Pandoc
-<a href="http://johnmacfarlane.net/pandoc/"><img src="http://www.uniquesquared.com/blog/wp-content/uploads/2011/03/swiss-army-knife.jpg" width="150" height="100"></a>
+<a href="http://johnmacfarlane.net/pandoc/"target="_blank"><img src="http://www.uniquesquared.com/blog/wp-content/uploads/2011/03/swiss-army-knife.jpg" width="150" height="100"></a>
 
 
 [Website](http://johnmacfarlane.net/pandoc/)       
 [Demos](http://johnmacfarlane.net/pandoc/demos.html) 
 <hr>
 # RStudio
-<a href="http://www.rstudio.com/"><img src="http://www.osxtoy.com/wp-content/uploads/2011/03/RStudio_logo.png" width="80" height="80"></a>
+<a href="http://www.rstudio.com/"target="_blank"><img src="http://www.osxtoy.com/wp-content/uploads/2011/03/RStudio_logo.png" width="80" height="80"></a>
 
 
 [Website](http://www.rstudio.com/)       
@@ -55,20 +55,20 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [on CRAN](http://cran.r-project.org/web/packages/knitcitations/)  
 <hr>
 # R
-<a href="http://cran.us.r-project.org/"><img src="http://www.thinkr.spatialfiltering.com/images/Rlogo.png" width="110" height="80"></a>
+<a href="http://cran.us.r-project.org/"target="_blank"><img src="http://www.thinkr.spatialfiltering.com/images/Rlogo.png" width="110" height="80"></a>
 
    
 [CRAN](http://cran.us.r-project.org/)  
 <hr>
 # Libre Office
-<a href="http://www.libreoffice.org/"><img src="http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png" width="80" height="80"></a>
+<a href="http://www.libreoffice.org/"target="_blank"><img src="http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png" width="80" height="80"></a>
 
    
 [Website](http://www.libreoffice.org/)    
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
-<a href="http://www.w3schools.com/html/html5_intro.asp"><img src="http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png" width="80" height="80"></a>
+<a href="http://www.w3schools.com/html/html5_intro.asp"target="_blank"><img src="http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png" width="80" height="80"></a>
 
 *Sometimes it's easier to use html code to get a task done*    
 
@@ -78,7 +78,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>
 # Markdown
-<a href="http://daringfireball.net/projects/markdown/"><img src="http://daringfireball.net/graphics/logos/" width="330" height="90"></a>
+<a href="http://daringfireball.net/projects/markdown/"target="_blank"><img src="http://daringfireball.net/graphics/logos/" width="330" height="90"></a>
 
   
 
@@ -88,7 +88,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 <hr>
 <p class="rightJustified"><a href="#"> Back to Top </a></p>  
 <div style="width:567px;margin:auto;">
-    <p><a href="https://github.com/trinker/reports"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></a></p>
+    <p><a href="https://github.com/trinker/reports"target="_blank"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></a></p>
 </div>
 
 
