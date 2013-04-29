@@ -103,6 +103,14 @@
   \code{reveal.js} demo can be found
   \url{http://trinker.github.com/reports/examples/}.
 }
+
+\section{Warning}{
+  reveal.js is deprecated and will be removed from reports
+  in a version subsequent to version 1.3.  It is recomended
+  for the user to become familiar with the slidify approach
+  to html5 presentation as this will be the framework used
+  by the reports package.
+}
 \examples{
 \dontrun{
 #Run after running knitr on an Rmd file

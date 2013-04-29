@@ -42,6 +42,10 @@
 #' \url{http://trinker.github.com/reports/examples/}.
 #' 
 #' @author Ananda Mahto & Tyler Rinker <tyler.rinker@@gmail.com>
+#' @section Warning: html5 is deprecated and will be removed from reports in 
+#' a version subsequent to version 1.3.  It is recomended for the user to become 
+#' familiar with the slidify approach to html5 presentation as this will be the 
+#' framework used by the reports package.
 #' @references \url{http://stackoverflow.com/a/14971683/1000343}
 #' @seealso \code{\link[reports]{reveal.js}}
 #' @export

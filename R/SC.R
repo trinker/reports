@@ -4,6 +4,8 @@
 #' 
 #' @param text character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
+#' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
+#' clipboard.  
 #' @return Returns an HTML special character entity.
 #' @details The general use of \code{SC}is to provide a character string of length 
 #' 2.  The first character is a letter and the second is one of the following 

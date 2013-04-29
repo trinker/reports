@@ -2,8 +2,10 @@
 #' 
 #' Reorients Windows path backslashes to forward slashes.
 #' 
-#' @param clipboard logical.  If TRUE copies the path from the clipboard, 
-#' if FALSE \code{WP} will ask for the path interactively.
+#' @param path character vector url/path copied to the clipboard. Default is to 
+#' read from the clipboard.  
+#' @param quotes logical.  If \code{TRUE} quotes will be added to front/end of 
+#' the string.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
 #' @return Returns a character vector path with slashes oriented for R.
@@ -12,14 +14,14 @@
 #' ## WP(FALSE)  #using readline <br>    
 #' ## C:\Users\trinker\Desktop\doc
 WP <- 
-function(text = "clipboard", quotes = TRUE, copy2clip = TRUE) {
-    if (text != "clipboard") {
+function(path = "clipboard", quotes = TRUE, copy2clip = TRUE) {
+    if (path != "clipboard") {
         cat("Please enter the path:\n\n")
-        text <- readline()
+        path <- readline()
     } else {
-        text <- read_clip()
+        path <- read_clip()
     }
-    z <- chartr("\\", "/", text)
+    z <- chartr("\\", "/", path)
     if (quotes) {
         x <- paste0("\"", z, "\"")
     } else {
