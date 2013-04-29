@@ -10,7 +10,7 @@
   enumerate environment.  If \code{FALSE} itemize is used
   instead.}
 
-  \item{text}{character vector or text copied to the
+  \item{text}{A character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to

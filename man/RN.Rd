@@ -5,15 +5,15 @@
   RN(text = "clipboard", copy2clip = TRUE, print = FALSE)
 }
 \arguments{
-  \item{text}{character vector or text copied to the
+  \item{text}{A character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If FALSE returns to
-  the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If \code{FALSE} returns to the console.}
 }
 \value{
   Returns a character vector wrapped with a courier new

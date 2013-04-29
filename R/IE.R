@@ -1,7 +1,7 @@
 #' Flexible ifelse Like Functionality for Arguments
 #' 
-#' Use in the place of \code{ifelse} for arguments (particularly if \code{NULL} is 
-#' an option.
+#' Use in the place of \code{ifelse} for arguments (particularly if \code{NULL} 
+#' is an option).
 #' 
 #' @param input An object to be tested. 
 #' @param out1 The output if test is \code{TRUE}.

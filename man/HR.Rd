@@ -6,7 +6,7 @@
     copy2clip = TRUE, print = FALSE)
 }
 \arguments{
-  \item{path}{character vector url/path copied to the
+  \item{path}{A character vector url/path copied to the
   clipboard. Default is to read from the clipboard.  Note
   that Windows users do not have to reorient slashes in
   local paths if reading from the clipboard.}

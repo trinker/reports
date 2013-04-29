@@ -41,7 +41,7 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{citation}{logical.  If TRUE will include the
+  \item{citation}{logical.  If \code{TRUE} will include the
   formatted citation + the quote.}
 
   \item{width}{The widths of a block quote output (for the

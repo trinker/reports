@@ -5,9 +5,9 @@
   RF(print = FALSE, copy2clip = TRUE)
 }
 \arguments{
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If FALSE returns to
-  the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If \code{FALSE} returns to the console.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}

@@ -8,7 +8,7 @@
 #' "courier", "courier_new", "georgia", "helvetica", "impact", "palatino", 
 #' "times_new_roman", "trebuchet_ms", "verdanaBrowse").  size is any valid whole 
 #' number.  color can be any R color or hex value.
-#' @param text character vector or text copied to the clipboard.  Default is to 
+#' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 

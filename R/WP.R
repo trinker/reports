@@ -2,8 +2,8 @@
 #' 
 #' Reorients Windows path backslashes to forward slashes.
 #' 
-#' @param path character vector url/path copied to the clipboard. Default is to 
-#' read from the clipboard.  
+#' @param path A character vector url/path copied to the clipboard. Default is 
+#' to read from the clipboard.  
 #' @param quotes logical.  If \code{TRUE} quotes will be added to front/end of 
 #' the string.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 

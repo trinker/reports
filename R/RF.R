@@ -5,8 +5,8 @@
 #' in reveal.js slides.  This is required per each slide.  Using \code{`r RF()`} 
 #' reducaes the typing invloved with this action.
 #'
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
-#' console.  If FALSE returns to the console. 
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the output to the 
+#' console.  If \code{FALSE} returns to the console. 
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
 #' @export

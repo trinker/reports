@@ -12,20 +12,20 @@
   IM2(image = "clipboard", ...)
 }
 \arguments{
-  \item{path}{character vector url/path to the image.
+  \item{path}{A character vector url/path to the image.
   Default is to read from the clipboard.  Note that Windows
   users do not have to reorient slashes in local paths if
   reading from the clipboard.}
 
-  \item{width}{the width of the image.  If \code{NULL} the
+  \item{width}{The width of the image.  If \code{NULL} the
   defualt image width is used.}
 
-  \item{height}{the height of the image.  If \code{NULL}
+  \item{height}{The height of the image.  If \code{NULL}
   the defualt image height is used.}
 
-  \item{sty}{the width of the style (used for centering).}
+  \item{sty}{The width of the style (used for centering).}
 
-  \item{center}{logical.  If TRUE the image will be
+  \item{center}{logical.  If \code{TRUE} the image will be
   centered, if FALSE image will be left justified.}
 
   \item{link}{character vector url/path to hyperlink the
@@ -37,14 +37,14 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If FALSE returns to
-  the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If FALSE returns to the console.}
 
-  \item{image}{character vector name of the image. Default
-  is to read from the clipboard.}
+  \item{image}{A character vector name of the image.
+  Default is to read from the clipboard.}
 
-  \item{\ldots}{other arguments passed to \code{IM}.}
+  \item{\ldots}{Other arguments passed to \code{IM}.}
 }
 \value{
   Returns a character vector of an HTML image tag that

@@ -20,14 +20,14 @@
   code tags are used instead of the backticks and single
   quotes.}
 
-  \item{text}{character vector or text copied to the
+  \item{text}{A character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{invisible}{logical.  If TRUE will jot print to the
-  console.}
+  \item{invisible}{logical.  If \code{TRUE} will not print
+  to the console.}
 }
 \value{
   \code{GQ} - Returns formatted text for use with LaTeX

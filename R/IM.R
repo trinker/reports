@@ -1,25 +1,25 @@
 #' Convert path/url to HTML Image Tag
 #' 
-#' \code{IM} - Wrap a path/url to generate an HTML tag.  Often markup code: \code{![](url)} 
-#' lacks flexibility with centering and sizing.  \code{IM} enables conrol of 
-#' centering via altering the sty/center commands and control of sizing via 
-#' the numeric values supplied to height and width.
+#' \code{IM} - Wrap a path/url to generate an HTML tag.  Often markup code: 
+#' \code{![](url)} lacks flexibility with centering and sizing.  \code{IM} 
+#' enables conrol of centering via altering the sty/center commands and control 
+#' of sizing via the numeric values supplied to height and width.
 #' 
-#' @param path character vector url/path to the image. Default is to 
+#' @param path A character vector url/path to the image. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths if reading from the clipboard.
-#' @param width the width of the image.  If \code{NULL} the defualt image width 
+#' @param width The width of the image.  If \code{NULL} the defualt image width 
 #' is used.
-#' @param height the height of the image.  If \code{NULL} the defualt image 
+#' @param height The height of the image.  If \code{NULL} the defualt image 
 #' height is used.
-#' @param sty the width of the style (used for centering).
-#' @param center logical.  If TRUE the image will be centered, if FALSE image 
+#' @param sty The width of the style (used for centering).
+#' @param center logical.  If \code{TRUE} the image will be centered, if FALSE image 
 #' will be left justified.
 #' @param link character vector url/path to hyperlink the image to.
 #' @param new_win logical.  If \code{TRUE} the link will open in a new window.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the output to the 
 #' console.  If FALSE returns to the console.
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
@@ -75,9 +75,9 @@ IM <- function(path = "clipboard", width = 540, height = IE(width, 360),
 #' This allows the users to just specify the image name that resides in the 
 #' directory: "assets/img/".
 #' 
-#' @param image character vector name of the image. Default is to read from the 
+#' @param image A character vector name of the image. Default is to read from the 
 #' clipboard. 
-#' @param \ldots other arguments passed to \code{IM}. 
+#' @param \ldots Other arguments passed to \code{IM}. 
 #' @export
 #' @rdname image
 IM2 <- function(image = "clipboard", ...) { 

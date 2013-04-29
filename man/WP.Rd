@@ -5,7 +5,7 @@
   WP(path = "clipboard", quotes = TRUE, copy2clip = TRUE)
 }
 \arguments{
-  \item{path}{character vector url/path copied to the
+  \item{path}{A character vector url/path copied to the
   clipboard. Default is to read from the clipboard.}
 
   \item{quotes}{logical.  If \code{TRUE} quotes will be

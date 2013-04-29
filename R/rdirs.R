@@ -7,12 +7,12 @@
 #' R's recylcing rule with different length vectors.
 #' @param path A character vector specifying the root directory path.
 #' @param sep  A character string to separate the terms.
-#' @param pad.num logical.  If TRUE numbers will be padded with leading zeros 
-#' (detects numeric strings supplied using the colon(\code{:}) operator or 
+#' @param pad.num logical.  If \code{TRUE} numbers will be padded with leading 
+#' zeros (detects numeric strings supplied using the colon(\code{:}) operator or 
 #' combine (\code{c(}) function.
-#' @param text.only logical.  If TRUE rdirs does not create the directories, but
-#' only returns the names.  This allows the names to be passed to 
-#' \code{new_report} and \code{presentation}.
+#' @param text.only logical.  If \code{TRUE} rdirs does not create the 
+#' directories, but only returns the names.  This allows the names to be passed 
+#' to \code{new_report} and \code{presentation}.
 #' @return Generates recursive sub directories.  Invisibly returns the names of
 #' the sub-directories.
 #' @seealso  \code{\link[reports]{folder}}, 

@@ -18,8 +18,7 @@
 \examples{
 col2hex("darkblue")
 col2hex(c("darkblue", "red"))
-x <- paste0("<hr color=\\"", col2hex("red"), "\\" size=\\"4\\">")
-cat(x)
+cat(paste0("<hr color=\\"", col2hex("red"), "\\" size=\\"4\\">"))
 }
 \seealso{
   \code{\link[grDevices]{colors}},

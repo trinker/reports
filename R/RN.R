@@ -2,12 +2,12 @@
 #' 
 #' Creates an aside of the class "notes" for reveal.js slides
 #' 
-#' @param text character vector or text copied to the clipboard.  Default is to 
-#' read from the clipboard.
+#' @param text A character vector or text copied to the clipboard.  Default is 
+#' to read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
-#' console.  If FALSE returns to the console.
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
+#' output to the console.  If \code{FALSE} returns to the console.
 #' @return Returns a character vector wrapped with a courier new font tag.
 #' @export
 #' @examples

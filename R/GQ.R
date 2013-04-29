@@ -11,11 +11,11 @@
 #' right ticks only are used. 
 #' @param block logical.  If \code{TRUE} LaTeX block quote code tags are used 
 #' instead of the backticks and single quotes.
-#' @param text character vector or text copied to the clipboard.  Default is to 
+#' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @param invisible logical.  If TRUE will jot print to the console.
+#' @param invisible logical.  If \code{TRUE} will not print to the console.
 #' @section Warning: Ligatures parsing is very good, however, these elements my
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".

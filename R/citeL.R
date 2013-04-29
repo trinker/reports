@@ -10,8 +10,8 @@
 #' allows the user to view the notes.xlsx/notes.csv and chose a row number.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @param citation logical.  If TRUE will include the formatted citation + the 
-#' quote.
+#' @param citation logical.  If \code{TRUE} will include the formatted citation 
+#' + the quote.
 #' @details Each of the functions in the cite family follow a pattern of 
 #' (cite, parencite, textcite, posscite, poscite) prefix and (L or M) suffix 
 #' (note that currently only parencite and textcite functions exist for markdown).  

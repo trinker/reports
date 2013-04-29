@@ -9,7 +9,7 @@
 # 
 # @param password GitHub user password (character string).
 # @param project.dir The path to the root directory of the report/presentation.
-# @param repo Character string naming the repo; default attempts to use the 
+# @param repo A character string naming the repo; default attempts to use the 
 # report project directory name.
 # @param github.user GitHub user name (character string).
 # @param gitpath Path to the location of git.  If \code{NULL} 

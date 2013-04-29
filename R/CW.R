@@ -2,7 +2,7 @@
 #' 
 #' Tool to count words from text taken from articles.
 #' 
-#' @param text character vector or text copied to the clipboard.  Default is to 
+#' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @details This function counts the number of words in a text chunk.  Useful 
 #' for determining if block quotes are needed in APA6.  While the function 

@@ -8,8 +8,8 @@
   \item{col.width}{An integer value of the maximum width of
   columns.}
 
-  \item{notes.col}{logical, If TRUE the notes column will
-  be displayed.}
+  \item{notes.col}{logical.  If \code{TRUE} the notes
+  column will be displayed.}
 }
 \value{
   Returns a truncated view of user notes.

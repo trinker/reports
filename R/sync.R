@@ -4,14 +4,15 @@
 #' 
 #' @param dir1 The path to the first directory.
 #' @param dir2 The path to the second directory.
-#' @param one_way logical.  If TRUE the contents of dir2 be copied to dir1, 
-#' however, dir2 contents will not change.  If FALSE both dir1 and dir2 files 
-#' will be copied to other (dir1 and dir2 will contain identical contents).
+#' @param one_way logical.  If \code{TRUE} the contents of dir2 be copied to 
+#' dir1, however, dir2 contents will not change.  If \code{FALSE} both dir1 and 
+#' dir2 files will be copied to other (dir1 and dir2 will contain identical 
+#' contents).
 #' @param recursive logical. Should directories and contents be recursively 
 #' copied?
 #' @param \ldots For the \code{sync} function \ldots  are other arguments passed 
 #' to \code{\link[base]{file.copy}}.  For \code{sync_img} and \code{sync_rnp} 
-#' \ldots  are additional arguments passed to \code{sync}.  
+#' @param \ldots  Additional arguments passed to \code{sync}.  
 #' @rdname sync
 #' @return Syncs files between directories.
 #' @seealso 

@@ -5,7 +5,7 @@
   CW(text = "clipboard")
 }
 \arguments{
-  \item{text}{character vector or text copied to the
+  \item{text}{A character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}
 }
 \description{

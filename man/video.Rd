@@ -10,19 +10,19 @@
     height = 360, print = FALSE)
 }
 \arguments{
-  \item{path}{character vector url/tag copied to the
+  \item{path}{A character vector url/tag copied to the
   clipboard. Default is to read from the clipboard.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{width}{the width of the player.}
+  \item{width}{The width of the player.}
 
-  \item{height}{the height of the player.}
+  \item{height}{The height of the player.}
 
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If FALSE returns to
-  the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If FALSE returns to the console.}
 }
 \value{
   Returns a character vector of an HTML iframe tag that

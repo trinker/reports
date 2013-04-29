@@ -15,14 +15,14 @@
 
   \item{sep}{A character string to separate the terms.}
 
-  \item{pad.num}{logical.  If TRUE numbers will be padded
-  with leading zeros (detects numeric strings supplied
-  using the colon(\code{:}) operator or combine (\code{c(})
-  function.}
+  \item{pad.num}{logical.  If \code{TRUE} numbers will be
+  padded with leading zeros (detects numeric strings
+  supplied using the colon(\code{:}) operator or combine
+  (\code{c(}) function.}
 
-  \item{text.only}{logical.  If TRUE rdirs does not create
-  the directories, but only returns the names.  This allows
-  the names to be passed to \code{new_report} and
+  \item{text.only}{logical.  If \code{TRUE} rdirs does not
+  create the directories, but only returns the names.  This
+  allows the names to be passed to \code{new_report} and
   \code{presentation}.}
 }
 \value{

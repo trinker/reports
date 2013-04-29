@@ -2,14 +2,14 @@
 #' 
 #' Wrap a YouTube/Vimeo tag or url to generate an HTML iframe tag. 
 #' 
-#' @param path character vector url/tag copied to the clipboard. Default is to 
+#' @param path A character vector url/tag copied to the clipboard. Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
-#' @param width the width of the player.
-#' @param height the height of the player.
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
-#' console.  If FALSE returns to the console. 
+#' @param width The width of the player.
+#' @param height The height of the player.
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
+#' output to the  console.  If FALSE returns to the console. 
 #' @details Use \code{YT} for YouTube videos and \code{VM} for Vimeo videos.
 #' @return Returns a character vector of an HTML iframe tag that embeds a YouTube 
 #' or Vimeo video.
