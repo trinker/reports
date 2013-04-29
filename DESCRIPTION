@@ -23,14 +23,14 @@ URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 Depends:
-    R (>= 2.15),
-    xlsx
+    R (>= 2.15)
 Imports:
     slidify,
     slidifyLibraries,
     knitr,
     knitcitations,
-    markdown
+    markdown,
+    xlsx
 Suggests:
     ascii,
     brew,
