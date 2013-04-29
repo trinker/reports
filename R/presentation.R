@@ -41,11 +41,7 @@
 #' @export
 #' @import slidify
 #' @examples
-#' \dontrun{
-#' presentation()
-#' presentation("New", rnw=TRUE, theme=NULL)
-#' presentation("New", rnw=FALSE)
-#' }
+#' ## presentation("New")
 presentation <- function(presentation = "presentation", type = c("rnw", "rmd"), 
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name_reports"), github.user = getOption("github.user"), 

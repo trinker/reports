@@ -45,13 +45,12 @@
 #' @export
 #' @import slidify
 #' @examples 
-#' \dontrun{
-#' new_report()
-#' }
+#' ## new_report()
 new_report <- function(report = "report", template = getOption("temp_reports"), 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
-    github.user = getOption("github.user"), sources = getOption("sources_reports"), 
-    path = getwd(), AN.xlsx = TRUE, slidify_clean = FALSE, ...) {
+    github.user = getOption("github.user"), 
+	sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE, 
+	slidify_clean = FALSE, ...) {
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (!tail(unlist(strsplit(template, "_")), 1) %in% c("rnw", "web", "doc", "tex")) {
     	stop("Please supply a correct template name")

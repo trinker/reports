@@ -75,9 +75,7 @@
   Introductory video \url{http://youtu.be/cokNUTGtoM4}
 }
 \examples{
-\dontrun{
-new_report()
-}
+## new_report()
 }
 \seealso{
   \code{\link[reports]{doc_temp}},

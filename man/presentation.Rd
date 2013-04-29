@@ -72,11 +72,7 @@
   the project startup} }
 }
 \examples{
-\dontrun{
-presentation()
-presentation("New", rnw=TRUE, theme=NULL)
-presentation("New", rnw=FALSE)
-}
+## presentation("New")
 }
 \seealso{
   \code{\link[reports]{new_report}},
