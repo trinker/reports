@@ -55,7 +55,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [on CRAN](http://cran.r-project.org/web/packages/knitcitations/)  
 <hr>
 # R
-<a href="http://cran.us.r-project.org/"><img src="http://www.thinkr.spatialfiltering.com/images/Rlogo.png" width="80" height="80"></a>
+<a href="http://cran.us.r-project.org/"><img src="http://www.thinkr.spatialfiltering.com/images/Rlogo.png" width="110" height="80"></a>
 
    
 [CRAN](http://cran.us.r-project.org/)  
@@ -68,7 +68,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
-<a href="http://www.w3schools.com/html/html5_intro.asp"><img src="http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png" width="100" height="80"></a>
+<a href="http://www.w3schools.com/html/html5_intro.asp"><img src="http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png" width="80" height="80"></a>
 
 *Sometimes it's easier to use html code to get a task done*    
 
@@ -78,7 +78,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>
 # Markdown
-<a href="http://daringfireball.net/projects/markdown/"><img src="http://daringfireball.net/graphics/logos/" width="200" height="90"></a>
+<a href="http://daringfireball.net/projects/markdown/"><img src="http://daringfireball.net/graphics/logos/" width="330" height="90"></a>
 
   
 
