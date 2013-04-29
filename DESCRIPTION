@@ -23,14 +23,14 @@ URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 Depends:
-    R (>= 2.15)
+    R (>= 2.15),
+    xlsx
 Imports:
     slidify,
     slidifyLibraries,
     knitr,
     knitcitations,
-    markdown,
-    xlsx
+    markdown
 Suggests:
     ascii,
     brew,
@@ -40,37 +40,37 @@ Suggests:
     qdap
 Collate:
     'CA.R'
+    'citeL.R'
+    'CN.R'
+    'col2hex.R'
     'CW.R'
     'delete.R'
     'doc_temp.R'
+    'FT.R'
     'GQ.R'
+    'HR.R'
+    'html5.R'
+    'IE.R'
+    'IM.R'
     'LL.R'
     'new_report.R'
+    'notes.R'
     'pad.R'
     'presentation.R'
+    'QC.R'
+    'rdirs.R'
+    'repo2github.R'
     'reports-package.R'
+    'reveal.js.R'
+    'RF.R'
+    'RN.R'
+    'SC.R'
+    'space.R'
+    'sync.R'
     'templates.R'
     'tex2docx.R'
     'update_bib.R'
-    'repo2github.R'
     'US.R'
-    'reveal.js.R'
-    'html5.R'
-    'CN.R'
-    'FT.R'
-    'notes.R'
-    'QC.R'
-    'citeL.R'
-    'rdirs.R'
-    'IM.R'
-    'YT.R'
-    'sync.R'
-    'HR.R'
-    'space.R'
-    'WP.R'
-    'SC.R'
-    'RN.R'
     'utils.R'
-    'IE.R'
-    'RF.R'
-    'col2hex.R'
+    'WP.R'
+    'YT.R'
