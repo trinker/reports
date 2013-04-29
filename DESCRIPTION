@@ -73,3 +73,4 @@ Collate:
     'utils.R'
     'IE.R'
     'RF.R'
+    'col2hex.R'

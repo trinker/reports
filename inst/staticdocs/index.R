@@ -32,7 +32,8 @@ list(
         "RF",
         "RN",
         "SC",
-        "YT"
+        "YT",
+        "col2hex"
       )
     ),    
     sd_section("Citations",

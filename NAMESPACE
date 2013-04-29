@@ -1,6 +1,7 @@
 export(CA)
 export(citeL)
 export(CN)
+export(col2hex)
 export(CW)
 export(delete)
 export(doc_temp)
