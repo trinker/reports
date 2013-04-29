@@ -16,9 +16,11 @@
   users do not have to reorient slashes in local paths if
   reading from the clipboard.}
 
-  \item{width}{the width of the image.}
+  \item{width}{the width of the image.  If \code{NULL} the
+  defualt image width is used.}
 
-  \item{height}{the height of the image.}
+  \item{height}{the height of the image.  If \code{NULL}
+  the defualt image height is used.}
 
   \item{sty}{the width of the style (used for centering).}
 

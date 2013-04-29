@@ -8,8 +8,10 @@
 #' @param path character vector url/path to the image. Default is to 
 #' read from the clipboard.  Note that Windows users do not have to reorient 
 #' slashes in local paths if reading from the clipboard.
-#' @param width the width of the image.
-#' @param height the height of the image.
+#' @param width the width of the image.  If \code{NULL} the defualt image width 
+#' is used.
+#' @param height the height of the image.  If \code{NULL} the defualt image 
+#' height is used.
 #' @param sty the width of the style (used for centering).
 #' @param center logical.  If TRUE the image will be centered, if FALSE image 
 #' will be left justified.
