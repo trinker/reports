@@ -23,7 +23,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 
 
 [Website](http://ramnathv.github.io/slidify/)     
-[Github](https://github.com/ramnathv/slidify)     
+[GitHub](https://github.com/ramnathv/slidify)     
 [Examples](https://github.com/ramnathv/slidifyexamples)    
 <hr>
 # knitr 
@@ -31,7 +31,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 
 
 [Website](http://yihui.name/knitr/)     
-[Github](https://github.com/yihui/knitr)     
+[GitHub](https://github.com/yihui/knitr)     
 [Demos](http://yihui.name/knitr/demos)    
 <hr>
 # Pandoc
@@ -51,7 +51,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 # knitcitations
 
 [Website](http://carlboettiger.info/2012/05/30/knitcitations.html)     
-[Github](https://github.com/cboettig/knitcitations)     
+[GitHub](https://github.com/cboettig/knitcitations)     
 [on CRAN](http://cran.r-project.org/web/packages/knitcitations/)  
 <hr>
 # R
@@ -64,7 +64,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 <a href="http://www.libreoffice.org/"><img src="http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png" width="80" height="80"></a>
 
    
-[Website](http://www.libreoffice.org/) 
+[Website](http://www.libreoffice.org/)    
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
@@ -72,8 +72,8 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 
 *Sometimes it's easier to use html code to get a task done*    
 
-[Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    
-[All Tags](http://www.w3schools.com/tags/tag_phrase_elements.asp)       
+[Quick Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    
+[HTML Tags](http://www.w3schools.com/tags/tag_phrase_elements.asp)       
 [Special Characters](http://www.utexas.edu/learn/html/spchar.html)    
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>

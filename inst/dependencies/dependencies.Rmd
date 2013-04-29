@@ -24,14 +24,14 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 `r IM("http://ramnathv.github.com/slidifyExamples/examples/io2012/assets/img/slidify_logo.png", 150, 100, center=FALSE, link="https://github.com/ramnathv/slidify")`
 
 [Website](http://ramnathv.github.io/slidify/)     
-[Github](https://github.com/ramnathv/slidify)     
+[GitHub](https://github.com/ramnathv/slidify)     
 [Examples](https://github.com/ramnathv/slidifyexamples)    
 <hr>
 # knitr 
 `r IM("http://yihui.name/knitr/images/knit-logo.png", 120, 90, center=FALSE, link="http://yihui.name/knitr/")`
 
 [Website](http://yihui.name/knitr/)     
-[Github](https://github.com/yihui/knitr)     
+[GitHub](https://github.com/yihui/knitr)     
 [Demos](http://yihui.name/knitr/demos)    
 <hr>
 # Pandoc
@@ -49,7 +49,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 # knitcitations
 
 [Website](http://carlboettiger.info/2012/05/30/knitcitations.html)     
-[Github](https://github.com/cboettig/knitcitations)     
+[GitHub](https://github.com/cboettig/knitcitations)     
 [on CRAN](http://cran.r-project.org/web/packages/knitcitations/)  
 <hr>
 # R
@@ -60,15 +60,15 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 # Libre Office
 `r IM("http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png", 80, 80, center=FALSE, link="http://www.libreoffice.org/")`
    
-[Website](http://www.libreoffice.org/) 
+[Website](http://www.libreoffice.org/)    
 [Download](http://www.libreoffice.org/download)
 <hr>
 # HTML code help
 `r IM("http://www.red-team-design.com/wp-content/uploads/2011/01/css3-html5-logo.png", 80, 80, center=FALSE, link="http://www.w3schools.com/html/html5_intro.asp")`
 *Sometimes it's easier to use html code to get a task done*    
 
-[Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    
-[All Tags](http://www.w3schools.com/tags/tag_phrase_elements.asp)       
+[Quick Tricks](http://wuhzzles.deviantart.com/journal/HTML-Text-Codes-Tips-and-Tricks-for-dA-214210259)    
+[HTML Tags](http://www.w3schools.com/tags/tag_phrase_elements.asp)       
 [Special Characters](http://www.utexas.edu/learn/html/spchar.html)    
 [Hexadecimal Colors](http://www.pagetutor.com/common/bgcolors1536.html)    
 <hr>
