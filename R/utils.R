@@ -90,7 +90,7 @@ read_clip <- function() {
             close(pcon)
         },
         "Windows" = {out <- readClipboard()},
-        readLines("clipboard")
+        out <- readLines("clipboard")
     )
     out
 }
