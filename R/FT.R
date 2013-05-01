@@ -25,7 +25,7 @@ FT <- function(..., text = "clipboard", copy2clip = TRUE) {
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 
-    text <- text_fix2(text)
+    text <- text_fix(text, addhyph = FALSE)
     x <- substitute(...())
     if (is.null(x)) {
         stop(paste("supply \"font\", \"size\", and/or \"color\"", 

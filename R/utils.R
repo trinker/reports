@@ -32,30 +32,7 @@ write_clip <- function(x) {
     )
 }
 
-text_fix <- function(text) {
-    text <- clean(paste2(text, " "))
-    ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
-    text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
-    text <- gsub("([\\?])([a-z])", "\\fi\\2", text)
-    nligs <- length(ligs)
-    if (ligs[1] > 0) {
-        plural <- ifelse(nligs > 1, "ligatures were", "ligature was")
-        warning(paste(nligs, "possible", plural, "found: \nCheck output!"))
-    }
-    text <- Trim(iconv(text, "", "ASCII", "byte"))
-    ser <- c("<91>", "<92>", "- ", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
-        "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
-    	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
-        "<ef><ac><81>", "<ef><ac><82>")
-    reps <- c("`", "'", "", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
-        "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
-        "&eacute;","&mdash;", "\"", "\"", "fi", "fl")
-    Encoding(text) <-"latin1"
-    clean(mgsub(ser, reps, text))
-}
-
-text_fix2 <- function(text) {
+text_fix <- function(text, addhyph = FALSE) {
     text <- clean(paste2(text, " "))
     ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
     text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
@@ -74,9 +51,15 @@ text_fix2 <- function(text) {
     reps <- c("`", "'", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
         "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
         "&eacute;","&mdash;", "\"", "\"", "fi", "fl")
+    if (addhyph) {
+        ser <- c(ser, "- ")
+        reps <- c(reps, "")  
+    }
     Encoding(text) <-"latin1"
     clean(mgsub(ser, reps, text))
 }
+
+
 
 simpleCap <- function(x) { 
     s <- strsplit(x, " ")[[1]] 
