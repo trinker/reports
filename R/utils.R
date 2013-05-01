@@ -55,7 +55,7 @@ text_fix <- function(text) {
     clean(mgsub(ser, reps, text))
 }
 
-text_fix <- function(text) {
+text_fix2 <- function(text) {
     text <- clean(paste2(text, " "))
     ligs <- gregexpr("([\\?])([a-z])", text)[[1]]
     text <- gsub("([\\?])([aeiouy])", "\\fl\\2", text)
