@@ -23,7 +23,7 @@ URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 Depends:
-    R (>= 2.15)
+    R (>= 3.0.0)
 Imports:
     slidify,
     slidifyLibraries,
