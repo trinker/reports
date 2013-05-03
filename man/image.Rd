@@ -9,7 +9,7 @@
     link = NULL, new_win = TRUE, copy2clip = TRUE,
     print = FALSE)
 
-  IM2(image = "clipboard", ...)
+  IM2(image = "clipboard", loc = 1, ...)
 }
 \arguments{
   \item{path}{A character vector url/path to the image.
@@ -43,6 +43,9 @@
 
   \item{image}{A character vector name of the image.
   Default is to read from the clipboard.}
+
+  \item{loc}{The location of the image: 1-/assets/img and
+  2-/figure.}
 
   \item{\ldots}{Other arguments passed to \code{IM}.}
 }

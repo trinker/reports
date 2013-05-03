@@ -77,13 +77,19 @@ IM <- function(path = "clipboard", width = 540, height = IE(width, 360),
 #' 
 #' @param image A character vector name of the image. Default is to read from the 
 #' clipboard. 
+#' @param loc The location of the image: 1-/assets/img and 2-/figure.
 #' @param \ldots Other arguments passed to \code{IM}. 
 #' @export
 #' @rdname image
-IM2 <- function(image = "clipboard", ...) { 
+IM2 <-
+function(image = "clipboard", loc = 1, ...) { 
     if (image == "clipboard") {
         image <- read_clip()
     } 
-    path <- file.path("assets/img", chartr("\\", "/", image))
+    switch(loc, 
+        `1` = {path <- file.path("assets/img", chartr("\\", "/", image))},
+        `2` = {path <- file.path("figure", chartr("\\", "/", image))},
+        stop("enter:\n  1-assets/img\n  2-figure\nfor location of image file")
+    )
     IM(path = path, ...)
 }
