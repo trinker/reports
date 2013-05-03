@@ -3,9 +3,9 @@
 library(pacman); p_load(knitr, RWordPress, xtable)
 opts_chunk$set(cache = TRUE, warning = FALSE)
 
-pressNum_n_dir <- "INSERTwordpress_number/directoryHERE"
-path2figureStorage <- "C:/Users/you/Dropbox/Public/directoryHERE/"
-opts_knit$set(base.url = paste0("http://dl.dropbox.com/u/", pressNum_n_dir),
+pressNum_n_dir <- "INSERTwordpress_number/directoryHERE"   #e.g., "61803503/wp/"
+path2figureStorage <- "C:/Users/you/Dropbox/Public/directoryHERE/"   #e.g., "C:/Users/trinker/Dropbox/Public/wp/"
+opts_knit$set(base.url = paste0("http://dl.dropboxusercontent.com.com/u/", pressNum_n_dir),
     base.dir = path2figureStorage)
 library(knitr)
 ```
@@ -30,3 +30,5 @@ library(pacman); p_load()
 
 -------
 # Section 3
+
+Remember to see the SEND_IT.R file to send to wordpress
