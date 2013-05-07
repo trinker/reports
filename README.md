@@ -32,8 +32,4 @@ The reports web page [trinker.github.com/reports](http://trinker.github.com/repo
 For the package pdf help manual [click here](https://dl.dropbox.com/u/61803503/reports.pdf)     
 For information on the programs/packages reports brings together [click here](http://trinker.github.io/reports/dependencies)
 
-<P>
-Counter:
-<!-- #exec cmd="g:\dragonnorth\counter.exe -fg:\dragonnorth\htmltricks\count.inc -ncounter" -->
-</P>
 
