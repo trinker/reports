@@ -14,14 +14,14 @@ NEW FEATURES
 * `QC` quick convert between Pandoc recognized languages.  Meant for a string 
   rather than an entire file.
 
-* `CN` a new function that wraps text with courier new HTML a font tag for 
-  supplied text.
-
 * `FT` a new function that detects face, color and size and generates a font tag 
   for supplied text.
 
 * `YT` and `VM` are new functions that wraps a YouTube/Vimeo tag or url to 
   generate an HTML iframe tag.
+
+* `IF` a new function that wraps a url to generate an HTML iframe tag.  This is 
+  useful for embedding a document within another document.
 
 * `IM` and `IM2` new functions that wraps an image path or url to generate a 
   flexible HTML tag with optional hyperlink.  `IM2` is a wrapper for `IM` and 
@@ -41,21 +41,28 @@ NEW FEATURES
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.
 
-* `HR` a function for quick html hyperrefs.
-
-* spacing functions `HS` (horizontal space) and `VS` (vertical space) have been 
-  added.
-
-* `SC` a function to quickly generate special HTML characters.
-
-* `RN` a function to quickly add reveal.js notes to an HTML reveal.js slide.
 
 MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 
   notes located in the ARTICLES directory.
 
+* `BV` a function, bibliography viewer, that allows the user to view their 
+  bibiliographs stored in the .bib file.
+
 * A new template `wordpress_web` has been added.
+
+* `SC` a function to quickly generate special HTML characters.
+
+* `RN` a function to quickly add reveal.js notes to an HTML reveal.js slide.
+
+* `HR` a function for quick html hyperrefs.
+
+* spacing functions `HS` (horizontal space) and `VS` (vertical space) have been 
+  added.
+
+* `CN` a new function that wraps text with courier new HTML a font tag for 
+  supplied text.
 
 IMPROVEMENTS
 

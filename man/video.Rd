@@ -22,7 +22,7 @@
 
   \item{print}{logical.  If \code{TRUE}
   \code{\link[base]{cat}} prints the output to the console.
-  If FALSE returns to the console.}
+  If \code{FALSE} returns to the console.}
 }
 \value{
   Returns a character vector of an HTML iframe tag that

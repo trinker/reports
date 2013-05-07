@@ -28,6 +28,7 @@ list(
       c(
         "HR",
         "HS",
+        "IF", 
         "IM",
         "RF",
         "RN",
@@ -39,6 +40,7 @@ list(
     sd_section("Citations",
       "Function to assist in citing text.",
       c(
+      	"BV",
         "citeL",
         "notes",
         "parenciteL",
