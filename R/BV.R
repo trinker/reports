@@ -10,24 +10,22 @@
 #' @export
 #' @import knitcitations
 #' @examples 
-#' \dontrun{
-#' notes()
-#' }
-BV <-
+#' ## BV()
+BV <- 
 function(bib = NULL, col.width = 40) {
     loc1 <- getwd()
     loc2 <- file.path(loc1, "REPORT")
     loc3 <- file.path(loc1, "PRESENTATION")
-    locs <- list(loc1, loc2, loc3)    	    	
-    	
+    locs <- list(loc1, loc2, loc3)    	    	    	
     FUN <- function(x) {
-    	fls <- dir(x)  
+    	fls <- dir(file.path(x)) 
         if (identical(fls, character(0))) return(NULL) 
     	fls[tools::file_ext(fls) == "bib"][1]
     }
     check <-lapply(locs, FUN)
-    mark <- which(!sapply(check, is.null))[1]
-    bibloc <- file.path(unlist(locs[mark]), FUN(unlist(locs[mark])))
+    test <- function(x) all(!is.null(x) & !is.na(x))
+    mark <- which(sapply(check, test))[1]
+    bibloc <- file.path(locs[mark], FUN(locs[mark]))
     bibin <- suppressMessages(suppressWarnings(invisible(read.bibtex(bibloc))))
     title <- sapply(bibin, function(x) {
         tryCatch(clean(unlist(x)[grepl("\\.title", names(unlist(x)))]), 
