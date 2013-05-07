@@ -34,9 +34,6 @@
   \item{\ldots}{For the \code{sync} function \ldots are
   other arguments passed to \code{\link[base]{file.copy}}.
   For \code{sync_img} and \code{sync_rnp}}
-
-  \item{\ldots}{Additional arguments passed to
-  \code{sync}.}
 }
 \value{
   Syncs files between directories.
