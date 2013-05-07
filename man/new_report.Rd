@@ -66,9 +66,13 @@
   on reports} \item{\bold{temp_reports} - The primary
   template to use to generate reports (see
   \code{template})} \item{\bold{github.user} - GitHub user
-  name} \item{\bold{sources_reports} - Path(s) to
-  additional files/scripts that should be included to be
-  sourced in the project startup} }
+  name} \item{\bold{speed_temp} - A speed dial like
+  interface that allows the template argument to ake a
+  numeric arguement.  Setting this option takes the form
+  of: \code{options(speed_temp=list(`1`="wordpress_web",
+  `2`="basic_web"))}} \item{\bold{sources_reports} -
+  Path(s) to additional files/scripts that should be
+  included to be sourced in the project startup} }
 }
 
 \section{Additional Guide}{

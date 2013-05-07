@@ -23,7 +23,7 @@
 #' LL(FALSE, x)
 LL <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
 	copy2clip = TRUE) {
-    if (length(text) > 1 && text == "clipboard") {
+    if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 
     text <- sapply(text, text_fix)

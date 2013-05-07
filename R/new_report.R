@@ -33,6 +33,9 @@
 #'   \item{\bold{temp_reports} - The primary template to use to generate reports 
 #'   (see \code{template})}
 #'   \item{\bold{github.user} - GitHub user name}
+#'   \item{\bold{speed_temp} - A speed dial like interface that allows the 
+#'   template argument to ake a numeric arguement.  Setting this option takes 
+#'   the form of: \code{options(speed_temp=list(`1`="wordpress_web", `2`="basic_web"))}}
 #'   \item{\bold{sources_reports} - Path(s) to additional files/scripts that 
 #'   should be included to be sourced in the project startup}
 #' }
@@ -46,17 +49,22 @@
 #' @import slidify
 #' @examples 
 #' ## new_report()
-new_report <- function(report = "report", template = getOption("temp_reports"), 
+new_report <- 
+function(report = "report", template = getOption("temp_reports"), 
     bib.loc = getOption("bib.loc"), name = getOption("name_reports"), 
     github.user = getOption("github.user"), 
-	sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE, 
-	slidify_clean = FALSE, ...) {
+        sources = getOption("sources_reports"), path = getwd(), AN.xlsx = TRUE, 
+        slidify_clean = FALSE, ...) {
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
+    if (is.numeric(template)) {
+        spdTmp <- getOption("speed_temp")
+        template <-  unlist(spdTmp[template == names(spdTmp)])
+    }     
     if (!tail(unlist(strsplit(template, "_")), 1) %in% c("rnw", "web", "doc", "tex")) {
-    	stop("Please supply a correct template name")
+        stop("Please supply a correct template name")
     }
     report <- gsub("\\s+", "_", report)
-    main <- head(report, 1)	
+    main <- head(report, 1)     
     report <- tail(report, 1)
     if(file.exists(file.path(path, main))) {
         cat(paste0("\"", file.path(path, main), 
@@ -178,7 +186,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
         "library(reports); library(slidify); library(slidifyLibraries); library(knitr); library(knitcitations)", 
-    	"# library(pander)", "")  
+        "# library(pander)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
     rpro3 <- sources
@@ -283,6 +291,7 @@ new_report <- function(report = "report", template = getOption("temp_reports"),
     class(o) <- "reports"
     return(o)    
 }
+
 
 
 
