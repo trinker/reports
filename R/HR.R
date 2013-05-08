@@ -30,7 +30,7 @@ HR <- function(path = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRUE
         text <- basename(path)
     }
     if (new_win) {
-        tar <- "target=\"_blank\""	
+        tar <- " target=\"_blank\""	
     } else {
     	tar <- NULL
     }
