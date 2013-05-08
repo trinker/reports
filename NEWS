@@ -32,9 +32,8 @@ NEW FEATURES
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 
   `?citeL` for more details.
 
-* `md2docx` has been added for a conveinent way to convert an .md file to .docx.
-
-* `tex2html` has been added for a conveinent way to convert a .tex file to .html.
+* Conversion functions: `md2docx`, `md2pdf`, `tex2html`, `html2pdf`, `tex2docx`, 
+  `md2tex` have been added for a conveinent way to convert an .md file to .docx.
 
 * `rdirs` reclusively creates multiple directories.
 

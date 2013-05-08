@@ -64,7 +64,9 @@ list(
     sd_section("Document Conversion",
       "Functions to convert documents.",
       c(
+      	"html2pdf",
         "md2docx",
+      	"md2pdf",
         "md2tex",
         "tex2docx",
         "tex2html"

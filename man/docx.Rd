@@ -1,9 +1,11 @@
 \name{tex2docx}
+\alias{html2pdf}
 \alias{md2docx}
+\alias{md2pdf}
 \alias{md2tex}
 \alias{tex2docx}
 \alias{tex2html}
-\title{Convert tex/markdown to docx/tex/html}
+\title{Convert tex/markdown/html to docx/tex/html}
 \usage{
   tex2docx(in.file = NULL, out.file = NULL,
     path = paste0(getwd(), "/REPORT"),
@@ -18,6 +20,14 @@
     bib.loc = getOption("bib.loc"))
 
   md2tex(in.file = NULL, out.file = NULL,
+    path = paste0(getwd(), "/REPORT"),
+    bib.loc = getOption("bib.loc"))
+
+  md2pdf(in.file = NULL, out.file = NULL,
+    path = paste0(getwd(), "/REPORT"),
+    bib.loc = getOption("bib.loc"))
+
+  html2pdf(in.file = NULL, out.file = NULL,
     path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc"))
 }
@@ -50,7 +60,8 @@
 }
 \note{
   \code{md2docx} converts markdown (a .md file) not
-  Rmarkdown (.Rmd). Use knitr to knit to HTML first.
+  Rmarkdown (.Rmd). Use knitr to knit to HTML first (this
+  creates the .md file).
 }
 \examples{
 \dontrun{

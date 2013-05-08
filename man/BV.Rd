@@ -20,8 +20,6 @@
   Allows a truncated view of your .bib.
 }
 \examples{
-\dontrun{
-notes()
-}
+## BV()
 }
 

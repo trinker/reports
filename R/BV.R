@@ -23,8 +23,10 @@ function(bib = NULL, col.width = 40) {
     	fls[tools::file_ext(fls) == "bib"][1]
     }
     check <-lapply(locs, FUN)
-    test <- function(x) all(!is.null(x) & !is.na(x))
-    mark <- which(sapply(check, test))[1]
+    test <- function(x) suppressWarnings((!is.null(x) & !is.na(x)))
+    x <- sapply(check, test)
+    x[sapply(x, identical, logical(0))] <- FALSE
+    mark <- which(unlist(x))[1]
     bibloc <- file.path(locs[mark], FUN(locs[mark]))
     bibin <- suppressMessages(suppressWarnings(invisible(read.bibtex(bibloc))))
     title <- sapply(bibin, function(x) {

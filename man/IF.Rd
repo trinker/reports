@@ -37,6 +37,7 @@
 \examples{
 IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)
 IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, center = TRUE, print = TRUE)
+IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
 IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
 }
 

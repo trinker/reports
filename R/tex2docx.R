@@ -1,4 +1,4 @@
-#' Convert tex/markdown to docx/tex/html
+#' Convert tex/markdown/html to docx/tex/html
 #' 
 #' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert tex/markdown
 #' to docx for those colleagues who use docx. 
@@ -16,7 +16,7 @@
 #' @details The user must have pandoc installed and on their path.  pandoc can 
 #' be installed from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 #' @note \code{md2docx} converts markdown (a .md file) not Rmarkdown (.Rmd).  
-#' Use knitr to knit to HTML first.
+#' Use knitr to knit to HTML first (this creates the .md file).
 #' @rdname docx
 #' @export
 #' @examples 
@@ -122,3 +122,52 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("tex file generated!\n")
 }
 
+#' @rdname docx
+#' @export 
+md2pdf <- 
+function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"), 
+    bib.loc = getOption("bib.loc")) {
+    if (!is.null(path)) {
+        WD <- getwd()
+        on.exit(setwd(WD))
+        setwd(path)   
+        if (is.null(in.file)) {
+            in.file <- dir(path)[tools::file_ext(dir(path)) == "md"]
+            in.file <- in.file[!in.file %in% "preamble.tex"][1]
+        }
+        if (is.null(out.file)) {
+            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".pdf")
+        }
+    }
+    action <- paste0(wheresPandoc(), " -s ", in.file, " -o ", out.file)
+    if (!is.null(bib.loc)) {
+        action <- paste0(action, " --bibliography=", bib.loc)
+    }
+    system(action)
+    cat("pdf file generated!\n")
+}
+
+#' @rdname docx
+#' @export 
+html2pdf <- 
+function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"), 
+    bib.loc = getOption("bib.loc")) {
+    if (!is.null(path)) {
+        WD <- getwd()
+        on.exit(setwd(WD))
+        setwd(path)   
+        if (is.null(in.file)) {
+            in.file <- dir(path)[tools::file_ext(dir(path)) == "html"]
+            in.file <- in.file[!in.file %in% "preamble.tex"][1]
+        }
+        if (is.null(out.file)) {
+            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".pdf")
+        }
+    }
+    action <- paste0(wheresPandoc(), " -s ", in.file, " -o ", out.file)
+    if (!is.null(bib.loc)) {
+        action <- paste0(action, " --bibliography=", bib.loc)
+    }
+    system(action)
+    cat("pdf file generated!\n")
+}
