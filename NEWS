@@ -55,7 +55,7 @@ MINOR FEATURES
 
 * `RN` a function to quickly add reveal.js notes to an HTML reveal.js slide.
 
-* `HR` a function for quick html hyperrefs.
+* `HR` and `HR2` functions for quick html hyperrefs.
 
 * spacing functions `HS` (horizontal space) and `VS` (vertical space) have been 
   added.

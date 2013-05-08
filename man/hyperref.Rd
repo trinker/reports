@@ -1,8 +1,12 @@
 \name{HR}
 \alias{HR}
+\alias{HR2}
 \title{Convert path/url to HTML href Tag}
 \usage{
-  HR(path = "clipboard", text = NULL, new_win = TRUE,
+  HR(path = "clipboard", text = NULL, new_win = FALSE,
+    copy2clip = TRUE, print = FALSE)
+
+  HR2(path = "clipboard", text = NULL, new_win = TRUE,
     copy2clip = TRUE, print = FALSE)
 }
 \arguments{
@@ -29,7 +33,10 @@
   Returns a character vector of an HTML href tag.
 }
 \description{
-  Wrap a path/url to generate an HTML href tag.
+  \code{HR} - Wrap a path/url to generate an HTML href tag.
+
+  \code{HR} - Convenience version of \code{HR} with new_win
+  set to \code{TRUE}.
 }
 \examples{
 ## HR("assets/img/fry_admin_1.mp4","new")
