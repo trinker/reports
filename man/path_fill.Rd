@@ -19,15 +19,15 @@
 }
 \value{
   Returns a character vector every space replaced with an
-  underscore/percent.  \code{UF} also converts the text to
-  lower case.
+  underscore/percent And apostophes removed.  \code{UF}
+  also converts the text to lower case.
 }
 \description{
-  \code{UF} - A convenience wrapper to replace black spaces
-  of paths with underscores.
+  \code{UF} - A convenience function to replace black
+  spaces of paths with underscores.
 
-  \code{PF} - A convenience wrapper to replace black spaces
-  of URLs with percents.
+  \code{PF} - A convenience function to replace black
+  spaces of URLs with percents.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements
