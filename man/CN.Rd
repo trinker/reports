@@ -17,7 +17,7 @@
 }
 \description{
   Wraps text with a courier new font tag. A specified
-  version of \code{QF} but more convient for constant use
+  version of \code{FT} but more convient for constant use
   of courier new tags.
 }
 \section{Warning}{

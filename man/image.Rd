@@ -25,8 +25,8 @@
 
   \item{sty}{The width of the style (used for centering).}
 
-  \item{center}{logical.  If \code{TRUE} the image will be
-  centered, if FALSE image will be left justified.}
+  \item{center}{logical. If \code{TRUE} the image will be
+  centered, if \code{FALSE} image will be left justified.}
 
   \item{link}{character vector url/path to hyperlink the
   image to.}

@@ -13,8 +13,8 @@
 #' @param height The height of the image.  If \code{NULL} the defualt image 
 #' height is used.
 #' @param sty The width of the style (used for centering).
-#' @param center logical.  If \code{TRUE} the image will be centered, if FALSE image 
-#' will be left justified.
+#' @param center logical. If \code{TRUE} the image will be centered, if 
+#' \code{FALSE} image will be left justified.
 #' @param link character vector url/path to hyperlink the image to.
 #' @param new_win logical.  If \code{TRUE} the link will open in a new window.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 

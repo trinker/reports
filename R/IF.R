@@ -6,15 +6,17 @@
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
-#' @param width The width of the player.
-#' @param height The height of the player.
-#' @param center logical. If TRUE the image will be centered, if FALSE image will 
-#' be left justified.
+#' @param width The width of the iframe.
+#' @param height The height of the iframe.
+#' @param center logical. If \code{TRUE} the image will be centered, if 
+#' \code{FALSE} image will be left justified.
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
 #' output to the  console.  If \code{FALSE}returns to the console. 
 #' @param text character vector of text to display for browser that do not support 
 #' iframe tags.
 #' @return Returns a character vector of an HTML iframe tag that embeds a document.
+#' @references 
+#' \url{http://www.w3schools.com/tags/tag_iframe.asp}
 #' @export
 #' @examples
 #' IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)

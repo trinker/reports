@@ -1,6 +1,6 @@
 #' Wrap Text With HTML Courier New Font Tag
 #' 
-#' Wraps text with a courier new font tag. A specified version of \code{QF} but 
+#' Wraps text with a courier new font tag. A specified version of \code{FT} but 
 #' more convient for constant use of courier new tags. 
 #' 
 #' @param text A character vector or text copied to the clipboard.  Default is to 

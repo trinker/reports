@@ -29,9 +29,9 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If \code{FALSE}
-  returns to the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If \code{FALSE} returns to the console.}
 }
 \value{
   Returns a character vector of an HTML href tag.
@@ -53,5 +53,10 @@ HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", print = TRUE)
 HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", "click me", print = TRUE)
 HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
+}
+\references{
+  \url{http://www.w3schools.com/tags/att_a_href.asp}
+
+  \url{http://www.w3schools.com/tags/tag_button.asp}
 }
 

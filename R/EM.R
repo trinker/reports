@@ -12,6 +12,8 @@
 #' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
 #' console.  If \code{FALSE} returns to the console.
 #' @return Returns a character vector of an HTML email tag. 
+#' @references
+#' \url{http://www.w3schools.com/tags/tag_address.asp}
 #' @export
 #' @examples
 #' EM("tyler.rinker@@gmail.com", print = TRUE)

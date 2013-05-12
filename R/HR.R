@@ -10,9 +10,13 @@
 #' @param new_win logical.  If \code{TRUE} the link will open in a new window.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the output to the 
 #' console.  If \code{FALSE} returns to the console.
 #' @return Returns a character vector of an HTML href tag. 
+#' @references
+#' \url{http://www.w3schools.com/tags/att_a_href.asp} 
+#' 
+#' \url{http://www.w3schools.com/tags/tag_button.asp}
 #' @export
 #' @rdname hyperref
 #' @examples

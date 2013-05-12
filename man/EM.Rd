@@ -31,4 +31,7 @@
 \examples{
 EM("tyler.rinker@gmail.com", print = TRUE)
 }
+\references{
+  \url{http://www.w3schools.com/tags/tag_address.asp}
+}
 

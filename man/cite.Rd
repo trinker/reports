@@ -47,8 +47,8 @@
   \item{width}{The widths of a block quote output (for the
   markdown family only).}
 
-  \item{force.block}{logical.  If TRUE forces a block less
-  than 40 words to be a block quote.}
+  \item{force.block}{logical.  If \code{TRUE} forces a
+  block less than 40 words to be a block quote.}
 
   \item{bib.name}{Optional path to a .bib resource.}
 }

@@ -13,12 +13,12 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{width}{The width of the player.}
+  \item{width}{The width of the iframe.}
 
-  \item{height}{The height of the player.}
+  \item{height}{The height of the iframe.}
 
-  \item{center}{logical. If TRUE the image will be
-  centered, if FALSE image will be left justified.}
+  \item{center}{logical. If \code{TRUE} the image will be
+  centered, if \code{FALSE} image will be left justified.}
 
   \item{print}{logical.  If \code{TRUE}
   \code{\link[base]{cat}} prints the output to the console.
@@ -41,5 +41,8 @@ IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
 IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100\%", height=650, print=TRUE)
 IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
 IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
+}
+\references{
+  \url{http://www.w3schools.com/tags/tag_iframe.asp}
 }
 
