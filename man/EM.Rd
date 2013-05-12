@@ -1,0 +1,34 @@
+\name{EM}
+\alias{EM}
+\title{Convert email to HTML email Tag}
+\usage{
+  EM(email = "clipboard", text = NULL, new_win = TRUE,
+    copy2clip = TRUE, print = FALSE)
+}
+\arguments{
+  \item{email}{A character vector email copied to the
+  clipboard. Default is to read from the clipboard.}
+
+  \item{text}{A character vector of text to hyperref from.
+  Defualt uses the \code{email}.}
+
+  \item{new_win}{logical.  If \code{TRUE} the link will
+  open in a new window.}
+
+  \item{copy2clip}{logical.  If \code{TRUE} attempts to
+  copy the output to the clipboard.}
+
+  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
+  prints the output to the console.  If \code{FALSE}
+  returns to the console.}
+}
+\value{
+  Returns a character vector of an HTML email tag.
+}
+\description{
+  Wrap an email to generate an HTML email tag.
+}
+\examples{
+EM("tyler.rinker@gmail.com", print = TRUE)
+}
+

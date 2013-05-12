@@ -19,13 +19,14 @@ list(
         "FT",
         "LL",
         "QC",
-        "US",
+        "UF",
         "WP"
       )
     ),
     sd_section("Insert HTML Objects",
       "Functions to format text.",  
       c(
+      	"EM",
         "HR",
         "HS",
         "IF", 
@@ -33,6 +34,7 @@ list(
         "RF",
         "RN",
         "SC",
+        "TB",
         "YT",
         "col2hex"
       )
