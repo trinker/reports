@@ -3,12 +3,16 @@
 #' Wraps text with a font tags. Conveniently detects c(`face`, `size` and/or 
 #' `color`) and creates a font tag with the supplied text.
 #'
-#' @param \ldots 1 to 3 arguments of c(`face`, `size` and/or `color`).  face 
-#' accepts one of the following c(\code{"arial"}, \code{"arial_black"}, 
-#' \code{"comic_sans_ms"}, \code{"courier"}, \code{"courier_new"}, 
-#' \code{"georgia"}, \code{"helvetica"}, \code{"impact"}, \code{"palatino"}, 
-#' \code{"times_new_roman}", \code{"trebuchet_ms"}, \code{"verdanaBrowse"}).  
-#' size is any valid whole number.  color can be any R color or hex value.
+#' @param \ldots 1 to 3 arguments of c(`face`, `size` and/or `color`):
+#' \itemize{
+#' \item{face}{- accepts one of the following c(\code{"arial"}, 
+#' \code{"arial_black"}, \code{"comic_sans_ms"}, \code{"courier"}, 
+#' \code{"courier_new"}, \code{"georgia"}, \code{"helvetica"}, \code{"impact"}, 
+#' \code{"palatino"}, \code{"times_new_roman"}, \code{"trebuchet_ms"}, 
+#' \code{"verdanaBrowse"}).} 
+#' \item{face}{- size is any valid whole number.}  
+#' \item{face}{- color can be any R color or hex value.}
+#' }
 #' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
