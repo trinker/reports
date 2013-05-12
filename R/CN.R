@@ -19,7 +19,7 @@ CN <- function(text = "clipboard", copy2clip = TRUE) {
         text <- read_clip()
     } 
     text <- text_fix(text)
-    x <- noquote(paste0("\"<font face=\"courier\">", text, "</font>"))
+    x <- noquote(paste0("<font face=\"courier\">", text, "</font>"))
     if(copy2clip){
         write_clip(x)
     }
