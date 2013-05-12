@@ -34,9 +34,9 @@
   \item{text.loc}{The row number (integer value) from
   notes.xlsx/notes.csv of the text to insert.  The user may
   also input a character string of partial matches of the
-  bibkeys (a quasi-author search).  If NULL the interactive
-  use allows the user to view the notes.xlsx/notes.csv and
-  chose a row number.}
+  bibkeys (a quasi-author search).  If \code{NULL} the
+  interactive use allows the user to view the
+  notes.xlsx/notes.csv and chose a row number.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}

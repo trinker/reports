@@ -10,7 +10,7 @@
   clipboard. Default is to read from the clipboard.}
 
   \item{text}{A character vector of text to hyperref from.
-  Defualt uses the \code{email}.}
+  Defualt uses the string passed to \code{email}.}
 
   \item{new_win}{logical.  If \code{TRUE} the link will
   open in a new window.}

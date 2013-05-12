@@ -5,7 +5,7 @@
 #' @param email A character vector email copied to the clipboard. Default is to 
 #' read from the clipboard.  
 #' @param text A character vector of text to hyperref from.  Defualt uses the 
-#' \code{email}.
+#' string passed to \code{email}.
 #' @param new_win logical.  If \code{TRUE} the link will open in a new window.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  

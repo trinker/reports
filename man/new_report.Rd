@@ -22,7 +22,7 @@
   reports template or an external path to a template in the
   reports package style.  This argument allows the user to
   change the contents of the report directory that is
-  generated.}
+  generated. See \code{templates} for more.}
 
   \item{bib.loc}{Optional path to a .bib resource.}
 
@@ -84,6 +84,7 @@
 \seealso{
   \code{\link[reports]{doc_temp}},
   \code{\link[reports]{presentation}},
+  \code{\link[reports]{templates}},
   \code{\link[slidify]{author}}
 }
 

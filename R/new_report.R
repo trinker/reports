@@ -9,7 +9,7 @@
 #' @param template A character string of the internal reports template or an 
 #' external path to a template in the reports package style.  This argument 
 #' allows the user to change the contents of the report directory that is 
-#' generated.
+#' generated. See \code{templates} for more.
 #' @param bib.loc Optional path to a .bib resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
@@ -42,6 +42,7 @@
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}},
 #' \code{\link[reports]{presentation}},
+#' \code{\link[reports]{templates}},
 #' \code{\link[slidify]{author}}
 #' @section Additional Guide: Introductory video
 #' \url{http://youtu.be/cokNUTGtoM4}

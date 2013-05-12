@@ -5,10 +5,11 @@
 #' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
 #' @param width The width, in characters, to make the box.
-#' @param text_align Alingment of text in the box; takes the values c("left", 
-#' "right", "top", "middle", "bottom").
-#' @param box_align Alingment of textbox; takes the values c("left", "right", 
-#' "top", "middle", "bottom").
+#' @param text_align Alingment of text in the box; takes the values 
+#' c(\code{"left"}, \code{"right"}, \code{"top"}, \code{"middle"}, 
+#' \code{"bottom"}).
+#' @param box_align Alingment of textbox; takes the values c(\code{"left"}, 
+#' \code{"right"}, \code{"top"}, \code{"middle"}, \code{"bottom"}).
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
 #' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 

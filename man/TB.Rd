@@ -13,10 +13,12 @@
   \item{width}{The width, in characters, to make the box.}
 
   \item{text_align}{Alingment of text in the box; takes the
-  values c("left", "right", "top", "middle", "bottom").}
+  values c(\code{"left"}, \code{"right"}, \code{"top"},
+  \code{"middle"}, \code{"bottom"}).}
 
   \item{box_align}{Alingment of textbox; takes the values
-  c("left", "right", "top", "middle", "bottom").}
+  c(\code{"left"}, \code{"right"}, \code{"top"},
+  \code{"middle"}, \code{"bottom"}).}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}

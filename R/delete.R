@@ -3,15 +3,15 @@
 #' \code{delete} - Deletes files and directories.
 #' 
 #' @param file The name of the file in the working directory or the path to the 
-#' file to be deleted.  If NULL provides a menu of files from the working 
+#' file to be deleted.  If \code{NULL} provides a menu of files from the working 
 #' directory.
 #' @param \ldots The name(s) of the folder to be created.  If both \ldots and
-#' \code{folder.name} are NULL creates a file in the working directory with the 
-#' creation date and time stamp.
+#' \code{folder.name} are \code{NULL} creates a file in the working directory 
+#' with the creation date and time stamp.
 #' @param folder.name A character vector of the name(s) of the folder to be 
-#' created.  Default NULL (if the \ldots  is NULL too) creates a file in the 
-#' working directory with the creation date and time stamp.  Use this argument 
-#' only if the directory names contain spaces.
+#' created.  Default NULL (if the \ldots  is \code{NULL} too) creates a file in 
+#' the working directory with the creation date and time stamp.  Use this 
+#' argument only if the directory names contain spaces.
 #' @return \code{delete} permanently removes a file/directory.
 #' @seealso  \code{\link[base]{unlink}}, 
 #' \code{\link[base]{file.remove}}, 
@@ -20,7 +20,6 @@
 #' @rdname file_handling
 #' @export
 #' @examples
-#' \dontrun{
 #' (x <- folder("DELETE.ME"))
 #' which(dir() == "DELETE.ME")
 #' delete("DELETE.ME")
@@ -28,7 +27,6 @@
 #' 
 #' folder(cat, dog)
 #' lapply(c("cat", "dog"), delete)
-#' }
 delete <-
 function(file = NULL) {
     x <- if (is.null(file)) {
