@@ -1,4 +1,4 @@
-#' Video (YouTube/Vimeo) url to iframe HTML Tag
+#' Video (YouTube/Vimeo) url to HTML iframe Tag
 #' 
 #' Wrap a YouTube/Vimeo tag or url to generate an HTML iframe tag. 
 #' 

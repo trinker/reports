@@ -1,7 +1,7 @@
 \name{YT}
 \alias{VM}
 \alias{YT}
-\title{Video (YouTube/Vimeo) url to iframe HTML Tag}
+\title{Video (YouTube/Vimeo) url to HTML iframe Tag}
 \usage{
   YT(path = "clipboard", copy2clip = TRUE, width = 640,
     height = 360, print = FALSE)
