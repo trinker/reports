@@ -1,6 +1,6 @@
 \name{IF}
 \alias{IF}
-\title{url to iframe HTML Tag}
+\title{url to HTML iframe Tag}
 \usage{
   IF(path = "clipboard", copy2clip = TRUE, width = 640,
     height = 360, center = TRUE, print = FALSE,

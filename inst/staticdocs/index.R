@@ -13,10 +13,8 @@ list(
       "Functions to format text.",  
       c(
         "CA",
-        "CN",
         "CW",
         "GQ",
-        "FT",
         "LL",
         "QC",
         "UF",
@@ -26,7 +24,9 @@ list(
     sd_section("Insert HTML Objects",
       "Functions to format text.",  
       c(
+        "CN",      	
       	"EM",
+        "FT",        
         "HR",
         "HS",
         "IF", 

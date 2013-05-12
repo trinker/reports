@@ -1,4 +1,4 @@
-#' url to iframe HTML Tag
+#' url to HTML iframe Tag
 #' 
 #' Wrap a url to generate an HTML iframe tag. 
 #' 
