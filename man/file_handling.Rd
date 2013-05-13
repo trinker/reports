@@ -35,6 +35,7 @@
   \code{folder} - Create a folder/directory.
 }
 \examples{
+\dontrun{
 (x <- folder("DELETE.ME"))
 which(dir() == "DELETE.ME")
 delete("DELETE.ME")
@@ -42,6 +43,7 @@ which(dir() == "DELETE.ME")
 
 folder(cat, dog)
 lapply(c("cat", "dog"), delete)
+}
 }
 \seealso{
   \code{\link[base]{unlink}},

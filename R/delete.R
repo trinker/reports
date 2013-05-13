@@ -20,6 +20,7 @@
 #' @rdname file_handling
 #' @export
 #' @examples
+#' \dontrun{
 #' (x <- folder("DELETE.ME"))
 #' which(dir() == "DELETE.ME")
 #' delete("DELETE.ME")
@@ -27,6 +28,7 @@
 #' 
 #' folder(cat, dog)
 #' lapply(c("cat", "dog"), delete)
+#' }
 delete <-
 function(file = NULL) {
     x <- if (is.null(file)) {
