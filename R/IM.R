@@ -28,7 +28,7 @@
 #' IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
-#' IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", print =TRUE)
+#' cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", width=100, height=75), rep("So much text! ", 100))
 IM <- function(path = "clipboard", link = NULL, width = 540,  
 	height = IE(width, 360), sty = IE(width, width*1.05, 480), center = TRUE, 
     new_win = TRUE, copy2clip = TRUE, print = FALSE) { 
@@ -52,7 +52,7 @@ IM <- function(path = "clipboard", link = NULL, width = 540,
     }
     if (!is.null(link)) {
         if (new_win) {
-            tar <- "target=\"_blank\""	
+            tar <- " target=\"_blank\""	
         } else {
             tar <- NULL
         }    	
@@ -100,7 +100,7 @@ function(image = "clipboard", loc = 1, ...) {
 #' \code{IW} - Text wrapped images.
 #' 
 #' @param side The side the image should appear on c(\code{"left"}, \code{"right"}). 
-#' @param top Space between top margin and top of text (0 is defualt).
+#' @param top Space between top margin and top of text.
 #' @param right Space on the right margin.
 #' @param left Space on the left margin..
 #' @param bottom Space between bottom margin and bottom of text (0 is defualt).
@@ -108,7 +108,7 @@ function(image = "clipboard", loc = 1, ...) {
 #' @rdname image
 IW <- 
 function(path = "clipboard", link = NULL, side = "right", width = 540, 
-    height = IE(width, 360), new_win = TRUE, top = 0, right = 20, left = 20, 
+    height = IE(width, 360), new_win = TRUE, top = -15, right = 20, left = 20, 
     bottom = 0, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
@@ -121,12 +121,12 @@ function(path = "clipboard", link = NULL, side = "right", width = 540,
     }
     path <- chartr("\\", "/", path)
     margs <- paste(paste0(c(top, right, bottom, left), "px"), collapse = " ")
-    A <- paste0("<div style=\"float:", side, "margin:", margs, ";\">")
+    A <- paste0("<div style=\"float:", side, ";margin:", margs, ";\">")
     C <- "</div>"
     b <- paste0("<img src=\"", path, "\"", width, height, ">")
     if (!is.null(link)) {
         if (new_win) {
-            tar <- "target=\"_blank\""  
+            tar <- " target=\"_blank\""  
         } else {
             tar <- NULL
         }       

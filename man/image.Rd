@@ -13,7 +13,7 @@
 
   IW(path = "clipboard", link = NULL, side = "right",
     width = 540, height = IE(width, 360), new_win = TRUE,
-    top = 0, right = 20, left = 20, bottom = 0,
+    top = -15, right = 20, left = 20, bottom = 0,
     copy2clip = TRUE, print = FALSE)
 }
 \arguments{
@@ -57,8 +57,7 @@
   \item{side}{The side the image should appear on
   c(\code{"left"}, \code{"right"}).}
 
-  \item{top}{Space between top margin and top of text (0 is
-  defualt).}
+  \item{top}{Space between top margin and top of text.}
 
   \item{right}{Space on the right margin.}
 
@@ -90,6 +89,6 @@
 IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
-IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", print =TRUE)
+cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", width=100, height=75), rep("So much text! ", 100))
 }
 
