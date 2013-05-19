@@ -23,10 +23,11 @@ NEW FEATURES
 * `IF` a new function that wraps a url to generate an HTML iframe tag.  This is 
   useful for embedding a document within another document.
 
-* `IM` and `IM2` new functions that wraps an image path or url to generate a 
-  flexible HTML tag with optional hyperlink.  `IM2` is a wrapper for `IM` and 
+* `IM`, `IM2` and `IW` new functions that wraps an image path or url to generate  
+  a flexible HTML tag with optional hyperlink.  `IM2` is a wrapper for `IM` and 
   assumes the location of the local image file is in "assets/img/", menaing the 
-  user only needs supply the name of the local image.
+  user only needs supply the name of the local image. `IW` allows for text 
+  wrapping of an image.
 
 * The cite family of functions has been introduced.  These functions provide 
   quick pulling of quotes with citations (in Markdown or LaTeX format).  See 

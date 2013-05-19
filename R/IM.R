@@ -28,9 +28,10 @@
 #' IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 #' IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
-IM <- function(path = "clipboard", width = 540, height = IE(width, 360), 
-	sty = IE(width, width*1.05, 480), center = TRUE, link = NULL, new_win = TRUE,
-    copy2clip = TRUE, print = FALSE) { 
+#' IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", print =TRUE)
+IM <- function(path = "clipboard", link = NULL, width = 540,  
+	height = IE(width, 360), sty = IE(width, width*1.05, 480), center = TRUE, 
+    new_win = TRUE, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -93,3 +94,49 @@ function(image = "clipboard", loc = 1, ...) {
     )
     IM(path = path, ...)
 }
+
+#' Convert path/url to HTML Image Tag
+#'
+#' \code{IW} - Text wrapped images.
+#' 
+#' @param side The side the image should appear on c(\code{"left"}, \code{"right"}). 
+#' @param top Space between top margin and top of text (0 is defualt).
+#' @param right Space on the right margin.
+#' @param left Space on the left margin..
+#' @param bottom Space between bottom margin and bottom of text (0 is defualt).
+#' @export
+#' @rdname image
+IW <- 
+function(path = "clipboard", link = NULL, side = "right", width = 540, 
+    height = IE(width, 360), new_win = TRUE, top = 0, right = 20, left = 20, 
+    bottom = 0, copy2clip = TRUE, print = FALSE) { 
+    if (path == "clipboard") {
+        path <- read_clip()
+    } 
+    if(!is.null(height)){
+        height <- paste0(" ", "height=\"", height, "\"")
+    }
+    if(!is.null(width)) {
+        width <- paste0(" ", "width=\"", width, "\"")
+    }
+    path <- chartr("\\", "/", path)
+    margs <- paste(paste0(c(top, right, bottom, left), "px"), collapse = " ")
+    A <- paste0("<div style=\"float:", side, "margin:", margs, ";\">")
+    C <- "</div>"
+    b <- paste0("<img src=\"", path, "\"", width, height, ">")
+    if (!is.null(link)) {
+        if (new_win) {
+            tar <- "target=\"_blank\""  
+        } else {
+            tar <- NULL
+        }       
+        B <- paste0("    <a href=\"", link, "\"", tar, ">", b, "</a>")
+    }
+    x <- paste(c(A, B, C), collapse="\n")
+    if(copy2clip){
+        write_clip(x)
+    }
+    prin(x = x, print = print)
+}
+
+

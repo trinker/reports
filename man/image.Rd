@@ -1,15 +1,20 @@
 \name{IM}
 \alias{IM}
 \alias{IM2}
+\alias{IW}
 \title{Convert path/url to HTML Image Tag}
 \usage{
-  IM(path = "clipboard", width = 540,
+  IM(path = "clipboard", link = NULL, width = 540,
     height = IE(width, 360),
     sty = IE(width, width * 1.05, 480), center = TRUE,
-    link = NULL, new_win = TRUE, copy2clip = TRUE,
-    print = FALSE)
+    new_win = TRUE, copy2clip = TRUE, print = FALSE)
 
   IM2(image = "clipboard", loc = 1, ...)
+
+  IW(path = "clipboard", link = NULL, side = "right",
+    width = 540, height = IE(width, 360), new_win = TRUE,
+    top = 0, right = 20, left = 20, bottom = 0,
+    copy2clip = TRUE, print = FALSE)
 }
 \arguments{
   \item{path}{A character vector url/path to the image.
@@ -48,6 +53,19 @@
   2-/figure.}
 
   \item{\ldots}{Other arguments passed to \code{IM}.}
+
+  \item{side}{The side the image should appear on
+  c(\code{"left"}, \code{"right"}).}
+
+  \item{top}{Space between top margin and top of text (0 is
+  defualt).}
+
+  \item{right}{Space on the right margin.}
+
+  \item{left}{Space on the left margin..}
+
+  \item{bottom}{Space between bottom margin and bottom of
+  text (0 is defualt).}
 }
 \value{
   Returns a character vector of an HTML image tag that
@@ -65,10 +83,13 @@
   path to "assets/img/". This allows the users to just
   specify the image name that resides in the directory:
   "assets/img/".
+
+  \code{IW} - Text wrapped images.
 }
 \examples{
 IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
+IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", print =TRUE)
 }
 
