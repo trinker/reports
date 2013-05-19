@@ -1,8 +1,8 @@
-\name{RN}
-\alias{RN}
-\title{Insert reveal.js Notes}
+\name{PN}
+\alias{PN}
+\title{Insert Presenter Notes}
 \usage{
-  RN(text = "clipboard", copy2clip = TRUE, print = FALSE)
+  PN(text = "clipboard", copy2clip = TRUE, print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -24,9 +24,9 @@
   slides
 }
 \examples{
-RN("some fancy notes", print = TRUE)
-RN("1) some\\n2) fancy\\n3) notes")
-RN("1) some
+PN("some fancy notes", print = TRUE)
+PN("1) some\\n2) fancy\\n3) notes")
+PN("1) some
 2) fancy
 3) notes", print = TRUE)
 }
