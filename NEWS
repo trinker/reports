@@ -53,7 +53,7 @@ MINOR FEATURES
 
 * `SC` a function to quickly generate special HTML characters.
 
-* `RN` a function to quickly add reveal.js notes to an HTML reveal.js slide.
+* `PN` a function to quickly add presenter notes to an HTML slide.
 
 * `HR`, `HR2` `BT` and `EM` functions for quick html hyperrefs, button hyperrefs 
   and email hyperrefs..
