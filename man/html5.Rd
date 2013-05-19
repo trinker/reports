@@ -64,8 +64,6 @@
   reports based code chunks are for convenience.  For more
   control many HTML tags work with Rmarkdown.  The output
   code can also be manipulated for finer control.
-  \code{html5} demos can be found at
-  \url{http://trinker.github.com/reports/examples/}.
 }
 
 \section{Warning}{
