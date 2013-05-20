@@ -124,14 +124,16 @@ function(path = "clipboard", link = NULL, side = "right", width = 540,
     margs <- paste(paste0(c(top, right, bottom, left), "px"), collapse = " ")
     A <- paste0("<div style=\"float:", side, ";margin:", margs, ";\">")
     C <- "</div>"
-    b <- paste0("<img src=\"", path, "\"", width, height, ">")
+    B <- paste0("<img src=\"", path, "\"", width, height, ">")
     if (!is.null(link)) {
         if (new_win) {
             tar <- " target=\"_blank\""  
         } else {
             tar <- NULL
-        }       
-        B <- paste0("    <a href=\"", link, "\"", tar, ">", b, "</a>")
+        }
+        if (!is.null(link)) {       
+            B <- paste0("    <a href=\"", link, "\"", tar, ">", B, "</a>")
+        }
     }
     x <- paste(c(A, B, C), collapse="\n")
     if(copy2clip){
