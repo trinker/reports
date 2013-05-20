@@ -18,8 +18,8 @@
   fragments (see
   \href{https://github.com/ramnathv/slidifyExamples/blob/gh-pages/examples/revealjs/index.Rmd}{this
   example}) in reveal.js slides.  This is required per each
-  slide.  Using \code{`r RF()`} reducaes the typing
-  invloved with this action.
+  slide.  Using \code{`r RF()`} reduces the typing invloved
+  with this action.
 }
 \examples{
 ## RF()

@@ -89,6 +89,7 @@
 IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
 IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
-cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", width=140, height=75), rep("So much text! ", 100))
+cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/",
+    width=140, height=75), rep("So much text! ", 100))
 }
 
