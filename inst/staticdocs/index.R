@@ -31,7 +31,7 @@ list(
         "HS",
         "IF", 
         "IM",
-        "RF",
+        "PF",
         "RN",
         "SC",
         "TB",
