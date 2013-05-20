@@ -16,8 +16,7 @@
   If \code{FALSE} returns to the console.}
 }
 \value{
-  Returns a character vector wrapped with HTML
-  \code{<aside>} tags.
+  Returns a character vector wrapped with HTML aside tags.
 }
 \description{
   Creates an aside of the class "notes" for reveal.js

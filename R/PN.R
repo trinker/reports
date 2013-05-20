@@ -8,7 +8,7 @@
 #' clipboard.  
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
 #' output to the console.  If \code{FALSE} returns to the console.
-#' @return Returns a character vector wrapped with HTML \code{<aside>} tags.
+#' @return Returns a character vector wrapped with HTML aside tags.
 #' @export
 #' @examples
 #' PN("some fancy notes", print = TRUE)
