@@ -23,8 +23,8 @@
 #' ## HR("assets/img/fry_admin_1.mp4","new")
 #' 
 #' HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)
-#' HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", print = TRUE)
-#' HR("http://cran.r-project.org/src/contrib/reports_0.1.2.tar.gz", "click me", print = TRUE)
+#' HR("http://cran.r-project.org/", print = TRUE)
+#' HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)
 #' HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 #' BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
 HR <- function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE, 
