@@ -1,7 +1,7 @@
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.2.18)  21 MAY 2013 12:14
 entering extended mode
-**REPORT_WORKFLOW_GUIDE.tex
-(C:\Users\trinker\GitHub\reports\inst\pdf_gen\REPORT_WORKFLOW_GUIDE.tex
+**PRESENTATION_WORKFLOW_GUIDE.tex
+(C:\Users\trinker\GitHub\reports\inst\pdf_gen\PRESENTATION_WORKFLOW_GUIDE.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -310,7 +310,7 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-(C:\Users\trinker\GitHub\reports\inst\pdf_gen\REPORT_WORKFLOW_GUIDE.aux)
+(C:\Users\trinker\GitHub\reports\inst\pdf_gen\PRESENTATION_WORKFLOW_GUIDE.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
@@ -405,8 +405,8 @@ LaTeX Info: Redefining \ref on input line 67.
 LaTeX Info: Redefining \pageref on input line 67.
 LaTeX Info: Redefining \nameref on input line 67.
 
-(C:\Users\trinker\GitHub\reports\inst\pdf_gen\REPORT_WORKFLOW_GUIDE.out)
-(C:\Users\trinker\GitHub\reports\inst\pdf_gen\REPORT_WORKFLOW_GUIDE.out)
+(C:\Users\trinker\GitHub\reports\inst\pdf_gen\PRESENTATION_WORKFLOW_GUIDE.out)
+(C:\Users\trinker\GitHub\reports\inst\pdf_gen\PRESENTATION_WORKFLOW_GUIDE.out)
 \@outlinefile=\write3
 LaTeX Font Info:    Try loading font information for OT1+pplx on input line 73.
 
@@ -440,58 +440,208 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 111.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 111.
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-LaTeX Font Info:    Font shape `TS1/ptm/bx/it' in size <7> not available
-(Font)              Font shape `TS1/ptm/b/it' tried instead on input line 111.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 116.
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77   \item \textbf
+                    {OUTLINE} - A directory containing the following .tex fi...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 77
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82   \item \textbf
+                    {PRESENTATION} - A directory containing one or more of t...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 82
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.89   \item \textbf
+                    {.Rprofile} - An .Rprofile that automatically launches c...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 89
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90   \item \textbf
+                    {extra\_functions.R} - An R script to put functions rela...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91   \item \textbf
+                    {NOTES.txt} - a .txt file to record notes related to the...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 91
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92   \item \textbf
+                    {PRESENTATION\_WORKFLOW\_GUIDE.pdf} - The workflow guide
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 92
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93   \item \textbf
+                    {xxx.Rproj} - A project file used by \href{http://www.rs...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 93
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94   \item \textbf
+                    {TO\_DO.txt} - A text file documenting project tasks
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][]
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{enumerate}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \end{enumerate}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.95 \end{enumerate}
+                    
+Things are pretty mixed up, but I think the worst is over.
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 100.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--124
+Underfull \hbox (badness 10000) in paragraph at lines 99--108
 
  []
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
 
-(C:\Users\trinker\GitHub\reports\inst\pdf_gen\REPORT_WORKFLOW_GUIDE.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
-Package rerunfilecheck Info: File `REPORT_WORKFLOW_GUIDE.out' has not changed.
+(C:\Users\trinker\GitHub\reports\inst\pdf_gen\PRESENTATION_WORKFLOW_GUIDE.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
+Package rerunfilecheck Info: File `PRESENTATION_WORKFLOW_GUIDE.out' has not cha
+nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 6231 strings out of 493921
- 93671 string characters out of 3144870
- 176491 words of memory out of 3000000
- 9426 multiletter control sequences out of 15000+200000
- 24504 words of font info for 58 fonts, out of 3000000 for 9000
+ 6183 strings out of 493921
+ 93192 string characters out of 3144870
+ 173491 words of memory out of 3000000
+ 9401 multiletter control sequences out of 15000+200000
+ 21518 words of font info for 53 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,5n,19p,374b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,5n,19p,252b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/urw/times/utmr8a.pfb>
-Output written on REPORT_WORKFLOW_GUIDE.pdf (1 page, 65840 bytes).
+ 2.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on PRESENTATION_WORKFLOW_GUIDE.pdf (1 page, 48003 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 42 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

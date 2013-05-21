@@ -11,20 +11,14 @@
 
 \begin{document}
 
-\title{Reports Directory and Work Flow}
+\title{Presentation Directory and Work Flow}
 \author{}
 \date{}
 \maketitle
 
 \vspace{-1cm}
-The \textbf{new\_report} template includes these main directories and scripts:
-
-\begin{enumerate}
-  \item \textbf{ARTICLES} - A directory to store related articles:
-  \begin{enumerate}
-    \item \textbf{website.txt} a txt file to store websites related to the project
-    \item \textbf{notes\_xxx.xlsx/notes\_xxx.csv} a speadsheet to store notes on the articles; the \textbf{QQ} function is useful to import PDF text; the \href{http://trinker.github.io/reports/cite.html}{cite family} of functions are useful for formatting quoted text from the notes\_xxx document (where xxx is the report name)
-  \end{enumerate}
+\noindent The \textbf{presentation} template includes these main directories and scripts:
+\vspace{2mm}
   \item \textbf{OUTLINE} - A directory containing the following .tex files:
   \begin{enumerate}
     \item \textbf{outline.tex} an outline skeletal .tex file to outline the structure of  
@@ -37,24 +31,14 @@ The \textbf{new\_report} template includes these main directories and scripts:
     \item \textbf{xxx.pptx}  skeletal .pptx slides.      
      \item \textbf{figure} a directory to store figures for easy sourcing
   \end{enumerate} 
-  \item \textbf{REPORT} - A directory containing the following files:
-  \begin{enumerate}
-    \item \textbf{xxx.bib} an optional .bib file supplied to the \textbf{bib.loc} argument of the \textbf{new\_report} function
-    \item \textbf{preamble.tex} a generic apa6 preamble .tex file used by xxx.tex (generated for tex templates only) 
-    \item \textbf{xxx.tex}, \textbf{xxx.Rnw}, \textbf{xxx.Rmd} or \textbf{xxx.doc} a skeletal file used to generate a formatted report
-    \item \textbf{DESCRIPTION} description of the template used
-    \item \textbf{figure} an optional directory to store figures for easy sourcing
-  \end{enumerate} 
   \item \textbf{.Rprofile} - An .Rprofile that automatically launches commands, loads libraries and sets options on start up.
   \item \textbf{extra\_functions.R} - An R script to put functions related to the report.  By default this is sourced on start up in RStudio.  
   \item \textbf{NOTES.txt} - a .txt file to record notes related to the report
-  \item \textbf{REPORT\_WORKFLOW\_GUIDE.pdf} - The workflow guide
+  \item \textbf{PRESENTATION\_WORKFLOW\_GUIDE.pdf} - The workflow guide
   \item \textbf{xxx.Rproj} - A project file used by \href{http://www.rstudio.com/}{RStudio}; clicking this will open the project in RStudio. 
   \item \textbf{TO\_DO.txt} - A text file documenting project tasks
 \end{enumerate}
-\vspace{1.5 mm}
-{\scriptsize \textbf{\emph{*Note: additional files/directores may be created, varying by template. See \texttildelow report\_name/REPORT/DESCRIPTION for more on individual templates.}}}
-\vspace{3 mm}
+\vspace{3 in}
 \hrule
 \vspace{3 mm}
 \noindent \textbf{\underline{Useful Websites:}} \vspace{1.5 mm} \\ 

@@ -113,6 +113,8 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     root <- system.file("extdata/present", package = "reports")
     pdfloc <- file.path(root, "outline")
     pdfloc2 <- file.path(root, "pres")
+    pdfloc5 <- file.path(root2, "PRESENTATION_WORKFLOW_GUIDE.pdf")
+    invisible(file.copy(pdfloc5, x))
     if(sum(type %in% c("rnw", "rmd")) > 0){
         invisible(file.copy(file.path(pdfloc, c("outline.tex", 
             "preamble.tex")), y[[1]]))   
