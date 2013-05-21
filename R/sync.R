@@ -65,7 +65,7 @@ sync_rnp <- function(dir1 = file.path(getwd(), "REPORT", "figure"),
 
 #' Sync Images
 #' 
-#' \code{sync_rnp} - A wrapper for sync to easily sync all files between 
+#' \code{sync_all} - A wrapper for sync to easily sync all files between 
 #' ~/REPORT/figure, ~/PRESENTATION/figure, and ~/PRESENTATION/assets/img.
 #' 
 #' @rdname sync

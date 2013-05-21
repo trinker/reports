@@ -49,7 +49,7 @@
   \code{sync_rnp} - A wrapper for sync to easily sync the
   files in ~/REPORT/figure and ~/PRESENTATION/figure.
 
-  \code{sync_rnp} - A wrapper for sync to easily sync all
+  \code{sync_all} - A wrapper for sync to easily sync all
   files between ~/REPORT/figure, ~/PRESENTATION/figure, and
   ~/PRESENTATION/assets/img.
 }
