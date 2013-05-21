@@ -16,11 +16,17 @@ list(
         "CW",
         "GQ",
         "LL",
-        "QC",
+        "QC"
+      )
+    ),
+    sd_section("Path (Text String) Formatting",
+      "Functions to format character strings related to paths/urls.",  
+      c(
+        "pad",
         "UF",
         "WP"
       )
-    ),
+    ),    
     sd_section("Insert HTML Objects",
       "Functions to format text.",  
       c(
@@ -59,7 +65,6 @@ list(
       "Functions to aid in managing directories/folders.", 
       c(
         "delete",
-        "pad",
         "rdirs",
         "sync"
       )
