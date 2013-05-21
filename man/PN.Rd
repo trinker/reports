@@ -19,12 +19,12 @@
   Returns a character vector wrapped with HTML aside tags.
 }
 \description{
-  Creates an aside of the class "notes" for reveal.js
-  slides
+  Creates an aside of the class "notes" for slides (e.g.,
+  reveal.js slides).
 }
 \examples{
 PN("some fancy notes", print = TRUE)
-PN("1) some\\n2) fancy\\n3) notes")
+PN("1) some\\n2) fancy\\n3) notes", print = TRUE)
 PN("1) some
 2) fancy
 3) notes", print = TRUE)
