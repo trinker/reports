@@ -5,9 +5,9 @@
   presentation(presentation = "presentation",
     type = c("rnw", "rmd"), theme = "Madrid",
     bib.loc = getOption("bib.loc"),
-    name = getOption("name_reports"),
+    name = getOption("name.reports"),
     github.user = getOption("github.user"),
-    sources = getOption("sources_reports"), path = getwd(),
+    sources = getOption("sources.reports"), path = getwd(),
     slidify_clean = FALSE, ...)
 }
 \arguments{
@@ -62,12 +62,13 @@
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
-  \code{bib.loc}, \code{github.user} and
-  \code{sources_reports} in the user's primary
+  \code{bib.loc}, \code{github.user}, \code{name.reports}
+  and \code{sources.reports} in the user's primary
   \code{.Rprofile}: \enumerate{ \item{\bold{bib.loc} - The
   path to the users primary bibliography}
   \item{\bold{github.user} - GitHub user name}
-  \item{\bold{sources_reports} - Path(s) to additional
+  \item{\bold{name.reports} - The name to use on reports}
+  \item{\bold{sources.reports} - Path(s) to additional
   files/scripts that should be included to be sourced in
   the project startup} }
 }
