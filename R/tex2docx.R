@@ -1,7 +1,7 @@
 #' Convert tex/markdown/html to docx/tex/html
 #' 
-#' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert tex/markdown
-#' to docx for those colleagues who use docx. 
+#' Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to convert 
+#' tex/markdown/html to docx (or tex/html) for those colleagues who use docx. 
 #' 
 #' @param in.file A character vector of the tex/md file.
 #' @param out.file A character vector of the outfile.  If \code{"replace"} over 

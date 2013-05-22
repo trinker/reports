@@ -50,8 +50,8 @@
 }
 \description{
   Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert tex/markdown to docx for those colleagues who use
-  docx.
+  convert tex/markdown/html to docx (or tex/html) for those
+  colleagues who use docx.
 }
 \details{
   The user must have pandoc installed and on their path.
