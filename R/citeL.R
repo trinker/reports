@@ -1,7 +1,7 @@
 #' Format Quotes with Citations
 #' 
 #' Citation tools to grab a quote and format the text taken from the 
-#' notes.xlsx/notes.csv for LaTeX with optional citation included.  Functions 
+#' notes.xlsx/notes.csv for LaTeX/Rmd with optional citation included.  Functions 
 #' attempt to copy the output to the clipboard for easy paste inclusion.     
 #' 
 #' @param text.loc The row number (integer value) from notes.xlsx/notes.csv of 

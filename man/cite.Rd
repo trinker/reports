@@ -58,7 +58,7 @@
 }
 \description{
   Citation tools to grab a quote and format the text taken
-  from the notes.xlsx/notes.csv for LaTeX with optional
+  from the notes.xlsx/notes.csv for LaTeX/Rmd with optional
   citation included.  Functions attempt to copy the output
   to the clipboard for easy paste inclusion.
 }
