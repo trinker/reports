@@ -2,7 +2,7 @@ Template: wordpress
 Date: 2013-03-25
 Doc Type: web
 Author: Tyler Rinker
-Maintainer: Who to complain to <tyler.rinker@gmail.com>
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Use RStudio, knitr, RWordPress and pacman to weave and send blog posts to WordPress.
 License: GPL-2
 Presentation: rmd
