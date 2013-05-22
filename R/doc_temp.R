@@ -1,8 +1,8 @@
 #' Document Template
 #' 
-#' This function generates a document template for submission to the reports 
-#' package to be inclusion as a template in the doc_library.  This function is 
-#' similar to \code{\link[utils]{package.skeleton}}.
+#' This function generates a document template for personal use or submission to 
+#' the reports package to be included as a template in the doc_library.  This 
+#' function is similar to \code{\link[utils]{package.skeleton}}.
 #' 
 #' @param temp.name The name of the template.
 #' @param doc.type The type of report that the template will contain 

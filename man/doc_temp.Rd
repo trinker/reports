@@ -23,10 +23,10 @@
   personal use or submission.
 }
 \description{
-  This function generates a document template for
-  submission to the reports package to be inclusion as a
-  template in the doc_library.  This function is similar to
-  \code{\link[utils]{package.skeleton}}.
+  This function generates a document template for personal
+  use or submission to the reports package to be included
+  as a template in the doc_library.  This function is
+  similar to \code{\link[utils]{package.skeleton}}.
 }
 \details{
   templates must contain the following two items: \itemize{
