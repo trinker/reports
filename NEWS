@@ -25,7 +25,7 @@ NEW FEATURES
 
 * `IM`, `IM2` and `IW` new functions that wraps an image path or url to generate  
   a flexible HTML tag with optional hyperlink.  `IM2` is a wrapper for `IM` and 
-  assumes the location of the local image file is in "assets/img/", menaing the 
+  assumes the location of the local image file is in "assets/img/", meaning the 
   user only needs supply the name of the local image. `IW` allows for text 
   wrapping of an image.
 
@@ -34,7 +34,7 @@ NEW FEATURES
   `?citeL` for more details.
 
 * Conversion functions: `md2docx`, `md2pdf`, `tex2html`, `html2pdf`, `tex2docx`, 
-  `md2tex` have been added for a conveinent way to convert an .md file to .docx.
+  `md2tex` have been added for a convenient way to convert an .md file to .docx.
 
 * `rdirs` reclusively creates multiple directories.
 
@@ -87,8 +87,18 @@ CHANGES
   makes maintaining these functions pointless.  These functions will be removed 
   from the reports package upon the next update.
 
-* `US` has been renamed to `UF` (underscore fill) and gets a counter part `PF` 
+* `US` has been renamed to `UF` (underscore fill) and gets a counterpart `PF` 
   (percent fill) for URL blank spaces.
+
+* All options now have a consistent naming scheme (period separator)
+
+    ~bib.loc-The path to the users primary .bib file (I store this in DropBox)
+    ~name.reports-The name that will be automatically added to a report/presentation
+    ~sources.reports-Path(s) to additional scripts to be sourced on project startup
+    ~temp.reports-The primary template to use to generate reports (see template)
+    ~github.user-GitHub user name
+    ~speed.temp-A speed dial like interface that allows the template argument to take a number
+
 
 reports 0.1.2
 ----------------------------------------------------------------
