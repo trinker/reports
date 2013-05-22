@@ -56,6 +56,7 @@ function(report = "report", template = getOption("temp.reports"),
     github.user = getOption("github.user"), 
         sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
         slidify.clean = FALSE, ...) {
+
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
         spdTmp <- getOption("speed.temp")
@@ -88,7 +89,8 @@ function(report = "report", template = getOption("temp.reports"),
         if (!file.exists(root)) {
             stop("template is not a valid reports package template or path")
         } else {
-            root <- template
+            root <- dirname(template)
+            template <- basename(template)
         }        
     }
     root2 <- system.file("extdata/docs", package = "reports")
@@ -262,7 +264,7 @@ function(report = "report", template = getOption("temp.reports"),
             fp <- file.path(root, template)
             invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
             dr <- dir(y[[1]])
-            drin <- dr[substring(dr, 1, nchar(dr) -4) %in% "doc"]
+            drin <- dr[tools::file_path_sans_ext(dr) %in% "doc"]
             temp <- suppressWarnings(readLines(file.path(y[[1]], drin)))
             temp <- gsub("Title", report, temp)
             if (!is.null(bib)) {
@@ -292,10 +294,6 @@ function(report = "report", template = getOption("temp.reports"),
     class(o) <- "reports"
     return(o)    
 }
-
-
-
-
 
 #' Prints a reports Object
 #' 
