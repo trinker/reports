@@ -80,8 +80,9 @@
 
   \code{IM2} - A wrapper for \code{IM} that sets the base
   path to "assets/img/". This allows the users to just
-  specify the image name that resides in the directory:
-  "assets/img/".
+  specify the image name that resides in one of the
+  following directories: 1-"\code{~/assets/img}" or
+  2-"\code{~/figure}".
 
   \code{IW} - Text wrapped images.
 }

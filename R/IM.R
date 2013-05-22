@@ -74,8 +74,8 @@ IM <- function(path = "clipboard", link = NULL, width = 540,
 #' Convert path/url to HTML Image Tag
 #'
 #' \code{IM2} - A wrapper for \code{IM} that sets the base path to "assets/img/".  
-#' This allows the users to just specify the image name that resides in the 
-#' directory: "assets/img/".
+#' This allows the users to just specify the image name that resides in one of 
+#' the following directories: 1-"\code{~/assets/img}" or 2-"\code{~/figure}".
 #' 
 #' @param image A character vector name of the image. Default is to read from the 
 #' clipboard. 
