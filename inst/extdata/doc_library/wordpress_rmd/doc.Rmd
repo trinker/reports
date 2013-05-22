@@ -1,0 +1,34 @@
+```{r setup, include=FALSE}
+# set global chunk options
+library(pacman); p_load(knitr, RWordPress, xtable)
+opts_chunk$set(cache = TRUE, warning = FALSE)
+
+pressNum_n_dir <- "INSERTwordpress_number/directoryHERE"   #e.g., "61803503/wp/"
+path2figureStorage <- "C:/Users/you/Dropbox/Public/directoryHERE/"   #e.g., "C:/Users/trinker/Dropbox/Public/wp/"
+opts_knit$set(base.url = paste0("http://dl.dropboxusercontent.com.com/u/", pressNum_n_dir),
+    base.dir = path2figureStorage)
+library(knitr)
+```
+Intro/Overview Text Here
+
+-------
+# Section 1
+```{r eval=FALSE}
+library(pacman); p_load()
+```
+
+-------
+# Section 2
+
+```{r}
+# eval code
+```
+
+```{r fig1, fig.width=8.5, fig.height=8.5}
+# figures
+```
+
+-------
+# Section 3
+
+Remember to see the SEND_IT.R file to send to wordpress

@@ -69,8 +69,8 @@
   name} \item{\bold{speed.temp} - A speed dial like
   interface that allows the template argument to ake a
   numeric arguement.  Setting this option takes the form
-  of: \code{options(speed.temp=list(`1`="wordpress_web",
-  `2`="basic_web"))}} \item{\bold{sources.reports} -
+  of: \code{options(speed.temp=list(`1`="wordpress_rmd",
+  `2`="basic_rmd"))}} \item{\bold{sources.reports} -
   Path(s) to additional files/scripts that should be
   included to be sourced in the project startup} }
 }

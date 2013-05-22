@@ -9,10 +9,10 @@
   \item{temp.name}{The name of the template.}
 
   \item{doc.type}{The type of report that the template will
-  contain (\code{"doc", "rnw", "tex" or "web"}).
+  contain (\code{"doc", "rnw", "tex" or "rmd"}).
   \code{"doc"} will contain a .docx document; \code{"rnw"
   and "tex"} contain both \code{doc.rnw}/\code{doc.tex} and
-  \code{preamble.tex} files; whereas \code{"web"} contains
+  \code{preamble.tex} files; whereas \code{"rmd"} contains
   \code{doc.rmd}/.}
 
   \item{path}{The path to where the project should be
@@ -49,6 +49,6 @@
   template has been tested it can be sent as a .zip file to
   \code{reports.rpackage@gmail.com}.  Please note that the
   template folder/directory name must end in _tex, _rnw,
-  _web or _doc to indicate to users type of template.
+  _rmd or _doc to indicate to users type of template.
 }
 

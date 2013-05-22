@@ -35,7 +35,7 @@
 #'   \item{\bold{github.user} - GitHub user name}
 #'   \item{\bold{speed.temp} - A speed dial like interface that allows the 
 #'   template argument to ake a numeric arguement.  Setting this option takes 
-#'   the form of: \code{options(speed.temp=list(`1`="wordpress_web", `2`="basic_web"))}}
+#'   the form of: \code{options(speed.temp=list(`1`="wordpress_rmd", `2`="basic_rmd"))}}
 #'   \item{\bold{sources.reports} - Path(s) to additional files/scripts that 
 #'   should be included to be sourced in the project startup}
 #' }
@@ -61,7 +61,7 @@ function(report = "report", template = getOption("temp.reports"),
         spdTmp <- getOption("speed.temp")
         template <-  unlist(spdTmp[template == names(spdTmp)])
     }     
-    if (!tail(unlist(strsplit(template, "_")), 1) %in% c("rnw", "web", "doc", "tex")) {
+    if (!tail(unlist(strsplit(template, "_")), 1) %in% c("rnw", "rmd", "doc", "tex")) {
         stop("Please supply a correct template name")
     }
     report <- gsub("\\s+", "_", report)
@@ -97,13 +97,13 @@ function(report = "report", template = getOption("temp.reports"),
     desc.chunk1 <- "Outline:"
     desc.chunk2 <- "Presentation:"
     outline.type <- Trim(unlist(strsplit(gsub(desc.chunk1, "", desc[grepl(desc.chunk1, desc)]), ",")))   
-    outline.type <- gsub("rmd", "web", outline.type)
+    #outline.type <- gsub("rmd", "web", outline.type)
     pres <- Trim(unlist(strsplit(gsub(desc.chunk2, "", desc[grepl(desc.chunk2, desc)]), ","))) 
     type <- tail(unlist(strsplit(basename(template), "_")), 1)
-    dat <- data.frame(inf=c("doc", "rnw", "tex", "web"), outf=c(1, 2, 2, 3), 
+    dat <- data.frame(inf=c("doc", "rnw", "tex", "rmd"), outf=c(1, 2, 2, 3), 
         stringsAsFactors = FALSE)
     if (all(!dat[, 1] %in% type)) {
-        stop("template must end in \"_doc\", \"_tex\", \"_rnw\", or \"_web\"")
+        stop("template must end in \"_doc\", \"_tex\", \"_rnw\", or \"_rmd\"")
     }
     if (sum(pres %in% "rmd") < 1) {
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE, PRESENTATION))
@@ -310,5 +310,4 @@ function(x, ...) {
     class(x) <- NULL
     cat(x)
 }
-
 

@@ -1,0 +1,9 @@
+Template: Name of report template
+Date: 
+Doc Type: web
+Author: Who wrote it
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: What are the unique settings/features of your template
+License: What license is it under?
+Presentation: rmd
+Outline: rmd 

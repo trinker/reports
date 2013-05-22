@@ -6,9 +6,9 @@
 #' 
 #' @param temp.name The name of the template.
 #' @param doc.type The type of report that the template will contain 
-#' (\code{"doc", "rnw", "tex" or "web"}).  \code{"doc"} will contain a .docx 
+#' (\code{"doc", "rnw", "tex" or "rmd"}).  \code{"doc"} will contain a .docx 
 #' document; \code{"rnw" and "tex"} contain both \code{doc.rnw}/\code{doc.tex} and 
-#' \code{preamble.tex} files; whereas \code{"web"} contains \code{doc.rmd}/.
+#' \code{preamble.tex} files; whereas \code{"rmd"} contains \code{doc.rmd}/.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @details templates must contain the following two items:
@@ -30,7 +30,7 @@
 #' To be submitted a .tex template must run in Debian TeX Live on Linux Mint and 
 #' MiKTex on Windows.  After a template has been tested it can be sent as a 
 #' .zip file to \code{reports.rpackage@@gmail.com}.  Please note that the 
-#' template folder/directory name must end in _tex, _rnw, _web or _doc to 
+#' template folder/directory name must end in _tex, _rnw, _rmd or _doc to 
 #' indicate to users type of template.
 #' @return Creates a document template framework for template personal use or 
 #' submission.
