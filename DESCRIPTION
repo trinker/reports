@@ -31,7 +31,8 @@ Imports:
     slidifyLibraries,
     knitr,
     knitcitations (>= 0.4-6),
-    markdown
+    markdown,
+    xtable
 Suggests:
     ascii,
     brew,
