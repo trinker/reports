@@ -22,6 +22,7 @@ License: GPL-2
 URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
+VignetteBuilder: knitr
 Depends:
     R (>= 3.0.0),
     xlsx

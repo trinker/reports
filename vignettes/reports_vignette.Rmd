@@ -1,0 +1,805 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{A Markdown Vignette with knitr}
+-->
+
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=FALSE)
+options(xtable.type = 'html')
+library(knitr); library(knitcitations); library(reports); library(xtable); library(pander); library(qdap)
+fls <- dir(file.path(getwd()))
+BIB <- file.path(getwd(), fls[tools::file_ext(fls) == "bib"])
+bib <- read.bibtex(BIB)
+BU <- "http://trinker.github.io/reports_dev/" #switch after push
+LN <- function(fun, base=BU) paste0(BU, fun, ".html")
+FUN <- function(fun, base=BU) HR2(LN(fun), fun)
+yt <- function(url) {
+	paste0("<a href=\"", url, "\" target=\"_blank\" style=\"text-decoration: none\"><b><font size=\"2\" color=\"maroon\">[YT]</font></b></a>\n")
+}
+#
+							   HR2()
+#Reading in your own bib file:
+#bib <- read.bibtex(getOption("bib.loc"))
+#cite in text using `r citet(bib[1])`
+```
+<style>
+table tr:nth-child(even) td{ 
+    background: #EEEEEE;
+}
+table tr:nth-child(odd) td { 
+    background: #FFFFFF;}
+
+table{
+border-collapse:collapse;
+border:1px solid #AAAAAA;
+}
+
+table td{
+border:1px solid #AAAAAA;
+}
+
+.tex sub, .latex sub, .latex sup {
+  text-transform: uppercase;
+}
+
+.tex sub, .latex sub {
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+}
+
+.tex, .latex, .tex sub, .latex sub {
+  font-size: 1em;
+}
+
+.latex sup {
+  font-size: 0.85em;
+  vertical-align: 0.15em;
+  margin-left: -0.36em;
+  margin-right: -0.15em;
+}
+
+</style>
+
+# reports Package Vignette
+## Tyler Rinker
+
+The reports package `r citep(bib[[55]])` is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
+
+The reports package assumes the user has some familairity with the report writing programs/packages it depends on.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.  This manual will not help the user to understand these dependencies as they have their own help documentation.  Many functions in the reports package are set with defaults that assume the user is utilizing `r HR2("http://www.rstudio.com/", "RStudio")`.  This vignette assumes that the user is also operating out of the root directory of the new_report/presentation in RStudio.
+
+`r IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", width=350, height=250)`
+
+<hr>
+<h2 id="toc">Select from sections below:</h2>
+
+<div style="float: left; width: 50%;">
+<ul>
+<div>1. `r HR("#rprofile", "Setting Up .Rprofile ")`    </div> 
+<div>2. `r HR("#report", "Creating a New Report/Presentation ")`  </div>  
+<div>3. `r HR("#rep", "What's In the new_report/presentation Directory ")`    </div> 
+<div>4. `r HR("#code chunks", "Using reports Functions In-Text")` </div>    
+<div>5. `r HR("#dir", "Directory Management ")`   </div>  
+<div>6. `r HR("#notes", "Using notes.xlsx ")`  </div>   
+<div>7. `r HR("#cite", "Citations ")`    </div> 
+<div>8. `r HR("#convert", "Document Conversion ")`</div>     
+<div>9. `r HR("#html", "HTML Short Cuts")`</div>    
+
+</ul>
+</div>
+<div style="float: right; width: 50%;">
+<ul>
+<div><b>Symbol Conventions:</b></div>  
+<div>`r FT(red, 3, text="&loz;")` = Example (R code)    </div> 
+<div><b>`r FT(maroon, 2, text="[YT]")`</b> = Video Demo (click to watch)    </div> 
+</ul>
+</div>
+<br style="clear:both;"/>
+
+
+<hr>
+<h2 id="rprofile">Setting Up .Rprofile</h2>
+
+```{r eval=FALSE, echo=FALSE}
+x <- readLines(n=6)
+1. options(bib.loc = "C:/Users/trinker/Desktop/PhD Program/MASTER.bib")
+2. options(name_reports = "Tyler Rinker\\\\University at Buffalo\\\\Department of Learning and Instruction")
+3. options(sources_reports = path.expand("~/path_1"), path.expand("~/path_2"))
+4. options(temp_reports = "apa6.mod.qual_tex")
+5. options(github.user = "trinker")
+6. options(speed_temp = list(`1` = "wordpress_web", `2` = "basic_web", `3` = "apa6.mod.qual_tex"))
+
+x <- Trim(head(unname(unlist(genXtract(x, "(", " ="))), -1))
+y <- left.just(data.frame(Option=x, Function=c("The path to the users primary .bib file (I store this in DropBox)", 
+    "The name that will be automatically added to a report/presentation", 
+    " Path(s) to additional scripts to be sourced on project startup",
+    "The primary template to use to generate reports (see template)",
+    "GitHub user name", "A speed dial like interface that allows the template argument to take a number")), 1)
+
+print(xtable(y), type="html")
+```
+The user may want to set the following options in her `r HR2("http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html", ".Rprofile")`.  This will add efficiency to your workflow. `r yt("http://www.youtube.com/watch?v=oZrVlsWMDBc&feature=youtu.be")`  
+
+<div>
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> Option          </TH> <TH> Function </TH>  </TR>
+  <TR> <TD align="right"> 1 </TD> <TD> bib.loc         </TD> <TD> The path to the users primary .bib file (I store this in DropBox) </TD> </TR>
+  <TR> <TD align="right"> 2 </TD> <TD> name_reports    </TD> <TD> The name that will be automatically added to a report/presentation </TD> </TR>
+  <TR> <TD align="right"> 3 </TD> <TD> sources_reports </TD> <TD>  Path(s) to additional scripts to be sourced on project startup </TD> </TR>
+  <TR> <TD align="right"> 4 </TD> <TD> temp_reports    </TD> <TD> The primary template to use to generate reports (see template) </TD> </TR>
+  <TR> <TD align="right"> 5 </TD> <TD> github.user     </TD> <TD> GitHub user name </TD> </TR>
+  <TR> <TD align="right"> 6 </TD> <TD> speed_temp      </TD> <TD> A speed dial like interface that allows the template argument to take a number </TD> </TR>
+</TABLE>
+</div>
+
+`r VS(2)`
+
+The following is the code I added to my own .Rprofile:
+
+<pre><code class="r">1. options(bib.loc = "C:/Users/trinker/Desktop/PhD Program/MASTER.bib")
+2. options(name_reports = "Tyler Rinker\\\\University at Buffalo\\\\Department of Learning and Instruction")
+3. options(source_reports = path.expand("~/path_1"), path.expand("~/path_2"))
+4. options(temp_reports = "apa6.mod.qual_tex")
+5. options(github.user = "trinker")
+6. options(speed_temp = list(`1` = "wordpress_web", `2` = "basic_web", `3` = "apa6.mod.qual_tex"))</code></pre>
+
+<hr>
+<h2 id="report">Creating a New Report/Presentation</h2> 
+Creating a new report or presentation directory is easy. `r yt("http://youtu.be/XVdRT95k3wk")`  `r VS(2)`
+
+The user can either preset the working directory or can supply a path to create the report/presentation diectory in and then use the `r FUN("new_report")` or `r FUN("presentation")` functions. `r VS(2)`
+
+**setwd() method**
+<pre><code class="r">setwd("C:/Users/trinker/Desktop")
+new_report("MY REPORT")</code></pre>
+
+**path method**
+<pre><code class="r">new_report("MY REPORT", path="C:/Users/trinker/Desktop")</code></pre>
+
+You've just created your first report/presentation directory and you're ready to begin writing.
+
+\****Note*** *The user can name the main directory differently from the names used within the directy by supplying a vector of length 2 to the report/presentation arguments as seen here:* 
+
+<pre><code class="r">new_report(c("Major1", "minor"))
+presentation(c("Major2", "minor"))</code></pre>
+
+<hr>
+<h2 id="rep">What's In the new_report/presentation Directory</h2>
+
+The directory created by the `r FUN("new_report")` or `r FUN("presentation")` functions houses multiple subdirectories and files that integrate to speed up work flow.  Please see the following links for PDF descriptions of the contents of the reports/presentation directory. `r VS(2)`
+
+<table width="30%" style="text-align: center;margin: 0px auto;">
+<colgroup>
+<col width="110" />
+<col width="110" />
+</colgroup>
+<tr>
+<tr>
+<td>Report<br> Workflow</td>
+<td>Presentation Workflow</td>
+</tr>
+<tr>
+<td style="text-align: center; onClick="document.location.href='https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
+<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a>
+<td style="text-align: center; onClick="document.location.href='https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
+<p><a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"  target="_blank"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a></p></td>
+</tr>
+</table>
+
+
+
+<hr>
+<h2 id="code chunks">Using reports Functions In-Text</h2>
+
+reports has a number of HTML shortcut functions that utilize two capital letters as names.  These functions are ideally used in text with <font color="blue">&#96;<code>r XX(args)</code>&#96;</font>.  Thus <font color="blue">&#96;<code>r HR2("http://www.talkstats.com/")</code>&#96;</font> yields:
+
+`r HR2("http://www.talkstats.com/")`
+
+
+This use does not require wrapping with <code>cat</code> or the <code>print</code> argument.  
+
+To better display the HTML code the following examples do not use `r HR("#code chunks", "in-text")` (in-line) coding.  The examples use the following code chunk form (rarely used in an actual report):
+
+<pre><code class="r">&#96;&#96;&#96;{r}</br>
+R_CODE(_HERE)</br>
+&#96;&#96;&#96;</code></pre>
+
+This means that wrapping with <code>cat</code> or the <code>print</code> argument are usually required, however, this is not typical in standard usage.  
+
+<hr>
+<h2 id="dir">Directory Management</h2>
+
+The reports package contains functions to help maintain directories. They can speed up workflow through automation of directory related tasks.
+
+`r FUN("rdirs")` is a function designed to recursivly create directories.  This is particularly useful when used in combination with `r FUN("new_report")`/`r FUN("presentation")` for creating weekly lecture notes for a class or other similar repeated tasks.  The following code chunks demonstrate uses for 3 directory management functions in the reports package:
+
+1. `r FUN("rdirs")` &#8211; recursive directory creation
+2. `r HR2(LN("file_handling"), "folder")` &#8211; create a directory
+3. `r HR2(LN("file_handling"), "delete")` &#8211; delete a directory(s)
+
+\**The next 5 code chunks are meant to be run sequentially*
+
+`r FT(red, 3, text="&loz;")` **Chunk 1**- *Create directory with multiple subdirectories* `r FT(red, 3, text="&loz;")` 
+
+<pre><code class="r">fx <- folder(delete_me)
+WD <- getwd()
+setwd(fx)
+rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6))</code></pre>
+
+`r FT(red, 3, text="&loz;")` **Chunk 2**- *Return just the character vector. `r FUN("rdirs")` takes care of the front end padding of numbers.* `r FT(red, 3, text="&loz;")`
+```{r}
+rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Chunk 3**- *Create dated folders* `r FT(red, 3, text="&loz;")`
+<pre><code class="r">rdirs(session, 1:12, seq(as.Date("2000/1/1"), by = "month", length.out = 12))</code></pre>
+
+`r FT(red, 3, text="&loz;")` **Chunk 4**- *Create director of subdirectories of working reports folders* `r FT(red, 3, text="&loz;")`
+<pre><code class="r">setwd(WD)
+gx <- folder(delete_me2)
+setwd(gx)
+x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
+lapply(x, new_report)
+## View it...</code></pre>
+
+`r FT(red, 3, text="&loz;")` **Chunk 5**- *Clean up with `r HR2(LN("file_handling"), "delete")` and reset working directory* `r FT(red, 3, text="&loz;")`
+<pre><code class="r">delete(c(fx, gx))
+setwd(WD)</code></pre>
+
+**sync_all** `r yt("http://youtu.be/bhArI_dp4B8")`
+The `r HR2(LN("sync"), "sync family of functions")` are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify `r citep(bib[[60]])`.  The base version in the family, `r FUN("sync")` is generic and syncs files between 2 directories.  The `r HR2(LN("sync"), "sync_all")` function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
+ 
+<hr>
+To use `r HR2(LN("sync"), "sync_all")` simply type:
+
+<pre><code class="r">sync_all()</code></pre>
+
+There are no arguments to sync_all, just run and the files between the following directories are synced:
+
+1. ~/REPORT/figure
+2. ~/PRESENTATION/figure
+3. ~/PRESENTATION/assets/img
+
+<hr>
+<h2 id="notes">Using notes.xlsx</h2>
+
+The notes.xlsx/notes.csv is a file located in the ARTICLES directory.  It is useful to take nores from articles/websites/etc. and organize them here.  The `r FUN("notes")` function can be used to view a truncated version of the notes.  The citation functions also enables the user to insert in-text citations into a document with the quote taken from the article or other source.  It is important that the format of notes.xlsx is respected in order for the `r HR2(LN("cite"), "citation family")` of functions to be utilized.  In order for this workflow related to citations to be most effective the user must use a .bib file to manage citations.  I use `r HR2("http://jabref.sourceforge.net/", "JabRef")` manage my bibliography.  Here is a screen shot of notes.xlsx file.
+
+`r IM2("excel.png", 2, width=800, height=600)`
+
+notes.xlsx contains the following columns:
+
+1. **Document (bib key)** - The bib key from the .bib file (usually authorYEAR)
+2. **Location (page)** - The page number of the quote/passage (use an integer or integers separated by a dash)
+3. **Gist/Quote** - The quote or a jist of a passage 
+4. **Q** - Is the row gist a quote?  If so use **b** if not use **n**.  Those marked **y** can be inerted as quotes into a document.
+5. **Notes** - An optional column to add notes to self
+
+The **Gist/QuoteQ** should be written in `r HR2("http://daringfireball.net/projects/markdown/syntax", "markdown")`/html.  The notes.xlsx file also contains a quick reference for html on the right side:
+
+![](http://i.imgur.com/bcDDgoL.png)
+
+**Format Text for notes.xlsx** `r yt("http://youtu.be/qtqpTGMKWd0")`
+To assist in copying and pasting text from documents (particularly PDFs) the `r FUN("QQ")` (quick quote) takes a text string (optionally from the clipboard) and formats the text for use with notes.xlsx.  Non-ascii characters (e.g. ligatures) and `r HR2("http://stat.ethz.ch/R-manual/R-devel/library/base/html/Quotes.html", "**&#92;n**")` are removed/converted (though the string should still be checked).  By default the string is copied to the clipboard for easy pasting into notes.xlsx.
+
+
+<hr>
+<h2 id="cite">Citations</h2>
+
+The reports package has an integrated system citation related functions that can be accessed in .tex, .Rnw and .Rmd documents.  
+
+The user can view the bibkey and document title of the references in the .bib files via the `r FUN("BV")` (bib view) function.
+
+`r FT(red, 3, text="&loz;")` **Example** `r FT(red, 3, text="&loz;")`
+```{r }
+head(BV())
+```
+<hr>
+
+**Citation Family of Functions**
+The `r HR2(LN("cite"), "citation family")` of functions grab a quote and format the text taken from the notes.xlsx/notes.csv for <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.Rmd with optional citation included. Functions attempt to copy the output to the clipboard for easy paste inclusion.
+
+Each of the functions in the cite family follow a pattern of (cite, parencite, textcite, posscite, poscite) prefix and (L or M) suffix (note that currently only parencite and textcite functions exist for markdown). The cite and textcite are in the form of <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> commands by the same name. posscite and poscite are user defined <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> function styles that are extensions of the textcite command to fit possessive and -s- ending possessives. They can be defined as:
+
+<pre><code class="r">\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})} 
+\newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}</code></pre>
+
+The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the `r HR2("https://github.com/cboettig/knitcitations")` `r citep(bib[[3]])` package.
+
+`r FT(red, 3, text="&loz;")` **Example 1** - *parenthesis cite* `r FT(red, 3, text="&loz;")`
+```{r eval=FALSE}
+parenciteM(1, force.block = FALSE)
+```
+<pre><code>> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`</code></pre>
+ 
+"An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`
+
+ 
+`r FT(red, 3, text="&loz;")` **Example 2** - *textcite* `r FT(red, 3, text="&loz;")`
+```{r eval=FALSE}
+textciteM(1, force.block = FALSE)
+```
+<pre><code>&#180;r  citet(x=bib[["Rinker2013a"]])&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
+`r  citet(x=bib[["Rinker2013a"]])` "An **EXAMPLE**; feel "free" to *delete* it ***soon***"
+
+The <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> (L) versions of the functions work in a similar fashion but are used in .Rnw documents.
+<hr>
+**Updating .bib File** `r yt("http://youtu.be/XriSbJTXcZk")`
+
+The user may update the .bib files within the new&#95;report/presentation created directories directly or may choose to update the master .bib file housed elsewhere (set with the <code>bib.loc</code> option in the `r HR("#rprofile", ".Rprofile")`).  If the user opts for the second route the `r FUN("update_bib")` function will update all the .bib files in the respective directory(s) according to the master .bib file.
+<hr>
+
+<h2 id="convert">Document Conversion `r yt("http://youtu.be/OcaFub5OLSg")`</h2>
+A useful `r HR2("http://johnmacfarlane.net/pandoc/", "Pandoc")` uses preset path defaults (default is REPORT directory) to enable the user to quickly convert between document types.  The user must have Pandoc installed and on the OS path.  The function names are intuitive with the portion before the 2 being the current document type and the portion after is the desired outcome document type (**from2to**).  Here is an example, converting the doc.tex file from the reports package library directory to a .docx file (when the user is employing these functions it is not necessary to provide arguments).
+
+`r FT(red, 3, text="&loz;")` **Example** - *file conversion* `r FT(red, 3, text="&loz;")`
+```{r eval = FALSE}
+DOC <- system.file("extdata/doc_library/apa6.qual_tex/doc.tex", package = "reports")
+BIB <- system.file("extdata/docs/example.bib", package = "reports")
+tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)
+```
+
+\****Note*** *that all of the conversion functions can be used to convert any legitimate Pandoc conversion but if the* ***from2to*** *format is not followed the documents and paths must be explicitally supplied as arguments to the reports conversion function.*
+
+<hr>
+<h2 id="html">HTML Shortcuts</h2>
+
+```{r results="asis", include=FALSE}
+x <- structure(list(Code = structure(c(2L, 4L, 5L, 6L, 7L, 1L, 8L, 
+    18L, 9L, 10L, 11L, 12L, 14L, 13L, 15L, 16L, 19L, 17L, 3L), .Label = c("BT", 
+    "CN", "col2hex", "EM", "FT", "HR", "HR2", "HS", "IF", "IM", "IM2", 
+    "IW", "PN", "RF", "SC", "TB", "VM", "VS", "YT"), class = "factor"), 
+        HTML.Tag = structure(c(2L, 3L, 4L, 7L, 8L, 1L, 6L, 17L, 9L, 
+        10L, 11L, 12L, 14L, 13L, 15L, 16L, 19L, 18L, 5L), .Label = c("button", 
+        "courrier new", "email", "font", "hex colors", "horizontal space", 
+        "hyperref", "hyperref (new window)", "iframe", "image", "image (short path)", 
+        "image wrap", "presenter notes", "reveal fragment", "sprecial character", 
+        "text box", "verticle space", "Vimeo", "YouTube"), class = "factor")), .Names = c("Code", 
+    "HTML.Tag"), row.names = c(NA, -19L), class = "data.frame")
+print(xtable(x), type="html", include.rownames=FALSE)
+```		
+
+The general format of the HTML examples is:
+
+<pre><code class="r">(a) the display of the code used</code></pre>     
+<pre><code>(b) the HTML code produced</code></pre>     
+&#40;c) the way the HTML renders in a browser.  
+
+<hr>
+
+This `r HR("#tab", "table ")` lists the HTML functions and the HTML tag types produced.  Click on the left column function names to see a demonstation of its use.  
+`r VS(2)`
+
+<TABLE id="tab" border=1>
+<col width="60px"><col width="200px">
+<TR> <TH style="text-align:left"> Code </TH> <TH style="text-align:left"> HTML Tag </TH>  </TR>
+  <TR> <TD> `r HR("#CN", "CN")` </TD> <TD> courrier new </TD> </TR>
+  <TR> <TD> `r HR("#EM", "EM")` </TD> <TD> email </TD> </TR>
+  <TR> <TD> `r HR("#FT", "FT")` </TD> <TD> font </TD> </TR>
+  <TR> <TD> `r HR("#HL", "HL")` </TD> <TD> highlight text </TD> </TR>  
+  <TR> <TD> `r HR("#HR", "HR")` </TD> <TD> hyperref </TD> </TR>
+  <TR> <TD> `r HR("#HR", "HR2")` </TD> <TD> hyperref (new window) </TD> </TR>
+  <TR> <TD> `r HR("#HR", "BT")` </TD> <TD> button </TD> </TR>
+  <TR> <TD> `r HR("#space", "HS")` </TD> <TD> horizontal space </TD> </TR>
+  <TR> <TD> `r HR("#space", "VS")` </TD> <TD> verticle space </TD> </TR>
+  <TR> <TD> `r HR("#iframe", "IF")` </TD> <TD> iframe </TD> </TR>
+  <TR> <TD> `r HR("#IM", "IM")` </TD> <TD> image </TD> </TR>
+  <TR> <TD> `r HR("#IM", "IM2")` </TD> <TD> image (short path) </TD> </TR>
+  <TR> <TD> `r HR("#IM", "IW")` </TD> <TD> image wrap </TD> </TR>
+  <TR> <TD> `r HR("#PN", "PN")` </TD> <TD> presenter notes </TD> </TR>
+  <TR> <TD> `r HR("#RF", "RF")` </TD> <TD> reveal.js fragment </TD> </TR>
+  <TR> <TD> `r HR("#SC", "SC")` </TD> <TD> sprecial character </TD> </TR>
+  <TR> <TD> `r HR("#TB", "TB")` </TD> <TD> text box </TD> </TR>
+  <TR> <TD> `r HR("#YT", "YT")` </TD> <TD> YouTube </TD> </TR>
+  <TR> <TD> `r HR("#YT", "VM")` </TD> <TD> Vimeo </TD> </TR>
+  <TR> <TD> `r HR("#col", "col2hex")` </TD> <TD> hex colors </TD> </TR>
+   </TABLE>
+  
+<hr> 
+
+### <p id="CN">`r HR2(LN("CN"), "CN (courrier new)")`</p>
+
+Wraps text with a courier new font tag. A specified version of `r HR("#FT", "FT")` but more convient for constant use of courier new tags.
+
+```{r }
+CN("new_report()")
+```
+`r CN("new_report()")`
+<hr>
+
+### <p id="EM">`r HR2(LN("EM"), "EM (email)")`</p>
+Wrap an email to generate an HTML email tag.
+
+```{r }
+EM("tyler.rinker@gmail.com", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+EM("tyler.rinker@gmail.com", print = TRUE)
+```
+<hr>
+
+### <p id="FT">`r HR2(LN("FT"), "FT (font)")`</p>
+Wraps text with a font tags. Conveniently detects c(<code>face</code>, <code>size</code>` and/or <code>color</code>) and creates a font tag with the supplied text.
+
+`r FT(red, 3, text="&loz;")` **Example 1** `r FT(red, 3, text="&loz;")`
+```{r }
+FT(6, text="guy")
+```
+```{r results="asis", echo=FALSE}
+FT(6, text="guy")
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** `r FT(red, 3, text="&loz;")`
+```{r }
+FT(6, blue, text="guy")
+```
+```{r results="asis", echo=FALSE}
+FT(6, blue, text="guy")
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** `r FT(red, 3, text="&loz;")`
+```{r }
+FT(6, red, times_new_roman, text="guy")
+```
+```{r results="asis", echo=FALSE}
+FT(6, red, times_new_roman, text="guy")
+```
+<hr>
+
+### <p id="HL">`r HR2(LN("HL"), "HL (highlight text)")`</p>
+
+`r FT(red, 3, text="&loz;")` **Example 1** `r FT(red, 3, text="&loz;")`
+```{r }
+cat(HL("Do not trust robots!"), "They are bent on destruction.")
+```
+```{r results="asis", echo=FALSE}
+cat(HL("Do not trust robots!"), "They are bent on destruction.") 
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** `r FT(red, 3, text="&loz;")`
+```{r }
+cat(HL("Jake is a cookie scientist,", color="pink"), "an honrable profession.")
+```
+```{r results="asis", echo=FALSE}
+cat(HL("Jake is a cookie scientist,", color="pink"), "an honrable profession.")
+```
+
+
+### <p id="HR">`r HR2(LN("hyperref"), "HR/HR2/BT (hyperrefs and buttons)")`</p>
+Convert path/url to HTML href tag.  
+
+1. **HR** - Wrap a path/url to generate an HTML href tag.
+2. **HR2** - Convenience version of HR that opens in a new page.
+3. **BT** - Wrap a path/url to generate an HTML hyperlinked text button tag.
+
+
+`r FT(red, 3, text="&loz;")` **Example 1** - *HR demo: no text given--`r HR("http://stat.ethz.ch/R-manual/R-patched/library/base/html/basename.html", "basename")` used; opens in same window* `r FT(red, 3, text="&loz;")`
+```{r }
+HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)  
+```
+```{r results="asis", echo=FALSE}
+HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)  
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** - *HR demo: no text given--`r HR("http://stat.ethz.ch/R-manual/R-patched/library/base/html/basename.html", "basename")` used; opens in same window* `r FT(red, 3, text="&loz;")`
+```{r }
+HR("http://cran.r-project.org/", print = TRUE) 
+```
+```{r results="asis", echo=FALSE}
+HR("http://cran.r-project.org/", print = TRUE) 
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** - *HR demo: text given; opens in same window* `r FT(red, 3, text="&loz;")`
+```{r }
+HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)  
+```
+```{r results="asis", echo=FALSE}
+HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 4** - *HR2 demo: text given; opens in new window* `r FT(red, 3, text="&loz;")`
+```{r }
+HR2("https://github.com/trinker/reports", "reports", print = TRUE)  
+```
+```{r results="asis", echo=FALSE}
+HR2("https://github.com/trinker/reports", "reports", print = TRUE) 
+```
+
+`r FT(red, 3, text="&loz;")` **Example 5** - *BT demo* `r FT(red, 3, text="&loz;")`
+```{r }
+BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
+```
+
+
+<hr>
+
+### <p id="space">`r HR2(LN("space"), "HS/VS (spaces)")`</p>
+Insert n iterations of HTML spacing into a document.
+
+`r FT(red, 3, text="&loz;")` **Example 1** - *HS demo* `r FT(red, 3, text="&loz;")`
+```{r }
+cat(paste0("reports", HS(10), "end"))
+```
+```{r results="asis", echo=FALSE}
+cat(paste0("reports", HS(10), "end")); cat(VS())
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** - *VS demo: single space* `r FT(red, 3, text="&loz;")`
+```{r }
+cat(paste0("the", VS(), "end"))
+```
+```{r results="asis", echo=FALSE}
+cat(paste0("the", VS(), "end")); cat(VS()) 
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** - *HS demo: multiple spaces* `r FT(red, 3, text="&loz;")`
+```{r }
+cat(paste0("the", VS(3), "end"))
+```
+```{r results="asis", echo=FALSE}
+cat(paste0("the", VS(3), "end")); cat(VS()) 
+```
+
+<hr>
+
+### <p id = "iframe">`r HR2(LN("IF"), "IF (iframe embedding)")`</p>
+Wrap a url to generate an HTML iframe tag.
+
+`r FT(red, 3, text="&loz;")` **Example 1** `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, center = TRUE, print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, center = TRUE, print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 4** `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", height=650, print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", height=650, print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 5** `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package `r citep(bib[[23]])`* `r FT(red, 3, text="&loz;")`
+```{r }
+#IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+#IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
+```
+<hr>
+
+### <p id="IM">`r HR2(LN("image"), "IM/IM2/IW (images and text-wrapped images)")`</p>
+These functions geberate an HTML image tag that embeds an image.  <code>IM2</code> not demonstrated as this function assumes local image source.
+
+1. **IM** - Wrap a path/url to generate an HTML tag. Often markup code: &#33;[](url&#40; lacks flexibility with centering and sizing. IM enables conrol of centering via altering the sty/center commands and control of sizing via the numeric values supplied to height and width.
+2. **IM2** - A wrapper for IM that sets the base path to "assets/img/". This allows the users to just specify the image name that resides in the directory: "assets/img/".
+3. **IW** - Text wrapped images.
+
+`r FT(red, 3, text="&loz;")` **Example 1** - *IM demo: Use <code>width=NULL</code> to retain original size* `r FT(red, 3, text="&loz;")`
+```{r }
+IM("http://cran.r-project.org/Rlogo.jpg", width=NULL, print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+IM("http://cran.r-project.org/Rlogo.jpg", width=NULL, print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** - *IM demo: uses default <code>width = 540, height = IE(width, 360)</code> to size* `r FT(red, 3, text="&loz;")`
+```{r }
+IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** - *IM demo: hyperlinked image* `r FT(red, 3, text="&loz;")`
+```{r }
+IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
+```
+```{r results="asis", echo=FALSE}
+IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
+```
+
+`r FT(red, 3, text="&loz;")` **Example 4** - *IW demo: text wrapped image with hyperlink* `r FT(red, 3, text="&loz;")`
+```{r results="asis"}
+cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", 
+    width=140, height=75), rep("So much text! ", 100))
+```
+</div>
+
+<hr>
+
+### <p id="PN">`r HR2(LN("PN"), "PN (presenter notes)")`</p>
+Creates presenter notes (an aside of the class "notes") for slides (e.g., reveal.js slides).  Multiline notes can be supplied with <code>\n</code> separating the lines or on separate lines as seen below.    
+
+`r FT(red, 3, text="&loz;")` **Example 1** - *single line* `r FT(red, 3, text="&loz;")`
+```{r }
+PN("some fancy notes", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+PN("some fancy notes", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** - *multiline with \n as separator* `r FT(red, 3, text="&loz;")`
+```{r }
+PN("1) some\n2) fancy\n3) notes", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+PN("1) some\n2) fancy\n3) notes", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3** - *multiline on separate lines* `r FT(red, 3, text="&loz;")`
+<pre><code class="r">PN("1) some<br>2) fancy<br>3) notes", print = TRUE)</code></pre>    
+
+```{r echo=FALSE}
+PN("1) some 
+2) fancy 
+3) notes", print = TRUE)
+``` 
+
+```{r results="asis", echo=FALSE}
+PN("1) some 
+2) fancy 
+3) notes", print = TRUE)
+```
+
+<hr>
+
+### <p id="RF">`r HR2(LN("RF"), "RF (reveal.js fragments)")`</p>
+Slidify uses to include animated fragments (see `r HR2("https://github.com/ramnathv/slidifyExamples/blob/gh-pages/examples/revealjs/index.Rmd", "this example")`) in reveal.js slides. This is required per each slide. Using &#96;r RF()&#96; reduces the typing invloved with this action.
+
+```{r}
+RF()
+```
+
+
+<hr>
+### <p id="SC">`r HR2(LN("SC"), "SC (special character)")`</p>
+The general use of SCis to provide a character string of length 2. The first character is a letter and the second is one of the following symbols (left column) and HTML equivalent (right column): 
+
+```{r  eval=FALSE, echo=FALSE}
+x <- data.frame(Key = c('apostrophe', 'back tick', 'colon', 'tilde', 'carat', 'slash', 'lowercase o', 'comma'), Symb=c("'", "&#96;", ":", "~", "^", "/", "o", ","), HTML=c("acute", "grave", "uml", "tilde", "circ", "slash", "ring", "cedil") )
+
+print(xtable(x), type="html", include.rownames=FALSE)
+```
+
+<TABLE border=1>
+<TR> <TH> Key </TH> <TH> Symb </TH> <TH> HTML </TH>  </TR>
+  <TR> <TD> apostrophe </TD> <TD> ' </TD> <TD> acute </TD> </TR>
+  <TR> <TD> back tick </TD> <TD> &#96; </TD> <TD> grave </TD> </TR>
+  <TR> <TD> colon </TD> <TD> : </TD> <TD> uml </TD> </TR>
+  <TR> <TD> tilde </TD> <TD> ~ </TD> <TD> tilde </TD> </TR>
+  <TR> <TD> carat </TD> <TD> ^ </TD> <TD> circ </TD> </TR>
+  <TR> <TD> slash </TD> <TD> / </TD> <TD> slash </TD> </TR>
+  <TR> <TD> lowercase o </TD> <TD> o </TD> <TD> ring </TD> </TR>
+  <TR> <TD> comma </TD> <TD> , </TD> <TD> cedil </TD> </TR>
+   </TABLE>
+
+
+The user can create non-HTML characters with SC that will not be converted (i.e., **SC("b~")** would yield "**&btilde;**" and would not be converted appropriately).
+
+
+```{r results="asis"}
+SC("A'")
+SC('a\'')  #can use single quotes with escape 
+SC("a`")
+SC("n~")
+SC("o:")
+SC("(c)")
+SC("(r)")
+SC("c|")
+SC("o/")
+SC("ao")
+SC("c,")
+SC("p") 
+SC("P") 
+SC("E")
+SC("Y")
+SC("/")
+SC("+-")
+SC("L")
+SC("tm") 
+SC("S") 
+```
+
+<hr>
+### <p id="TB">`r HR2(LN("TB"), "TB (text box)")`</p>
+Wrap text to generate an HTML text box tag.
+
+`r FT(red, 3, text="&loz;")` **Example 1** `r FT(red, 3, text="&loz;")`
+```{r }
+TB("I like ice cream!", print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+TB("I like ice cream!", print=TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2** `r FT(red, 3, text="&loz;")`
+```{r }
+TB("Free cookies for a year!", print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+TB("Free cookies for a year!", print=TRUE)
+```
+
+<hr>
+### <p id="YT">`r HR2(LN("video"), "YT/VM (insert video)")`</p>
+Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo video.
+
+`r FT(red, 3, text="&loz;")` **Example 1**- *YouTube using url tag* `r FT(red, 3, text="&loz;")`
+```{r }
+YT("kws1PX1Dw9w", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+YT("kws1PX1Dw9w", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 2**- *YouTube using full url* `r FT(red, 3, text="&loz;")`
+```{r }
+YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+```
+
+`r FT(red, 3, text="&loz;")` **Example 3**- *Vimeo video* `r FT(red, 3, text="&loz;")`
+```{r }
+VM("http://vimeo.com/54007714", print = TRUE)
+```
+```{r results="asis", echo=FALSE}
+VM("http://vimeo.com/54007714", print = TRUE)
+```
+
+<hr>
+### <p id="color">`r HR2(LN("col2hex"), "col2hex (colors)")`</p>
+Convert R <code>colors()</code> to Hexadecimal.
+
+```{r }
+col2hex("darkblue")
+col2hex(c("darkblue", "red"))
+cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
+```
+```{r results="asis", echo=FALSE}
+cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
+```
+<hr>
+## Acknowledgements
+
+The reports package is just a collection of the best R tools.  A special thanks to `r HR2("http://yihui.name/", "Yihui")` `r citet(bib[[68]])` for his work with the `r HR2("http://yihui.name/knitr/", "knitr package")` and `r HR2("http://people.mcgill.ca/ramnath.vaidyanathan/", "Ramnath Vaidyanathan")` for his `r HR2("http://slidify.org/", "slidify package")`.  These R packages are the core of the reports package.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.
+<hr> 
+
+## References
+```{r, echo=FALSE, results='asis'}
+bibliography("html") 
+```
