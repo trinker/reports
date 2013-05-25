@@ -1,6 +1,6 @@
 #' Vignette Template
 #' 
-#' `code{new_vignette} - Generate a vignettes template to increase efficiency.
+#' code{new_vignette} - Generate a vignettes template to increase efficiency.
 #' 
 #' @param vignette A character string of the vignette name (subdirectories of 
 #' the main directory, "vignettes", will utilize this string).  The function 
