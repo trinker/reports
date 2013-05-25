@@ -39,7 +39,7 @@
   `code{new_vignette} - Generate a vignettes template to
   increase efficiency.
 
-  \code{append_vignette} - Add vignettes to a prexisting
+  \code{append_vignette} - Add vignettes to a pre-existing
   vignettes directory.
 }
 \section{Suggestion}{

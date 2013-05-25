@@ -3,7 +3,7 @@
 #' `code{new_vignette} - Generate a vignettes template to increase efficiency.
 #' 
 #' @param vignette A character string of the vignette name (subdirectories of 
-#' the main directory, "vignettes", will utilize this string).  The function
+#' the main directory, "vignettes", will utilize this string).  The function 
 #' \code{append_vignette} will create an additional vignette with this name in 
 #' the vignettes directory.
 #' @param type A character string of either \code{"rmd"} or \code{"rnw"}.
@@ -140,7 +140,7 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
 
 #' Vignette Template
 #'
-#' \code{append_vignette} - Add vignettes to a prexisting vignettes directory.
+#' \code{append_vignette} - Add vignettes to a pre-existing vignettes directory.
 #' 
 #' @export
 #' @rdname new_vignette
