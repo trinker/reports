@@ -14,7 +14,8 @@ NEW FEATURES
 * `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s inclusing
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
   .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
-  way).
+  way).  Add additional vignettes to the vignettes directory with the 
+  `append_vignette` function.
 
 * `QC` quick convert between Pandoc recognized languages.  Meant for a string 
   rather than an entire file.
