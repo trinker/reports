@@ -36,7 +36,7 @@
   Creates a vignette template.
 }
 \description{
-  code{new_vignette} - Generate a vignettes template to
+  \code{new_vignette} - Generate a vignettes template to
   increase efficiency.
 
   \code{append_vignette} - Add vignettes to a pre-existing
