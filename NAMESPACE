@@ -1,3 +1,4 @@
+export(append_vignette)
 export(BT)
 export(BV)
 export(CA)

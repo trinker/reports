@@ -1,8 +1,13 @@
 \name{new_vignette}
+\alias{append_vignette}
 \alias{new_vignette}
 \title{Vignette Template}
 \usage{
   new_vignette(vignette = "vignette", type = "rmd",
+    path = getwd(), bib.loc = NULL,
+    name = getOption("name.reports"))
+
+  append_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
     name = getOption("name.reports"))
 }
@@ -31,7 +36,11 @@
   Creates a vignette template.
 }
 \description{
-  Generate a vignettes template to increase efficiency.
+  `code{new_vignette} - Generate a vignettes template to
+  increase efficiency.
+
+  \code{append_vignette} - Add vignettes to a prexisting
+  vignettes directory.
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for

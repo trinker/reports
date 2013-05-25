@@ -1,6 +1,6 @@
 #' Vignette Template
 #' 
-#' Generate a vignettes template to increase efficiency.
+#' `code{new_vignette} - Generate a vignettes template to increase efficiency.
 #' 
 #' @param vignette A character string of the vignette name (subdirectories of 
 #' the main directory, "vignettes", will utilize this string).  The function
@@ -20,6 +20,7 @@
 #'   \item{\bold{name.reports} - The name to use on reports}
 #' }
 #' @return Creates a vignette template.
+#' @rdname new_vignette
 #' @references 
 #' \url{http://yihui.name/knitr/demo/vignette/}
 #' @seealso \code{\link[utils]{browseVignettes}}
@@ -137,6 +138,12 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     return(o)    
 }
 
+#' Vignette Template
+#'
+#' \code{append_vignette} - Add vignettes to a prexisting vignettes directory.
+#' 
+#' @export
+#' @rdname new_vignette
 append_vignette <-
 function(vignette = "vignette", type = "rmd", path = getwd(),
     bib.loc = NULL, name = getOption("name.reports")) {
