@@ -22,7 +22,8 @@
 #' @return Creates a vignette template.
 #' @rdname new_vignette
 #' @references 
-#' \url{http://yihui.name/knitr/demo/vignette/}
+#' \url{http://yihui.name/knitr/demo/vignette/} \cr
+#' \url{http://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Writing-package-vignettes}
 #' @seealso \code{\link[utils]{browseVignettes}}
 #' @export
 #' @examples 
