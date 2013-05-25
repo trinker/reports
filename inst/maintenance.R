@@ -131,6 +131,21 @@ file2 <- "C:/Users/trinker/GitHub/trinker.github.com/reports"
 path2 <- "C:/Users/trinker/GitHub/reports/inst/dependencies/dependencies.html"
 file.copy(path2, file2, TRUE, TRUE)
 #==========================
+# 
+#==========================
+# Vignette
+#==========================
+path <- file.path("C:/Users/trinker/Desktop/GitHub", "reports_0.1.3.tar.gz")
+install.packages(path,  repos = NULL, type="source")
+
+browseVignettes(package = 'reports')
+
+root <- system.file("doc/reports_vignette.html", package = "reports")
+new <- "C:/Users/trinker/Dropbox/Public/packages"
+file.copy(root, file.path(new, "reports_vignette.html"))
+
+#==========================
+#
 #==========================
 #move project directions
 #==========================

@@ -11,6 +11,11 @@ NEW FEATURES
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
   files associated with the presentation.
 
+* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s inclusing
+  of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
+  .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
+  way).
+
 * `QC` quick convert between Pandoc recognized languages.  Meant for a string 
   rather than an entire file.
 
@@ -81,6 +86,9 @@ IMPROVEMENTS
 * The reports package now has a related programs/packages help site: 
   http://trinker.github.io/reports/dependencies
 
+* reports gains an HTML vignette (with video explanations) to better explain 
+  package use.  Use `browseVignettes(package = 'reports')` to view the vignette.
+
 CHANGES
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
@@ -98,6 +106,9 @@ CHANGES
     ~temp.reports-The primary template to use to generate reports (see template)
     ~github.user-GitHub user name
     ~speed.temp-A speed dial like interface that allows the template argument to take a number
+
+* The NOTES.txt and TO_DO.txt files lose the file extensions to become NOTES and 
+  TO_DO.
 
 
 reports 0.1.2

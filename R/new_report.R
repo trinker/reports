@@ -153,8 +153,8 @@ function(report = "report", template = getOption("temp.reports"),
             file.path(y[[2]], paste0("notes_", report, ".csv")))) 
     }
     cat("http://", file = file.path(y[[2]], "websites.txt"))
-    cat(file = file.path(x, "TO_DO.txt"))
-    cat(file = file.path(x, "NOTES.txt"))
+    cat(file = file.path(x, "TO_DO"))
+    cat(file = file.path(x, "NOTES"))
     EXF <- "#Source the following project functions on startup"
     cat(EXF, file = file.path(x, "extra_functions.R"))
     invisible(file.copy(pdfloc, y[[1]]))   

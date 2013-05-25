@@ -1,0 +1,52 @@
+%====================
+%  Document Class
+%====================
+\documentclass{article}
+%====================
+%  Packages
+%====================
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage[authoryear]{natbib}
+%====================
+%  Custom Commands
+%====================
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\code{\\newcommand\\posscite[1]{\\citeauthor{#1}'s (\\citeyear{#1})}} 
+\code{\\newcommand\\poscite[1]{\\citeauthor{#1}' (\\citeyear{#1})}} 
+%====================
+%  Formatting
+%====================
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+%====================
+%  Other
+%====================
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% \VignetteIndexEntry{An Introduction to knitr}
+% \VignetteEngine{knitr}
+
+\makeatother
+%===============================================================================
+\begin{document}
+
+\title{vignette name}
+\author{}
+\date{\today}
+\maketitle
+
+To enable Markdown vignettes in an R package, you need to:
+
+\begin{enumerate}
+  \item add `*.Rmd` files under the `inst/doc` or `vignettes` directory
+  \item add `VignetteBuilder: knitr` to the `DESCRIPTION` file
+  \item specify the vignette engine `\VignetteEngine{knitr}`
+\end{enumerate}
+
+%\bibliographystyle{jss}
+%\bibliography{../examples/knitr-packages}
+
+\end{document}

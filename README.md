@@ -26,10 +26,12 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 ## Help
 
-For an intoductory video [click here](http://youtu.be/kws1PX1Dw9w)         
-For quick start slides [click here](http://trinker.github.com/slides/reports.html)    
-The reports web page [trinker.github.com/reports](http://trinker.github.com/reports/)     
-For the package pdf help manual [click here](https://dl.dropbox.com/u/61803503/reports.pdf)     
-For information on the programs/packages reports brings together [click here](http://trinker.github.io/reports/dependencies)
+[reports Web Page: trinker.github.com/reports](http://trinker.github.com/reports/) 
+[Intoductory Video](http://youtu.be/kws1PX1Dw9w)         
+[Quick Start Slides](http://trinker.github.com/slides/reports.html)
+[Package Vignette](https://dl.dropboxusercontent.com/u/61803503/packages/reports_vignette.html)
+[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/reports.pdf)     
+[click here](http://trinker.github.io/reports/dependencies) for information on 
+the programs/packages reports brings together 
 
 

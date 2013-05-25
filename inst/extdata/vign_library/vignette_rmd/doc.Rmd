@@ -1,0 +1,33 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{A Markdown Vignette with knitr}
+-->
+
+```{r setup, include=FALSE}
+# set global chunk options
+library(knitr)
+opts_chunk$set(cache=FALSE)
+library(knitcitations); library(reports)
+#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+# vignette_name
+## name
+### `r as.character(format(Sys.Date(), "%m-%d-%Y"))`
+
+To enable Markdown vignettes in an R package, you need to
+
+- add `*.Rmd` files under the `inst/doc` or `vignettes` directory
+- add `VignetteBuilder: knitr` to the `DESCRIPTION` file
+- specify the vignette engine `\VignetteEngine{knitr}` in the `Rmd` files (inside HTML comments)
+
+You can use your own CSS file instead of the built-in style in the **markdown** package -- just set the option `markdown.HTML.stylesheet`, e.g.
+
+```{r css, echo = FALSE}
+options(markdown.HTML.stylesheet = "css/style.css")
+```
+
+## References
+```{r, echo=FALSE, results='asis'}
+#bibliography("html") 
+```

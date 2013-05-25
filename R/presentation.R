@@ -107,8 +107,8 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         cat(paste(Rmd, collapse="\n"), file = file.path(y[[2]], paste0(presentation, ".Rmd")))
         delete(new_Rmd)
     }
-    cat(file = file.path(x, "TO_DO.txt"))
-    cat(file = file.path(x, "NOTES.txt"))
+    cat(file = file.path(x, "TO_DO"))
+    cat(file = file.path(x, "NOTES"))
     EXF <- "#Source the following project functions on startup"
     cat(EXF, file = file.path(x, "extra_functions.R"))
     root <- system.file("extdata/present", package = "reports")

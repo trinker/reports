@@ -5,6 +5,7 @@ list(
       "Functions to generate report/presentation templates.",  
       c(
         "new_report",
+        "new_vignette",
         "presentation",
         "templates"
       )
