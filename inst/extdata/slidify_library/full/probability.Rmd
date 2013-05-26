@@ -1,0 +1,450 @@
+---
+title: Introduction to Probability
+subtitle: MGCR 271
+author: Ramnath Vaidyanathan
+job: Assistant Professor, McGill 
+license: by-nc-sa
+hitheme: default
+--- .segue .dark .nobackground
+
+## Introduction
+
+```{r setup, echo = F, results = 'hide', message = F, cache = F}
+opts_chunk$set(prompt = FALSE, tidy = FALSE, message = F, comment = NA)
+library(lattice); library(latticeExtra); library(mosaic)
+trellis.par.set(theme = theEconomist.theme(with.bg = TRUE, box = 'transparent'))
+lattice.options(theEconomist.opts())
+# knit_hooks$set(output = function(x, options){
+#   gsub('\n\n', '\n', x)
+# })
+knit_hooks$set(document = function(x){
+  gsub("```\n*```r*\n*", "", x)
+})
+```
+
+<script src='assets/js/app.js'></script>
+
+--- .segue .dark .nobackground
+
+## Slides
+
+*** =pnotes
+
+The classical environment for teaching has been the ubiqutous slide deck, without which no class, online or offline is considered complete. It serves dual roles, as a synchronoous teaching aid in class that helps anchor a lecture, and as an asynchronous record of what was taught, allowing students to revisit the contents later. 
+
+--- 
+
+## Introduction to ggplot2
+
+
+```{r fig.height = 5, out.extra = 'class="center"'}
+# install ggplot2 if you have not already done so
+# install.packages('ggplot2')
+require(ggplot2)
+qplot(wt, mpg, data = mtcars)
+```
+
+
+*** =pnotes
+
+In this tutorial, you will learn the basics of `ggplot2`, an R package that makes it easy to create stunning statistical graphics. The first step is to install `ggplot2`
+
+*** =spnotes
+
+For example, here is how an introductory slide on a ggplot2 tutorial might look like. There are two shortcomings of a slides-only environment.
+
+1. It would work great in class, with an instructor lecturing along. But as a standalone, it falls short. This concern can be partly alleviated by sharing speaker notes. You can press p to see the speaker notes for this slide. However, it is still not efficient.
+
+2. To follow along, a student would need to copy the code from the slide, paste it into his/her IDE, run the code to see the results and then return back to the slide deck. I believe a lot of back and forth between slide and IDE is highly distracting to the learning process.
+
+---
+## Data Frames
+
+We will work with the built-in dataset `mtcars`
+
+```{r eval = T, echo = F}
+head(mtcars, 3)
+```
+
+You can inspect the data set in many ways.
+
+```{r eval = F}
+head(mtcars)       # view first six rows
+head(mtcars, 10)   # view first ten rows
+tail(mtcars, 20)   # view last twenty rows
+NROW(mtcars)       # view number of rows 
+NCOL(mtcars)       # view number of columns
+dim(mtcars)        # view rows x columns
+```
+
+---
+
+## Subsetting Data
+
+Very often you might want to work with a smaller subset of the data. R makes it very easy to select subsets by combining conditional operations. The main operations are
+
+```text
+== : equal to
+!= : not equal to
+>= : greater or equal to
+<= : lesser or equal to
+&  : and
+|  : or
+```
+
+Here are some examples of how to choose specific subsets of the mtcars data set.
+
+```{r eval = F, echo = TRUE}
+subset(mtcars, gear == 4)           # four gears
+subset(mtcars, cyl != 2)            # not 2 cylinders
+subset(mtcars, mpg > 20)            # mpg more than 20
+subset(mtcars, mpg > 20 & wt < 20)  # mpg > 20 AND wt < 20
+subset(mtcars, mpg > 20 | wt < 20)  # mpg > 20 OR wt < 20
+```
+
+
+--- .segue bg:lightblue .nobackground
+
+## <span style='color:#003366;'>Data Structures</span>
+
+
+--- &opencpu2 sno:2
+
+## Vector
+
+A `vector` is a collection of items (or elements) that are all of the same type (integers, numbers, strings, true/false values). You can create a vector by simply passing a comma separated set of items to the `c()` function, which concatenates them into a vector.
+
+```{r eval = F, echo = T}
+num_vec  = c(1, 2, 3, 4, 5)      
+char_vec = c('Ross', 'Chandler') 
+logi_vec = c(TRUE, FALSE, FALSE) 
+```
+
+*** =question
+
+Create a vector consisting of abbreviated weekdays (Mon, Tue etc.) and assign it to the variable `weekdays`
+
+--- &opencpu2 sno:3
+
+## Vector
+
+A vector has two key properties: `length` and `mode`.
+
+```{r eval = T, comment = NA, prompt = TRUE}
+num_vec <- c(1, 2, 3, 4, 5)
+length(num_vec)
+mode(num_vec)
+```
+
+*** =question
+
+__Task__: Create a vector `x <- c('alpha', 'beta', 2)`. Can you guess what its mode and length would be? Use the functions learnt above to figure it out for yourself!
+
+
+*** =hint
+
+A little surprised that `mode(x)` returns `character`. Well, recall that a vector by definition consists of elements of the __same type__. So, R does what is called __type coercion__ and coerces the number 2 to a character string "2".
+
+--- &opencpu2 sno:4
+
+## List
+
+A `list`, like a `vector` is a collection of items. But unlike a `vector`, the items can be of different types. Here is an example of a list.
+
+```{r echo = TRUE, eval = TRUE, comment = NA, prompt = TRUE}
+list(c(1, 2, 3), TRUE, 'gamma')
+```
+
+Note that it consists of three items, the first is a vector (of characters), the second is a `logical` value, while the third is a `numeric`. 
+
+*** =question
+
+Verify for yourself the `mode` of each item of the list. You will need to assign the list to a variable first.
+
+--- &opencpu sno:5
+
+## Exercise 1
+
+Create a vector representing the radii of three circles with lengths 5, 10, and 20. Use * and the built-in constant `pi` to compute the areas of the three circles. Then subtract 2.1 from each radius and recompute the areas.
+
+*** =hint
+
+```{r echo = TRUE, comment = NA}
+myradii  <- c(5, 10, 20)
+pi * myradii^2
+pi * (myradii - 2.1)^2
+```
+
+--- .segue .dark .nobackground
+
+## Control Structures
+
+---
+
+## If-Then-Else
+
+The `if-then-else` 
+
+```{r echo = TRUE, comment = NA}
+day = "Sunday"
+if (day == 'Sunday'){
+  print("Sunday")
+} else {
+ print("Not a Sunday")
+}
+```
+
+--- .segue .dark .nobackground
+
+## Loops
+
+---
+
+## For Loop
+
+A `for` loop can be used to carry out a computational task repeatedly.
+
+```{r eval = T}
+x <- c(1, 2, 3, 4, 5)
+mysum = 0
+for (i in 1:5){
+  mysum = mysum + x[i]
+}
+mysum
+```
+
+--- bg:lightgreen
+
+## While Loop
+
+--- bg:lightblue
+
+## Repeat Loop
+
+
+---
+
+--- .quiz &radio
+
+## Question
+
+How many different ways can we pick `two` marbles from a bag containing `three` marbles, colored red, blue and green?
+
+1. 3
+2. _6_
+3. 9
+
+*** .explanation
+
+<style>
+.modal-body iframe {
+  height: 350px;
+}
+</style>
+
+This is the answer. Does math work?
+
+$$\alpha = \beta$$
+
+<iframe width="1280" height="720" src="http://www.youtube.com/embed/H9VYDGuxqGg" frameborder="0" allowfullscreen></iframe>
+
+--- .quiz &text ans:10
+
+## Text Question
+
+This question requires a text input as answer. What is 5 + 5?
+
+*** .hint
+
+Think addition!
+
+*** .explanation
+
+It is trivial
+
+---
+
+## What is Probability? ##
+
+Probability is the 
+
+--- .segue .dark .nobackground
+
+## Birthday Problem
+
+--- .fill .nobackground bg:url(http://goo.gl/MfFa)
+
+--- 
+
+## Hypothesise ##
+
+Let us start by hypothesizing what the answer could be.
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dGdlYzZNVGdRRWIyQ1pxSkFtYmhDbEE6MQ" width="760" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+--- .nobackground
+
+## Simulate 
+
+We will use simulation to answer our question. [Click here](http://www-stat.stanford.edu/~susan/surprise/Birthday.html) and open in a new tab.
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dFJoSWdTb0I1ZWIxOEpGYWRWcC1nUUE6MA" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+---
+
+## Use R ##
+
+There are two built in functions `pbirthday` and `qbirthday` which calculate the probability of a coincidence and the minimum number of people required for a given probability of coincidence. You can get more details by typing `? pbirthday` in `RStudio`
+
+Here are some hints on how to apply these functions
+
+``` {r eval = F}
+pbirthday(n = 60)                  # prob. at least two people share a bday
+pbirthday(n = 60, coincident = 3)  # prob. at least three people share a bday
+qbirthday(prob = 0.5, class = 365) # min. number required for a 50% prob. of common bday
+qbirthday(prob = 0.8, class = 30)  # min. number required for a 80% prob. of common month
+```
+
+--- .quiz &radio
+
+## Question 1
+
+What is the minimum number of people required for a 99% probability of a common birthday? Choose the closest possible answer.
+
+1. 30
+2. 40
+3. _60_
+4. > 100
+
+*** =pnotes
+
+```{r}
+qbirthday(0.99, classes = 365)
+```
+
+--- .quiz &text ans:57
+
+## Question 2
+
+What is the minimum number of people required for a 99% probability of a common birthday?
+
+--- .segue .dark .nobackground
+
+## Let's Make a Deal
+
+---
+
+## Motivate
+
+Should we base decisions on our intuition? Let's check your intuition to determine a probability with Monty Hall's Let's Make A Deal.
+
+Monty Hall's game show Let's Make A Deal was a popular seventies game show. Nearly the entire audience dresses up in costumes hoping that Monty Hall would select them out of the crowd and offer them a chance to win a fabulous prize. He might offer $100 for every paper clip in your possession! 
+
+Here is the situation: Suppose you are given three doors to choose from. Behind one door there is a big prize (a car) and behind the other two, there are goats. Only Monty Hall knows which door has the prize. You are asked to select a door, and then Monty opens a different door, showing you a goat behind it. Then you are asked the big question: Do you want to stay with your original door, or switch to a different door? 
+
+<div class='alert alert-success'><p>
+Question: Do you have a higher chance of winning the prize if you stay with your first door selection, or switch to the remaining door?
+</p></div>
+
+---
+
+## Hypothesize ##
+
+Let us start by hypothesizing what the answer could be.
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDZJRzAxZzFYakxldXhhY0EyakUxNVE6MQ" width="760" height="510" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+--- .fill
+
+## Simulate 
+
+<iframe 
+  src = "http://graphics8.nytimes.com/packages/flash/science/20080408_GAME_FEATURE/game1.swf">
+</iframe>
+
+---
+
+## Ponder ##
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDhsMmlVWk1sSEpPeDE4MU84WVRKRmc6MA" width="760" height="510" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+--- .segue bg:darkslategrey
+
+## One Son Policy
+
+---
+
+## Motivate ##
+
+In the early 1990’s China considered adopting a "one son" policy, to help reduce their birthrate by allowing families to keep having children until they had a son.  Under this plan a family has a child.  If it is a son, they stop having children.  If it is a daughter, they can try again. They can keep trying until they have a son and then they stop having children.
+
+In small groups, discuss the following questions:
+
+1. If a country adopted this “one son” policy, what would you expect the average number of children to be for a family, and why?
+2. What would you expect the ratio of boys to girls to be (more girls than boys, more boys than girls, equal numbers of girls and boys)? Why?
+
+---
+
+## Think
+
+Working in teams, take a yogurt container that contains two slips of paper. One is labeled B for boy. One is labeled G for girl. You are going to randomly draw one slip of paper from the container and that will be the first child born in a simulated family. If you draw a B, then stop. Enter the data on the chart below. If it is a G, draw again. Keep drawing until you draw a B, then stop and enter the data on the chart below. Repeat this process for 5 simulated families.
+For example: GB, B, GGB, B, GB, etc.
+
+1.  
+2. 
+3. 
+4. 
+5. 
+
+---
+
+## Hypothesize ##
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDZwbmhPakdfeDM0UTB1UUtMZExaOHc6MA" width="760" height="540" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+---
+
+## Simulate ##
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDRCckNxVmNPNEp4aHlTLV91cXdraFE6MQ" width="760" height="540" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+--- .segue .dark .nobackground
+
+## Flip Coins with R
+
+
+---
+
+## Flipping a Coin ##
+
+We can use `R` to simulate the physical process of flipping a coin. You will need to install the `mosaic` package, which can be done by typing `install.packages('mosaic')` in `RStudio`
+
+Let us start by flipping a coin 5 times
+
+``` {r flip-1-5, comment = NA}
+rflip(5)
+```
+
+---
+
+## Flipping Multiple Times
+
+We can flip a coin 5 times and automatically count the number of heads tossed
+
+``` {r flip-1-5-count}
+nflip(5)
+```
+
+---
+
+## Flipping a Coin 500 times ##
+
+We can now repeat the process of flipping 5 coins, 500 times and plot a histogram of the distribution.
+
+``` {r flip-5-500, fig.width = 5, fig.height = 5, fig.align = 'center'}
+do500 = do(500) * rflip(5)                  # flip 5 coins, 500 times
+histogram(~ heads, data = do500, nint = 6)  # plot a histogram of number of heads
+```
+
+*** =pnotes
+You can type `View(do500)` in `RStudio` if you want to take a look at the raw data generated.

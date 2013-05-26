@@ -1,0 +1,52 @@
+---
+title      : 
+author     :
+framework  : slideous
+highlighter: highlight.js
+hitheme    : tomorrow
+mode       : selfcontained
+widgets    : [mathjax, quiz, bootstrap]
+---
+```{r setup, include=FALSE}
+# set global chunk options
+library(reports); library(slidify); library(knitcitations); library(knitr)
+opts_chunk$set(cache=FALSE)
+BIB <- system.file("extdata/docs/example.bib", package = "reports") #test .bib
+bib <- read.bibtex(BIB)
+#
+#Reading in your own bib file:
+#bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
+#cite in text using `r citet(bib[1])`
+```
+<style>
+.refs {
+  padding-left: 80px;
+  text-indent: -25px;
+}
+</style>
+
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
+## Slide 2
+
+For slidify framework examples run:    
+browseURL("https://github.com/ramnathv/slidifyExamples")    
+
+`r citet(bib[1])`
+
+---
+
+`r YT("kws1PX1Dw9w")`
+
+--- .refs
+## References
+```{r, echo=FALSE, results='asis'}
+bibliography("html")
+```

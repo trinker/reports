@@ -7,18 +7,23 @@ file.copy(inpdf, outpdf,, TRUE)
 file.copy(inpdf, "C:/Users/trinker/Dropbox/Public/packages",, TRUE)
 
 #================================
-#download latest reveal template
+#download slidify examples
 #================================
-download_repo <- function(repo, user){
-    require(downloader)
-    url <- sprintf("https://github.com/%s/%s/archive/master.zip", user, repo)
-    tmp <- tempfile(fileext = ".zip")
-    download(url, tmp)
-    unzip(tmp) 
-    return(tmp) 
-}
+loc <- "C:/Users/trinker/GitHub/slidifyExamples/examples"
+nms <- dir(loc)
+lapply(nms, function(x) {
+    fl <- file.path(loc, x, "index.Rmd")
+    dest <- "C:/Users/trinker/GitHub/reports/inst/extdata/slidify_library/full"
+    suppressWarnings(invisible(file.copy(fl, dest, TRUE, TRUE)))
+    file.rename(file.path(dest, "index.Rmd"), file.path(dest, paste0(x, ".Rmd")))
+})
 
-download_repo("reports", "trinker")
+lapply(nms, function(x) {
+    fl <- file.path(loc, x, "index.Rmd")
+    dest <- "C:/Users/trinker/GitHub/reports/inst/extdata/slidify_library/min"
+    suppressWarnings(invisible(file.copy(fl, dest, TRUE, TRUE)))
+    file.rename(file.path(dest, "index.Rmd"), file.path(dest, paste0(x, ".Rmd")))
+})
 
 #=========================
 #access to internal tools 

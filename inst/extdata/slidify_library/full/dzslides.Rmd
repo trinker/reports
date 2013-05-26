@@ -1,0 +1,55 @@
+---
+title: DZSlides with Slidify
+author: Ramnath Vaidyanathan
+framework: dzslides
+url: {lib: ../../libraries}
+mode: none
+---
+
+# My Presentation
+<footer>by Ramnath Vaidyanathan</footer>
+
+---
+
+Some random text: But I've never been to the moon! You can see how I lived before I met you. Also Zoidberg. I could if you hadn't turned on the light and shut off my stereo.
+
+---
+
+### Incremental List
+
+> - Point 1
+> - Point 2
+> - Point 3
+
+---
+
+>Who's brave enough to fly into something we all keep calling a death sphere?
+
+---
+
+## Part 2
+
+---
+```{r echo = F}
+make_figure <- function(src, caption){
+  tpl <- sprintf('<div>
+  <figure> 
+    <img src="%s">
+    <figcaption>%s</figcaption>
+  </figure>
+</div>', src, caption)
+  tpl
+}
+```
+`r make_figure("http://placekitten.com/g/800/600", "Figure Caption")`
+
+---
+
+### ggplot
+
+```{r fig.align = "center", echo = F}
+library(ggplot2)
+qplot(wt, mpg, data = mtcars)
+```
+
+

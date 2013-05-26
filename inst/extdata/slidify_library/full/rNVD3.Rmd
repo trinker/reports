@@ -1,0 +1,160 @@
+---
+title: rNVD3
+subtitle: Interactive Charts from R using NVD3.js
+author: Ramnath Vaidyanathan
+url: {lib: ../../libraries}
+framework: io2012
+highlighter: highlight.js
+hitheme: github
+widgets: [quiz, bootstrap, nvd3]
+mode: standalone
+github:
+  user: ramnathv
+  repo: rNVD3
+---
+
+## Introduction
+
+`rNVD3` is an R package that provides a familiar plotting interface to create interactive visualizations using [NVD3.js](http://nvd3.org)
+
+You can install `rNVD3` from `github` using the `devtools` package
+
+```{r eval = F}
+require(devtools)
+install_github('rNVD3', 'ramnathv')
+```
+
+Here is an example that you can try in your R console
+
+```{r eval = F}
+hair_eye = subset(as.data.frame(HairEyeColor), Sex == "Female")
+p1 <- nvd3Plot(Freq ~ Hair | Eye, data = hair_eye, type = 'multiBarChart')
+p1$chart(color = c('brown', 'blue', '#594c26', 'green'))
+p1
+p1$save('haireye.html')
+```
+
+
+---
+
+<style>
+.nvd3Plot {
+  background-color: #eee;
+  width: 900px;
+  height: 500px;
+  margin: auto auto;
+  display: block;
+}
+</style>
+
+```{r echo = F, message = F}
+opts_template$set(nvd3 = list(comment = NA, results = 'asis', message = F, warning = F, tidy = F, echo = T))
+require(rNVD3)
+```
+
+## Bar Chart (Discrete)
+
+```{r discreteBar, opts.label = 'nvd3'}
+bar1 <- nvd3Plot(~ gear, data = mtcars, type = 'discreteBarChart')
+bar1$printChart()
+```
+
+*** =code
+
+```{r ref.label = 'discreteBar', eval = F}
+```
+
+---
+
+
+## Bar Chart (Dodged/Stacked)
+
+
+```{r multiBarChart, opts.label = 'nvd3'}
+data('tips', package = 'reshape2')
+bar2 <- nvd3Plot(~ day | sex, data = tips, type = 'multiBarChart')
+bar2$printChart('barChart')
+```
+
+---
+
+## Bar Chart (Horizontal)
+
+
+```{r multiBarHoriz, opts.label = 'nvd3'}
+bar2$addParams(type = 'multiBarHorizontalChart')
+bar2$printChart('horizontalBar')
+```
+
+
+---
+
+## Scatter Chart
+
+```{r opts.label = 'nvd3'}
+p1 <- nvd3Plot(mpg ~ wt | cyl, data = mtcars, type = 'scatterChart')
+p1$xAxis(axisLabel = 'Weight')
+p1$printChart()
+```
+
+---
+
+## Line Chart
+
+```{r lineChart, opts.label = 'nvd3'}
+data(economics, package = 'ggplot2')
+ecm <- reshape2::melt(economics[,c('date', 'uempmed', 'psavert')], id = 'date')
+p2 <- nvd3Plot(value ~ date | variable, data = ecm, type = 'lineChart')
+p2$printChart('lineChart')
+```
+
+---
+
+## Line with Focus Chart
+
+```{r lineWithFocusChart, opts.label = 'nvd3'}
+p2$addParams(type = 'lineWithFocusChart')
+p2$printChart('lineWithFocus')
+```
+
+---
+
+## Cumulative Line Chart
+
+```{r cumulativeLineChart, opts.label = 'nvd3'}
+p2$addParams(type = 'cumulativeLineChart')
+p2$printChart('cumulativeLineChart')
+```
+
+
+---
+
+## Stacked Area Chart
+
+```{r opts.label = 'nvd3'}
+p2$addParams(type = 'stackedAreaChart', id = 'stackedArea')
+p2$printChart('stackedArea')
+```
+
+---
+
+## Pie Chart
+
+```{r opts.label = 'nvd3'}
+haireye <- subset(as.data.frame(HairEyeColor), Sex == "Female" & Hair == "Blond")
+pie1 <- nvd3Plot(Freq ~ Eye, data = haireye, type = 'pieChart')
+pie1$printChart()
+```
+
+---
+
+## Donut Chart
+
+```{r opts.label = 'nvd3'}
+pie1$chart(donut = TRUE)
+pie1$printChart('donutChart')
+```
+
+
+
+

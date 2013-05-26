@@ -1,0 +1,163 @@
+---
+title: D3.js Charts with Slidify
+subtitle: Example
+author: Ramnath Vaidyanathan
+job: Assistant Professor, McGill
+url:
+  lib: ../../libraries
+widgets: [nvd3]
+--- 
+
+<style>
+body {
+  background: #000;
+}
+</style>
+
+## Scatterplot with d3.js
+
+<div id="chart2" style='width:900px; height:500px; margin:auto auto;'>
+  <svg></svg>
+</div>
+
+<script type='text/javascript'>
+```{r engine='coffee', echo = F, comment = NA, results = 'asis'}
+d3.json "assets/data/mtcars.json", (data) ->
+  data2 = d3.nest()
+    .key( (d) -> d.cyl )
+    .entries(data)
+  nv.addGraph ->
+    chart = nv.models.scatterChart()
+      .x( (d) -> d.wt )
+      .y( (d) -> d.mpg )
+      .showDistX(true)
+      .showDistY(true)
+      .width(900)
+      .height(500)
+    
+    chart.xAxis
+      .showMaxMin(true)
+      .tickFormat(d3.format(".02f"))
+
+    d3.select("#chart2 svg")
+      .datum(data2)
+      .transition().duration(500)
+      .call(chart)
+    return chart
+```
+</script>
+
+
+---
+
+## Gun Ownership vs. Homicides
+
+```{r echo = F, eval = F}
+df2json <- function(df){
+  y = do.call(slidify:::zip_vectors, as.list(df))
+  rjson::toJSON(y)
+}
+require(countrycode)
+guns = read.delim('http://mark.reid.name/bits/guns/data/guns.csv')
+deaths = read.delim('http://mark.reid.name/bits/guns/data/deaths.csv')
+dat = merge(guns, deaths)
+dat = transform(dat, 
+  continent = countrycode(Country, 'country.name', 'continent'))
+cat(df2json(dat), file = 'assets/data/gundeaths.json')
+```
+
+<div id = 'chart3' style='margin: auto auto;'>
+ <svg></svg>
+</div>
+
+<script>
+```{r echo = F, engine = 'coffee', results = 'asis', comment = NA, eval = F}
+d3.json "assets/data/gundeaths.json", (data) ->
+  data2 = d3.nest()
+    .key( (d) -> d.continent )
+    .entries(data)
+
+  nv.addGraph ->
+    chart = nv.models.scatterChart()
+      .x( (d) -> d.Guns )
+      .y( (d) -> d.Homicides )
+      .color(d3.scale.category10().range())
+      .showDistX(true)
+      .showDistY(true)
+      .showControls(true)
+      .width(900)
+      .height(500)
+      .tooltipContent (key, x, y, e) ->
+        e.point.Country
+
+    chart.scatter.forceY([-5])
+    chart.xAxis.axisLabel("Guns")
+    chart.yAxis.axisLabel("Deaths")
+
+    d3.select("#chart3 svg")
+      .datum(data2)
+      .transition().duration(500)
+      .call(chart)
+
+    return chart
+```
+</script>
+
+
+*** =pnotes
+
+```
+d3.json "data/gundeaths.json", (data) ->
+  data2 = d3.nest()
+    .key( (d) -> d.continent )
+    .entries(data)
+
+  nv.addGraph ->
+    chart = nv.models.scatterChart()
+      .x( (d) -> d.Guns )
+      .y( (d) -> d.Homicides )
+      .color(d3.scale.category10().range())
+      .showDistX(true)
+      .showDistY(true)
+      .showControls(true)
+      .width(900)
+      .height(500)
+      .tooltipContent (key, x, y, e) ->
+        e.point.Country
+
+    chart.scatter.forceY([-5])
+    chart.xAxis.axisLabel("Guns")
+    chart.yAxis.axisLabel("Deaths")
+
+    d3.select("#chart3 svg")
+      .datum(data2)
+      .transition().duration(500)
+      .call(chart)
+
+    return chart
+```
+
+---
+
+## Checking R2NVD3
+
+```{r results = 'asis', comment = NA, echo = F, message = F, eval = T}
+source('r2nvd3.R')
+datm = reshape2::melt(USPersonalExpenditure)
+drawChart('Var2', 'value', group = 'Var1', geom = 'multiBarChart', data = datm, id='chart5', file = 'app3.js')
+# data(economics, package = 'ggplot2')
+# drawChart('date', 'pop', geom = 'lineChart', data = economics, file = 'app1.js')
+```
+
+---
+
+## Another Check
+
+```{r results = 'asis', comment = NA, echo = F, message = F, eval = F}
+source('r2nvd3.R')
+data(tips, package = 'reshape2')
+tips2 = plyr::count(tips, c('day', 'sex'))
+drawChart('day', 'freq', group = 'sex', geom = 'multiBarChart', data = tips2, id = 'chart4', file = 'app2.js')
+```
+
+
