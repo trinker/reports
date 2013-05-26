@@ -37,7 +37,8 @@ bib <- read.bibtex(BIB)
 ## Slide 2
 
 For slidify framework examples run:    
-browseURL("https://github.com/ramnathv/slidifyExamples")    
+browseURL("https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples/showoff")    
+browseURL("http://ramnathv.github.io/slidifyExamples/examples/showoff/#1")
 
 `r citet(bib[1])`
 

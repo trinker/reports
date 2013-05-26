@@ -52,7 +52,8 @@ ul.nav li{ font-size: 18px; line-height: 24px;}
 ## Slide 2
 
 For slidify framework examples run:    
-browseURL("https://github.com/ramnathv/slidifyExamples")    
+browseURL("https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples/revealjs")
+browseURL("http://ramnathv.github.io/slidifyExamples/examples/revealjs/#/slide-1")
 
 `r citet(bib[1])`
 
