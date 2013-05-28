@@ -136,7 +136,7 @@ function(report = "report", template = getOption("temp.reports"),
                 slid.path <- slidify
             } else {
                 if (slidify == "default") {
-                    slid.path <- dir(y[[4]])[tools::file_ext(dir(y[[4]])) == "Rmd"]
+                    slid.path <- file.path(y[[4]], "index.Rmd")
                 } else {
                     slid <- system.file("extdata/slidify_library", package = "reports")
                     if (substring(slidify, 1, 1) == ".") {
