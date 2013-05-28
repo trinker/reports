@@ -1,6 +1,6 @@
 ---
 title      : 
-author     :
+author     : 
 framework  : showoff
 highlighter: highlight.js
 hitheme    : tomorrow

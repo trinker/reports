@@ -1,0 +1,24 @@
+.red .reveal .state-background {
+    background: rgba( 255, 0, 0, 1 );
+}
+.orange .reveal .state-background {
+    background: rgba( 255, 165, 0, 1 );
+}
+.yellow .reveal .state-background {
+    background: rgba( 255, 255, 0, 1 );
+}
+.green .reveal .state-background {
+    background: rgba( 0, 128, 0, 1 );
+}
+.blue .reveal .state-background {
+    background: rgba( 0, 0, 255, 1 );
+}
+.indigo .reveal .state-background {
+    background: rgba( 75, 0, 130, 1 );
+}
+.violet .reveal .state-background {
+    background: rgba( 238, 130, 238, 1 );
+}
+.brown .reveal .state-background {
+    background: rgba( 139, 69, 19, 1 );
+}

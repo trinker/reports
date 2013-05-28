@@ -1,6 +1,6 @@
 ---
 title      : 
-author     :
+author     : 
 framework  : slideous
 highlighter: highlight.js
 hitheme    : tomorrow

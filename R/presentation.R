@@ -35,8 +35,11 @@
 #'   \item{\bold{name.reports} - The name to use on reports}   
 #'   \item{\bold{sources.reports} - Path(s) to additional files/scripts that 
 #'   should be included to be sourced in the project startup}
+#'   \item{\bold{slidify.template} - Path to, or defualt, .Rmd file tempalte for 
+#'   use in as the .Rmd used in the slidify presentations (see 
+#'   \bold{slidify_templates} for possible non-path arguments)}  
 #' }
-#' @return Creates a report template.
+#' @return Creates a presentation template.
 #' @seealso \code{\link[reports]{new_report}},
 #' \code{\link[slidify]{author}}
 #' @export
@@ -46,8 +49,8 @@
 presentation <- function(presentation = "presentation", type = c("rnw", "rmd"), 
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name.reports"), github.user = getOption("github.user"), 
-    sources = getOption("sources.reports"), path = getwd(), slidify_clean = FALSE, 
-    ...) {
+    sources = getOption("sources.reports"), path = getwd(), 
+	slidify = getOption("slidify.template"), ...) {
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
     presentation <- tail(presentation, 1)	
@@ -61,6 +64,9 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
             delete(file.path(path, presentation))
         }
     }
+    if (!is.null(slidify) && slidify %in% dir(path)) {
+        slidify <- file.path(path, slidify)   
+    }  
     if (is.null(theme) & sum(type %in% "rmd") > 0) {
         cat("Choose a theme:\n\n") 
         theme <- c(themes)[menu(c(themes))]      
@@ -75,37 +81,48 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     if (sum(type %in% "rmd") < 1) {
         y <- invisible(folder(OUTLINE, PRESENTATION))
     } else {
+        if (is.null(slidify)) {
+            slidify <- "io2012"
+        }
         y <- invisible(folder(OUTLINE))
         y[[2]] <- file.path(x, "PRESENTATION")
-        suppressMessages(author(y[[2]], use_git = FALSE, open_rmd = FALSE))
-        setwd(x)
-        new_Rmd <- file.path(y[[2]], "index.Rmd")
-        Rmd <- suppressWarnings(readLines(new_Rmd )) 
-        Rmd[2] <- paste0(Rmd[2], presentation)
-        if(!is.null(name)) {
-            Rmd[4] <- paste0(Rmd[4], strsplit(name, "\\\\")[[1]][1])
+        suppressMessages(author(y[[2]], use_git = FALSE, open_rmd = FALSE, ...))
+        if(file.exists(slidify)) {
+            slid.path <- slidify
+        } else {
+            if (slidify == "default") {
+                slid.path <- dir(y[[2]])[tools::file_ext(dir(y[[2]])) == "Rmd"]
+            } else {
+                slid <- system.file("extdata/slidify_library", package = "reports")
+                if (substring(slidify, 1, 1) == ".") {
+                    back <- "full"
+                    slidify <- substring(slidify, 2)
+                } else {
+                    back <- "min"
+                }
+                slid.path <- file.path(slid, back, paste0(slidify, ".Rmd"))
+            }
         }
-        Rmd[10] <- "mode        : selfcontained"
-        Rmd[23] <- paste0("For slidify framework examples run:    \n", 
-            "browseURL(\"https://github.com/ramnathv/slidifyExamples\")    \n")
-        if (!slidify_clean) {
-            Rmd[9] <- "widgets     : [mathjax, quiz, bootstrap]"
-            piece1 <- "--- dt:10\n\n<script>\nhandleDomLoadedExtra = function(){};\n</script>\n\n"
-            piece2 <- "```{r setup, include=FALSE}\n# set global chunk options\nopts_chunk$set(cache=FALSE)\n"
-            piece3 <- "library(reports); library(slidify); library(knitcitations)\nBIB <- system.file(\"extdata/docs/example.bib\", package =  \"reports\") #test .bib\n"
-            piece4 <- "bib <- read.bibtex(BIB)\n#\n#Reading in your own bib file:\n"
-            piece5 <- "#bib <- read.bibtex(dir()[tools::file_ext(dir()) == \"bib\"][1])\n"
-            piece6 <- "#cite in text using `r citet(bib[1])`\n```\n"
-            piece7 <- "<style>\nbody {\n  background-color: #000;\n}\n"
-            piece8 <- ".quiz-option label{\n  display: inline;\n  font-size: 1em;\n}\n"
-            piece9 <- ".refs {\n  padding-left: 80px;\n  text-indent: -35px;\n}\n"
-            piece10 <- "ul.nav li::before { content: \"\"; } \nul.nav li{ font-size: 18px; line-height: 24px;}\n</style>\n"
-            Rmd[11] <- paste0(piece1, piece2, piece3, piece4, piece5, piece6, piece7, piece8, piece9, piece10)
-            Rmd[25] <- "--- .refs\n## References\n```{r, echo=FALSE, results='asis'}\nbibliography(\"html\")\n```"
-            Rmd[23] <- paste0(Rmd[23], "\n", "`r citet(bib[1])`\n\n---\n`r YT(\"kws1PX1Dw9w\")`")
+        setwd(x)
+        Rmd <- suppressWarnings(readLines(slid.path)) 
+        title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
+        Rmd[title.] <- paste0("title      : ", presentation)
+        if(!is.null(name)) {
+            name. <- grepl("author", Rmd) & grepl("\\:", Rmd)
+            Rmd[name.] <- paste0("author     : ", strsplit(name, "\\\\")[[1]][1])
+        }
+        if(slidify == "revealjs") {
+            title2. <- Rmd %in% "# title"
+            Rmd[title2.] <- paste0("# ", presentation)
+            if(!is.null(name)) {
+                name2. <- Rmd %in% "### name"
+                Rmd[name2.] <- paste0("### ", strsplit(name, "\\\\")[[1]][1])
+            }
+            css <- system.file("extdata/docs/style.css", package = "reports")
+            file.copy(css,  file.path(y[[2]], "assets/css"))            
         }
         cat(paste(Rmd, collapse="\n"), file = file.path(y[[2]], paste0(presentation, ".Rmd")))
-        delete(new_Rmd)
+        delete(file.path(y[[2]], "index.Rmd"))
     }
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
@@ -191,3 +208,5 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     class(o) <- "reports"
     return(o)    
 }
+
+

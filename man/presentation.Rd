@@ -8,7 +8,7 @@
     name = getOption("name.reports"),
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
-    slidify_clean = FALSE, ...)
+    slidify = getOption("slidify.template"), ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or
@@ -53,7 +53,7 @@
   \code{\link[slidify]{author}}.}
 }
 \value{
-  Creates a report template.
+  Creates a presentation template.
 }
 \description{
   Generate a presentation template to increase efficiency.
@@ -70,7 +70,11 @@
   \item{\bold{name.reports} - The name to use on reports}
   \item{\bold{sources.reports} - Path(s) to additional
   files/scripts that should be included to be sourced in
-  the project startup} }
+  the project startup} \item{\bold{slidify.template} - Path
+  to, or defualt, .Rmd file tempalte for use in as the .Rmd
+  used in the slidify presentations (see
+  \bold{slidify_templates} for possible non-path
+  arguments)} }
 }
 \examples{
 ## presentation("New")

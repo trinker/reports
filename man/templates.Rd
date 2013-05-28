@@ -1,8 +1,11 @@
 \name{templates}
+\alias{slidify_templates}
 \alias{templates}
 \title{View Templates}
 \usage{
   templates(print.cons = TRUE, names = TRUE)
+
+  slidify_templates()
 }
 \arguments{
   \item{print.cons}{logical.  If \code{TRUE} The template
@@ -12,20 +15,32 @@
   the templates will be returned.}
 }
 \description{
-  View all the reports package templates.
+  \code{templates} - View all the reports package
+  templates.
+
+  \code{slidify_templates} - View all the built in slidify
+  templates.
 }
 \details{
-  This function prints (via \code{\link[base]{cat}}) to the
-  console to view possible templates (feel free to submit
-  your own; see \code{\link[reports]{doc_temp}} for
+  \code{templates} - prints (via \code{\link[base]{cat}})
+  to the console to view possible templates (feel free to
+  submit your own; see \code{\link[reports]{doc_temp}} for
   details) as well as optionally returning a vector of
   names that the user can pass to other functions.
+
+  \code{slidify_templates} - prints a list of minimal and
+  full .Rmd files included with the reports package for use
+  in presentations created by the slidify package.  These
+  can be passed to the \code{slidify} argument of
+  \code{new_reports} and \code{presentation}.
 }
 \examples{
 \dontrun{
 templates()
 templates(FALSE)
 new_report("new", templates(FALSE)[4])
+
+slidify_templates()
 }
 }
 \seealso{
