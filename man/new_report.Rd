@@ -45,7 +45,7 @@
 
   \item{slidify}{The template to be used in the
   PRESENTATION .Rmd.  This can be one of the types from
-  \code{slidify_trmpaltes} or a path to an .Rmd file. This
+  \code{slidify_templates} or a path to an .Rmd file. This
   argument will be overrode if a custom reports template is
   supplied with an .Rmd file in the inst directory named
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
@@ -72,7 +72,7 @@
   name} \item{\bold{speed.temp} - A speed dial like
   interface that allows the template argument to ake a
   numeric arguement.  Setting this option takes the form
-  of: \code{options(speed.temp=list(`1`="wordpress_rmd",
+  of:\cr \code{options(speed.temp=list(`1`="wordpress_rmd",
   `2`="basic_rmd"))}} \item{\bold{sources.reports} -
   Path(s) to additional files/scripts that should be
   included to be sourced in the project startup}
@@ -96,6 +96,7 @@
   \code{\link[reports]{doc_temp}},
   \code{\link[reports]{presentation}},
   \code{\link[reports]{templates}},
+  \code{\link[reports]{slidify_templates}},
   \code{\link[slidify]{author}}
 }
 
