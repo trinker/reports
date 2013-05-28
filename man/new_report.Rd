@@ -78,7 +78,7 @@
   included to be sourced in the project startup}
   \item{\bold{slidify.template} - Path to, or defualt, .Rmd
   file tempalte for use in as the .Rmd used in the slidify
-  presentations (see \bold{slidify_templates} for possible
+  presentations (see \code{slidify_templates} for possible
   non-path arguments)} }
 }
 
