@@ -24,41 +24,40 @@
 #' ## local_rjs()
 local_rjs <- function(reveal.html = NULL, 
     revealjs.loc = getOption("revealjs.loc")) {
-	if (is.null(reveal.html)) {
+    if (is.null(reveal.html)) {
         loc <- file.path(getwd(), "PRESENTATION")
         fl <- dir(loc)[tools::file_ext(dir(loc)) == "html"][1]
         reveal.html <- file.path(loc, fl)
-	}
-	if (!file.exists(reveal.html)){
-	    stop("reveal.html does not exist")	
-	}
-	html <- suppressWarnings(readLines(reveal.html))
+    }
+    if (!file.exists(reveal.html)){
+        stop("reveal.html does not exist")	
+    }
+    html <- suppressWarnings(readLines(reveal.html))
     root <- system.file("extdata/docs", package = "reports")	
     htmlrep <- suppressWarnings(readLines(file.path(root, "reveal.js_head_foot.txt")))
-	mid <- which(grepl("BOTTOM", htmlrep))
-	html <- html[(1 +which( grepl("</head>", html))):length(html)]
+    mid <- which(grepl("BOTTOM", htmlrep))
+    html <- html[(1 +which( grepl("</head>", html))):length(html)]
     html <- html[1:tail(which(grepl("</section>", html)), 1)]
-	out <- c(htmlrep[1:(mid - 1)], html, htmlrep[(mid + 1):length(htmlrep)])
-	out <- paste(out, collapse="\n")
-	if (!is.null(revealjs.loc)) {
-		repsty <- file.path(revealjs.loc, "css/reports.css")
+    out <- c(htmlrep[1:(mid - 1)], html, htmlrep[(mid + 1):length(htmlrep)])
+    out <- paste(out, collapse="\n")
+    if (!is.null(revealjs.loc)) {
+        repsty <- file.path(revealjs.loc, "css/reports.css")
         if (!file.exists(repsty)) {
             css <- suppressWarnings(readLines(file.path(root, "style.css")))
             cat(paste(css, collapse="\n"), file= repsty)
         }
         cat(out, file=file.path(revealjs.loc, fl))
-		mess <- c("Run in CMD:\n", paste("1. cd", revealjs.loc), 
+        mess <- c("Run in CMD:\n", paste("1. cd", revealjs.loc), 
             "2. grunt serve\n", "And then in your browser...\n",
-		    paste0("3. http://localhost:8000/", fl))
-		message(paste(mess, collapse="\n"))
-	} else {
-	    part2 <- paste0(tools::file_path_sans_ext(fl), "2.html")  
-	    outfl <- file.path(dirname(reveal.html), part2)
-	    cat(out, file=outfl)
-	    message(paste0("Output to:\n\n", outfl))
-	}
+            paste0("3. http://localhost:8000/", fl))
+        message(paste(mess, collapse="\n"))
+    } else {
+        part2 <- paste0(tools::file_path_sans_ext(fl), "2.html")  
+        outfl <- file.path(dirname(reveal.html), part2)
+        cat(out, file=outfl)
+        message(paste0("Output to:\n\n", outfl))
+    }
 }
-
 
 
 
