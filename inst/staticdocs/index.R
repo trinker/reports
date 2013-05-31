@@ -78,7 +78,8 @@ list(
       	"md2pdf",
         "md2tex",
         "tex2docx",
-        "tex2html"
+        "tex2html",
+      	"local_rjs"
       )
     ),
     sd_section("User Defined Templates", 

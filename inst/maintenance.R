@@ -158,3 +158,14 @@ outpdf <- paste0(getwd(), "/inst/extdata/docs/")
 inpdf <- paste0(getwd(), "/inst/pdf_gen/PROJECT_WORKFLOW_GUIDE.pdf")
 file.copy(inpdf, outpdf,, TRUE)
 file.copy(inpdf, "C:/Users/trinker/Dropbox/Public/packages",, TRUE)
+
+#==========================
+#copy slides
+#==========================
+inhtml <- file.path(getwd(), "qslide/PRESENTATION/index.html")
+outhtml <- "C:/Users/trinker/Dropbox/Public/Slides/reports"
+file.copy(inhtml, outhtml,, TRUE)
+
+
+
+

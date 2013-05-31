@@ -8,7 +8,8 @@
     name = getOption("name.reports"),
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
-    slidify = getOption("slidify.template"), ...)
+    slidify = getOption("slidify.template"),
+    revealjs.loc = getOption("revealjs.loc"), ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or
@@ -51,6 +52,9 @@
   supplied with an .Rmd file in the inst directory named
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
 
+  \item{revealjs.loc}{Optional path to a reveal.js full
+  install.}
+
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}
 }
@@ -66,9 +70,10 @@
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc}, \code{github.user}, \code{name.reports}
-  and \code{sources.reports} in the user's primary
+  \code{sources.reports},\code{slidify.template} and
+  \code{reveraljs.loc} in the user's primary
   \code{.Rprofile}: \enumerate{ \item{\bold{bib.loc} - The
-  path to the users primary bibliography}
+  path to the user's primary bibliography}
   \item{\bold{github.user} - GitHub user name}
   \item{\bold{name.reports} - The name to use on reports}
   \item{\bold{sources.reports} - Path(s) to additional
@@ -77,7 +82,10 @@
   to, or defualt, .Rmd file tempalte for use in as the .Rmd
   used in the slidify presentations (see
   \code{slidify_templates} for possible non-path
-  arguments)} }
+  arguments)} \item{\bold{revealjs.loc} - The path to the
+  user's
+  \href{https://github.com/hakimel/reveal.js/}{reveal.js
+  full install}} }
 }
 \examples{
 ## presentation("New")
@@ -90,5 +98,8 @@
   \code{\link[reports]{new_report}},
   \code{\link[reports]{slidify_templates}},
   \code{\link[slidify]{author}}
+
+  \href{https://github.com/hakimel/reveal.js/}{Installation
+  section of reveal.js GitHub}
 }
 

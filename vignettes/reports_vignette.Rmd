@@ -70,7 +70,7 @@ The reports package assumes the user has some familairity with the report writin
 <h3 id="rprofile">Setting Up .Rprofile</h3>
 
 ```{r eval=FALSE, echo=FALSE}
-x <- readLines(n=6)
+x <- readLines(n=8)
 1. options(bib.loc = "C:/Users/trinker/Desktop/PhD Program/MASTER.bib")
 2. options(name.reports = "Tyler Rinker\\\\University at Buffalo\\\\Department of Learning and Instruction")
 3. options(sources.reports = path.expand("~/path_1"), path.expand("~/path_2"))
@@ -78,6 +78,7 @@ x <- readLines(n=6)
 5. options(github.user = "trinker")
 6. options(speed.temp = list(`1` = "wordpress_web", `2` = "basic_web", `3` = "apa6.mod.qual_tex"))
 7. options(slidify.template = "revealjs")
+8. options(revealjs.loc = "C:/Users/trinker/Desktop/Copy/reveal.js")
 
 x <- Trim(head(unname(unlist(genXtract(x, "(", " ="))), -1))
 y <- left.just(data.frame(Option=x, Function=c("The path to the users primary .bib file (I store this in DropBox)", 
@@ -100,6 +101,8 @@ The user may want to set the following options in her `r HR2("http://stat.ethz.c
   <TR> <TD align="right"> 5 </TD> <TD> github.user     </TD> <TD> GitHub user name </TD> </TR>
   <TR> <TD align="right"> 6 </TD> <TD> speed.temp      </TD> <TD> A speed dial like interface that allows the template argument to take a number </TD> </TR>
   <TR> <TD align="right"> 7 </TD> <TD> slidify.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
+  <TR> <TD align="right"> 8 </TD> <TD> revealjs.loc     </TD> <TD> The path to the user's <a href="https://github.com/hakimel/reveal.js/#installation" target="_blank">reveal.js full install</a>
+ </TD> </TR>
 </TABLE>
 </div>
 
@@ -113,7 +116,10 @@ The following is the code I added to my own .Rprofile:
 4. options(temp.reports = "apa6.mod.qual_tex")
 5. options(github.user = "trinker")
 6. options(speed.temp = list(`1` = "wordpress_rmd", `2` = "basic_rmd", `3` = "apa6.mod.qual_tex"))
-7. options(slidify.template = "revealjs")</code></pre>
+7. options(slidify.template = "revealjs")
+8. options(revealjs.loc = "C:/Users/trinker/Desktop/Copy/reveal.js")</code></pre>
+
+***Note*** - *The full install of reveal.js enables the user to locally view presentation with slide notes.*
 
 <hr>
 <h3 id="report">Creating a New Report/Presentation</h3> 
