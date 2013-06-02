@@ -52,7 +52,10 @@ The reports package assumes the user has some familairity with the report writin
 <div>7.  `r HR("#cite", "Citations ")`    </div> 
 <div>8.  `r HR("#convert", "Document Conversion ")`</div>     
 <div>9.  `r HR("#html", "HTML Short Cuts")`</div>    
-<div>10. `r HR("#temp", "Custom Reports Templates")`</div>   
+<div>10. `r HR("#temp", "Custom Reports Templates")`</div>  
+<div>11. `r HR("#odd", "Odds and Ends")`</div>   
+<div>`r HS(5)` A. `r HR("#odd1", "Reveal.js Slide Notes Locally")`</div>  
+
 
 </ul>
 </div>
@@ -119,7 +122,6 @@ The following is the code I added to my own .Rprofile:
 7. options(slidify.template = "revealjs")
 8. options(revealjs.loc = "C:/Users/trinker/Desktop/Copy/reveal.js")</code></pre>
 
-***Note*** - *The full install of reveal.js enables the user to locally view presentation with slide notes.*
 
 <hr>
 <h3 id="report">Creating a New Report/Presentation</h3> 
@@ -785,6 +787,24 @@ cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
 <h3 id="temp">Custom Templates `r yt("http://youtu.be/CMmHOvMrEvQ")`</h3> 
 
 The user can create a document template framework for template personal use or submission with the `r FUN("doc_temp")` function.  This function generates a document template for personal use or submission to the reports package to be included as a template in the doc_library. This function is similar to <code><a href='http://www.inside-r.org/r-doc/utils/package.skeleton'>package.skeleton</a></code>.
+
+<hr>
+
+<h3 id="odd">Odds and Ends</h3>
+<h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
+
+Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  This can be accomplished via Python.
+
+Before a Reveal.js presentation can be shown the user must:
+
+Install `r HR2("http://www.python.org/", text="Python")` and make it accessible from the command line `r yt("http://youtu.be/VlqpiKHz7Gw")`
+
+The following must be conducted  each time you want show a presentation locally. `r yt("http://youtu.be/6VRMcHyXEKc")`     
+1. Open the command line and change the directory to the Reveal.js HTML presentation    
+2. Run `python -m SimpleHTTPServer` in the command line     
+3. Use `http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html` in the browser url bar    
+
+***Special Thanks to Ramnath Vaidyanathan for working this out.***
 
 <hr>
 ## Acknowledgements

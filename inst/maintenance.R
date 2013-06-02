@@ -138,7 +138,7 @@ file.copy(path2, file2, TRUE, TRUE)
 #==========================
 # 
 #==========================
-# Vignette
+# Vignette copy
 #==========================
 path <- file.path("C:/Users/trinker/GitHub", "reports_0.1.3.tar.gz")
 install.packages(path,  repos = NULL, type="source")

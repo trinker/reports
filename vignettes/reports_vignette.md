@@ -43,7 +43,12 @@ The reports package assumes the user has some familairity with the report writin
 <div>9.  <a href="#html">HTML Short Cuts</a>
 </div>    
 <div>10. <a href="#temp">Custom Reports Templates</a>
+</div>  
+<div>11. <a href="#odd">Odds and Ends</a>
 </div>   
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a>
+</div>  
+
 
 </ul>
 </div>
@@ -94,7 +99,6 @@ The following is the code I added to my own .Rprofile:
 7. options(slidify.template = "revealjs")
 8. options(revealjs.loc = "C:/Users/trinker/Desktop/Copy/reveal.js")</code></pre>
 
-***Note*** - *The full install of reveal.js enables the user to locally view presentation with slide notes.*
 
 <hr>
 <h3 id="report">Creating a New Report/Presentation</h3> 
@@ -1215,6 +1219,27 @@ cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
 
 The user can create a document template framework for template personal use or submission with the <a href="http://trinker.github.io/reports_dev/doc_temp.html" target="_blank"><code>doc_temp</code></a>
  function.  This function generates a document template for personal use or submission to the reports package to be included as a template in the doc_library. This function is similar to <code><a href='http://www.inside-r.org/r-doc/utils/package.skeleton'>package.skeleton</a></code>.
+
+<hr>
+
+<h3 id="odd">Odds and Ends</h3>
+<h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
+
+Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  This can be accomplished via Python.
+
+Before a Reveal.js presentation can be shown the user must:
+
+**Install <a href="http://www.python.org/" target="_blank">Python</a>
+ and make it accessible from the command line <a href="http://youtu.be/VlqpiKHz7Gw" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+**
+
+**The following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+**
+1. Open the command line and change the directory to the Reveal.js HTML presentation
+2. Run `python -m SimpleHTTPServer` in the command line
+3. Use `http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html` in the browser url bar
+
+***<font size="10"><a href="http://www.python.org/" target="_blank">Python</a></font>***
 
 <hr>
 ## Acknowledgements
