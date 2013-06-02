@@ -24,7 +24,6 @@
 #' be one of the types from \code{slidify_templates} or a path to an .Rmd file.  
 #' This argument will be overrode if a custom reports template is supplied with 
 #' an .Rmd file in the inst directory named slidify.Rmd (\code{/inst/slidify.Rmd}).
-#' @param revealjs.loc Optional path to a reveal.js full install.
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
@@ -43,9 +42,7 @@
 #'   should be included to be sourced in the project startup}
 #'   \item{\bold{slidify.template} - Path to, or defualt, .Rmd file tempalte for 
 #'   use in as the .Rmd used in the slidify presentations (see 
-#'   \code{slidify_templates} for possible non-path arguments)}  
-#'   \item{\bold{revealjs.loc} - The path to the user's 
-#'   \href{https://github.com/hakimel/reveal.js/}{reveal.js full install}}  
+#'   \code{slidify_templates} for possible non-path arguments)}   
 #' }
 #' @return Creates a report template.
 #' @seealso \code{\link[reports]{doc_temp}},
@@ -68,8 +65,7 @@ function(report = "report", template = getOption("temp.reports"),
     bib.loc = getOption("bib.loc"), name = getOption("name.reports"), 
     github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
-    slidify = getOption("slidify.template"), 
-    revealjs.loc = getOption("revealjs.loc"), ...) {
+    slidify = getOption("slidify.template"), ...) {
 
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
@@ -240,12 +236,6 @@ function(report = "report", template = getOption("temp.reports"),
         if (!is.null(getOption("bib.loc"))) {
             bibL <- paste0("options(bib.loc = \"", bib.loc, "\")")
             rpro <- c(rpro, bibL)
-        }
-    }
-    if(!is.null(revealjs.loc)){
-        if (!is.null(getOption("revealjs.loc"))) {
-            revL <- paste0("options(revealjs.loc = \"", revealjs.loc, "\")")
-            rpro <- c(rpro, revL)
         }
     }
     if (!is.null(!is.null(github.user) && file.exists(github.user))) {

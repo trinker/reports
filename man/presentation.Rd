@@ -8,8 +8,7 @@
     name = getOption("name.reports"),
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
-    slidify = getOption("slidify.template"),
-    revealjs.loc = getOption("revealjs.loc"), ...)
+    slidify = getOption("slidify.template"), ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or
@@ -52,9 +51,6 @@
   supplied with an .Rmd file in the inst directory named
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
 
-  \item{revealjs.loc}{Optional path to a reveal.js full
-  install.}
-
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}
 }
@@ -82,10 +78,7 @@
   to, or defualt, .Rmd file tempalte for use in as the .Rmd
   used in the slidify presentations (see
   \code{slidify_templates} for possible non-path
-  arguments)} \item{\bold{revealjs.loc} - The path to the
-  user's
-  \href{https://github.com/hakimel/reveal.js/}{reveal.js
-  full install}} }
+  arguments)} }
 }
 \examples{
 ## presentation("New")

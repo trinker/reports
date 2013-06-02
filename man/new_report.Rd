@@ -9,8 +9,7 @@
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
     AN.xlsx = TRUE,
-    slidify = getOption("slidify.template"),
-    revealjs.loc = getOption("revealjs.loc"), ...)
+    slidify = getOption("slidify.template"), ...)
 }
 \arguments{
   \item{report}{A character vector of length two or one:
@@ -51,9 +50,6 @@
   supplied with an .Rmd file in the inst directory named
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
 
-  \item{revealjs.loc}{Optional path to a reveal.js full
-  install.}
-
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}
 }
@@ -84,10 +80,7 @@
   \item{\bold{slidify.template} - Path to, or defualt, .Rmd
   file tempalte for use in as the .Rmd used in the slidify
   presentations (see \code{slidify_templates} for possible
-  non-path arguments)} \item{\bold{revealjs.loc} - The path
-  to the user's
-  \href{https://github.com/hakimel/reveal.js/}{reveal.js
-  full install}} }
+  non-path arguments)} }
 }
 
 \section{Additional Guide}{
