@@ -43,6 +43,8 @@
 #' SC("L")
 #' SC("tm") 
 #' SC("S") 
+#' SC("<") 
+#' SC(">") 
 SC <- function(text, copy2clip = TRUE) {
     out <- unlist(strsplit(text, NULL))
     seconds <- c("'", "`", ":", "~", "^", "/", "o", ",")
@@ -52,10 +54,10 @@ SC <- function(text, copy2clip = TRUE) {
         x <- paste0("&", out[1], repalcements[seconds %in% out[2]], ";")
     } else {
         ins <- c("(c)", "(r)", "c|", "tm", "s", "S", "(R)", "(C)", "L", "E", 
-            "P", "p", "Y", "y", "+-", "/")
+            "P", "p", "Y", "y", "+-", "/", "<", ">")
         outs <- c("&copy;", "&reg;", "&cent;", "&trade;", "&sect;", "&sect;", 
             "&reg;", "&copy;", "&pound;", "&euro;", "&para;", "&para;", "&yen;", 
-            "&yen;", "&plusmn;", "&divide;")
+            "&yen;", "&plusmn;", "&divide;", "&lt;", "&gt;")
         x <- outs[ins %in% text]
     }
     if(copy2clip){

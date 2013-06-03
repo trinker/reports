@@ -143,7 +143,7 @@ file.copy(path2, file2, TRUE, TRUE)
 path <- file.path("C:/Users/trinker/GitHub", "reports_0.1.3.tar.gz")
 install.packages(path,  repos = NULL, type="source")
 
-browseVignettes(package = 'reports')
+##  browseVignettes(package = 'reports')
 
 root <- system.file("doc/reports_vignette.html", package = "reports")
 new <- "C:/Users/trinker/Dropbox/Public/packages"
