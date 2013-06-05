@@ -795,7 +795,7 @@ The user can create a document template framework for template personal use or s
 <h3 id="odd">Odds and Ends</h3>
 <h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
 
-Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  This can be accomplished via Python.
+Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  However, setting up a local host enables viewing slidenotes without an Internet connection.  This can be accomplished via Python.
 
 Before a Reveal.js presentation can be shown the user must:
 
@@ -803,8 +803,8 @@ Install `r HR2("http://www.python.org/", text="Python")` and make it accessible 
 
 The following must be conducted  each time you want show a presentation locally. `r yt("http://youtu.be/6VRMcHyXEKc")`     
 1. Open the command line and change the directory to the Reveal.js HTML presentation    
-2. Run <strong>`python -m SimpleHTTPServer`<\strong> in the command line     
-3. Use <strong>`http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html`<\strong> in the browser url bar    
+2. Run <strong><font color="darkgreen" face="courier new">python -m SimpleHTTPServer</font></strong> in the command line     
+3. Use <strong><font color="darkgreen" face="courier new">http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html</font></strong> in the browser url bar    
 
 ***Special Thanks to Ramnath Vaidyanathan for working this out.***
 

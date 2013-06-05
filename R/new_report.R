@@ -313,6 +313,7 @@ function(report = "report", template = getOption("temp.reports"),
                 file.path(y[[1]], paste0(report, ".", 
                 tools::file_ext(drin))))) 
         }   
+        folder(folder.name=file.path(y[[1]], "figure"))        
     }
     ins <- file.path(pdfloc, "inst")
     if (file.exists(ins)) {
