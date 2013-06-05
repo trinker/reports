@@ -16,8 +16,8 @@
 #' @export
 #' @rdname video
 #' @examples
-#' YT("kws1PX1Dw9w", print = TRUE)
-#' YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+#' YT("bLw4uvn38o", print = TRUE)
+#' YT("http://www.youtube.com/watch?v=bLw4uvn38o", print = TRUE)
 #' VM("http://vimeo.com/54007714", print = TRUE)
 YT <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
     print = FALSE) { 
