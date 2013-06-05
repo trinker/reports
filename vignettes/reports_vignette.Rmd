@@ -751,18 +751,18 @@ Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo 
 
 `r FT(gold, 5, text="&diams;")` **Example 1**- *YouTube using url tag* `r FT(gold, 5, text="&diams;")`
 ```{r }
-YT("bLw4uvn38o", print = TRUE)
+YT("7Sb_QLk2BYU", print = TRUE)
 ```
 ```{r results="asis", echo=FALSE}
-YT("bLw4uvn38o", print = TRUE)
+YT("7Sb_QLk2BYU", print = TRUE)
 ```
 
 `r FT(gold, 5, text="&diams;")` **Example 2**- *YouTube using full url* `r FT(gold, 5, text="&diams;")`
 ```{r }
-YT("http://www.youtube.com/watch?v=bLw4uvn38o", print = TRUE)
+YT("http://www.youtube.com/watch?v=7Sb_QLk2BYU", print = TRUE)
 ```
 ```{r results="asis", echo=FALSE}
-YT("http://www.youtube.com/watch?v=bLw4uvn38o", print = TRUE)
+YT("http://www.youtube.com/watch?v=7Sb_QLk2BYU", print = TRUE)
 ```
 
 `r FT(gold, 5, text="&diams;")` **Example 3**- *Vimeo video* `r FT(gold, 5, text="&diams;")`

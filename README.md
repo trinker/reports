@@ -27,7 +27,7 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 ## Help
 
 [Web Page](http://trinker.github.com/reports/)      
-[Intoductory Video](http://youtu.be/bLw4uvn38o)            
+[Intoductory Video](http://youtu.be/7Sb_QLk2BYU)            
 [Quick Start Slides](http://trinker.github.com/slides/reports.html)    
 [Package Vignette](https://dl.dropboxusercontent.com/u/61803503/packages/reports_vignette.html)     
 [Package PDF Help Manual](https://dl.dropbox.com/u/61803503/reports.pdf)          
