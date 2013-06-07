@@ -28,6 +28,9 @@
 #' \code{knitcitations} package.
 #' @section Note: It is expected that the user maintains notes.xlsx/notes.csv 
 #' with markdown notation (e.g., ** for bold type and * for italics).
+#' @section Warning: The cite family of functions are not designed to be used in 
+#' text (i.e., using \code{`r FUN()`} as are HTML related functions.  It is 
+#' intended that the user will past the output into the .Rmd/.tex file manually.
 #' @rdname cite
 #' @return Returns a character vector with LaTeX/markdown formatted text.
 #' @export
