@@ -89,8 +89,9 @@
 
 \section{Warning}{
   The cite family of functions are not designed to be used
-  in text (i.e., using \code{`r FUN()`} as are HTML related
-  functions.  It is intended that the user will past the
-  output into the .Rmd/.tex file manually.
+  in text (i.e., using \code{`r FUN()`}) as are HTML
+  related functions.  It is intended that the user will
+  paste the output into the .Rmd/.tex file manually and
+  make adjustments as necessary.
 }
 
