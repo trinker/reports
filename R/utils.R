@@ -186,7 +186,11 @@ read.notes <-
 function(file = NULL, rm.nonquote = TRUE, trunc = 50, 
     notes.col = TRUE, print = TRUE) {
 	if (is.null(file)) {
-	    loc <- file.path(getwd(), "ARTICLES")
+		if (basename(getwd()) %in% c("PRESENTATION", "REPORT")) {
+            loc <- file.path(dirname(getwd()), "ARTICLES")
+		} else {
+	        loc <- file.path(getwd(), "ARTICLES")
+		}
 	    locfls <- dir(loc)
 	    poss <- locfls[grepl("notes", locfls)]
 	    ins <- poss[!grepl("~$", poss, fixed=TRUE)][1]
