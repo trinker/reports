@@ -30,7 +30,7 @@ Imports:
     slidify,
     slidifyLibraries,
     knitr,
-    knitcitations (>= 0.4-6),
+    knitcitations (>= 0.4-7),
     markdown,
     xtable
 Suggests:
