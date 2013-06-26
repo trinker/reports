@@ -550,10 +550,10 @@ IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, c
 
 `r FT(gold, 5, text="&diams;")` **Example 3** `r FT(gold, 5, text="&diams;")`
 ```{r }
-IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
+IF("http://www.dosketch.com/", width=1100, height=650, print=TRUE)
 ```
 ```{r results="asis", echo=FALSE}
-IF("http://awwapp.com/draw.html", width=700, height=500, print=TRUE)
+IF("http://www.dosketch.com/", width=1100, height=650, print=TRUE)
 ```
 
 `r FT(gold, 5, text="&diams;")` **Example 4** `r FT(gold, 5, text="&diams;")`

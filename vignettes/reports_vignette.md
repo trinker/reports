@@ -143,10 +143,10 @@ The directory created by the <a href="http://trinker.github.io/reports_dev/new_r
 </tr>
 <tr>
 <td style="text-align: center; onClick="document.location.href='https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
-<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
-<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a>
+<a href="https://copy.com/csVvdAm2vikGlkIU/REPORT_WORKFLOW_GUIDE.pdf?download=1';"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<a href="https://copy.com/csVvdAm2vikGlkIU/REPORT_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a>
 <td style="text-align: center; onClick="document.location.href='https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
-<p><a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"  target="_blank"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<p><a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';"  target="_blank"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
 <a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a></p></td>
 </tr>
 </table>
@@ -711,17 +711,17 @@ IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height = 400,
 <font size="5" color="gold">&diams;</font> **Example 3** <font size="5" color="gold">&diams;</font>
 
 ```r
-IF("http://awwapp.com/draw.html", width = 700, height = 500, print = TRUE)
+IF("http://www.dosketch.com/", width = 1100, height = 650, print = TRUE)
 ```
 
 ```
 ## <div style="text-align:center;">
-##      <iframe src="http://awwapp.com/draw.html" width="700" height="500">Your browser does not support iframes.</iframe>
+##      <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
 ## </div>
 ```
 
 <div style="text-align:center;">
-     <iframe src="http://awwapp.com/draw.html" width="700" height="500">Your browser does not support iframes.</iframe>
+     <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
 </div>
 
 
@@ -1097,6 +1097,18 @@ SC("S")
 
 [1] "&sect;"
 
+```r
+SC("<") 
+```
+
+[1] "&lt;"
+
+```r
+SC(">") 
+```
+
+[1] "&gt;"
+
 
 <hr>
 ### <p id="TB"><a href="http://trinker.github.io/reports_dev/TB.html" target="_blank">TB (text box)</a>
@@ -1145,27 +1157,27 @@ Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo 
 <font size="5" color="gold">&diams;</font> **Example 1**- *YouTube using url tag* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("kws1PX1Dw9w", print = TRUE)
+YT("7Sb_QLk2BYU", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 2**- *YouTube using full url* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("http://www.youtube.com/watch?v=kws1PX1Dw9w", print = TRUE)
+YT("http://www.youtube.com/watch?v=7Sb_QLk2BYU", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 3**- *Vimeo video* <font size="5" color="gold">&diams;</font>
@@ -1225,21 +1237,21 @@ The user can create a document template framework for template personal use or s
 <h3 id="odd">Odds and Ends</h3>
 <h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
 
-Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  This can be accomplished via Python.
+Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  However, setting up a local host enables viewing slidenotes without an Internet connection.  This can be accomplished via Python.
 
 Before a Reveal.js presentation can be shown the user must:
 
-**Install <a href="http://www.python.org/" target="_blank">Python</a>
+Install <a href="http://www.python.org/" target="_blank">Python</a>
  and make it accessible from the command line <a href="http://youtu.be/VlqpiKHz7Gw" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
-**
 
-**The following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
-**
-1. Open the command line and change the directory to the Reveal.js HTML presentation
-2. Run `python -m SimpleHTTPServer` in the command line
-3. Use `http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html` in the browser url bar
 
-***<font size="10"><a href="http://www.python.org/" target="_blank">Python</a></font>***
+The following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+     
+1. Open the command line and change the directory to the Reveal.js HTML presentation    
+2. Run <strong><font color="darkgreen" face="courier new">python -m SimpleHTTPServer</font></strong> in the command line     
+3. Use <strong><font color="darkgreen" face="courier new">http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html</font></strong> in the browser url bar    
+
+***Special Thanks to Ramnath Vaidyanathan for working this out.***
 
 <hr>
 ## Acknowledgements

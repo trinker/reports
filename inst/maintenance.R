@@ -1,3 +1,8 @@
+#========================
+# Delete manuals Rd files
+#========================
+mans <- file.path(getwd(), "man")
+delete(file.path(mans, dir(mans)))
 #==========================
 #move project directions
 #==========================

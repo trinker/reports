@@ -131,6 +131,7 @@ hr {
       page-break-after: avoid; 
    }
 }
+
 </style>
 
 <!-- Styles for R syntax highlighter -->
@@ -171,9 +172,7 @@ var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/<
 hljs.initHighlightingOnLoad();
 </script>
 
-<!-- MathJax scripts -->
-<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+
 
 
 </head>
@@ -329,10 +328,10 @@ presentation(c("Major2", "minor"))</code></pre>
 </tr>
 <tr>
 <td style="text-align: center; onClick="document.location.href='https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
-<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
-<a href="https://copy.com/cSd32ZXgsZSFJE2j/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a>
+<a href="https://copy.com/csVvdAm2vikGlkIU/REPORT_WORKFLOW_GUIDE.pdf?download=1';"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<a href="https://copy.com/csVvdAm2vikGlkIU/REPORT_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a>
 <td style="text-align: center; onClick="document.location.href='https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';">
-<p><a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1"  target="_blank"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
+<p><a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1';"  target="_blank"><img src="http://drupal.org/files/project-images/Download%20Views%20PDF_2.png" width="50" height="75"><br></a>
 <a href="https://copy.com/26FrXMSZJ2ikDJFp/PRESENTATION_WORKFLOW_GUIDE.pdf?download=1" target="_blank">click here</a></p></td>
 </tr>
 </table>
@@ -857,16 +856,16 @@ Wrap a url to generate an HTML iframe tag.</p>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 3</strong> <font size="5" color="gold">&diams;</font></p>
 
-<pre><code class="r">IF(&quot;http://awwapp.com/draw.html&quot;, width = 700, height = 500, print = TRUE)
+<pre><code class="r">IF(&quot;http://www.dosketch.com/&quot;, width = 1100, height = 650, print = TRUE)
 </code></pre>
 
 <pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;http://awwapp.com/draw.html&quot; width=&quot;700&quot; height=&quot;500&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+##      &lt;iframe src=&quot;http://www.dosketch.com/&quot; width=&quot;1100&quot; height=&quot;650&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
 ## &lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
-     <iframe src="http://awwapp.com/draw.html" width="700" height="500">Your browser does not support iframes.</iframe>
+     <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
 </div>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 4</strong> <font size="5" color="gold">&diams;</font></p>
@@ -1188,6 +1187,16 @@ The general use of SCis to provide a character string of length 2. The first cha
 
 <p>[1] &ldquo;&sect;&rdquo;</p>
 
+<pre><code class="r">SC(&quot;&lt;&quot;) 
+</code></pre>
+
+<p>[1] &ldquo;&lt;&rdquo;</p>
+
+<pre><code class="r">SC(&quot;&gt;&quot;) 
+</code></pre>
+
+<p>[1] &ldquo;&gt;&rdquo;</p>
+
 <hr>
 
 <h3><p id="TB"><a href="http://trinker.github.io/reports_dev/TB.html" target="_blank">TB (text box)</a></h3>
@@ -1232,23 +1241,23 @@ Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo 
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 1</strong>- <em>YouTube using url tag</em> <font size="5" color="gold">&diams;</font></p>
 
-<pre><code class="r">YT(&quot;kws1PX1Dw9w&quot;, print = TRUE)
+<pre><code class="r">YT(&quot;7Sb_QLk2BYU&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </code></pre>
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 2</strong>- <em>YouTube using full url</em> <font size="5" color="gold">&diams;</font></p>
 
-<pre><code class="r">YT(&quot;http://www.youtube.com/watch?v=kws1PX1Dw9w&quot;, print = TRUE)
+<pre><code class="r">YT(&quot;http://www.youtube.com/watch?v=7Sb_QLk2BYU&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </code></pre>
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/kws1PX1Dw9w?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 3</strong>- <em>Vimeo video</em> <font size="5" color="gold">&diams;</font></p>
 
@@ -1301,21 +1310,22 @@ Convert R <code>colors()</code> to Hexadecimal.</p>
 
 <h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
 
-<p>Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  This can be accomplished via Python.</p>
+<p>Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  However, setting up a local host enables viewing slidenotes without an Internet connection.  This can be accomplished via Python.</p>
 
 <p>Before a Reveal.js presentation can be shown the user must:</p>
 
-<p>*<em>Install <a href="http://www.python.org/" target="_blank">Python</a>
- and make it accessible from the command line <a href="http://youtu.be/VlqpiKHz7Gw" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
-*</em></p>
+<p>Install <a href="http://www.python.org/" target="_blank">Python</a>
+ and make it accessible from the command line <a href="http://youtu.be/VlqpiKHz7Gw" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a></p>
 
-<p>*<em>The following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
-*</em>
-1. Open the command line and change the directory to the Reveal.js HTML presentation
-2. Run <code>python -m SimpleHTTPServer</code> in the command line
-3. Use <code>http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html</code> in the browser url bar</p>
+<p>The following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a></p>
 
-<p><strong><em><font size="10"><a href="http://www.python.org/" target="_blank">Python</a></font></em></strong></p>
+<ol>
+<li>Open the command line and change the directory to the Reveal.js HTML presentation<br/></li>
+<li>Run <strong><font color="darkgreen" face="courier new">python -m SimpleHTTPServer</font></strong> in the command line<br/></li>
+<li>Use <strong><font color="darkgreen" face="courier new">http://localhost:8000/THE_NAME OF_REVEALJS_PRESNETATION.html</font></strong> in the browser url bar<br/></li>
+</ol>
+
+<p><strong><em>Special Thanks to Ramnath Vaidyanathan for working this out.</em></strong></p>
 
 <hr>
 
@@ -1344,3 +1354,4 @@ Convert R <code>colors()</code> to Hexadecimal.</p>
 </body>
 
 </html>
+
