@@ -12,9 +12,9 @@
   \code{"courier_new"}, \code{"georgia"},
   \code{"helvetica"}, \code{"impact"}, \code{"palatino"},
   \code{"times_new_roman"}, \code{"trebuchet_ms"},
-  \code{"verdanaBrowse"}).} \item{face}{- size is any valid
-  whole number.} \item{face}{- color can be any R color or
-  hex value.} }}
+  \code{"verdanaBrowse"}).} \item{size}{- is any valid
+  whole number.} \item{color}{- can be any R color or hex
+  value.} }}
 
   \item{text}{A character vector or text copied to the
   clipboard.  Default is to read from the clipboard.}

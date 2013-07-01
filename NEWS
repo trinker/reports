@@ -1,4 +1,24 @@
-reports 0.1.3
+NEWS 
+====
+
+Versioning
+----------
+
+Releases will be numbered with the following semantic versioning format:
+
+<major>.<minor>.<patch>
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor 
+  and patch)
+* New additions without breaking backward compatibility bumps the minor 
+  (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+
+
+
+reports 0.2.0
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -97,7 +117,8 @@ CHANGES
   from the reports package upon the next update.
 
 * `US` has been renamed to `UF` (underscore fill) and gets a counterpart `PF` 
-  (percent fill) for URL blank spaces.
+  (percent fill) for URL blank spaces.  `US` is now Depracated and will be 
+  removed in the next update.
 
 * All options now have a consistent naming scheme (period separator)
 

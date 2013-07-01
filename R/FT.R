@@ -10,8 +10,8 @@
 #' \code{"courier_new"}, \code{"georgia"}, \code{"helvetica"}, \code{"impact"}, 
 #' \code{"palatino"}, \code{"times_new_roman"}, \code{"trebuchet_ms"}, 
 #' \code{"verdanaBrowse"}).} 
-#' \item{face}{- size is any valid whole number.}  
-#' \item{face}{- color can be any R color or hex value.}
+#' \item{size}{- is any valid whole number.}  
+#' \item{color}{- can be any R color or hex value.}
 #' }
 #' @param text A character vector or text copied to the clipboard.  Default is to 
 #' read from the clipboard.
@@ -26,7 +26,8 @@
 #' FT(6, text="guy")
 #' FT(6, blue, text="guy")
 #' FT(6, red, times_new_roman, text="guy")
-FT <- function(..., text = "clipboard", copy2clip = TRUE) { 
+FT <-
+function(..., text = "clipboard", copy2clip = TRUE) { 
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 
@@ -44,8 +45,12 @@ FT <- function(..., text = "clipboard", copy2clip = TRUE) {
     } 
     cols <- c(colors(), rgb(t(col2rgb(colors())), maxColorValue=255))
     colCheck <- cols %in% x
+    colCheck2 <- grepl("#([a-zA-Z0-9]{6})", x)
     if (sum(colCheck) > 0){
         params <- c(params, paste0("color=\"", cols[colCheck][1], "\""))
+    }
+    if (sum(colCheck2) > 0){
+        params <- c(params, paste0("color=\"", x[colCheck2][1], "\""))
     }
     faces <- c("arial", "arial_black", "comic_sans_ms", "courier", 
         "courier_new", "georgia", "helvetica", "impact", "palatino", 
@@ -63,4 +68,4 @@ FT <- function(..., text = "clipboard", copy2clip = TRUE) {
         write_clip(x)
     }
     return(noquote(x))
-} 
+}

@@ -2,8 +2,8 @@ Package: reports
 Type: Package
 Title: An R package to assist in the workflow of writing academic articles and
     other reports
-Version: 0.1.3
-Date: 2013-02-18
+Version: 0.2.0
+Date: 2013-07-01
 Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: reports is a package that assists in writing reports and
