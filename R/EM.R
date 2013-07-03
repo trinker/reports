@@ -30,7 +30,7 @@ EM <- function(email = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRU
     } else {
         tar <- NULL
     }
-    x <- paste0("<a href=\"mailto:", email, "\"", tar, ">", text, "</a>\n")
+    x <- paste0("<a href=\"mailto:", email, "\"", tar, ">", text, "</a>")
     if(copy2clip){
         write_clip(x)
     }

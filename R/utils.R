@@ -68,7 +68,7 @@ simpleCap <- function(x) {
 
 prin <- function(x, print) {
     if (print) {
-        cat(x)
+        cat(x); cat("\n")
         invisible(x)
     } else {
         x	

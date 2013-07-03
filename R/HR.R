@@ -41,7 +41,7 @@ HR <- function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRU
     } else {
     	tar <- NULL
     }
-    x <- paste0("<a href=\"", path, "\"", tar, ">", text, "</a>\n")
+    x <- paste0("<a href=\"", path, "\"", tar, ">", text, "</a>")
     if(copy2clip){
         write_clip(x)
     }
@@ -69,7 +69,7 @@ HR2 <- function(path = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRU
     } else {
     	tar <- NULL
     }
-    x <- paste0("<a href=\"", path, "\"", tar, ">", text, "</a>\n")
+    x <- paste0("<a href=\"", path, "\"", tar, ">", text, "</a>")
     if(copy2clip){
         write_clip(x)
     }
@@ -100,7 +100,7 @@ function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE,
 
     x <- paste0("<form action=\"", path, "\">\n", 
         paste0("    <input type=\"submit\" value=\"", text, "\">\n"), 
-        "</form>\n")
+        "</form>")
 
     if(copy2clip){
         write_clip(x)

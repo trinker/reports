@@ -75,6 +75,7 @@ cat(paste(c(top, new), collapse="\n"), file=file.path(getwd(), "inst/dependencie
 #staticdocs dev version
 #========================
 #packages
+# library(devtools); install_github("staticdocs", "hadley")
 library(highlight); library(staticdocs)
 
 #STEP 1: create static doc  

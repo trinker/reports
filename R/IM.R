@@ -31,8 +31,8 @@
 #' cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", 
 #'     width=140, height=75), rep("So much text! ", 100))
 IM <- function(path = "clipboard", link = NULL, width = 540,  
-	height = IE(width, 360), sty = IE(width, width*1.05, 480), center = TRUE, 
-    new_win = TRUE, copy2clip = TRUE, print = FALSE) { 
+	height = IE(width, round(width/1.5)), sty = IE(width, width*1.05, 480), 
+    center = TRUE, new_win = TRUE, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -70,6 +70,7 @@ IM <- function(path = "clipboard", link = NULL, width = 540,
     }
     prin(x = x, print = print)
 }
+
 
 #' Convert path/url to HTML Image Tag
 #'
@@ -109,8 +110,8 @@ function(image = "clipboard", loc = 1, ...) {
 #' @rdname image
 IW <- 
 function(path = "clipboard", link = NULL, side = "right", width = 540, 
-    height = IE(width, 360), new_win = TRUE, top = -15, right = 20, left = 20, 
-    bottom = 0, copy2clip = TRUE, print = FALSE) { 
+    height = IE(width, round(width/1.5)), new_win = TRUE, top = -15, right = 20, 
+    left = 20, bottom = 0, copy2clip = TRUE, print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -141,5 +142,6 @@ function(path = "clipboard", link = NULL, side = "right", width = 540,
     }
     prin(x = x, print = print)
 }
+
 
 
