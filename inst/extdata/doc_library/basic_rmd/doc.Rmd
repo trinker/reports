@@ -5,7 +5,6 @@
 # set global chunk options
 opts_chunk$set(cache=TRUE)
 library(reports); library(knitr); library(knitcitations)
-fls <- dir(getwd())
 bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 #
 #Reading in your own bib file:
