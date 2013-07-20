@@ -8,7 +8,7 @@
 library(knitr)
 opts_chunk$set(cache=FALSE)
 library(knitcitations); library(reports)
-#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 #cite in text using `r citet(bib[1])`
 ```
 # vignette_name 
