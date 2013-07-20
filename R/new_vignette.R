@@ -94,10 +94,10 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     if (TYPE == "rmd") {
         if (!is.null(name)) {
             nameL <- grepl("## name", doc)
-            doc[nameL] <- paste("#", name)
+            doc[nameL] <- paste("#", strsplit(name, "\\\\")[[1]][1])
         }
         vign_name <- grepl("# vignette_name", doc)
-        doc[vign_name] <- paste("#", vignette)
+        doc[vign_name] <- paste("#", vignette, "Package Vignette")
     } else {
         if (!is.null(name)) {
             nameL <- grepl("\\author{}" , doc, fixed=TRUE)
@@ -215,10 +215,10 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     if (TYPE == "rmd") {
         if (!is.null(name)) {
             nameL <- grepl("## name", doc)
-            doc[nameL] <- paste("#", name)
+            doc[nameL] <- paste("#", strsplit(name, "\\\\")[[1]][1])
         }
         vign_name <- grepl("# vignette_name", doc)
-        doc[vign_name] <- paste("#", vignette)
+        doc[vign_name] <- paste("#", vignette, "Package Vignette")
     } else {
         if (!is.null(name)) {
             nameL <- grepl("\\author{}" , doc, fixed=TRUE)

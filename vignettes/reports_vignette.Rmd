@@ -10,7 +10,6 @@ opts_chunk$set(cache=FALSE)
 options(xtable.type = 'html')
 # library(googleVis)
 library(knitcitations); library(reports); library(pander); library(qdap); library(xtable)
-fls <- dir(file.path(getwd()))
 
 write.bibtex(c(Yihui2013 = citation("knitr"), Boettiger2013 = citation("knitcitations"), 
     Vaidyanathan2012=citation("slidify"), Rinker2013a = citation("qdap"), 

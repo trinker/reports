@@ -11,7 +11,7 @@ library(knitcitations); library(reports)
 #bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
 #cite in text using `r citet(bib[1])`
 ```
-# vignette_name
+# vignette_name 
 ## name
 ### `r as.character(format(Sys.Date(), "%m-%d-%Y"))`
 
