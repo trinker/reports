@@ -15,8 +15,9 @@
 #' @param bib.loc Optional path to a .bib resource.
 #' @details The user must have pandoc installed and on their path.  pandoc can 
 #' be installed from: \cr \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
-#' @note \code{md2docx} converts markdown (a .md file) not Rmarkdown (.Rmd).  
-#' Use knitr to knit to HTML first (this creates the .md file).
+#' @note \code{md2docx}, \code{md2tex} and \code{md2pdf} converts markdown 
+#' (a .md file) not Rmarkdown (.Rmd).  Use knitr to knit to HTML first (this 
+#' creates the .md file).
 #' @rdname docx
 #' @export
 #' @examples 

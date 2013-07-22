@@ -59,9 +59,9 @@
   \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \note{
-  \code{md2docx} converts markdown (a .md file) not
-  Rmarkdown (.Rmd). Use knitr to knit to HTML first (this
-  creates the .md file).
+  \code{md2docx}, \code{md2tex} and \code{md2pdf} converts
+  markdown (a .md file) not Rmarkdown (.Rmd).  Use knitr to
+  knit to HTML first (this creates the .md file).
 }
 \examples{
 \dontrun{
