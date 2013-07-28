@@ -30,7 +30,7 @@ BUG FIXES
   https://github.com/trinker/reports/blob/master/R/tex2docx.R) generated an 
   error if the file path contained a space (see: 
   http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
-  Bug caught by MYaseen208 of stackoverflow.com anf fixed by Gergely Daróczi via 
+  Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
   pull request 31.
   
 
