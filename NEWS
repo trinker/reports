@@ -136,6 +136,8 @@ CHANGES
     ~temp.reports-The primary template to use to generate reports (see template)
     ~github.user-GitHub user name
     ~speed.temp-A speed dial like interface that allows the template argument to take a number
+    ~slidify.template-Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations
+    ~revealjs.loc~The path to the user’s reveal.js full install
 
 * The NOTES.txt and TO_DO.txt files lose the file extensions to become NOTES and 
   TO_DO.
