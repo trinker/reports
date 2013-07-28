@@ -8,7 +8,7 @@
 # reports Package Vignette
 ## Tyler Rinker
 
-The reports package (<a href="http://github.com/trinker/reports">Rinker, 2013</a> ) is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
+The reports package (<a href="http://github.com/trinker/reports">Rinker, 2013</a>) is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
 
 The reports package assumes the user has some familairity with the report writing programs/packages it depends on.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>
 .  This manual will not help the user to understand these dependencies as they have their own help documentation.  Many functions in the reports package are set with defaults that assume the user is utilizing <a href="http://www.rstudio.com/" target="_blank">RStudio</a>
@@ -234,7 +234,7 @@ setwd(WD)</code></pre>
 **sync_all** <a href="http://youtu.be/bhArI_dp4B8" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 
 The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync family of functions</a>
- are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a> ).  The base version in the family, <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank"><code>sync</code></a>
+ are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>).  The base version in the family, <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank"><code>sync</code></a>
  is generic and syncs files between 2 directories.  The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync_all</a>
  function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
  
@@ -319,7 +319,7 @@ Each of the functions in the cite family follow a pattern of (cite, parencite, t
 \newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}</code></pre>
 
 The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the <a href="https://github.com/cboettig/knitcitations" target="_blank">knitcitations</a>
- (<a href="https://github.com/cboettig/knitcitations">Boettiger, 2013</a> ) package.
+ (<a href="https://github.com/cboettig/knitcitations">Boettiger, 2013</a>) package.
 
 <font size="5" color="gold">&diams;</font> **Example 1** - *parenthesis cite* <font size="5" color="gold">&diams;</font>
 
@@ -327,9 +327,9 @@ The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
 parenciteM(1, force.block = FALSE)
 ```
 
-<pre><code>> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a> , p. 12)</code></pre>
+<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)</code></pre>
  
-"An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a> , p. 12)
+"An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)
 
  
 <font size="5" color="gold">&diams;</font> **Example 2** - *textcite* <font size="5" color="gold">&diams;</font>
@@ -339,7 +339,7 @@ textciteM(1, force.block = FALSE)
 ```
 
 <pre><code>&#180;r  citet(x=bib[["Rinker2013a"]])&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
-<a href="http://github.com/trinker/qdap">Rinker (2013)</a>  "An **EXAMPLE**; feel "free" to *delete* it ***soon***"
+<a href="http://github.com/trinker/qdap">Rinker (2013)</a> "An **EXAMPLE**; feel "free" to *delete* it ***soon***"
 
 The <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> (L) versions of the functions work in a similar fashion but are used in .Rnw documents.
 <hr>
@@ -761,7 +761,7 @@ IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html",
 </div>
 
 
-<font size="5" color="gold">&diams;</font> **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package (<a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">Gesmann & Castillo, 2011</a> )* <font size="5" color="gold">&diams;</font>
+<font size="5" color="gold">&diams;</font> **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package (<a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">Gesmann & Castillo, 2011</a>)* <font size="5" color="gold">&diams;</font>
 
 ```r
 IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width = 770, 
@@ -1257,7 +1257,7 @@ The following must be conducted  each time you want show a presentation locally.
 ## Acknowledgements
 
 The reports package is just a collection of the best R tools.  A special thanks to <a href="http://yihui.name/" target="_blank">Yihui</a>
- <a href="http://www.crcpress.com/product/isbn/9781466561595">Xie (2013)</a>  for his work with the <a href="http://yihui.name/knitr/" target="_blank">knitr package</a>
+ <a href="http://www.crcpress.com/product/isbn/9781466561595">Xie (2013)</a> for his work with the <a href="http://yihui.name/knitr/" target="_blank">knitr package</a>
  and <a href="http://people.mcgill.ca/ramnath.vaidyanathan/" target="_blank">Ramnath Vaidyanathan</a>
  for his <a href="http://slidify.org/" target="_blank">slidify package</a>
 .  These R packages are the core of the reports package.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>

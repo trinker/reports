@@ -293,7 +293,7 @@ The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
 ```{r eval=FALSE}
 parenciteM(1, force.block = FALSE)
 ```
-<pre><code>> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`</code></pre>
+<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`</code></pre>
  
 "An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`
 

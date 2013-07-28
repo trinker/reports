@@ -26,6 +26,14 @@ BUG FIXES
 * `GQ`, `CA`, `LL` and `US` threw multiple warnings if a ligature was detected.
   This behavior has been corrected.
 
+* `tex2docx` and other document conversion functions (see: 
+  https://github.com/trinker/reports/blob/master/R/tex2docx.R) generated an 
+  error if the file path contained a space (see: 
+  http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
+  Bug caught by MYaseen208 of stackoverflow.com anf fixed by Gergely Daróczi via 
+  pull request 31.
+  
+
 NEW FEATURES
 
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
