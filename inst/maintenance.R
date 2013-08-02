@@ -146,12 +146,13 @@ file.copy(path2, file2, TRUE, TRUE)
 #==========================
 # Vignette copy
 #==========================
-path <- file.path("C:/Users/trinker/GitHub", "reports_0.1.3.tar.gz")
-install.packages(path,  repos = NULL, type="source")
+#path <- file.path("C:/Users/trinker/GitHub", "reports_0.1.3.tar.gz")
+#install.packages(path,  repos = NULL, type="source")
 
 ##  browseVignettes(package = 'reports')
 
-root <- system.file("doc/reports_vignette.html", package = "reports")
+#root <- system.file("doc/reports_vignette.html", package = "reports")
+root <- "C:/Users/trinker/GitHub/reports/vignettes/reports_vignette.html"
 new <- "C:/Users/trinker/Dropbox/Public/packages"
 file.copy(root, new, TRUE, TRUE)
 

@@ -21,37 +21,20 @@ Note: Many functions in reports assume (a) you're using RStudio (b) the main
 License: GPL-2
 URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
-LazyData: TRUE
-VignetteBuilder: knitr
-Depends:
-    R (>= 3.0.0),
-    xlsx
-Imports:
-    slidify,
-    slidifyLibraries,
-    knitr,
-    knitcitations (>= 0.4-7),
-    markdown,
-    xtable
-Suggests:
-    ascii,
-    brew,
-    installr,
-    pander,
-    ProjectTemplate,
-    qdap
 Collate:
     'BV.R'
     'CA.R'
     'citeL.R'
     'CN.R'
     'col2hex.R'
+    'custom_css.R'
     'CW.R'
     'delete.R'
     'doc_temp.R'
     'EM.R'
     'FT.R'
     'GQ.R'
+    'HL.R'
     'HR.R'
     'html5.R'
     'IE.R'
@@ -59,6 +42,7 @@ Collate:
     'IM.R'
     'LL.R'
     'new_report.R'
+    'new_vignette.R'
     'notes.R'
     'pad.R'
     'PN.R'
@@ -80,6 +64,3 @@ Collate:
     'utils.R'
     'WP.R'
     'YT.R'
-    'HL.R'
-    'new_vignette.R'
-    'custom_css.R'

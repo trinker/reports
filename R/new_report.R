@@ -306,7 +306,7 @@ function(report = "report", template = getOption("temp.reports"),
             }
             temp <- gsub("Date(?!\\()", paste("Date:", Sys.Date()), temp, perl=TRUE)
             if (!is.null(name)) {
-                temp <- gsub("Name", name, temp)
+                temp <- gsub("Name", strsplit(name, "\\\\")[[1]][1], temp)
             }
             cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
             invisible(file.rename(file.path(y[[1]], drin), 
