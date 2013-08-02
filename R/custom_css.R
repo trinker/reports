@@ -6,6 +6,8 @@
 #' @param loc Path to the report location where the custom css should be placed.
 #' @details The user must add the custom contents to the custom css located in  
 #' ~/css/style.css
+#' @note The user has to source before the custom styles will be applied. Open 
+#' the style.R as the active tab in RStudio, and check the `Source on Save` box.
 #' @references
 #' \url{http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/} 
 #' @export
