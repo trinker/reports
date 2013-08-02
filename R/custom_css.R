@@ -12,17 +12,36 @@
 #' \url{http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/} 
 #' @export
 custom_css <- function(loc = file.path(getwd(), "REPORT")) {
-
-    cssloc <- folder(folder.name = file.path(loc, "css"))	
+	
+	## Check css directory existence
+    if (!file.exists(file.path(loc, "css"))) {
+        cssloc <- folder(folder.name = file.path(loc, "css"))
+    } else {
+    	cssloc <- file.path(loc, "css")
+        warning(paste(file.path(loc, "css"), 
+            "already exists.\n Directory `css` not generated"))	
+    }
+    
+    ## check style.css existence
+    if (!file.exists(file.path(loc, "css", "style.css"))) {
+        cat("", file=file.path(cssloc, "style.css"))
+    }  else {
+        warning(paste(file.path(loc, "css", "style.css"), 
+            "already exists.\n File `~css/style.css` not generated"))	
+    }
+    
+    ## Create the style.R
     x <- c("options(rstudio.markdownToHTML =", 
         "  function(inputFile, outputFile) {",      
         "    require(markdown)",
-        paste0("    markdownToHTML(inputFile, outputFile, stylesheet=\"", file.path(cssloc, "style.css"), "\")"),
+        paste0("    markdownToHTML(inputFile, outputFile, stylesheet=\"", 
+            file.path(cssloc, "style.css"), "\")"),
         "  }",
         ")"
     )
-    cat("", file=file.path(cssloc, "style.css"))
     cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
+    
+    ## Direct where to change css options
     message(paste0("A custom css has been generated for your report.\n\n", 
         "Make changes/additions via:\n", file.path(cssloc, "style.css")))
 }
