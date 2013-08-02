@@ -75,6 +75,10 @@ NEW FEATURES
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.
 
+* `custom_css` function for creating the components necessary for custom css 
+  file for use with RStudio + knitr.  See: 
+  http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/
+
 
 MINOR FEATURES
 

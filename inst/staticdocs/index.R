@@ -92,7 +92,13 @@ list(
       c(
         "IE"
       )
-    ),    
+    ),   
+    sd_section("Custom css", 
+      "Exported tools for custom css.",
+      c(
+        "custom_css"
+      )
+    ),          
     sd_section("Decapricated",
       "Functions that will be removed from the reports package in version 0.1.4.",
       c(

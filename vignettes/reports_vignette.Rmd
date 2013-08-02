@@ -6,7 +6,7 @@
 ```{r setup, include=FALSE}
 # set global chunk options
 library(knitr)
-opts_chunk$set(cache=FALSE)
+opts_chunk$set(cache=FALSE, tidy=FALSE)
 options(xtable.type = 'html')
 # library(googleVis)
 library(knitcitations); library(reports); library(pander); library(qdap); library(xtable)
