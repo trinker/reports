@@ -1067,27 +1067,27 @@ Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo 
 <font size="5" color="gold">&diams;</font> **Example 1**- *YouTube using url tag* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("7Sb_QLk2BYU", print = TRUE)
+YT("AZnVM0_ru7o", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 2**- *YouTube using full url* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("http://www.youtube.com/watch?v=7Sb_QLk2BYU", print = TRUE)
+YT("http://www.youtube.com/watch?v=AZnVM0_ru7o", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/7Sb_QLk2BYU?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 3**- *Vimeo video* <font size="5" color="gold">&diams;</font>
@@ -1169,6 +1169,7 @@ The reports package is just a collection of the best R tools.  A special thanks 
 
 
 
+
 ## References
 
 - Carl Boettiger,   (2013) knitcitations: Citations for knitr markdown files.  <a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a>
@@ -1177,4 +1178,7 @@ The reports package is just a collection of the best R tools.  A special thanks 
 - Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a>
 - Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a>
 - Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>
+
+
+
 

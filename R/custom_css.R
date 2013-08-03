@@ -44,7 +44,7 @@ custom_css <- function(loc = file.path(getwd(), "REPORT"), style.css = NULL) {
         "    require(markdown)",
         "    markdownToHTML(inputFile, outputFile, stylesheet=file.path(getwd(), \"css/style.css\"))",
         "  }",
-        ")"
+        ")\n"
     )
     cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
     

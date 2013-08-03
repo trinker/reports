@@ -37,8 +37,8 @@
   videos.
 }
 \examples{
-YT("7Sb_QLk2BYU", print = TRUE)
-YT("http://www.youtube.com/watch?v=7Sb_QLk2BYU", print = TRUE)
+YT("AZnVM0_ru7o", print = TRUE)
+YT("http://www.youtube.com/watch?v=AZnVM0_ru7o", print = TRUE)
 VM("http://vimeo.com/54007714", print = TRUE)
 }
 

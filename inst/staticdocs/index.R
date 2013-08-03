@@ -100,7 +100,7 @@ list(
       )
     ),          
     sd_section("Decapricated",
-      "Functions that will be removed from the reports package in version 0.1.4.",
+      "Functions that will be removed from the reports package in version 2.0.0.",
       c(
       "html5",
       "reveal.js"
