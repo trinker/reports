@@ -77,7 +77,7 @@ NEW FEATURES
 
 * `custom_css` function for creating the components necessary for custom css 
   file for use with RStudio + knitr.  See: 
-  http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/
+  http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering
 
 
 MINOR FEATURES

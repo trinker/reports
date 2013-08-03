@@ -326,7 +326,9 @@ body {
 <div>9.  <a href="#html">HTML Short Cuts</a></div>    
 <div>10. <a href="#temp">Custom Reports Templates</a></div>  
 <div>11. <a href="#odd">Odds and Ends</a></div>   
-<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a></div>  
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. <a href="#odd2">Custom style.css With RStudio + knitr</a></div>
+
 
 
 </ul>
@@ -1341,6 +1343,18 @@ some fancy notes <br>
 </ol>
 
 <p><strong><em>Special Thanks to Ramnath Vaidyanathan for working this out.</em></strong></p>
+
+<hr>
+
+<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/YESvfZLCVoI" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+</h4>
+
+<p>When using <a href="http://yihui.name/knitr/" target="_blank">knitr</a> with RStudio&#39;s <font face="courier">Knit HTML</font> button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering" target="_blank">custom style.css file</a> to be used with RStudio + knitr.  The user simply runs:</p>
+
+<pre><code class="r">custom_css()
+</code></pre>
+
+<p>After the appropriate files are created the user adds custom styling to the ~/css/style.css.  Each time RStudio is loaded the user has to source before the custom styles will be applied. Open the style.R as the active tab in RStudio, check the <code>Source on Save</code> box and the click the save icon.</p>
 
 <hr>
 

@@ -53,7 +53,9 @@ The reports package assumes the user has some familairity with the report writin
 <div>9.  `r HR("#html", "HTML Short Cuts")`</div>    
 <div>10. `r HR("#temp", "Custom Reports Templates")`</div>  
 <div>11. `r HR("#odd", "Odds and Ends")`</div>   
-<div>`r HS(5)` A. `r HR("#odd1", "Reveal.js Slide Notes Locally")`</div>  
+<div>`r HS(5)` A. `r HR("#odd1", "Reveal.js Slide Notes Locally")`</div>
+<div>`r HS(5)` B. `r HR("#odd2", "Custom style.css With RStudio + knitr")`</div>
+
 
 
 </ul>
@@ -805,6 +807,18 @@ The following must be conducted  each time you want show a presentation locally.
 ***Special Thanks to Ramnath Vaidyanathan for working this out.***
 
 <hr>
+
+<h4 id="odd2">Custom style.css With RStudio + knitr `r yt("http://youtu.be/YESvfZLCVoI")`</h4>
+
+When using `r HR2("http://yihui.name/knitr/", "knitr")` with RStudio's `r CN("Knit HTML")` button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The `r FUN("custom_css")` provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a `r HR2("http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering", "custom style.css file")` to be used with RStudio + knitr.  The user simply runs:
+
+```{r eval=FALSE}
+custom_css()
+```
+
+After the appropriate files are created the user adds custom styling to the ~/css/style.css.  Each time RStudio is loaded the user has to source before the custom styles will be applied. Open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
+
+<hr>
 ## Acknowledgements
 
 The reports package is just a collection of the best R tools.  A special thanks to `r HR2("http://yihui.name/", "Yihui")` `r citet(bib[['Yihui20133']])` for his work with the `r HR2("http://yihui.name/knitr/", "knitr package")` and `r HR2("http://people.mcgill.ca/ramnath.vaidyanathan/", "Ramnath Vaidyanathan")` for his `r HR2("http://slidify.org/", "slidify package")`.  These R packages are the core of the reports package.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.
@@ -819,6 +833,5 @@ options(markdown.HTML.stylesheet = "css/style.css")
 ```{r, echo=FALSE, results='asis'}
 bibliography("html") 
 ```
-
 
 

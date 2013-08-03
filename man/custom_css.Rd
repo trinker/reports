@@ -27,6 +27,6 @@
   icon.
 }
 \references{
-  \url{http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/}
+  \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering}
 }
 

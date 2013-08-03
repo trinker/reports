@@ -12,7 +12,7 @@
 #' the style.R as the active tab in RStudio, check the `Source on Save` box and 
 #' the click the save icon.
 #' @references
-#' \url{http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/} 
+#' \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering} 
 #' @export
 custom_css <- function(loc = file.path(getwd(), "REPORT"), style.css = NULL) {
 	

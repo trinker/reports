@@ -33,7 +33,9 @@ The reports package assumes the user has some familairity with the report writin
 <div>9.  <a href="#html">HTML Short Cuts</a></div>    
 <div>10. <a href="#temp">Custom Reports Templates</a></div>  
 <div>11. <a href="#odd">Odds and Ends</a></div>   
-<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a></div>  
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. <a href="#odd2">Custom style.css With RStudio + knitr</a></div>
+
 
 
 </ul>
@@ -1161,6 +1163,21 @@ The following must be conducted  each time you want show a presentation locally.
 ***Special Thanks to Ramnath Vaidyanathan for working this out.***
 
 <hr>
+
+<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/YESvfZLCVoI" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+</h4>
+
+When using <a href="http://yihui.name/knitr/" target="_blank">knitr</a> with RStudio's <font face="courier">Knit HTML</font> button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering" target="_blank">custom style.css file</a> to be used with RStudio + knitr.  The user simply runs:
+
+
+```r
+custom_css()
+```
+
+
+After the appropriate files are created the user adds custom styling to the ~/css/style.css.  Each time RStudio is loaded the user has to source before the custom styles will be applied. Open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
+
+<hr>
 ## Acknowledgements
 
 The reports package is just a collection of the best R tools.  A special thanks to <a href="http://yihui.name/" target="_blank">Yihui</a> <a href="http://www.crcpress.com/product/isbn/9781466561595">Xie (2013)</a> for his work with the <a href="http://yihui.name/knitr/" target="_blank">knitr package</a> and <a href="http://people.mcgill.ca/ramnath.vaidyanathan/" target="_blank">Ramnath Vaidyanathan</a> for his <a href="http://slidify.org/" target="_blank">slidify package</a>.  These R packages are the core of the reports package.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>.
@@ -1178,7 +1195,6 @@ The reports package is just a collection of the best R tools.  A special thanks 
 - Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a>
 - Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a>
 - Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>
-
 
 
 
