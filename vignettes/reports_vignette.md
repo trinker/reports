@@ -308,7 +308,7 @@ The user may update the .bib files within the new&#95;report/presentation create
 
 <h3 id="convert">Document Conversion <a href="http://youtu.be/OcaFub5OLSg" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 </h3>
-A useful <a href="http://johnmacfarlane.net/pandoc/" target="_blank">Pandoc</a> uses preset path defaults (default is REPORT directory) to enable the user to quickly convert between document types.  The user must have Pandoc installed and on the OS path.  The function names are intuitive with the portion before the 2 being the current document type and the portion after is the desired outcome document type (**from2to**).  Here is an example, converting the doc.tex file from the reports package library directory to a .docx file (when the user is employing these functions it is not necessary to provide arguments).
+The <a href="http://johnmacfarlane.net/pandoc/" target="_blank">Pandoc</a> based <a href="http://trinker.github.io/reports_dev/tex2html.html" target="_blank"><code>file conversion family</code></a> of functions use preset path defaults (default is REPORT directory) to enable the user to quickly convert between document types.  The user must have Pandoc installed and on the OS path.  The function names are intuitive with the portion before the 2 being the current document type and the portion after is the desired outcome document type (**from2to**).  Here is an example, converting the doc.tex file from the reports package library directory to a .docx file (when the user is employing these functions it is not necessary to provide arguments).
 
 <font size="5" color="gold">&diams;</font> **Example** - *file conversion* <font size="5" color="gold">&diams;</font>
 
@@ -1164,7 +1164,7 @@ The following must be conducted  each time you want show a presentation locally.
 
 <hr>
 
-<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/YESvfZLCVoI" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/HboxZUFxf-8" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 </h4>
 
 When using <a href="http://yihui.name/knitr/" target="_blank">knitr</a> with RStudio's <font face="courier">Knit HTML</font> button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering" target="_blank">custom style.css file</a> to be used with RStudio + knitr.  The user simply runs:

@@ -58,5 +58,5 @@ browseURL("http://ramnathv.github.io/slidifyExamples/examples/showoff/#1")
 --- .refs
 ## References
 ```{r, echo=FALSE, results='asis'}
-bibliography("html")
+bibliography("html", bulleted = FALSE)
 ```

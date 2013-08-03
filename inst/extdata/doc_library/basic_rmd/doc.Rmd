@@ -23,6 +23,6 @@ bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 ------
 ## References
 ```{r, echo=FALSE, results='asis'}
-bibliography("html") 
+bibliography("html")
 ```
 
