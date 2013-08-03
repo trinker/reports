@@ -21,7 +21,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [Themes](http://deic.uab.es/~iblanes/beamer_gallery/)    
 <hr>
 # slidify 
-`r IM("http://ramnathv.github.com/slidifyExamples/examples/io2012/assets/img/slidify_logo.png", 150, 100, center=FALSE, link="https://github.com/ramnathv/slidify")`
+`r IM("https://f.cloud.github.com/assets/346288/650134/894eadd0-d455-11e2-8be5-8d463050f4ef.png", 170, 100, center=FALSE, link="https://github.com/ramnathv/slidify")`
 
 [Website](http://ramnathv.github.io/slidify/)     
 [GitHub](https://github.com/ramnathv/slidify)     
