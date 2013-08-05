@@ -10,3 +10,4 @@ ex_files
 dependencies
 extra_statdoc
 style.R
+.Rprofile
