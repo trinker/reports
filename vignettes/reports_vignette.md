@@ -1023,6 +1023,18 @@ SC(">")
 
 [1] "&gt;"
 
+```r
+SC("~")
+```
+
+[1] "&#126;"
+
+```r
+SC("o")
+```
+
+[1] "&deg;"
+
 
 <hr>
 ### <p id="TB"><a href="http://trinker.github.io/reports_dev/TB.html" target="_blank">TB (text box)</a></p>
