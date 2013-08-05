@@ -1,0 +1,13 @@
+<slide class="thank-you-slide segue nobackground" id="{{ slide.id }}">
+  <aside class="gdbar right"><img src="assets/img/{{page.logo}}"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>{{{ slide.title}}}</h2>
+    {{{ slide.content }}}
+  </article>
+
+  <p class="auto-fadein" data-config-contact="">
+    {{# slide.social }}
+    <span>{{title}}</span><a href="{{href}}">{{href}}</a><br>
+    {{/ slide.social }}
+  </p>
+</slide>

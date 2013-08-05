@@ -173,6 +173,11 @@ inhtml <- file.path(getwd(), "qslide/PRESENTATION/index.html")
 outhtml <- "C:/Users/trinker/Dropbox/Public/Slides/reports"
 file.copy(inhtml, outhtml,, TRUE)
 
+inhtml2 <- file.path(getwd(), "qslide/PRESENTATION/index.Rmd")
+file.copy(inhtml2, outhtml,, TRUE)
+fls <- file.path(outhtml, c("index.Rmd", "reports_quick_slides.txt"))
+file.rename(fls[1], fls[2])
+
 
 
 
