@@ -1069,27 +1069,27 @@ Returns a character vector of an HTML iframe tag that embeds a YouTube or Vimeo 
 <font size="5" color="gold">&diams;</font> **Example 1**- *YouTube using url tag* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("AZnVM0_ru7o", print = TRUE)
+YT("ArHQjQyIS70", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 2**- *YouTube using full url* <font size="5" color="gold">&diams;</font>
 
 ```r
-YT("http://www.youtube.com/watch?v=AZnVM0_ru7o", print = TRUE)
+YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
+## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
 
-<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/AZnVM0_ru7o?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 
 
 <font size="5" color="gold">&diams;</font> **Example 3**- *Vimeo video* <font size="5" color="gold">&diams;</font>
