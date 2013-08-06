@@ -94,9 +94,10 @@ list(
       )
     ),   
     sd_section("Custom css", 
-      "Exported tools for custom css.",
+      "Customization.",
       c(
-        "custom_css"
+        "custom_css",
+        "slidify_layouts"
       )
     ),          
     sd_section("Decapricated",
