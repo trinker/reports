@@ -64,3 +64,4 @@ Collate:
     'utils.R'
     'WP.R'
     'YT.R'
+    'slidify_layouts.R'

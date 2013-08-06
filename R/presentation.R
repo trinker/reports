@@ -95,6 +95,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         y <- invisible(folder(OUTLINE))
         y[[2]] <- file.path(x, "PRESENTATION")
         suppressMessages(author(y[[2]], use_git = FALSE, open_rmd = FALSE, ...))
+        suppressMessages(slidify_layouts(file.path(y[[2]], "assets/layouts")))
         if(file.exists(slidify)) {
             slid.path <- slidify
         } else {

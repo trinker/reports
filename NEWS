@@ -105,6 +105,10 @@ MINOR FEATURES
 
 * `WP` a convenience function for formulating Windows paths correctly.
 
+* `slidify_layouts` function to generate html files for extra slidify slide 
+  layouts.  By defualt `new_report` and `presentation` will utilize
+  `slidify_layouts` to generate the appropriate files.
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 

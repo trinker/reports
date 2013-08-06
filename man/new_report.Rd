@@ -84,7 +84,8 @@
 }
 
 \section{Additional Guide}{
-  Introductory video \url{http://youtu.be/cokNUTGtoM4}
+  Introductory video
+  \url{http://www.youtube.com/watch?v=ArHQjQyIS70}
 }
 \examples{
 ## new_report()

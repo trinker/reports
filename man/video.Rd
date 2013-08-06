@@ -36,9 +36,20 @@
   Use \code{YT} for YouTube videos and \code{VM} for Vimeo
   videos.
 }
+\note{
+  For YouTube videos it may be better to utilize a slide
+  layout class as a slide with a link followed by a slide
+  with a youtube video may cause the link to become in
+  active.  To create a youtube slide use the form:
+  \code{--- .YT yt:ArHQjQyIS70 &youtube} where the portion
+  after \code{yt:} is the youtube tag.
+}
 \examples{
 YT("ArHQjQyIS70", print = TRUE)
 YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 VM("http://vimeo.com/54007714", print = TRUE)
+}
+\seealso{
+  \code{\link[reports]{slidify_layouts}}
 }
 

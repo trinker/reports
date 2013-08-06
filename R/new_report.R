@@ -53,7 +53,7 @@
 #'
 #' \href{https://github.com/hakimel/reveal.js/}{Installation section of reveal.js GitHub}
 #' @section Additional Guide: Introductory video
-#' \url{http://youtu.be/cokNUTGtoM4}
+#' \url{http://www.youtube.com/watch?v=ArHQjQyIS70}
 #' @references 
 #' \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify examples}
 #' @export
@@ -132,6 +132,7 @@ function(report = "report", template = getOption("temp.reports"),
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE))
         y[[4]] <- file.path(x, "PRESENTATION")
         suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE, ...))
+        suppressMessages(slidify_layouts(file.path(y[[4]], "assets/layouts")))        
         if ("slidify.Rmd" %in% dir(file.path(pdfloc, "inst"))) {
             slid.path <- file.path(pdfloc, "inst/slidify.Rmd")
         } else {

@@ -49,13 +49,12 @@ For slidify framework examples run:
 browseURL("https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples/impressjs")
 browseURL("http://ramnathv.github.io/slidifyExamples/examples/impressjs/#/slide-1")
 
-`r citet(bib[1])`
+`r citet(bib[3])`
 
----
-
-`r YT("7Sb_QLk2BYU")`
+--- .YT yt:ArHQjQyIS70 &youtube
 
 --- .refs
+
 ## References
 ```{r, echo=FALSE, results='asis'}
 bibliography("html", bulleted = FALSE)
