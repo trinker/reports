@@ -1,6 +1,6 @@
 \name{slidify_layouts}
 \alias{slidify_layouts}
-\title{Generate Slidify Layouts}
+\title{Generate Extra Slidify Layouts}
 \usage{
   slidify_layouts(path = file.path(getwd(), "assets/layouts"))
 }

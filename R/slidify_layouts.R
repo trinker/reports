@@ -1,4 +1,4 @@
-#' Generate Slidify Layouts 
+#' Generate Extra Slidify Layouts 
 #' 
 #' A collection of additional slidify slide layouts to extend the slidify 
 #' framework.
