@@ -93,8 +93,8 @@ list(
         "IE"
       )
     ),   
-    sd_section("Custom css", 
-      "Customization.",
+    sd_section("Customization", 
+      "Tools for customized css and layouts.",
       c(
         "custom_css",
         "slidify_layouts"
