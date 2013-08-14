@@ -5,7 +5,7 @@ opts_chunk$set(cache = TRUE, warning = FALSE, message = FALSE, tidy = FALSE)
 
 pressNum_n_dir <- "INSERTwordpress_number/directoryHERE"   #e.g., "61803503/wp/"
 path2figureStorage <- "C:/Users/you/Dropbox/Public/directoryHERE/"   #e.g., "C:/Users/trinker/Dropbox/Public/wp/"
-opts_knit$set(base.url = paste0("http://dl.dropboxusercontent.com.com/u/", pressNum_n_dir),
+opts_knit$set(base.url = paste0("http://dl.dropboxusercontent.com/u/", pressNum_n_dir),
     base.dir = path2figureStorage)
 bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 ```
