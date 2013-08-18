@@ -12,8 +12,10 @@ And constructed with the following guidelines:
 
 * Breaking backward compatibility bumps the major (and resets the minor 
   and patch)
+
 * New additions without breaking backward compatibility bumps the minor 
   (and resets the patch)
+
 * Bug fixes and misc changes bumps the patch
 
 
@@ -68,7 +70,7 @@ NEW FEATURES
   `?citeL` for more details.
 
 * Conversion functions: `md2docx`, `md2pdf`, `tex2html`, `html2pdf`, `tex2docx`, 
-  `md2tex` have been added for a convenient way to convert an .md file to .docx.
+  `md2tex` have been added for a convenient way to convert between file types.
 
 * `rdirs` reclusively creates multiple directories.
 

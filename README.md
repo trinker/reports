@@ -33,4 +33,9 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 [Package PDF Help Manual](https://dl.dropbox.com/u/61803503/reports.pdf)          
 [click here](http://trinker.github.io/reports/dependencies) for information on the programs/packages reports brings together     
 
+## Contact
 
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/trinker/reports/issues>
+* send a pull request on: <https://github.com/trinker/reports/>
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
