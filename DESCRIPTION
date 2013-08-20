@@ -21,6 +21,25 @@ Note: Many functions in reports assume (a) you're using RStudio (b) the main
 License: GPL-2
 URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
+LazyData: TRUE
+VignetteBuilder: knitr
+Depends:
+    R (>= 3.0.0),
+    xlsx
+Imports:
+    slidify,
+    slidifyLibraries,
+    knitr,
+    knitcitations (>= 0.4-7),
+    markdown,
+    xtable
+Suggests:
+    ascii,
+    brew,
+    installr,
+    pander,
+    ProjectTemplate,
+    qdap
 Collate:
     'BV.R'
     'CA.R'
