@@ -182,6 +182,26 @@ wheresPandoc <- function() {
     temp
 }
 
+wheresRstudio <- 
+function() {
+    myPaths <- c("rstudio",  "~/.cabal/bin/rstudio", 
+        "~/Library/Haskell/bin/rstudio", "C:\\PROGRA~1\\RStudio\\bin\\rstudio.exe",
+        "C:\\RStudio\\bin\\rstudio.exe")
+    panloc <- Sys.which(myPaths)
+    temp <- panloc[panloc != ""]
+    if (identical(names(temp), character(0))) {
+        ans <- readline("RStudio not installed in one of the typical locations.\n 
+            Do you know where RStudio is installed? (y/n) ")
+        if (ans == "y") {
+                temp <- readline("Enter the (unquoted) path to RStudio: ")
+        } else {
+            if (ans == "n") {
+                stop("RStudio not installed or not found.")
+            }
+        }
+    } 
+    temp
+}
 read.notes <-
 function(file = NULL, rm.nonquote = TRUE, trunc = 50, 
     notes.col = TRUE, print = TRUE) {

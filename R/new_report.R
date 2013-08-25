@@ -24,6 +24,7 @@
 #' be one of the types from \code{slidify_templates} or a path to an .Rmd file.  
 #' This argument will be overrode if a custom reports template is supplied with 
 #' an .Rmd file in the inst directory named slidify.Rmd (\code{/inst/slidify.Rmd}).
+#' @param open logical.  If \code{TRUE} the project will be opened in RStudio.
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
