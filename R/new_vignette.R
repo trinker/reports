@@ -13,6 +13,7 @@
 #' vignettes directory. 
 #' @param bib.loc Optional path to a .bib resource.
 #' @param name A character string of the user's name to be used on the vignette.
+#' @param open logical.  If \code{TRUE} the project will be opened in RStudio.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{name.reports} in the user's primary \code{.Rprofile}:
 #' \enumerate{ 
@@ -31,7 +32,7 @@
 #' ## new_vignette()
 new_vignette <-
 function(vignette = "vignette", type = "rmd", path = getwd(),
-    bib.loc = NULL, name = getOption("name.reports")) {
+    bib.loc = NULL, name = getOption("name.reports"), open = FALSE) {
 
     ## preparing type
     type <- tolower(type)
@@ -264,6 +265,9 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
 
     o <- paste0("vignette append \"", vignette, "\" added to:\n", path, "\n")
     class(o) <- "reports"
+    if (open) {
+        open_project(file.path(x, vignette, paste0(vignette, ".Rproj")))
+    }      
     return(o)    
 }
 

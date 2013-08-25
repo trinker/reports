@@ -9,7 +9,8 @@
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
     AN.xlsx = TRUE,
-    slidify = getOption("slidify.template"), ...)
+    slidify = getOption("slidify.template"), open = FALSE,
+    ...)
 }
 \arguments{
   \item{report}{A character vector of length two or one:
@@ -49,6 +50,9 @@
   argument will be overrode if a custom reports template is
   supplied with an .Rmd file in the inst directory named
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
+
+  \item{open}{logical.  If \code{TRUE} the project will be
+  opened in RStudio.}
 
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}

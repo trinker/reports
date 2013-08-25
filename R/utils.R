@@ -273,6 +273,12 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
     }
 }
 
+open_project <- function(Rproj.loc) {
+    action <- paste(wheresRstudio(), Rproj.loc)
+    message("Preparing to open project!")
+    system(action, wait = FALSE, ignore.stderr = TRUE)
+}
+
 remove2backslahes <- function(x){
     ## Compliments of mathematical.coffee
     ## browsURL("http://stackoverflow.com/a/15939139/1000343")

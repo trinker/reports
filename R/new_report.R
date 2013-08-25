@@ -66,7 +66,7 @@ function(report = "report", template = getOption("temp.reports"),
     bib.loc = getOption("bib.loc"), name = getOption("name.reports"), 
     github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
-    slidify = getOption("slidify.template"), ...) {
+    slidify = getOption("slidify.template"), open = FALSE, ...) {
 
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
@@ -327,6 +327,9 @@ function(report = "report", template = getOption("temp.reports"),
     }  
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
+    if (open) {
+        open_project(file.path(x, report, paste0(report, ".Rproj")))
+    }
     return(o)    
 }
 

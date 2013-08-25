@@ -5,7 +5,7 @@
 \usage{
   new_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"))
+    name = getOption("name.reports"), open = FALSE)
 
   append_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
@@ -31,6 +31,9 @@
 
   \item{name}{A character string of the user's name to be
   used on the vignette.}
+
+  \item{open}{logical.  If \code{TRUE} the project will be
+  opened in RStudio.}
 }
 \value{
   Creates a vignette template.
