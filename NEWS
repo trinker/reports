@@ -111,6 +111,11 @@ MINOR FEATURES
   layouts.  By defualt `new_report` and `presentation` will utilize
   `slidify_layouts` to generate the appropriate files.
 
+* The project creating functions (`presentation`, `new_report` and 
+  `new_vignette`) gain an `open` argument to open the directory in RStudio after 
+  it has been created.
+
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 
