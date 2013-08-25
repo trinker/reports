@@ -151,6 +151,8 @@ append_vignette <-
 function(vignette = "vignette", type = "rmd", path = getwd(),
     bib.loc = NULL, name = getOption("name.reports")) {
 
+	x <- NULL
+	
     ## Check if path exists, is a directory & is named vignettes
     if (!file.exists(path)) {
         stop("path does not exist")

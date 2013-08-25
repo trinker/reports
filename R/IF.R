@@ -20,11 +20,15 @@
 #' @export
 #' @examples
 #' IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)
-#' IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, center = TRUE, print = TRUE)
+#' IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", 
+#'   height=400, center = TRUE, print = TRUE)
 #' IF("http://www.dosketch.com/", width=1100, height=650, print=TRUE)
-#' IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", height=650, print=TRUE)
-#' IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
-#' IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
+#' IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", 
+#'   height=650, print=TRUE)
+#' IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", 
+#'   width=1150, height=750, print=TRUE)
+#' IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", 
+#'   width=770, height=680, print=TRUE)
 IF <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360, 
     center = TRUE, print = FALSE, text = "Your browser does not support iframes.") {
     if (path == "clipboard") {

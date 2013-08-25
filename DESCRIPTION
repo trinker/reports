@@ -28,15 +28,15 @@ Depends:
     xlsx
 Imports:
     slidify,
-    slidifyLibraries,
-    knitr,
-    knitcitations (>= 0.4-7),
-    markdown,
-    xtable
+    knitcitations (>= 0.4-7)
 Suggests:
     ascii,
     brew,
     installr,
+    slidifyLibraries,
+    knitr,
+    markdown,
+    xtable,    
     pander,
     ProjectTemplate,
     qdap
