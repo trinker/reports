@@ -76,7 +76,9 @@ cat(paste(c(top, new), collapse="\n"), file=file.path(getwd(), "inst/dependencie
 #========================
 #packages
 # library(devtools); install_github("staticdocs", "hadley")
-library(highlight); library(staticdocs)
+#
+library(highlight); 
+library(staticdocs)
 
 #STEP 1: create static doc  
 build_package(package="C:/Users/trinker/GitHub/reports", 
