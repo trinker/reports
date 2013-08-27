@@ -20,6 +20,7 @@
 #' creates the .md file).
 #' @rdname docx
 #' @export
+#' @importFrom tools file_ext
 #' @examples
 #' \dontrun{
 #' DOC <- system.file("extdata/doc_library/apa6.qual_tex/doc.tex",
@@ -35,7 +36,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) == "tex"]
+            in.file <- dir(path)[file_ext(dir(path)) == "tex"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
@@ -60,7 +61,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) == "tex"]
+            in.file <- dir(path)[file_ext(dir(path)) == "tex"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
@@ -85,7 +86,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) %in% "md"]
+            in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".docx")
@@ -109,7 +110,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) %in% "md"]
+            in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".tex")
@@ -133,7 +134,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) == "md"]
+            in.file <- dir(path)[file_ext(dir(path)) == "md"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
@@ -158,7 +159,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         on.exit(setwd(WD))
         setwd(path)
         if (is.null(in.file)) {
-            in.file <- dir(path)[tools::file_ext(dir(path)) == "html"]
+            in.file <- dir(path)[file_ext(dir(path)) == "html"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {

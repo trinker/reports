@@ -28,6 +28,7 @@
 #' \url{http://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Writing-package-vignettes}
 #' @seealso \code{\link[utils]{browseVignettes}}
 #' @export
+#' @importFrom tools file_ext
 #' @examples 
 #' ## new_vignette()
 new_vignette <-
@@ -124,7 +125,7 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     bib <- NULL
     if(!is.null(bib.loc) && file.exists(bib.loc)){
         invisible(file.copy(bib.loc, x))
-        bib <- dir(x)[tools::file_ext(dir(x)) == "bib"]
+        bib <- dir(x)[file_ext(dir(x)) == "bib"]
         if (!is.null(bib.loc)) {
             bibL <- paste0("options(bib.loc = \"", bib.loc, "\")")
             rpro <- c(rpro, bibL)

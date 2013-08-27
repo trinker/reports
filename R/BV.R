@@ -9,6 +9,7 @@
 #' @return Returns a truncated view of user notes.
 #' @export
 #' @import knitcitations
+#' @importFrom tools file_ext
 #' @examples 
 #' ## BV()
 BV <- 
@@ -20,7 +21,7 @@ function(bib = NULL, col.width = 40) {
     FUN <- function(x) {
     	fls <- dir(file.path(x)) 
         if (identical(fls, character(0))) return(NULL) 
-    	fls[tools::file_ext(fls) == "bib"][1]
+    	fls[file_ext(fls) == "bib"][1]
     }
     check <-lapply(locs, FUN)
     test <- function(x) suppressWarnings((!is.null(x) & !is.na(x)))

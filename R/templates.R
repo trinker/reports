@@ -11,6 +11,7 @@
 #' \code{\link[reports]{doc_temp}} for details) as well as optionally returning 
 #' a vector of names that the user can pass to other functions.
 #' @export
+#' @importFrom tools file_ext
 #' @seealso \code{\link[reports]{doc_temp}}
 #' @rdname templates
 #' @examples
@@ -50,9 +51,9 @@ templates <- function(print.cons = TRUE, names = TRUE) {
 #' @export
 slidify_templates <- function() {
     base <- system.file("extdata/slidify_library", package = "reports")
-    fls1 <- tools::file_path_sans_ext(sort(dir(file.path(base, c("min")))))
+    fls1 <- file_path_sans_ext(sort(dir(file.path(base, c("min")))))
     fls1 <- c(fls1, "default")
-    fls2 <- tools::file_path_sans_ext(paste0(".",sort(dir(file.path(base, c("full"))))))
+    fls2 <- file_path_sans_ext(paste0(".",sort(dir(file.path(base, c("full"))))))
     message("NOTE: see https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples for slidify examples\n")
     return(list(min=fls1, full = fls2))     
 }

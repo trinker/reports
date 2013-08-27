@@ -223,7 +223,7 @@ function(file = NULL, rm.nonquote = TRUE, trunc = 50,
 	    ins <- poss[!grepl("~$", poss, fixed=TRUE)][1]
 	    file <- file.path(loc, ins)
     }
-    ext <- tools::file_ext(file)
+    ext <- file_ext(file)
     switch(ext, 
         xlsx = {
         	x <- read.xlsx(file, 1)[, 1:5]

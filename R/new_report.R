@@ -58,7 +58,8 @@
 #' @references 
 #' \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify examples}
 #' @export
-#' @import slidify
+#' @importFrom slidify author
+#' @importFrom tools file_path_sans_ext file_ext
 #' @examples 
 #' ## new_report()
 new_report <-
@@ -208,7 +209,7 @@ function(report = "report", template = getOption("temp.reports"),
     dir.create(file.path(y[[4]], "figure"), FALSE)
     present.type <- Trim(unlist(strsplit(gsub(desc.chunk2, "", desc[grepl(desc.chunk2, desc)]), ",")))
     matches <- data.frame(grab = pdfloc3,
-        required = tolower(tools::file_ext(basename(pdfloc3))), stringsAsFactors = FALSE)
+        required = tolower(file_ext(basename(pdfloc3))), stringsAsFactors = FALSE)
     present.copies <- matches[-1, ][matches[, "required"][-1] %in% present.type , "grab"]
     invisible(file.copy(present.copies, y[[4]])) #copy presentation files to folder
     old.names <- file.path(y[[4]], dir(y[[4]]))
@@ -234,7 +235,7 @@ function(report = "report", template = getOption("temp.reports"),
     if(!is.null(bib.loc) && file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[1]]))
         invisible(file.copy(bib.loc, y[[4]]))
-        bib <- dir(y[[1]])[tools::file_ext(dir(y[[1]])) == "bib"]
+        bib <- dir(y[[1]])[file_ext(dir(y[[1]])) == "bib"]
         if (!is.null(getOption("bib.loc"))) {
             bibL <- paste0("options(bib.loc = \"", bib.loc, "\")")
             rpro <- c(rpro, bibL)
@@ -251,7 +252,7 @@ function(report = "report", template = getOption("temp.reports"),
     }
     if (!is.null(bib)) {
         dr2 <- dir(y[[4]])
-        drin2 <- dr2[tools::file_ext(dr2) %in% "Rmd"]
+        drin2 <- dr2[file_ext(dr2) %in% "Rmd"]
         temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
         temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
         temp2, fixed = TRUE)
@@ -275,9 +276,9 @@ function(report = "report", template = getOption("temp.reports"),
         cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
         invisible(file.rename(file.path(y[[1]], drin), 
             file.path(y[[1]], paste0(report, ".", 
-            tools::file_ext(drin)))))       
+            file_ext(drin)))))       
         dr2 <- dir(y[[4]])
-        drin3 <- dr2[tools::file_ext(dr2) %in% "Rnw"]
+        drin3 <- dr2[file_ext(dr2) %in% "Rnw"]
         temp3 <- suppressWarnings(readLines(file.path(y[[4]], drin3)))
         if (!is.null(name)) {
             temp3 <- gsub("author{Author}", paste0("author{", name, "}"), 
@@ -297,12 +298,12 @@ function(report = "report", template = getOption("temp.reports"),
             fp <- file.path(root, template)
             invisible(file.copy(file.path(fp, dir(fp)), paste0(y[[1]], "/")))
             dr <- dir(y[[1]])
-            drin <- dr[tools::file_path_sans_ext(dr) %in% "doc"]
+            drin <- dr[file_path_sans_ext(dr) %in% "doc"]
             temp <- suppressWarnings(readLines(file.path(y[[1]], drin)))
             temp <- gsub("Title", report, temp)
             if (!is.null(bib)) {
                 new.bib <- paste(c("fls <- dir(getwd())", 
-                    "BIB <- file.path(getwd(), fls[tools::file_ext(fls) == \"bib\"])"), 
+                    "BIB <- file.path(getwd(), fls[file_ext(fls) == \"bib\"])"), 
                     collapse="\n")
                 temp[grepl("BIB <- system.file", temp)] <- new.bib
             }
@@ -313,7 +314,7 @@ function(report = "report", template = getOption("temp.reports"),
             cat(paste(temp, collapse="\n"), file=file.path(y[[1]], drin))
             invisible(file.rename(file.path(y[[1]], drin), 
                 file.path(y[[1]], paste0(report, ".", 
-                tools::file_ext(drin))))) 
+                file_ext(drin))))) 
         }   
         folder(folder.name=file.path(y[[1]], "figure"))        
     }
@@ -347,4 +348,3 @@ function(x, ...) {
     class(x) <- NULL
     cat(x)
 }
-

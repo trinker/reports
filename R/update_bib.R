@@ -6,12 +6,13 @@
 #' @param bib.loc Optional path to a .bib resource.
 #' @return Updates bib from master/global .bib file.
 #' @export
+#' @importFrom tools file_ext
 update_bib <-
 function(report = getwd(), bib.loc = getOption("bib.loc")) {
     x <- paste0(report, "/REPORT/")
     z <- paste0(report, "/PRESENTATION/")
     y <- dir(z)
-    current <- y[tools::file_ext(y) == "bib"]
+    current <- y[file_ext(y) == "bib"]
     current
     if (is.null(bib.loc)) {
         stop("please supply the path to the .bib file")    

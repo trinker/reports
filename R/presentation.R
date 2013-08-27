@@ -52,7 +52,8 @@
 #'
 #' \href{https://github.com/hakimel/reveal.js/}{Installation section of reveal.js GitHub}
 #' @export
-#' @import slidify
+#' @importFrom slidify author
+#' @importFrom tools file_ext
 #' @examples
 #' ## presentation("New")
 presentation <- function(presentation = "presentation", type = c("rnw", "rmd"), 
@@ -175,7 +176,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         file.path(x, paste0(presentation, ".Rproj"))))
     if(!is.null(bib.loc) && file.exists(bib.loc)){
         invisible(file.copy(bib.loc, y[[2]]))
-        bib <- dir(y[[2]])[tools::file_ext(dir(y[[2]])) == "bib"]
+        bib <- dir(y[[2]])[file_ext(dir(y[[2]])) == "bib"]
         if (!is.null(getOption("bib.loc"))) {
             bibL <- paste0("options(bib.loc = \"", getOption("bib.loc"), "\")")
             rpro <- c(rpro, bibL)
@@ -192,14 +193,14 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     }
     if (!is.null(bib) & sum(type %in% "rmd") > 0) {
         dr2 <- dir(y[[2]])
-        drin2 <- dr2[tools::file_ext(dr2) %in% "Rmd"]
+        drin2 <- dr2[file_ext(dr2) %in% "Rmd"]
         temp2 <- suppressWarnings(readLines(file.path(y[[2]], drin2)))
         temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
             temp2, fixed = TRUE)
         cat(paste(temp2, collapse="\n"), file=file.path(y[[2]], drin2))
     }
     if (sum(type %in% "rnw") > 0) {
-        drin <- dir(y[[2]])[tools::file_ext(dir(y[[2]])) == "Rnw"]
+        drin <- dir(y[[2]])[file_ext(dir(y[[2]])) == "Rnw"]
         temp <- suppressWarnings(readLines(file.path(y[[2]], drin)))
         if (!is.null(bib)) {
             temp <- gsub("\\.bib", bib, temp)
@@ -221,5 +222,4 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     }    
     return(o)    
 }
-
 
