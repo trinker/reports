@@ -1190,7 +1190,7 @@ custom_css()
 ```
 
 
-After the appropriate files are created the user adds custom styling to the ~/css/style.css.  Each time RStudio is loaded the user has to source before the custom styles will be applied. Open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
+After the appropriate files are created the user adds custom styling to the ~/css/style.css.  The user has to source before the custom styles will be applied. The user may specify <font face="courier">rfprofile = TRUE</font> in <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> to add the style.R to the .Rprofile for sourcing upon startup. Otherwise, the user must open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
 
 <hr>
 ## Acknowledgements

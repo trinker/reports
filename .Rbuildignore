@@ -11,3 +11,4 @@ dependencies
 extra_statdoc
 style.R
 .Rprofile
+knitcitations.bib
