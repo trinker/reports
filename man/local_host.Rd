@@ -5,7 +5,7 @@
   local_host(out.dir = file.path(getwd(), "PRESENTATION"))
 }
 \arguments{
-  \item{file}{The}
+  \item{file}{The path to the presentation directory.}
 }
 \value{
   Creates a .sh/.bat file that opens a local host to that

@@ -2,7 +2,7 @@
 #' 
 #' Create a .sh/.bat file to open a presentation with a local host. 
 #' 
-#' @param file The 
+#' @param file The path to the presentation directory.
 #' @return Creates a .sh/.bat file that opens a local host to that directory.
 #' @note The .sh/.bat file can not be opened from within RStudio.
 #' @details The user must have \href{http://www.python.org/}{Python} installed 
