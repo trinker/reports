@@ -114,6 +114,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
                 slid.path <- file.path(slid, back, paste0(slidify, ".Rmd"))
             }
         }
+        suppressMessages(local_host(y[[2]]))
         setwd(x)
         Rmd <- suppressWarnings(readLines(slid.path)) 
         title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
@@ -186,7 +187,8 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         git <- paste0("options(github.user = \"", github.user, "\")")
         rpro <- c(rpro, git)
     }       
-    cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), file = file.path(x, 
+    lh <- c("", "suppressMessages(local_host())", "")
+    cat(paste(c(rpro, rpro2, lh, rpro3), collapse = "\n"), file = file.path(x, 
         ".Rprofile"))
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")

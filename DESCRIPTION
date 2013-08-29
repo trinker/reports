@@ -85,3 +85,4 @@ Collate:
     'WP.R'
     'YT.R'
     'slidify_layouts.R'
+    'local_host.R'

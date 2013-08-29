@@ -84,7 +84,12 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 
 [Markdown](http://daringfireball.net/projects/markdown/)     
 [R Markdown](http://www.rstudio.com/ide/docs/authoring/using_markdown)     
+<hr>
+# Python
+<a href="http://www.python.org/" target="_blank"><img src="http://www.python.org/images/python-logo.gif" width="240" height="65"></a>
 
+
+[Python](http://www.python.org/)
 <hr>
 <p class="rightJustified"><a href="#"> Back to Top </a></p>  
 <div style="width:567px;margin:auto;">

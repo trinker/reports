@@ -132,7 +132,7 @@ function(report = "report", template = getOption("temp.reports"),
             slidify <- "io2012"
         }
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE))
-        y[[4]] <- file.path(x, "PRESENTATION")
+        y[[4]] <- file.path(x, "PRESENTATION")  
         suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE, ...))
         suppressMessages(slidify_layouts(file.path(y[[4]], "assets/layouts")))        
         if ("slidify.Rmd" %in% dir(file.path(pdfloc, "inst"))) {
@@ -155,6 +155,7 @@ function(report = "report", template = getOption("temp.reports"),
                 }
             }
         }
+        suppressMessages(local_host(y[[4]]))
         setwd(x)
         Rmd <- suppressWarnings(readLines(slid.path)) 
         title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
@@ -222,8 +223,8 @@ function(report = "report", template = getOption("temp.reports"),
     pdfloc5 <- file.path(root2, "REPORT_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
     rpro <- c("#Load the packages used",
-        "library(reports); library(slidify); library(slidifyLibraries); library(knitr); library(knitcitations)", 
-        "# library(pander)", "")  
+        "library(reports)", "library(slidify)", "library(slidifyLibraries)", "library(knitr)", 
+        "library(knitcitations)", "# library(pander)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
         "source(file.path(getwd(), \"extra_functions.R\"))")
     rpro3 <- sources
@@ -245,7 +246,8 @@ function(report = "report", template = getOption("temp.reports"),
         git <- paste0("options(github.user = \"", github.user, "\")")
         rpro <- c(rpro, git)
     }
-    cat(paste(c(rpro, rpro2, rpro3), collapse = "\n"), 
+    lh <- c("", "suppressMessages(local_host())", "")
+    cat(paste(c(rpro, rpro2, lh, rpro3), collapse = "\n"), 
         file = file.path(x, ".Rprofile"))
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
@@ -325,7 +327,7 @@ function(report = "report", template = getOption("temp.reports"),
            file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
         }))
         delete(file.path(x, "slidify.Rmd"))
-    }  
+    }    
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
     if (open) {
