@@ -66,6 +66,7 @@ list(
       "Functions to aid in managing directories/folders.", 
       c(
         "delete",
+        "local_host",
         "rdirs",
         "sync"
       )
