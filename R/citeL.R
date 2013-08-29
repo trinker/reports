@@ -32,7 +32,8 @@
 #' text (i.e., using \code{`r FUN()`}) as are HTML related functions.  It is 
 #' intended that the user will paste the output into the .Rmd/.tex file manually
 #' and make adjustments as necessary.
-#' @rdname cite
+#' @importFrom xlsx read.xlsx
+#' @rdname cite 
 #' @return Returns a character vector with LaTeX/markdown formatted text.
 #' @export
 citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {

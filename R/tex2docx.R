@@ -18,7 +18,7 @@
 #' @note \code{md2docx}, \code{md2tex} and \code{md2pdf} converts markdown
 #' (a .md file) not Rmarkdown (.Rmd).  Use knitr to knit to HTML first (this
 #' creates the .md file).
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 #' @importFrom tools file_ext
 #' @examples
@@ -51,7 +51,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("docx file generated!\n")
 }
 
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 tex2html <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
@@ -76,7 +76,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("html file generated!\n")
 }
 
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 md2docx <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
@@ -100,7 +100,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("docx file generated!\n")
 }
 
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 md2tex <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
@@ -124,7 +124,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("tex file generated!\n")
 }
 
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 md2pdf <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
@@ -149,7 +149,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     cat("pdf file generated!\n")
 }
 
-#' @rdname docx
+#' @rdname doc2doc
 #' @export
 html2pdf <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),

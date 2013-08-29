@@ -2,10 +2,10 @@
 \alias{local_host}
 \title{Generate Local Host Bash/Batch}
 \usage{
-  local_host(out.dir = file.path(getwd(), "PRESENTATION"))
+  local_host(loc = file.path(getwd(), "PRESENTATION"))
 }
 \arguments{
-  \item{file}{The path to the presentation directory.}
+  \item{loc}{The path to the presentation directory.}
 }
 \value{
   Creates a .sh/.bat file that opens a local host to that

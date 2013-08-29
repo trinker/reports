@@ -24,12 +24,12 @@ BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 VignetteBuilder: knitr
 Depends:
-    R (>= 3.0.0),
-    xlsx
+    R (>= 3.0.0)
 Imports:
     knitcitations (>= 0.4-7),
     slidify,
-    tools
+    tools,
+    xlsx
 Suggests:
     ascii,
     brew,
