@@ -10,7 +10,8 @@
   added to the .Rprofile for sourcing upon startup.}
 
   \item{loc}{Path to the report location where the custom
-  css should be placed.}
+  css should be placed. If \code{NULL} only the style.R is
+  created in the base directory .Rprofile.}
 
   \item{style.css}{An optional path to a style.css file
   that will be used as the ~/css/style.css.}

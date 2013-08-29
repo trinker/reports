@@ -5,7 +5,8 @@
 #'
 #' @param reprofile logical.  If \code{TRUE} the style.R is added to the 
 #' .Rprofile for sourcing upon startup.
-#' @param loc Path to the report location where the custom css should be placed.
+#' @param loc Path to the report location where the custom css should be placed.  
+#' If \code{NULL} only the style.R is created in the base directory .Rprofile.
 #' @param style.css An optional path to a style.css file that will be used as 
 #' the ~/css/style.css.
 #' @details The user must add the custom contents to the custom css located in  
@@ -21,28 +22,30 @@
 custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"), 
 	style.css = NULL) {
 	
-	## Check css directory existence
-    if (!file.exists(file.path(loc, "css"))) {
-        cssloc <- folder(folder.name = file.path(loc, "css"))
-    } else {
-    	cssloc <- file.path(loc, "css")
-        warning(paste(file.path(loc, "css"), 
-            "already exists.\n Directory `css` not generated"))	
+    if (!is.null(loc)) {	
+    	## Check css directory existence
+        if (!file.exists(file.path(loc, "css"))) {
+            cssloc <- folder(folder.name = file.path(loc, "css"))
+        } else {
+        	cssloc <- file.path(loc, "css")
+            warning(paste(file.path(loc, "css"), 
+                "already exists.\n Directory `css` not generated"))	
+        }
+        
+        ## check style.css existence/create style.css
+        if (!file.exists(file.path(loc, "css", "style.css"))) {
+        	if (is.null(style.css)) {
+                cat("", file=file.path(cssloc, "style.css"))
+        	} else {
+        		sty <- suppressWarnings(readLines(style.css))
+                cat(paste(sty, collapse="\n"), file=file.path(cssloc, "style.css"))
+        	}
+        }  else {
+            warning(paste(file.path(loc, "css", "style.css"), 
+                "already exists.\n File `~css/style.css` not generated"))	
+        }
     }
-    
-    ## check style.css existence/create style.css
-    if (!file.exists(file.path(loc, "css", "style.css"))) {
-    	if (is.null(style.css)) {
-            cat("", file=file.path(cssloc, "style.css"))
-    	} else {
-    		sty <- suppressWarnings(readLines(style.css))
-            cat(paste(sty, collapse="\n"), file=file.path(cssloc, "style.css"))
-    	}
-    }  else {
-        warning(paste(file.path(loc, "css", "style.css"), 
-            "already exists.\n File `~css/style.css` not generated"))	
-    }
-    
+
     ## Create the style.R
     x <- c("options(rstudio.markdownToHTML =", 
         "  function(inputFile, outputFile) {",      
@@ -51,8 +54,10 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
         "  }",
         ")\n"
     )
-    cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
-
+    if (!is.null(loc)) {
+        cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
+    }
+    
     ## Add style.R to .Rprofile for sourcing on load
     if (rprofile) {
     	if (sum(dir(all=TRUE) == ".Rprofile") > 0) {
