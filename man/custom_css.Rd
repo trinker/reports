@@ -7,7 +7,7 @@
 }
 \arguments{
   \item{reprofile}{logical.  If \code{TRUE} the style.R is
-  added to the .Rprofile for sourcing upong startup.}
+  added to the .Rprofile for sourcing upon startup.}
 
   \item{loc}{Path to the report location where the custom
   css should be placed.}
@@ -26,7 +26,7 @@
 \note{
   The user has to source before the custom styles will be
   applied. The user may specify \code{rfprofile = TRUE} to
-  add the style.R to the .Rprofile for sourcing upong
+  add the style.R to the .Rprofile for sourcing upon
   startup.  Otherwise, the user must open the style.R as
   the active tab in RStudio, check the `Source on Save` box
   and the click the save icon.
