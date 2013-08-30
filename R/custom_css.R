@@ -22,7 +22,7 @@
 #' @export
 #' @importFrom markdown markdownToHTML
 custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"), 
-	style.css = NULL, source = TRUE) {
+  style.css = NULL, source = TRUE) {
 	
     if (!is.null(loc)) {	
     	## Check css directory existence
@@ -58,25 +58,38 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
     )
     if (!is.null(loc)) {
         cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
+        
+        ## Direct where to change css options
+            message(paste0("A custom css has been generated for your report.\n\n", 
+                "Make changes/additions via:\n", file.path(cssloc, "style.css")))        
     }
     
     ## Add style.R to .Rprofile for sourcing on load
     if (rprofile) {
     	if (sum(dir(all.files = TRUE) == ".Rprofile") > 0) {
-    		cat(paste(c("\n\n", x), collapse = "\n"), file = ".Rprofile", append=TRUE)
+        
+        ## Test if .Rprofile already contains the style.R function
+        RP <- gsub("\\s", "", paste(suppressWarnings(readLines(".Rprofile")), 
+            collapse = ""))
+        XP <- gsub("\\s", "", paste(x, collapse=""))
+        if (!grepl(XP, RP, fixed = TRUE)) {
+            cat(paste(c("\n\n", x), collapse = "\n"), file = ".Rprofile", 
+                append=TRUE)
+        } else {
+            warning(paste0(".Rprofile already contains style.R function:\n",
+                "`rprofile = TRUE` argument ignored")) 
+        }
     	} else {
     		cat(paste(x, collapse = "\n"), file = ".Rprofile")
     	}
     }    
     
     ## Source it for the first time
-    options(rstudio.markdownToHTML =
-      function(inputFile, outputFile) {
-        markdownToHTML(inputFile, outputFile, stylesheet=file.path(getwd(), "css/style.css"))
-      }
-    )
-    
-    ## Direct where to change css options
-    message(paste0("A custom css has been generated for your report.\n\n", 
-        "Make changes/additions via:\n", file.path(cssloc, "style.css")))
+    if (source) {
+        options(rstudio.markdownToHTML =
+        function(inputFile, outputFile) {
+            markdownToHTML(inputFile, outputFile, stylesheet=file.path(getwd(), "css/style.css"))
+          }
+        )
+    }
 }
