@@ -812,7 +812,7 @@ Conversely, the user may want to operate from the command line.  If this approac
 
 <hr>
 
-<h4 id="odd2">Custom style.css With RStudio + knitr `r yt("http://youtu.be/HA3CXf3K194")`</h4>
+<h4 id="odd2">Custom style.css With RStudio + knitr `r yt("http://youtu.be/WkwVb2uOBLM")`</h4>
 
 When using `r HR2("http://yihui.name/knitr/", "knitr")` with RStudio's `r CN("Knit HTML")` button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The `r FUN("custom_css")` provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a `r HR2("http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering", "custom style.css file")` to be used with RStudio + knitr.  The user simply runs:
 

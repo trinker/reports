@@ -3,12 +3,13 @@
 #' Generate the components necessary for a custom css for use with RStudio and 
 #' knitr.
 #'
-#' @param reprofile logical.  If \code{TRUE} the style.R is added to the 
+#' @param rprofile logical.  If \code{TRUE} the style.R is added to the 
 #' .Rprofile for sourcing upon startup.
 #' @param loc Path to the report location where the custom css should be placed.  
 #' If \code{NULL} only the style.R is created in the base directory .Rprofile.
 #' @param style.css An optional path to a style.css file that will be used as 
 #' the ~/css/style.css.
+#' @param source logical.  If \code{TRUE} the style.R is sourced intially.
 #' @details The user must add the custom contents to the custom css located in  
 #' ~/css/style.css
 #' @note The user has to source before the custom styles will be applied. The 
@@ -19,8 +20,9 @@
 #' @references
 #' \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering} 
 #' @export
+#' @importFrom markdown markdownToHTML
 custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"), 
-	style.css = NULL) {
+	style.css = NULL, source = TRUE) {
 	
     if (!is.null(loc)) {	
     	## Check css directory existence
@@ -60,12 +62,19 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
     
     ## Add style.R to .Rprofile for sourcing on load
     if (rprofile) {
-    	if (sum(dir(all=TRUE) == ".Rprofile") > 0) {
+    	if (sum(dir(all.files = TRUE) == ".Rprofile") > 0) {
     		cat(paste(c("\n\n", x), collapse = "\n"), file = ".Rprofile", append=TRUE)
     	} else {
     		cat(paste(x, collapse = "\n"), file = ".Rprofile")
     	}
     }    
+    
+    ## Source it for the first time
+    options(rstudio.markdownToHTML =
+      function(inputFile, outputFile) {
+        markdownToHTML(inputFile, outputFile, stylesheet=file.path(getwd(), "css/style.css"))
+      }
+    )
     
     ## Direct where to change css options
     message(paste0("A custom css has been generated for your report.\n\n", 

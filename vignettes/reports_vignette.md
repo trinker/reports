@@ -1179,7 +1179,7 @@ Conversely, the user may want to operate from the command line.  If this approac
 
 <hr>
 
-<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/HA3CXf3K194" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+<h4 id="odd2">Custom style.css With RStudio + knitr <a href="http://youtu.be/WkwVb2uOBLM" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 </h4>
 
 When using <a href="http://yihui.name/knitr/" target="_blank">knitr</a> with RStudio's <font face="courier">Knit HTML</font> button a standard style.css file is utilized and thus control over aesthetics of the document is limited.  The <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> provides the frame work (generates ~css/style.css and style.R files in the correct places) that allows a <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering" target="_blank">custom style.css file</a> to be used with RStudio + knitr.  The user simply runs:

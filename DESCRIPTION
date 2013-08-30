@@ -27,6 +27,7 @@ Depends:
     R (>= 3.0.0)
 Imports:
     knitcitations (>= 0.4-7),
+    markdown,
     slidify,
     tools,
     xlsx
@@ -36,7 +37,6 @@ Suggests:
     installr,
     slidifyLibraries,
     knitr,
-    markdown,
     xtable,
     pander,
     ProjectTemplate,

@@ -3,10 +3,11 @@
 \title{Generate Custom css for RStudio + knitr}
 \usage{
   custom_css(rprofile = FALSE,
-    loc = file.path(getwd(), "REPORT"), style.css = NULL)
+    loc = file.path(getwd(), "REPORT"), style.css = NULL,
+    source = TRUE)
 }
 \arguments{
-  \item{reprofile}{logical.  If \code{TRUE} the style.R is
+  \item{rprofile}{logical.  If \code{TRUE} the style.R is
   added to the .Rprofile for sourcing upon startup.}
 
   \item{loc}{Path to the report location where the custom
@@ -15,6 +16,9 @@
 
   \item{style.css}{An optional path to a style.css file
   that will be used as the ~/css/style.css.}
+
+  \item{source}{logical.  If \code{TRUE} the style.R is
+  sourced intially.}
 }
 \description{
   Generate the components necessary for a custom css for
