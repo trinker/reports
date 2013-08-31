@@ -181,5 +181,10 @@ fls <- file.path(outhtml, c("index.Rmd", "reports_quick_slides.txt"))
 file.rename(fls[1], fls[2])
 
 
+#==========================
+# NEWS.md
+#==========================
+file.copy("NEWS", "NEWS.md")
 
+#==========================
 

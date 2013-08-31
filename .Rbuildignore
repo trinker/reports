@@ -12,3 +12,4 @@ extra_statdoc
 style.R
 .Rprofile
 knitcitations.bib
+NEWS.md
