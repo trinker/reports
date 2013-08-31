@@ -184,7 +184,10 @@ file.rename(fls[1], fls[2])
 #==========================
 # NEWS.md
 #==========================
-file.copy("NEWS", "NEWS.md")
+News <- readLines("NEWS")
+library(qdap)
+News <- mgsub(c("<", ">"), c("&lt;", "&gt;"), News)
+cat(paste(News, collapse = "\n"), file = "NEWS.md")
 
 #==========================
 
