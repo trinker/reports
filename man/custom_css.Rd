@@ -1,10 +1,13 @@
 \name{custom_css}
+\alias{css_styles}
 \alias{custom_css}
 \title{Generate Custom css for RStudio + knitr}
 \usage{
   custom_css(rprofile = FALSE,
     loc = file.path(getwd(), "REPORT"), style.css = NULL,
     source = TRUE)
+
+  css_styles()
 }
 \arguments{
   \item{rprofile}{logical.  If \code{TRUE} the style.R is
@@ -15,18 +18,34 @@
   created in the base directory .Rprofile.}
 
   \item{style.css}{An optional path to a style.css file
-  that will be used as the ~/css/style.css.}
+  that will be used as the ~/css/style.css.  Also may take
+  a character string indicating one of the reports
+  package's built in style.css (see
+  \code{\link[reports]{css_styles}}).}
 
   \item{source}{logical.  If \code{TRUE} the style.R is
   sourced intially.}
 }
 \description{
-  Generate the components necessary for a custom css for
-  use with RStudio and knitr.
+  \code{custom_css} - Generate the components necessary for
+  a custom css for use with RStudio and knitr.
+
+  \code{css_styles} - View the built in style.css
 }
 \details{
-  The user must add the custom contents to the custom css
-  located in ~/css/style.css
+  \code{custom_css} - The user must add the custom contents
+  to the custom css located in \file{~/css/style.css}.
+
+  \code{css_styles} - prints a list of available style.css
+  templates available within the reports package for use
+  with the \code{custom_css} argument \code{style.css}.
+  Feel free to submit your own to the reports package
+  \email{reports.rpackage@gmail.com} marked with
+  \bold{style.css template} in the subject line.
+
+  See \url{https://github.com/trinker/style.css_examples}
+  for examples utilizing the internal reports package
+  style.css.
 }
 \note{
   The user has to source before the custom styles will be
@@ -35,6 +54,10 @@
   startup.  Otherwise, the user must open the style.R as
   the active tab in RStudio, check the `Source on Save` box
   and the click the save icon.
+}
+\examples{
+## custom_css(TRUE, style.css = css_styles()[1])
+css_styles()
 }
 \references{
   \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering}

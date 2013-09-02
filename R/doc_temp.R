@@ -29,9 +29,9 @@
 #' 
 #' To be submitted a .tex template must run in Debian TeX Live on Linux Mint and 
 #' MiKTex on Windows.  After a template has been tested it can be sent as a 
-#' .zip file to \code{reports.rpackage@@gmail.com}.  Please note that the 
-#' template folder/directory name must end in _tex, _rnw, _rmd or _doc to 
-#' indicate to users type of template.
+#' .zip file to the reports package \email{reports.rpackage@@gmail.com}.  Please 
+#' note that the template folder/directory name must end in _tex, _rnw, _rmd or 
+#' _doc to indicate to the user the type of template.
 #' @return Creates a document template framework for template personal use or 
 #' submission.
 #' @export

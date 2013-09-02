@@ -191,5 +191,14 @@ News <- mgsub(
     c("&lt;", "&gt;", "<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>"), News)
 cat(paste(News, collapse = "\n"), file = "NEWS.md")
 
-#===================
+#==============================
+# Copy from Current R to R_dev
+#==============================
+cur <- "C:/R/R-3.0.1/library/reports"
+dev <- "C:/R/R-devel/library"
+if (fle.exists(file.path(dev, "reports")) {
+    unlink(file.path(dev, "reports"), recursive = TRUE, force = FALSE)
+}
+file.copy(cur, dev)
+
 

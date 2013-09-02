@@ -22,11 +22,11 @@
   templates.
 }
 \details{
-  \code{templates} - prints (via \code{\link[base]{cat}})
-  to the console to view possible templates (feel free to
-  submit your own; see \code{\link[reports]{doc_temp}} for
-  details) as well as optionally returning a vector of
-  names that the user can pass to other functions.
+  \code{templates} - prints to the console to view possible
+  templates (feel free to submit your own; see
+  \code{\link[reports]{doc_temp}} for details) as well as
+  optionally returning a vector of names that the user can
+  pass to other functions.
 
   \code{slidify_templates} - prints a list of minimal and
   full .Rmd files included with the reports package for use

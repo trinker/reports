@@ -1,26 +1,30 @@
 #' Generate Custom css for RStudio + knitr
 #'
-#' Generate the components necessary for a custom css for use with RStudio and 
-#' knitr.
+#' \code{custom_css} - Generate the components necessary for a custom css for 
+#' use with RStudio and knitr.
 #'
 #' @param rprofile logical.  If \code{TRUE} the style.R is added to the 
 #' .Rprofile for sourcing upon startup.
 #' @param loc Path to the report location where the custom css should be placed.  
 #' If \code{NULL} only the style.R is created in the base directory .Rprofile.
 #' @param style.css An optional path to a style.css file that will be used as 
-#' the ~/css/style.css.
+#' the ~/css/style.css.  Also may take a character string indicating one of the 
+#' reports package's built in style.css (see \code{\link[reports]{css_styles}}).
 #' @param source logical.  If \code{TRUE} the style.R is sourced intially.
-#' @details The user must add the custom contents to the custom css located in  
-#' ~/css/style.css
+#' @details \code{custom_css} - The user must add the custom contents to the 
+#' custom css located in  \file{~/css/style.css}.
 #' @note The user has to source before the custom styles will be applied. The 
 #' user may specify \code{rfprofile = TRUE} to add the style.R to the .Rprofile 
 #' for sourcing upon startup.  Otherwise, the user must open  the style.R as 
 #' the active tab in RStudio, check the `Source on Save` box and the click the 
 #' save icon.  
+#' @rdname custom_css
 #' @references
 #' \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering} 
 #' @export
 #' @importFrom markdown markdownToHTML
+#' @examples
+#' ## custom_css(TRUE, style.css = css_styles()[1])
 custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"), 
   style.css = NULL, source = TRUE) {
 	
@@ -39,6 +43,10 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
         	if (is.null(style.css)) {
                 cat("", file=file.path(cssloc, "style.css"))
         	} else {
+        		fls <- system.file("extdata/style.css_library", package = "reports")
+        		if (any(style.css %in% dir(fls))) {
+        		    style.css <- fls[dir(fls) %in% style.css]
+        		}
         		sty <- suppressWarnings(readLines(style.css))
                 cat(paste(sty, collapse="\n"), file=file.path(cssloc, "style.css"))
         	}
@@ -93,3 +101,26 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
         )
     }
 }
+
+#' Generate Custom css for RStudio + knitr
+#' 
+#' \code{css_styles} - View the built in style.css
+#' 
+##' @details \code{css_styles} - prints a list of available style.css templates 
+#' available within the reports package for use with the \code{custom_css} 
+#' argument \code{style.css}.  Feel free to submit your own to the reports 
+#' package \email{reports.rpackage@@gmail.com} marked with \bold{style.css 
+#' template} in the subject line.  
+#' 
+#' See \url{https://github.com/trinker/style.css_examples} for examples 
+#' utilizing the internal reports package style.css.
+#' @export
+#' @rdname custom_css
+#' @examples
+#' css_styles()
+css_styles <- function() {
+    fls <- system.file("extdata/style.css_library", package = "reports")
+    dir(fls)
+}
+
+

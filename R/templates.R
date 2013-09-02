@@ -6,10 +6,10 @@
 #' printed to the console.
 #' @param names logical.  If \code{TRUE} only the names of the templates will be 
 #' returned.
-#' @details \code{templates} - prints (via \code{\link[base]{cat}}) to the 
-#' console to view possible templates (feel free to submit your own; see 
-#' \code{\link[reports]{doc_temp}} for details) as well as optionally returning 
-#' a vector of names that the user can pass to other functions.
+#' @details \code{templates} - prints to the console to view possible templates 
+#' (feel free to submit your own; see \code{\link[reports]{doc_temp}} for 
+#' details) as well as optionally returning a vector of names that the user can 
+#' pass to other functions.
 #' @export
 #' @importFrom tools file_ext
 #' @seealso \code{\link[reports]{doc_temp}}
@@ -25,13 +25,15 @@
 templates <- function(print.cons = TRUE, names = TRUE) {
     root <- system.file("extdata/doc_library", package = "reports")
     if (print.cons) {
-    	fls <- paste0(root, "/", dir(root), "/DESCRIPTION")
+        fls <- paste0(root, "/", dir(root), "/DESCRIPTION")
         z <- invisible(lapply(fls, function(x) {
             y <- suppressWarnings(readLines(x))
             cat(paste0(y, collapse = "\n")); 
             cat("\n========================\n\n")
             return(y)
         }))
+        z <- lapply(z, function(x) x[x != ""])
+        message(paste(unlist(lapply(z, c, "========================\n")), "\n"))
     }
     if (names) {
     	z <- dir(root)
