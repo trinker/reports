@@ -16,7 +16,7 @@
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
 #' @param invisible logical.  If \code{TRUE} will not print to the console.
-#' @section Warning: Ligatures parsing is very good, however, these elements my
+#' @section Warning: Ligatures parsing is very good, however, these elements may
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".
 #' @return \code{GQ} - Returns formatted text for use with LaTeX documents. 

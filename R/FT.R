@@ -18,7 +18,7 @@
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
 #' @return Returns a character vector wrapped with a font tag.
-#' @section Warning: Ligatures parsing is very good, however, these elements my
+#' @section Warning: Ligatures parsing is very good, however, these elements may
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".
 #' @export

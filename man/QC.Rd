@@ -29,8 +29,8 @@
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements
-  my be incorrect.  If a warning is thrown check the use of
-  "ff", "fi", "fl", "ffi" and "ffl".
+  may be incorrect.  If a warning is thrown check the use
+  of "ff", "fi", "fl", "ffi" and "ffl".
 }
 \examples{
 x <- "\\\\*note: I *like* chocolate **milk** too ***much***!"

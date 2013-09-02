@@ -10,7 +10,7 @@
 #' clipboard.
 #' @details This capitalizes every word of a string.  
 #' @return Returns a character vector every word capitalized.
-#' @section Warning: Ligatures parsing is very good, however, these elements my
+#' @section Warning: Ligatures parsing is very good, however, these elements may
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".
 #' @author Michael Nelson and Tyler Rinker<tyler.rinker@@gmail.com>.

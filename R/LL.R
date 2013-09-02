@@ -10,7 +10,7 @@
 #' clipboard.
 #' @details This function formats text for use with LaTeX as a list.  
 #' @return Returns a character vector with a LaTeX list formatted text.
-#' @section Warning: Ligatures parsing is very good, however, these elements my
+#' @section Warning: Ligatures parsing is very good, however, these elements may
 #' be incorrect.  If a warning is thrown check the use of "ff", "fi", "fl", 
 #' "ffi" and "ffl".
 #' @export
