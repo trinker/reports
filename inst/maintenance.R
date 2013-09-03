@@ -188,7 +188,8 @@ News <- readLines("NEWS")
 library(qdap)
 News <- mgsub(
     c("<", ">", "&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;"), 
-    c("&lt;", "&gt;", "<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>"), News)
+    c("&lt;", "&gt;", "<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>"), 
+    News, trim = FALSE)
 cat(paste(News, collapse = "\n"), file = "NEWS.md")
 
 #==============================
