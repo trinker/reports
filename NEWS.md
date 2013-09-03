@@ -149,15 +149,15 @@ CHANGES
 
 * All options now have a consistent naming scheme (period separator)
 
-    - bib.loc-The path to the users primary .bib file (I store this in DropBox)
-    - name.reports-The name that will be automatically added to a report/presentation
-    - sources.reports-Path(s) to additional scripts to be sourced on project startup
-    - temp.reports-The primary template to use to generate reports (see template)
-    - github.user-GitHub user name
-    - speed.temp-A speed dial like interface that allows the template argument to take a number
-    - slidify.template-Path to, or default, .Rmd file template for use in as the 
+    - `bib.loc` - The path to the users primary .bib file (I store this in DropBox)
+    - `name.reports` - The name that will be automatically added to a report/presentation
+    - `sources.reports` - Path(s) to additional scripts to be sourced on project startup
+    - `temp.reports` - The primary template to use to generate reports (see template)
+    - `github.user` - GitHub user name
+    - `speed.temp` - A speed dial like interface that allows the template argument to take a number
+    - `slidify.template` - Path to, or default, .Rmd file template for use in as the 
         .Rmd used in the slidify presentations
-    - revealjs.loc-The path to the user’s reveal.js full install
+    - `revealjs.loc` - The path to the user’s reveal.js full install
 
 * The NOTES.txt and TO_DO.txt files lose the file extensions to become NOTES and 
   TO_DO.
