@@ -38,7 +38,8 @@
   \code{custom_css} - Generate the components necessary for
   a custom css for use with RStudio and knitr.
 
-  \code{css_styles} - View the built in style.css
+  \code{css_styles} - View the available built in style.css
+  files.
 
   \code{css_style_change} - Change a style.css.
 }

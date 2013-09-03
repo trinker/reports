@@ -108,7 +108,7 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
 
 #' Generate Custom css for RStudio + knitr
 #' 
-#' \code{css_styles} - View the built in style.css
+#' \code{css_styles} - View the available built in style.css files.
 #' 
 ##' @details \code{css_styles} - prints a list of available style.css templates 
 #' available within the reports package for use with the \code{custom_css} 
