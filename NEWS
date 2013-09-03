@@ -81,6 +81,10 @@ NEW FEATURES
   file for use with RStudio + knitr.  See: 
   http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering
 
+* `css_styles` and `css_style_change` compliment `custom_css`.  The former 
+  provides internal style.css files : see https://github.com/trinker/style.css_examples.
+  The later enables changing style.css files on the fly.
+
 
 MINOR FEATURES
 

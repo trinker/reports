@@ -7,9 +7,11 @@
 #' .Rprofile for sourcing upon startup.
 #' @param loc Path to the report location where the custom css should be placed.  
 #' If \code{NULL} only the style.R is created in the base directory .Rprofile.
-#' @param style.css An optional path to a style.css file that will be used as 
-#' the ~/css/style.css.  Also may take a character string indicating one of the 
-#' reports package's built in style.css (see \code{\link[reports]{css_styles}}).
+#' @param style.css A path to a style.css file that will be used as 
+#' the \file{~/css/style.css}.  Also may take a character string indicating one 
+#' of the reports package's built in style.css (see 
+#' \code{\link[reports]{css_styles}}).  Default in 
+#' \code{\link[reports]{custom_css}} is a blank styl.css.
 #' @param source logical.  If \code{TRUE} the style.R is sourced intially.
 #' @details \code{custom_css} - The user must add the custom contents to the 
 #' custom css located in  \file{~/css/style.css}.
@@ -43,9 +45,11 @@ custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"),
         	if (is.null(style.css)) {
                 cat("", file=file.path(cssloc, "style.css"))
         	} else {
+        		
+        		## check is style.css is a reports internal
         		fls <- system.file("extdata/style.css_library", package = "reports")
         		if (any(style.css %in% dir(fls))) {
-        		    style.css <- fls[dir(fls) %in% style.css]
+        		    style.css <- file.path(fls, style.css, "style.css")
         		}
         		sty <- suppressWarnings(readLines(style.css))
                 cat(paste(sty, collapse="\n"), file=file.path(cssloc, "style.css"))
@@ -122,5 +126,34 @@ css_styles <- function() {
     fls <- system.file("extdata/style.css_library", package = "reports")
     dir(fls)
 }
+
+#' Generate Custom css for RStudio + knitr
+#' 
+#' \code{css_style_change} - Change a style.css.
+#' 
+#' @param cur.style.css The location of the current style.css (this will be 
+#' replaced).
+#' @export
+#' @rdname custom_css
+#' @examples
+#' ## css_style_change("rinker_vignette")
+css_style_change <- 
+function(style.css, cur.style.css = file.path(getwd(), 
+    "REPORT/css/style.css")) {
+	
+	## Delete current style.css
+	delete(cur.style.css)
+	
+	## check is style.css is a reports internal
+    fls <- system.file("extdata/style.css_library", package = "reports")
+    if (any(style.css %in% dir(fls))) {
+        style.css <- file.path(fls, style.css, "style.css")
+    }
+
+	## Copy the new style.css to the old location
+	file.copy(style.css, dirname(cur.style.css))
+	message(paste0("New style.css copied to:\n", dirname(cur.style.css)))
+}
+
 
 

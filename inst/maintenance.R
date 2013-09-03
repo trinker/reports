@@ -91,7 +91,7 @@ path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
-    "HR2", "BT", "PF", "slidify_templates", "css_styles"))
+    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
 
 #STEP 3: move to trinker.guthub
 library(reports)
@@ -130,7 +130,7 @@ rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 #extras <- qcv(folder, QQ)
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
-    "HR2", "BT", "PF", "slidify_templates", "css_styles"))
+    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
 
 #STEP 3: move to trinker.guthub
 library(reports)
@@ -196,9 +196,9 @@ cat(paste(News, collapse = "\n"), file = "NEWS.md")
 #==============================
 cur <- "C:/R/R-3.0.1/library/reports"
 dev <- "C:/R/R-devel/library"
-if (fle.exists(file.path(dev, "reports")) {
+if (file.exists(file.path(dev, "reports"))) {
     unlink(file.path(dev, "reports"), recursive = TRUE, force = FALSE)
 }
-file.copy(cur, dev)
+file.copy(cur, dev, recursive = TRUE)
 
 

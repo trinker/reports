@@ -1,4 +1,5 @@
 \name{custom_css}
+\alias{css_style_change}
 \alias{css_styles}
 \alias{custom_css}
 \title{Generate Custom css for RStudio + knitr}
@@ -8,6 +9,9 @@
     source = TRUE)
 
   css_styles()
+
+  css_style_change(style.css,
+    cur.style.css = file.path(getwd(), "REPORT/css/style.css"))
 }
 \arguments{
   \item{rprofile}{logical.  If \code{TRUE} the style.R is
@@ -17,20 +21,26 @@
   css should be placed. If \code{NULL} only the style.R is
   created in the base directory .Rprofile.}
 
-  \item{style.css}{An optional path to a style.css file
-  that will be used as the ~/css/style.css.  Also may take
-  a character string indicating one of the reports
-  package's built in style.css (see
-  \code{\link[reports]{css_styles}}).}
+  \item{style.css}{A path to a style.css file that will be
+  used as the \file{~/css/style.css}.  Also may take a
+  character string indicating one of the reports package's
+  built in style.css (see
+  \code{\link[reports]{css_styles}}).  Default in
+  \code{\link[reports]{custom_css}} is a blank styl.css.}
 
   \item{source}{logical.  If \code{TRUE} the style.R is
   sourced intially.}
+
+  \item{cur.style.css}{The location of the current
+  style.css (this will be replaced).}
 }
 \description{
   \code{custom_css} - Generate the components necessary for
   a custom css for use with RStudio and knitr.
 
   \code{css_styles} - View the built in style.css
+
+  \code{css_style_change} - Change a style.css.
 }
 \details{
   \code{custom_css} - The user must add the custom contents
@@ -58,6 +68,7 @@
 \examples{
 ## custom_css(TRUE, style.css = css_styles()[1])
 css_styles()
+## css_style_change("rinker_vignette")
 }
 \references{
   \url{http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering}
