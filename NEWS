@@ -41,7 +41,7 @@ NEW FEATURES
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
   files associated with the presentation.
 
-* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s inclusing
+* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s including
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
   .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
   way).  Add additional vignettes to the vignettes directory with the 
@@ -92,7 +92,7 @@ MINOR FEATURES
   notes located in the ARTICLES directory.
 
 * `BV` a function, bibliography viewer, that allows the user to view their 
-  bibiliographs stored in the .bib file.
+  bibliographies stored in the .bib file.
 
 * A new template `wordpress_web` has been added.
 
@@ -112,7 +112,7 @@ MINOR FEATURES
 * `WP` a convenience function for formulating Windows paths correctly.
 
 * `slidify_layouts` function to generate html files for extra slidify slide 
-  layouts.  By defualt `new_report` and `presentation` will utilize
+  layouts.  By default `new_report` and `presentation` will utilize
   `slidify_layouts` to generate the appropriate files.
 
 * The project creating functions (`presentation`, `new_report` and 
@@ -144,7 +144,7 @@ CHANGES
   from the reports package upon the next update.
 
 * `US` has been renamed to `UF` (underscore fill) and gets a counterpart `PF` 
-  (percent fill) for URL blank spaces.  `US` is now Depracated and will be 
+  (percent fill) for URL blank spaces.  `US` is now Deprecated and will be 
   removed in the next update.
 
 * All options now have a consistent naming scheme (period separator)
@@ -155,8 +155,8 @@ CHANGES
     ~temp.reports-The primary template to use to generate reports (see template)
     ~github.user-GitHub user name
     ~speed.temp-A speed dial like interface that allows the template argument to take a number
-    ~slidify.template-Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations
-    ~revealjs.loc~The path to the user’s reveal.js full install
+    ~slidify.template-Path to, or default, .Rmd file template for use in as the .Rmd used in the slidify presentations
+    ~revealjs.loc-The path to the user’s reveal.js full install
 
 * The NOTES.txt and TO_DO.txt files lose the file extensions to become NOTES and 
   TO_DO.
@@ -172,7 +172,7 @@ BUG FIXES
   This behavior has been corrected.
 
 * `GQ`, `CA`, `LL` and `US` now parse out ligature "fi" as "fi" rather than "?".  
-  Warnings were added for cases when liigatures are detected.
+  Warnings were added for cases when ligatures are detected.
 
 * Fixed the Description file for the basic_web template (missing info).
 
