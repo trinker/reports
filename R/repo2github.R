@@ -40,25 +40,27 @@ repo2github <- function(password, project.dir = getwd(),
 	gitpath = NULL) {
 
     #check for password
-    if (is.null(password)) {	
+    if (missing(password)) {	
         cat ("Enter [GitHub password] to continue\n")
         password <- readLines(n=1)
     }
     
+    OSiswin <- Sys.info()["sysname"] != "Windows"
+    
     #Create the repo
-    if (Sys.info()["sysname"] != "Windows") {
+    if (OSiswin) {
         gitpath <- "git"
         cmd1 <- paste0("curl -u '", github.user, ":", password, 
             "' https://api.github.com/user/repos -d '{\"name\":\"", repo, "\"}'")
     } else {
         if (is.null(gitpath)){  
-            test <- c(file.exists("C:\\Program Files (x86)\\Git\\bin\\git.exe"),
-                file.exists("C:\\Program Files\\Git\\bin\\git.exe"))
+            test <- c(file.exists("C:/Program Files (x86)/Git/bin/git.exe"),
+                file.exists("C:/Program Files/Git/bin/git.exe"))
             if (sum(test) == 0) {
                 stop("Git not found.  Supply path to 'gitpath'")    
             }
-            gitpath <- c("\"C:\\Program Files (x86)\\Git\\bin\\git\"",
-                "\"C:\\Program Files\\Git\\bin\\git\"")[test][1]
+            gitpath <- c("C:/Program Files (x86)/Git/bin/git.exe",
+                "C:/Program Files/Git/bin/git.exe")[test][1]
         }
         url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
         tmp <- tempfile( fileext = ".zip" )
@@ -77,11 +79,62 @@ repo2github <- function(password, project.dir = getwd(),
     #be careful that github.user is correct or git will get messed up
     #could probably do with some references to how git will get confused and how to solve it
     if (is.null(project.dir)) stop("\"project.dir\" must be supplied")
-    system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
-    system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
-    system( paste0( "cd ", project.dir , " && " , gitpath , 
-        " commit -m \"Initial commit\"" ) )
-    system( paste0( "cd ", project.dir , " && " , gitpath, 
-        " remote add origin https://github.com:", github.user, "/", repo, ".git") )      
-    cat("repo pushed to github\n")
+    
+    if (!OSiswin) {    
+
+        wd <- getwd()
+        setwd(project.dir)
+        cmd2 <- paste0(shQuote(gitpath), " init")
+        system(cmd2, intern = T)
+        cmd3 <- paste0(shQuote(gitpath), " add -A")  ## maybe cmd3 <- paste0(shQuote(gitpath), " add .")
+        system(cmd3, intern = T)       
+
+        ## Set email
+        x <- file.path(path.expand("~"), ".gitconfig")
+        if (file.exists(x)) {
+            y <- readLines(x)
+            email <- Trim(unlist(strsplit(y[grepl("email = ", y)], "email ="))[2])
+        } else {
+            z <- file.path(Sys.getenv("HOME"), ".gitconfig")
+            if (file.exists(z)) {
+                email <- Trim(unlist(strsplit(y[grepl("email = ", y)], "email ="))[2])
+            } else {
+                stop(paste("Set `email` in", x))
+            }
+        }
+        cmdEM <- paste0(shQuote(gitpath), sprintf(" config --global user.email %s", email))        
+        system(cmdEM)
+        
+        ## Initial commit
+        cmd4 <- paste0(shQuote(gitpath), ' commit -a -m "Initial commit"')  
+        system(cmd4, intern = T) 
+
+        
+        ## system(paste(shQuote(gitpath), "remote rm origin"))
+        
+        ##
+        ## cmd5 <- paste(shQuote(gitpath), sprintf(paste("remote add", repo, "git@github.com:%s/%s.git"), github.user, repo))
+        ## system(cmd5, intern = T) 
+        
+        ## 
+        cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com:",
+            github.user, "/", repo, ".git")  
+        system(cmd5, intern = T) 
+        
+        ## 
+        cmd6 <- paste0(shQuote(gitpath), " push -u origin master")  
+        system(cmd6, intern = T) 
+        
+        setwd(wd)	
+    } else {
+        system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
+        system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
+        system( paste0( "cd ", project.dir , " && " , gitpath , 
+            " commit -m \"Initial commit\"" ) )
+        system( paste0( "cd ", project.dir , " && " , gitpath, 
+            " remote add origin https://github.com:", github.user, "/", repo, ".git") ) 
+    }
+    message(paste(repo, "pushed to github\n"))
 }  
+
+#  password <-"pass"; project.dir = getwd(); repo = basename(getwd()); github.user = getOption("github.user"); Trim <- reports:::Trim
