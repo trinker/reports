@@ -27,5 +27,5 @@ function(report = getwd(), bib.loc = getOption("bib.loc")) {
     }
     suppressWarnings(try(file.copy(bib.loc, x, overwrite = TRUE)))
     invisible(file.copy(bib.loc, z, overwrite = TRUE))
-    cat("bib files updated!")
+    message("bib files updated!")
 }

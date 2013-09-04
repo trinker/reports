@@ -37,9 +37,11 @@
 #' @export
 doc_temp <- 
 function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
+	
     tn <- paste0(temp.name, "_", doc.type)
+    
     if(file.exists(file.path(path, tn))) {
-        cat(paste0("\"", file.path(path, tn), 
+        message(paste0("\"", file.path(path, tn), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
@@ -57,5 +59,5 @@ function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
     desc[1:2] <- c(paste("Template:", temp.name), paste0(desc[2], Sys.Date()))
     cat(paste(desc, collapse="\n"), file=file.path(x, "DESCRIPTION"))
     folder(folder.name = file.path(tn, "inst"))
-    cat(paste0("template created:\n", x, "\n"))
+    message(paste0("template created:\n", x, "\n"))
 }

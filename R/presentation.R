@@ -61,11 +61,13 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     name = getOption("name.reports"), github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), 
 	slidify = getOption("slidify.template"), open = FALSE, ...) {
+	
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
-    presentation <- tail(presentation, 1)	
+    presentation <- tail(presentation, 1)
+    
     if(file.exists(file.path(path, main))) {
-        cat(paste0("\"", file.path(path, presentation), 
+        message(paste0("\"", file.path(path, presentation), 
             "\" already exists:\nDo you want to overwrite?\n\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {

@@ -28,15 +28,19 @@ templates <- function(print.cons = TRUE, names = TRUE) {
         fls <- paste0(root, "/", dir(root), "/DESCRIPTION")
         z <- invisible(lapply(fls, function(x) {
             y <- suppressWarnings(readLines(x))
-            cat(paste0(y, collapse = "\n")); 
-            cat("\n========================\n\n")
+            message(paste(paste0(y, collapse = "\n"), 
+                "\n========================\n\n"))
             return(y)
         }))
         z <- lapply(z, function(x) x[x != ""])
         message(paste(unlist(lapply(z, c, "========================\n")), "\n"))
     }
     if (names) {
-    	z <- dir(root)
+    	  z <- dir(root)
+    } else {
+        if (!print.cons) {
+            stop("Both `print.cons` and `names` set to FALSE.  Nothing Returned.")
+        }
     }
     z
 }

@@ -16,7 +16,7 @@
 WP <- 
 function(path = "clipboard", quotes = TRUE, copy2clip = TRUE) {
     if (path != "clipboard") {
-        cat("Please enter the path:\n\n")
+        message("Please enter the path:\n\n")
         path <- readline()
     } else {
         path <- read_clip()

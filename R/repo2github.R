@@ -99,7 +99,7 @@ repo2github <- function(password, project.dir = getwd(),
             if (file.exists(z)) {
                 email <- Trim(unlist(strsplit(y[grepl("email = ", y)], "email ="))[2])
             } else {
-                stop(paste("Set `email` in", x))
+                warning(paste("Set `email` in", x))
             }
         }
         cmdEM <- paste0(shQuote(gitpath), sprintf(" config --global user.email %s", email))        
