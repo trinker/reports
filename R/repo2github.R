@@ -86,7 +86,7 @@ repo2github <- function(password, project.dir = getwd(),
         setwd(project.dir)
         cmd2 <- paste0(shQuote(gitpath), " init")
         system(cmd2, intern = T)
-        cmd3 <- paste0(shQuote(gitpath), " add -A")  ## maybe cmd3 <- paste0(shQuote(gitpath), " add .")
+        cmd3 <- paste0(shQuote(gitpath), " add .")  
         system(cmd3, intern = T)       
 
         ## Set email
@@ -106,15 +106,9 @@ repo2github <- function(password, project.dir = getwd(),
         system(cmdEM)
         
         ## Initial commit
-        cmd4 <- paste0(shQuote(gitpath), ' commit -a -m "Initial commit"')  
+        cmd4 <- paste0(shQuote(gitpath), ' commit -m "Initial commit"')  
         system(cmd4, intern = T) 
 
-        
-        ## system(paste(shQuote(gitpath), "remote rm origin"))
-        
-        ##
-        ## cmd5 <- paste(shQuote(gitpath), sprintf(paste("remote add", repo, "git@github.com:%s/%s.git"), github.user, repo))
-        ## system(cmd5, intern = T) 
         
         ## 
         cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com:",
