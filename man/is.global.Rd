@@ -27,7 +27,7 @@ FUN <- function() is.global(); FUN()
   \url{http://stackoverflow.com/questions/18637656/detect-if-environment-is-global-enviroment}
 }
 \seealso{
-  \code{\link[base]{globalenv}}
+  \code{\link[base]{globalenv}},
   \code{\link[base]{parent.frame}}
 }
 
