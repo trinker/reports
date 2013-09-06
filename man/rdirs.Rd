@@ -36,13 +36,14 @@
 }
 \examples{
 ## fx <- folder(delete_me)
+## owd <- getwd(); setwd(fx)
 ## rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6))
 rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 ## rdirs(session, 1:12, seq(as.Date("2000/1/1"), by = "month", length.out = 12))
 
 x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 ## lapply(x, new_report)
-## delete(fx)
+## setwd(owd); delete(fx)
 }
 \seealso{
   \code{\link[reports]{folder}}, \code{delete},

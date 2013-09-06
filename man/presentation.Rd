@@ -8,8 +8,8 @@
     name = getOption("name.reports"),
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
-    slidify = getOption("slidify.template"), open = FALSE,
-    ...)
+    slidify = getOption("slidify.template"),
+    open = is.global(), ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or
@@ -53,7 +53,10 @@
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
 
   \item{open}{logical.  If \code{TRUE} the project will be
-  opened in RStudio.}
+  opened in RStudio. The default is to test if
+  \code{new_report} is being used in the global
+  environment, if it is then the project directory will be
+  opened.}
 
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}

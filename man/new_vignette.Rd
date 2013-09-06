@@ -5,7 +5,7 @@
 \usage{
   new_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"), open = FALSE)
+    name = getOption("name.reports"), open = is.global())
 
   append_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
@@ -33,7 +33,10 @@
   used on the vignette.}
 
   \item{open}{logical.  If \code{TRUE} the project will be
-  opened in RStudio.}
+  opened in RStudio. The default is to test if
+  \code{new_report} is being used in the global
+  environment, if it is then the project directory will be
+  opened.}
 }
 \value{
   Creates a vignette template.

@@ -119,6 +119,9 @@ MINOR FEATURES
   `new_vignette`) gain an `open` argument to open the directory in RStudio after 
   it has been created.
 
+* `is.global` is a function used to test if the environment is the global 
+  environment.
+
 
 IMPROVEMENTS
 

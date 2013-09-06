@@ -91,7 +91,8 @@ list(
     sd_section("reports Tools", 
       "Exported tools used within reports.",
       c(
-        "IE"
+        "IE",
+        "is.global"
       )
     ),   
     sd_section("Customization", 

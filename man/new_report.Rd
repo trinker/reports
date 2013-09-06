@@ -9,8 +9,8 @@
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
     AN.xlsx = TRUE,
-    slidify = getOption("slidify.template"), open = FALSE,
-    ...)
+    slidify = getOption("slidify.template"),
+    open = is.global(2), ...)
 }
 \arguments{
   \item{report}{A character vector of length two or one:
@@ -52,7 +52,10 @@
   slidify.Rmd (\code{/inst/slidify.Rmd}).}
 
   \item{open}{logical.  If \code{TRUE} the project will be
-  opened in RStudio.}
+  opened in RStudio. The default is to test if
+  \code{new_report} is being used in the global
+  environment, if it is then the project directory will be
+  opened.}
 
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}
@@ -93,6 +96,12 @@
 }
 \examples{
 ## new_report()
+
+## fx <- folder(delete_me)
+## owd <- getwd(); setwd(fx)
+## x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
+## lapply(x, new_report)
+## setwd(owd); delete(fx)
 }
 \references{
   \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify

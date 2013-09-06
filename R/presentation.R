@@ -27,7 +27,9 @@
 #' be one of the types from \code{slidify_templates} or a path to an .Rmd file.  
 #' This argument will be overrode if a custom reports template is supplied with 
 #' an .Rmd file in the inst directory named slidify.Rmd (\code{/inst/slidify.Rmd}).
-#' @param open logical.  If \code{TRUE} the project will be opened in RStudio.
+#' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
+#' The default is to test if \code{new_report} is being used in the global 
+#' environment, if it is then the project directory will be opened.  
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
@@ -60,7 +62,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name.reports"), github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), 
-	slidify = getOption("slidify.template"), open = FALSE, ...) {
+	slidify = getOption("slidify.template"), open = is.global(), ...) {
 	
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
