@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<major>.<minor>.<patch>
+<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>
 
 And constructed with the following guidelines:
 
@@ -20,10 +20,10 @@ And constructed with the following guidelines:
 
 
 
-CHANGES IN reports VERSION 0.2.0
+<b>CHANGES</b> IN reports VERSION 0.2.0
 ----------------------------------------------------------------
 
-BUG FIXES
+<b>BUG FIXES</b>
 
 * `GQ`, `CA`, `LL` and `US` threw multiple warnings if a ligature was detected.
   This behavior has been corrected.
@@ -36,12 +36,12 @@ BUG FIXES
   pull request 31.
   
 
-NEW FEATURES
+<b>NEW FEATURES</b>
 
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
   files associated with the presentation.
 
-* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s including
+* `new_vignette` is a function that takes advantage of R (&gt;= 3.0.0)'s including
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
   .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
   way).  Add additional vignettes to the vignettes directory with the 
@@ -86,7 +86,7 @@ NEW FEATURES
   The later enables changing style.css files on the fly.
 
 
-MINOR FEATURES
+<b>MINOR FEATURES</b>
 
 * `notes` is a function that allows the user to view a truncated version of the 
   notes located in the ARTICLES directory.
@@ -143,7 +143,7 @@ IMPROVEMENTS
 * `new_report` now moves a **css** directory in a template to the **REPORT** 
   directory rather than the main directory.
 
-CHANGES
+<b>CHANGES</b>
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
   makes maintaining these functions pointless.  These functions will be removed 
@@ -169,11 +169,11 @@ CHANGES
   TO_DO.
 
 
-CHANGES IN reports VERSION 0.1.2
+<b>CHANGES</b> IN reports VERSION 0.1.2
 ----------------------------------------------------------------
 This is a bug fix release
 
-BUG FIXES
+<b>BUG FIXES</b>
 
 * `GQ` did not handle block quotes correctly in what printed to the console.  
   This behavior has been corrected.
@@ -186,13 +186,13 @@ BUG FIXES
 * `reveal.js` resulted in an error if a reference page was not supplied.   This 
   behavior has been corrected.
 
-CHANGES
+<b>CHANGES</b>
 
 * `install_pandoc` is no longer exported as this functionality can be found in 
   the installr package
 
 
-CHANGES IN reports VERSION 0.1.1
+<b>CHANGES</b> IN reports VERSION 0.1.1
 ----------------------------------------------------------------
 
 * The first CRAN installation of the reports package
