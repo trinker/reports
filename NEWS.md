@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>
+<major>.<minor>.<patch>
 
 And constructed with the following guidelines:
 
@@ -41,7 +41,7 @@ NEW FEATURES
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
   files associated with the presentation.
 
-* `new_vignette` is a function that takes advantage of R (&gt;= 3.0.0)'s including
+* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s including
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
   .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
   way).  Add additional vignettes to the vignettes directory with the 
@@ -139,6 +139,9 @@ IMPROVEMENTS
 
 * reports gains an HTML vignette (with video explanations) to better explain 
   package use.  Use `browseVignettes(package = 'reports')` to view the vignette.
+
+* `new_report` now moves a **css** directory in a template to the **REPORT** 
+  directory rather than the main directory.
 
 CHANGES
 

@@ -55,7 +55,7 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     ## Check if the directory vignettes already exists in that location
     if(file.exists(file.path(path, main))) {
         message(paste0("\"", file.path(path, main), 
-            "\" already exists:\nDo you want to overwrite?\n\n"))
+            "\" already exists:\nDo you want to overwrite?\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("new_vignette aborted")

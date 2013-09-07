@@ -140,6 +140,9 @@ IMPROVEMENTS
 * reports gains an HTML vignette (with video explanations) to better explain 
   package use.  Use `browseVignettes(package = 'reports')` to view the vignette.
 
+* `new_report` now moves a **css** directory in a template to the **REPORT** 
+  directory rather than the main directory.
+
 CHANGES
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
