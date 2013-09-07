@@ -20,7 +20,7 @@
 #' creates the .md file).
 #' @rdname doc2doc
 #' @export
-#' @importFrom tools file_ext
+#' @importFrom tools file_ext file_path_sans_ext
 #' @examples
 #' \dontrun{
 #' DOC <- system.file("extdata/doc_library/apa6.qual_tex/doc.tex",
@@ -32,23 +32,22 @@ tex2docx <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
-        WD <- getwd()
-        on.exit(setwd(WD))
-        setwd(path)
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "tex"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".docx")
+            out.file <- paste0(file_path_sans_ext(in.file), ".docx")
         }
+        in.file <- file.path(path, in.file)
+        out.file <- file.path(path, out.file)        
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("docx file generated!\n")
+    message("docx file generated!")
 }
 
 #' @rdname doc2doc
@@ -65,7 +64,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".html")
+            out.file <- paste0(file_path_sans_ext(in.file), ".html")
         }
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
@@ -73,7 +72,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("html file generated!\n")
+    message("html file generated!")
 }
 
 #' @rdname doc2doc
@@ -89,7 +88,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
             in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".docx")
+            out.file <- paste0(file_path_sans_ext(in.file), ".docx")
         }
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
@@ -97,7 +96,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("docx file generated!\n")
+    message("docx file generated!")
 }
 
 #' @rdname doc2doc
@@ -113,7 +112,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
             in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".tex")
+            out.file <- paste0(file_path_sans_ext(in.file), ".tex")
         }
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
@@ -121,7 +120,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("tex file generated!\n")
+    message("tex file generated!")
 }
 
 #' @rdname doc2doc
@@ -135,10 +134,9 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         setwd(path)
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "md"]
-            in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".pdf")
+            out.file <- paste0(file_path_sans_ext(in.file), ".pdf")
         }
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
@@ -146,7 +144,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("pdf file generated!\n")
+    message("pdf file generated!")
 }
 
 #' @rdname doc2doc
@@ -160,10 +158,9 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         setwd(path)
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "html"]
-            in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
-            out.file <- paste0(unlist(strsplit(in.file, "\\."))[1], ".pdf")
+            out.file <- paste0(file_path_sans_ext(in.file), ".pdf")
         }
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
@@ -171,5 +168,5 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
         action <- paste0(action, " --bibliography=", shQuote(bib.loc))
     }
     system(action)
-    cat("pdf file generated!\n")
+    message("pdf file generated!")
 }

@@ -822,7 +822,7 @@ custom_css()
 
 After the appropriate files are created the user adds custom styling to the ~/css/style.css.  The user has to source before the custom styles will be applied. The user may specify `r CN("rfprofile = TRUE")` in `r FUN("custom_css")` to add the style.R to the .Rprofile for sourcing upon startup. Otherwise, the user must open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
 
-Note that the path to a style.css can be supplied to `r FUN("custom_css")`.  This may be a user defined file or an internal file from the reports style.css library (see `r FUN("css_styles", "custom_css")`).  For examples see: https://github.com/trinker/style.css_examples.  Feel free to submit your own style.css to the reports package <a href="mailto:reports.rpackage@gmail.com" target="_blank">reports.rpackage@gmail.com</a> marked with <b>style.css</b> template in the subject line.
+Note that the path to a style.css can be supplied to `r FUN("custom_css")` via the `r CN("style.css")` argument.  This may be a user defined file or an internal file from the reports style.css library (see `r FUN("css_styles", "custom_css")`).  For examples see: `r HR2("https://github.com/trinker/style.css_examples", "https://github.com/trinker/style.css_examples")`.  Feel free to submit your own style.css to the reports package &lt;<a href="mailto:reports.rpackage@gmail.com" target="_blank">reports.rpackage@gmail.com</a>&gt; marked with <b>style.css template</b> in the subject line.
 
 <hr>
 ## Acknowledgements
