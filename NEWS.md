@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>
+<major>.<minor>.<patch>
 
 And constructed with the following guidelines:
 
@@ -20,10 +20,10 @@ And constructed with the following guidelines:
 
 
 
-<b>CHANGES</b> IN reports VERSION 0.2.0
+CHANGES IN reports VERSION 0.2.0
 ----------------------------------------------------------------
 
-<b>BUG FIXES</b>
+BUG FIXES
 
 * `GQ`, `CA`, `LL` and `US` threw multiple warnings if a ligature was detected.
   This behavior has been corrected.
@@ -36,12 +36,12 @@ And constructed with the following guidelines:
   pull request 31.
   
 
-<b>NEW FEATURES</b>
+NEW FEATURES
 
 * `new_report` and `presentation` utilize the slidify package to render the .Rmd 
   files associated with the presentation.
 
-* `new_vignette` is a function that takes advantage of R (&gt;= 3.0.0)'s including
+* `new_vignette` is a function that takes advantage of R (>= 3.0.0)'s including
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
   .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
   way).  Add additional vignettes to the vignettes directory with the 
@@ -86,7 +86,7 @@ And constructed with the following guidelines:
   The later enables changing style.css files on the fly.
 
 
-<b>MINOR FEATURES</b>
+MINOR FEATURES
 
 * `notes` is a function that allows the user to view a truncated version of the 
   notes located in the ARTICLES directory.
@@ -94,7 +94,7 @@ And constructed with the following guidelines:
 * `BV` a function, bibliography viewer, that allows the user to view their 
   bibliographies stored in the .bib file.
 
-* A new template `wordpress_web` has been added.
+* New templates `wordpress_rmd`, `hw_rmd` and `hw_rnw` have been added.
 
 * `SC` a function to quickly generate special HTML characters.
 
@@ -143,7 +143,7 @@ IMPROVEMENTS
 * `new_report` now moves a **css** directory in a template to the **REPORT** 
   directory rather than the main directory.
 
-<b>CHANGES</b>
+CHANGES
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
   makes maintaining these functions pointless.  These functions will be removed 
@@ -169,11 +169,11 @@ IMPROVEMENTS
   TO_DO.
 
 
-<b>CHANGES</b> IN reports VERSION 0.1.2
+CHANGES IN reports VERSION 0.1.2
 ----------------------------------------------------------------
 This is a bug fix release
 
-<b>BUG FIXES</b>
+BUG FIXES
 
 * `GQ` did not handle block quotes correctly in what printed to the console.  
   This behavior has been corrected.
@@ -186,13 +186,13 @@ This is a bug fix release
 * `reveal.js` resulted in an error if a reference page was not supplied.   This 
   behavior has been corrected.
 
-<b>CHANGES</b>
+CHANGES
 
 * `install_pandoc` is no longer exported as this functionality can be found in 
   the installr package
 
 
-<b>CHANGES</b> IN reports VERSION 0.1.1
+CHANGES IN reports VERSION 0.1.1
 ----------------------------------------------------------------
 
 * The first CRAN installation of the reports package
