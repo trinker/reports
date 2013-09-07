@@ -91,7 +91,8 @@ path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
-    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
+    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change",
+    "run_lh"))
 
 ## Step 2b: Fix is.global FALSE
 ISG <- file.path(path, "is.global.html")
@@ -137,7 +138,8 @@ rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 #extras <- qcv(folder, QQ)
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
-    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
+    "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change", 
+    "run_lh"))
 
 ## Step 2b: Fix is.global FALSE
 ISG <- file.path(path, "is.global.html")
