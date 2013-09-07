@@ -55,7 +55,7 @@ To double space text
 
 ------
 
-## References
+# References
 ```{r, echo=FALSE, results='asis'}
 #bibliography("html") 
 ```
