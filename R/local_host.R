@@ -62,7 +62,7 @@ run_lh <- function(loc = file.path(getwd(), "PRESENTATION")) {
 	## Create local host
     out <- local_host(loc = loc)
     
-    message("The local host is opening")
+    message("\nThe local host is opening")
     
     ## Open bat/sh file
     system(out)
