@@ -39,10 +39,12 @@
   preamble.tex} \item{If \code{doc.type = rmd}}{ - Must
   contain: doc.rmd} \item{If \code{doc.type = docx}}{ -
   Must contain: doc.docx} } } Additional project files and
-  directories can be stored in the \code{inst} directory.
+  directories can be stored in the \bold{inst} directory.
   Files in this directory will be placed in the main
   directory of the template created by
-  \code{\link[reports]{new_report}}
+  \code{\link[reports]{new_report}}.  If a directory called
+  \bold{css} this directory will be moved to the
+  \bold{REPORT} directory rather than the main directory.
 
   To be submitted a .tex template must run in Debian TeX
   Live on Linux Mint and MiKTex on Windows.  After a

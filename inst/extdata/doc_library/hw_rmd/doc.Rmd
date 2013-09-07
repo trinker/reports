@@ -1,0 +1,61 @@
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=TRUE)
+packs <- c("reports", "xtable", "ggplot2", "reshape2", "gridExtra", "tables")
+lapply(packs, library, character.only = TRUE)
+
+## Format for pvalues
+pform <- function(x, cutoff = .01, digits = NULL) {
+    z <- strsplit(as.character(cutoff), "\\.")[[c(1, 2)]]
+    w <- paste0(".", z)
+    if (x < cutoff) {
+        paste0("< ", w)
+    } else {
+        if (is.null(digits)) digits <- nchar(z)
+        paste0("= .", strsplit(as.character(round(x, digits)), "\\.")[[c(1, 2)]])
+    }
+}
+
+## Format numbers and removes leading zeros
+numformat <- function(val, digits=2) { 
+    sub("^(-?)0.", "\\1.", sprintf(paste0("%.", digits, "f"), val)) 
+}
+
+#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+
+# Title
+# Name
+# Date
+
+------
+
+It make be wise to run `custom_css(rprofile = TRUE)`.    
+
+
+<div class="textbox">
+1.  Ask a question here...
+</div>
+
+Answer it here
+
+------
+
+```{r}
+ggplot(mtcars, aes(mpg, hp)) + geom_point()
+```
+<p margin: 0px; padding: 0px; ><em>Figure 1</em>: gpplot Rocks!</p>
+
+Use:
+
+<div class="DoubleSpace">
+To double space text
+</div>
+
+------
+
+## References
+```{r, echo=FALSE, results='asis'}
+#bibliography("html") 
+```

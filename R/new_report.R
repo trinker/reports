@@ -90,7 +90,7 @@ function(report = "report", template = getOption("temp.reports"),
     report <- tail(report, 1)
     if(file.exists(file.path(path, main))) {
         message(paste0("\"", file.path(path, main), 
-            "\" already exists:\nDo you want to overwrite?\n\n"))
+            "\" already exists:\nDo you want to overwrite?\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("new_report aborted")
@@ -328,12 +328,25 @@ function(report = "report", template = getOption("temp.reports"),
         }   
         folder(folder.name=file.path(y[[1]], "figure"))        
     }
+
+    ## Move anything in the inst file over
     ins <- file.path(pdfloc, "inst")
-    if (file.exists(ins)) {
-        ins2 <- file.path(ins, dir(ins))
-        invisible(lapply(ins2, function(zz) {
-           file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
-        }))
+    if (file.exists(ins) && !identical(dir(ins), character(0))) {
+
+        ## Move the inst/css to the REPORTS directory
+        inscss <- file.path(ins, "css")
+        if (file.exists(inscss)) {
+            file.copy(inscss, y[[1]], overwrite = TRUE, recursive = TRUE)        
+        }
+
+        ## Move anything left to the main directory
+        insleft <- dir(ins)[dir(ins) != "css"]
+        if (!identical(insleft, character(0))) {
+            ins2 <- file.path(ins, dir(ins))
+            invisible(lapply(ins2, function(zz) {
+               file.copy(zz, x, overwrite = TRUE, recursive = TRUE) 
+            }))
+        }
         delete(file.path(x, "slidify.Rmd"))
     }    
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
@@ -343,7 +356,6 @@ function(report = "report", template = getOption("temp.reports"),
     }
     return(o)    
 }
-
 
 #' Prints a reports Object
 #' 

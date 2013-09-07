@@ -70,7 +70,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     
     if(file.exists(file.path(path, main))) {
         message(paste0("\"", file.path(path, presentation), 
-            "\" already exists:\nDo you want to overwrite?\n\n"))
+            "\" already exists:\nDo you want to overwrite?\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("presentation aborted")

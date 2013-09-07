@@ -23,9 +23,11 @@
 #' \item{If \code{doc.type = docx}}{ - Must contain: doc.docx}
 #' }
 #' }
-#' Additional project files and directories can be stored in the \code{inst}  
+#' Additional project files and directories can be stored in the \bold{inst}  
 #' directory.  Files in this directory will be placed in the main directory of the 
-#' template created by \code{\link[reports]{new_report}}
+#' template created by \code{\link[reports]{new_report}}.  If a directory called
+#' \bold{css} this directory will be moved to the \bold{REPORT} directory rather 
+#' than the main directory.
 #' 
 #' To be submitted a .tex template must run in Debian TeX Live on Linux Mint and 
 #' MiKTex on Windows.  After a template has been tested it can be sent as a 
@@ -39,7 +41,7 @@ doc_temp <-
 function(temp.name = "newDoc", doc.type = "rnw", path = getwd(), 
     open = is.global()) {
 	
-	if (any(doc.type %in% c("doc", "rnw", "tex", "rmd"))) {
+	if (!any(doc.type %in% c("doc", "rnw", "tex", "rmd"))) {
 	    stop("doc.type must be one of the following: \"doc\", \"rnw\", \"tex\" or \"rmd\"")	
 	}
 	
@@ -47,7 +49,7 @@ function(temp.name = "newDoc", doc.type = "rnw", path = getwd(),
     
     if(file.exists(file.path(path, tn))) {
         message(paste0("\"", file.path(path, tn), 
-            "\" already exists:\nDo you want to overwrite?\n\n"))
+            "\" already exists:\nDo you want to overwrite?\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
             stop("doc_temp aborted")

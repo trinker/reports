@@ -1,0 +1,126 @@
+%===================================PREAMBLE====================================
+
+%====================
+%  Document Class
+%====================
+\documentclass{scrartcl}
+%\addbibresource{.bib}
+%====================
+%  Packages
+%====================
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage{scrextend}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{project2.bib}
+\DeclareLanguageMapping{american}{american-apa}
+\usepackage{amsmath}
+\usepackage[sc]{mathpazo}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{url}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdfstartview={XYZ null null 1}}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[justification=justified,singlelinecheck=false]{caption}
+\usepackage{hyperref}
+\usepackage{here}
+\usepackage{tcolorbox}
+\usepackage{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{threeparttable}
+%====================
+%  Custom Commands
+%====================
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+\newcommand*{\TitleFont}{%
+      \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+      \fontsize{17}{20}%
+      \selectfont}
+%====================
+%  Formatting
+%====================
+\captionsetup{%
+  font=small,
+  labelfont=bf,
+  singlelinecheck=false,
+  tableposition=top
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbibheading{center}{%
+  \phantomsection
+  \section*{\centering\normalfont\refname}
+  \pdfbookmark{\refname}{References}
+}
+
+\setlength\parindent{0pt}      %no indent entire document
+\usepackage{sectsty}% http://ctan.org/pkg/secsty
+\partfont{\LARGE}
+%====================
+%  Other
+%====================
+
+%===============================================================================
+\begin{document}
+
+%load packages that will be invisible on slides
+<<setup, include=FALSE, cache=FALSE>>=
+#load necessary packages
+packs <- c("reports", "xtable", "ggplot2", "reshape2", "gridExtra", "tables")
+lapply(packs, library, character.only = TRUE)
+save <- booktabs()  
+
+## Format for pvalues
+pform <- function(x, cutoff = .01, digits = NULL) {
+    z <- strsplit(as.character(cutoff), "\\.")[[c(1, 2)]]
+    w <- paste0(".", z)
+    if (x < cutoff) {
+        paste0("< ", w)
+    } else {
+        if (is.null(digits)) digits <- nchar(z)
+        paste0("= .", strsplit(as.character(round(x, digits)), "\\.")[[c(1, 2)]])
+    }
+}
+
+## Format numbers and removes leading zeros
+numformat <- function(val, digits=2) { 
+    sub("^(-?)0.", "\\1.", sprintf(paste0("%.", digits, "f"), val)) 
+}
+
+opts_chunk$set(fig.path='figure', fig.align='center', fig.show='hold')
+options(replace.assign=TRUE, width=90)
+@
+
+\title{}
+\subtitle{}
+\author{}
+\date{\today}
+\maketitle
+
+\part*{Part I: Foo}
+\section{Section 1}
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black, title=A Title]
+Perhaps the original question here 
+\end{tcolorbox}
+
+And an answer here...
+
+\part*{Part 2: Foo}
+If you have references don't forget to run through \LaTeX editor first.
+
+%\printbibliography[heading=center]
+\end{document}

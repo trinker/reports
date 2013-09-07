@@ -85,13 +85,20 @@ build_package(package="C:/Users/trinker/GitHub/reports",
     base_path="C:/Users/trinker/Desktop/reports_dev/", examples = TRUE)
 
 library(reports); library(qdap); library(acc.roxygen2)
-#STEP 2: reshape index
+#STEP 2a: reshape index
 path <- "C:/Users/trinker/Desktop/reports_dev"
 path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
     "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
+
+## Step 2b: Fix is.global FALSE
+ISG <- file.path(path, "is.global.html")
+ISGin <- suppressWarnings(readLines(ISG))
+FIX <- grep("<div class='input'>is.global()", ISGin) + 2
+ISGin[FIX] <- "<div class='output'>[1] TRUE"
+cat(paste(ISGin, collapse="\n"), file=ISG)
 
 #STEP 3: move to trinker.guthub
 library(reports)
@@ -123,7 +130,7 @@ build_package(package="C:/Users/trinker/GitHub/reports",
     base_path="C:/Users/trinker/Desktop/reports/", examples = TRUE)
 
 library(reports); library(qdap); library(acc.roxygen2)
-#STEP 2: reshape index
+#STEP 2a: reshape index
 path <- "C:/Users/trinker/Desktop/reports"
 path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
@@ -131,6 +138,13 @@ rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 expand_statdoc(path2, readme = rdme, 
     to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
     "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change"))
+
+## Step 2b: Fix is.global FALSE
+ISG <- file.path(path, "is.global.html")
+ISGin <- suppressWarnings(readLines(ISG))
+FIX <- grep("<div class='input'>is.global()", ISGin) + 2
+ISGin[FIX] <- "<div class='output'>[1] TRUE"
+cat(paste(ISGin, collapse="\n"), file=ISG)
 
 #STEP 3: move to trinker.guthub
 library(reports)
