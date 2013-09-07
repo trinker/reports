@@ -63,13 +63,13 @@
 #' @importFrom slidify author
 #' @importFrom tools file_path_sans_ext file_ext
 #' @examples 
-#' ## new_report()
-#' 
-#' ## fx <- folder(delete_me)
-#' ## owd <- getwd(); setwd(fx)
-#' ## x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
-#' ## lapply(x, new_report)
-#' ## setwd(owd); delete(fx)
+#' ## new_report()    
+#'      
+#' ## fx <- folder(delete_me)     
+#' ## owd <- getwd(); setwd(fx)    
+#' ## x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)    
+#' ## lapply(x, new_report)    
+#' ## setwd(owd); delete(fx)    
 new_report <-
 function(report = "report", template = getOption("temp.reports"), 
     bib.loc = getOption("bib.loc"), name = getOption("name.reports"), 

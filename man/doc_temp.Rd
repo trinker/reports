@@ -2,8 +2,8 @@
 \alias{doc_temp}
 \title{Document Template}
 \usage{
-  doc_temp(temp.name = "newDoc", doc.type = "tex",
-    path = getwd())
+  doc_temp(temp.name = "newDoc", doc.type = "rnw",
+    path = getwd(), open = is.global())
 }
 \arguments{
   \item{temp.name}{The name of the template.}

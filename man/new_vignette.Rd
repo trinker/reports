@@ -34,7 +34,7 @@
 
   \item{open}{logical.  If \code{TRUE} the project will be
   opened in RStudio. The default is to test if
-  \code{new_report} is being used in the global
+  \code{new_vignette} is being used in the global
   environment, if it is then the project directory will be
   opened.}
 }

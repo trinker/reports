@@ -111,7 +111,7 @@ repo2github <- function(password, project.dir = getwd(),
 
         
         ## 
-        cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com:",
+        cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com/",
             github.user, "/", repo, ".git")  
         system(cmd5, intern = T) 
         

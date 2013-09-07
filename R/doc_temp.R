@@ -36,7 +36,12 @@
 #' submission.
 #' @export
 doc_temp <- 
-function(temp.name = "newDoc", doc.type = "tex", path = getwd()) {
+function(temp.name = "newDoc", doc.type = "rnw", path = getwd(), 
+    open = is.global()) {
+	
+	if (any(doc.type %in% c("doc", "rnw", "tex", "rmd"))) {
+	    stop("doc.type must be one of the following: \"doc\", \"rnw\", \"tex\" or \"rmd\"")	
+	}
 	
     tn <- paste0(temp.name, "_", doc.type)
     

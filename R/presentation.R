@@ -28,7 +28,7 @@
 #' This argument will be overrode if a custom reports template is supplied with 
 #' an .Rmd file in the inst directory named slidify.Rmd (\code{/inst/slidify.Rmd}).
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
-#' The default is to test if \code{new_report} is being used in the global 
+#' The default is to test if \code{presentation} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
