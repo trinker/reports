@@ -7,7 +7,7 @@
 \arguments{
   \item{path}{The path to the layout directory where the
   html files should be generated.  Default is
-  ~assets/layouts.}
+  \file{~assets/layouts}.}
 }
 \value{
   Creates the layout html files to extend the slidify slide
@@ -25,7 +25,7 @@
   generate the slidify presentation directory
   \code{\link[reports]{slidify_layouts}} has already
   created the extra slidify slide layouts in:
-  ~PRESENTATION/assets/layouts
+  \file{~PRESENTATION/assets/layouts}
 }
 \references{
   INSERT LINK TO slidify tricks and tips section

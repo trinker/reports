@@ -26,7 +26,7 @@
   change the contents of the report directory that is
   generated. See \code{templates} for more.}
 
-  \item{bib.loc}{Optional path to a .bib resource.}
+  \item{bib.loc}{Optional path to a \bold{.bib} resource.}
 
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}
@@ -38,18 +38,18 @@
 
   \item{sources}{A vector of path(s) to other scripts to be
   sourced in the report project upon startup (adds this
-  location to the report project's \code{.Rprofile}).}
+  location to the report project's \bold{.Rprofile}).}
 
   \item{AN.xlsx}{logical.  If \code{TRUE} the article notes
   (AN) will be in .xlsx format.  If \code{FALSE} the
   document will be a .csv file.}
 
   \item{slidify}{The template to be used in the
-  PRESENTATION .Rmd.  This can be one of the types from
-  \code{slidify_templates} or a path to an .Rmd file. This
-  argument will be overrode if a custom reports template is
-  supplied with an .Rmd file in the inst directory named
-  slidify.Rmd (\code{/inst/slidify.Rmd}).}
+  \bold{PRESENTATION} .Rmd. This can be one of the types
+  from \code{slidify_templates} or a path to an .Rmd file.
+  This argument will be overrode if a custom reports
+  template is supplied with an .Rmd file in the \bold{inst}
+  directory named slidify.Rmd (\file{~inst/slidify.Rmd}).}
 
   \item{open}{logical.  If \code{TRUE} the project will be
   opened in RStudio. The default is to test if

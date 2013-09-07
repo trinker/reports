@@ -14,19 +14,22 @@
     cur.style.css = file.path(getwd(), "REPORT/css/style.css"))
 }
 \arguments{
-  \item{rprofile}{logical.  If \code{TRUE} the style.R is
-  added to the .Rprofile for sourcing upon startup.}
+  \item{rprofile}{logical.  If \code{TRUE} the
+  \bold{style.R} is added to the \bold{.Rprofile} for
+  sourcing upon startup.}
 
   \item{loc}{Path to the report location where the custom
-  css should be placed. If \code{NULL} only the style.R is
-  created in the base directory .Rprofile.}
+  css should be placed. If \code{NULL} only the
+  \bold{style.R} is created in the base directory
+  \bold{.Rprofile}.}
 
-  \item{style.css}{A path to a style.css file that will be
-  used as the \file{~/css/style.css}.  Also may take a
-  character string indicating one of the reports package's
-  built in style.css (see
+  \item{style.css}{A path to a \bold{style.css} file that
+  will be used as the \file{~/css/style.css}.  Also may
+  take a character string indicating one of the reports
+  package's built in \bold{style.css} (see
   \code{\link[reports]{css_styles}}).  Default in
-  \code{\link[reports]{custom_css}} is a blank styl.css.}
+  \code{\link[reports]{custom_css}} is a blank
+  \bold{style.css}.}
 
   \item{source}{logical.  If \code{TRUE} the style.R is
   sourced intially.}
@@ -61,10 +64,10 @@
 \note{
   The user has to source before the custom styles will be
   applied. The user may specify \code{rfprofile = TRUE} to
-  add the style.R to the .Rprofile for sourcing upon
-  startup.  Otherwise, the user must open the style.R as
-  the active tab in RStudio, check the `Source on Save` box
-  and the click the save icon.
+  add the \bold{style.R} to the \bold{.Rprofile} for
+  sourcing upon startup.  Otherwise, the user must open the
+  \bold{style.R} as the active tab in RStudio, check the
+  `Source on Save` box and the click the save icon.
 }
 \examples{
 ## custom_css(TRUE, style.css = css_styles()[1])

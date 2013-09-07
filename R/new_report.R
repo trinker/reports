@@ -10,20 +10,21 @@
 #' external path to a template in the reports package style.  This argument 
 #' allows the user to change the contents of the report directory that is 
 #' generated. See \code{templates} for more.
-#' @param bib.loc Optional path to a .bib resource.
+#' @param bib.loc Optional path to a \bold{.bib} resource.
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @param name A character string of the user's name to be used on the report.
 #' @param github.user GitHub user name (character string).
 #' @param sources A vector of path(s) to other scripts to be sourced in the 
 #' report project upon startup (adds this location to the report project's 
-#' \code{.Rprofile}).
+#' \bold{.Rprofile}).
 #' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
 #' .xlsx format.  If \code{FALSE} the document will be a .csv file.
-#' @param slidify  The template to be used in the PRESENTATION .Rmd.  This can 
-#' be one of the types from \code{slidify_templates} or a path to an .Rmd file.  
-#' This argument will be overrode if a custom reports template is supplied with 
-#' an .Rmd file in the inst directory named slidify.Rmd (\code{/inst/slidify.Rmd}).
+#' @param slidify  The template to be used in the \bold{PRESENTATION} .Rmd.  
+#' This can be one of the types from \code{slidify_templates} or a path to an 
+#' .Rmd file.  This argument will be overrode if a custom reports template is 
+#' supplied with an .Rmd file in the \bold{inst} directory named slidify.Rmd 
+#' (\file{~inst/slidify.Rmd}).  
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_report} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
