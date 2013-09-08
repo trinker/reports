@@ -4,7 +4,7 @@ Author: Tyler Rinker
 Doc Type: tex
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: This is a .tex APA6 template for qualitative researchers.  Uses the 
-             apa6e docuemnt class with floats left in place, reference heading 
+             apa6e document class with floats left in place, reference heading 
              centered, float warning removed and abstract removed.
 License: GPL-2
 Presentation: rnw, rmd

@@ -1,0 +1,13 @@
+Template: brew.slidify
+Date: 2013-09-08
+Doc Type: rmd
+Author: Tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: A minimal brew template for use with slidify.  This enables batch 
+             production of slides.  This is slightly unorthadox in that the 
+             slide presentation files will be housed in the REPORTS directory, 
+             though the user may manually move files to modify this defualt 
+             behavior.
+License: GPL-2
+Presentation: rmd
+Outline: rmd 

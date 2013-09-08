@@ -235,4 +235,14 @@ if (file.exists(file.path(dev, "reports"))) {
 }
 file.copy(cur, dev, recursive = TRUE)
 
+#==============================
+#QDAP UPDATE
+#==============================
+cur <- "C:/R/R-3.0.1/library/qdap"
+dev <- "C:/R/R-devel/library"
+if (file.exists(file.path(dev, "qdap"))) {
+    unlink(file.path(dev, "qdap"), recursive = TRUE, force = FALSE)
+}
+file.copy(cur, dev, recursive = TRUE)
+
 

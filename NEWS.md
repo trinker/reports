@@ -94,8 +94,8 @@ And constructed with the following guidelines:
 * `BV` a function, bibliography viewer, that allows the user to view their 
   bibliographies stored in the .bib file.
 ,
-* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, and `brew.min_rmd` have been 
-  added.
+* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, and 
+  `brew.slidify_rmd` have been added.
 
 * `SC` a function to quickly generate special HTML characters.
 

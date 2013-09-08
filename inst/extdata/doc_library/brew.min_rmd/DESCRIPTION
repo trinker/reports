@@ -1,9 +1,10 @@
 Template: brew.min
 Date: 2013-09-07
 Doc Type: rmd
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: What are the unique settings/features of your template
-License: What license is it under?
+Author: Tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: A minimal brew template for use with knitr.  This enables batch 
+             production of reports.
+License: GPL-2
 Presentation: rmd
 Outline: rmd 
