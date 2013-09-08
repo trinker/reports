@@ -1,0 +1,46 @@
+# Title
+## Name
+## Date
+---
+
+# Cylinder <%= group %>
+## Setup
+
+Set the path to save figures to be unique for each of the reports; otherwise unnamed chunks will get overwritten.
+
+
+```{r setup, include=FALSE}
+# set global chunk options
+library(knitr); library(knitcitations)
+
+opts_chunk$set(cache=TRUE)
+opts_chunk$set(fig.path = 'assets/fig/<%= group %>-')
+
+#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+
+---
+
+## Heat of cyl = <%= group %>
+
+```{r message = F, fig.height = 5}
+heatmap(as.matrix(mtcars[mtcars$cyl == <%= group %>, ]))
+```
+
+---
+
+## What Next?
+
+After you've developed a tempalte run the functions in the brew.R file.
+
+**Note:** *that you'd want to replace the pound signs in front of title, subtitle, and author and replace with a percent sign to use md2pdf* 
+
+---
+
+## References
+```{r, echo=FALSE, results='asis'}
+#bibliography("html") 
+```
+
+

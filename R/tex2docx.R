@@ -32,15 +32,18 @@ tex2docx <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
+        WD <- getwd()
+        on.exit(setwd(WD))
+        setwd(path)
+   	
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "tex"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".docx")
-        }
-        in.file <- file.path(path, in.file)
-        out.file <- file.path(path, out.file)        
+        }    
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
@@ -56,16 +59,18 @@ tex2html <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
         WD <- getwd()
         on.exit(setwd(WD))
         setwd(path)
-        if (is.null(in.file)) {
+   	
+        if (is.null(in.file)) {  	
             in.file <- dir(path)[file_ext(dir(path)) == "tex"]
             in.file <- in.file[!in.file %in% "preamble.tex"][1]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".html")
-        }
+        }          
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
@@ -81,15 +86,17 @@ md2docx <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
         WD <- getwd()
         on.exit(setwd(WD))
         setwd(path)
+   	
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".docx")
-        }
+        }           
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
@@ -105,15 +112,17 @@ md2tex <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
         WD <- getwd()
         on.exit(setwd(WD))
         setwd(path)
+   	
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".tex")
-        }
+        }          
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
@@ -129,15 +138,17 @@ md2pdf <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
         WD <- getwd()
         on.exit(setwd(WD))
         setwd(path)
+   	
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "md"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".pdf")
-        }
+        }          
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {
@@ -153,15 +164,17 @@ html2pdf <-
 function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
+    	
         WD <- getwd()
         on.exit(setwd(WD))
         setwd(path)
+   	
         if (is.null(in.file)) {
             in.file <- dir(path)[file_ext(dir(path)) == "html"]
         }
         if (is.null(out.file)) {
             out.file <- paste0(file_path_sans_ext(in.file), ".pdf")
-        }
+        }           
     }
     action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
     if (!is.null(bib.loc)) {

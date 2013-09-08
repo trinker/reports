@@ -28,8 +28,6 @@ templates <- function(print.cons = TRUE, names = TRUE) {
         fls <- paste0(root, "/", dir(root), "/DESCRIPTION")
         z <- invisible(lapply(fls, function(x) {
             y <- suppressWarnings(readLines(x))
-            message(paste(paste0(y, collapse = "\n"), 
-                "\n========================\n\n"))
             return(y)
         }))
         z <- lapply(z, function(x) x[x != ""])
