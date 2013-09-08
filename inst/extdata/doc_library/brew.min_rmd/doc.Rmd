@@ -1,13 +1,8 @@
 # Title
 ## Name
 ## Date
+
 ---
-
-# Cylinder <%= group %>
-## Setup
-
-Set the path to save figures to be unique for each of the reports; otherwise unnamed chunks will get overwritten.
-
 
 ```{r setup, include=FALSE}
 # set global chunk options
@@ -19,6 +14,11 @@ opts_chunk$set(fig.path = 'assets/fig/<%= group %>-')
 #bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
 #cite in text using `r citet(bib[1])`
 ```
+
+# Cylinder <%= group %>
+## Setup
+
+Set the path to save figures to be unique for each of the reports; otherwise unnamed chunks will get overwritten.
 
 ---
 

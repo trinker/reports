@@ -63,7 +63,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name.reports"), github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), 
-	slidify = getOption("slidify.template"), open = is.global(), ...) {
+	slidify = getOption("slidify.template"), open = is.global(2), ...) {
 	
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
@@ -123,7 +123,16 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         setwd(x)
         Rmd <- suppressWarnings(readLines(slid.path)) 
         title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
-        Rmd[title.] <- paste0("title      : ", presentation)
+        specials <- c("brew")
+        if (!slidify %in% specials) {
+            Rmd[title.] <- paste0("title      : ", report)
+        } else {
+            titlepieces <- unlist(strsplit(Rmd[title.], ":"))
+            Rmd[title.] <- paste0("title      : ", presentation, titlepieces[2])
+            slidextras <- system.file("extdata/r_script_library/slidify", package = "reports")
+            sliddest <- file.path(slidextras, slidify)
+            suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), y[[2]], recursive = TRUE))
+        }
         if(!is.null(name)) {
             name. <- grepl("author", Rmd) & grepl("\\:", Rmd)
             Rmd[name.] <- paste0("author     : ", strsplit(name, "\\\\")[[1]][1])

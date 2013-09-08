@@ -9,7 +9,7 @@
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
     slidify = getOption("slidify.template"),
-    open = is.global(), ...)
+    open = is.global(2), ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or

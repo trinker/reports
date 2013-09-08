@@ -11,16 +11,19 @@ bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
 #bib <- read.bibtex(getOption("bib.loc"))
 #cite in text using `r citet(bib[1])`
 ```
-------
+
+---
+
 ## Page 1
 
 `r citet(bib[1])`    
 
-------
+---
+
 ## Page 2
        
+---
 
-------
 ## References
 ```{r, echo=FALSE, results='asis'}
 bibliography("html")

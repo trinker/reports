@@ -5,7 +5,7 @@
 \usage{
   new_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"), open = is.global())
+    name = getOption("name.reports"), open = is.global(2))
 
   append_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,

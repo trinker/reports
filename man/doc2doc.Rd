@@ -1,6 +1,7 @@
 \name{tex2docx}
 \alias{html2pdf}
 \alias{md2docx}
+\alias{md2html}
 \alias{md2pdf}
 \alias{md2tex}
 \alias{tex2docx}
@@ -28,6 +29,10 @@
     bib.loc = getOption("bib.loc"))
 
   html2pdf(in.file = NULL, out.file = NULL,
+    path = paste0(getwd(), "/REPORT"),
+    bib.loc = getOption("bib.loc"))
+
+  md2html(in.file = NULL, out.file = NULL,
     path = paste0(getwd(), "/REPORT"),
     bib.loc = getOption("bib.loc"))
 }

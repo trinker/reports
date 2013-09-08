@@ -168,7 +168,16 @@ function(report = "report", template = getOption("temp.reports"),
         setwd(x)
         Rmd <- suppressWarnings(readLines(slid.path)) 
         title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
-        Rmd[title.] <- paste0("title      : ", report)
+        specials <- c("brew")
+        if (!slidify %in% specials) {
+            Rmd[title.] <- paste0("title      : ", report)
+        } else {
+            titlepieces <- unlist(strsplit(Rmd[title.], ":"))
+            Rmd[title.] <- paste0("title      : ", report, titlepieces[2])
+            slidextras <- system.file("extdata/r_script_library/slidify", package = "reports")
+            sliddest <- file.path(slidextras, slidify)
+            suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), y[[4]], recursive = TRUE))
+        }
         if(!is.null(name)) {
             name. <- grepl("author", Rmd) & grepl("\\:", Rmd)
             Rmd[name.] <- paste0("author     : ", strsplit(name, "\\\\")[[1]][1])

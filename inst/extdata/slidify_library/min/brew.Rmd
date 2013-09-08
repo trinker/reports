@@ -1,0 +1,83 @@
+---
+title      : <%= group %>
+subtitle   : 
+author     : 
+job        : 
+logo       : 
+biglogo    : 
+license    : 
+framework  : io2012
+highlighter: highlight.js
+hitheme    : tomorrow
+mode       : selfcontained
+widgets    : [mathjax, quiz, bootstrap]
+---
+```{r setup, include=FALSE}
+packs <- c("reports", "knitr", "brew", "tools", "slidify", "xtable", 
+    "slidifyLibraries", "knitcitations")
+invisible(lapply(packs, require, character.only = TRUE))
+
+opts_chunk$set(cache=FALSE)
+## Set the path to save figures to be unique for each of the reports; 
+## otherwise unnamed chunks will get overwritten.
+opts_chunk$set(fig.path = 'assets/fig/<%= group %>-')
+
+BIB <- system.file("extdata/docs/example.bib", package = "reports") #test .bib
+bib <- read.bibtex(BIB)
+#
+#Reading in your own bib file:
+#bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
+#cite in text using `r citet(bib[1])`
+```
+<style>
+body {
+  background-color: #000;
+}
+.quiz-option label{
+  display: inline;
+  font-size: 1em;
+}
+.refs {
+  padding-left: 80px;
+  text-indent: -35px;
+}
+ul.nav li::before { content: ""; } 
+ul.nav li{ font-size: 18px; line-height: 24px;}
+</style>
+
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
+## Cylinder <%= group %>
+
+```{r, results="asis", echo=FALSE}
+mydf <- mtcars[mtcars$cyl == <%= group %>, ]
+print(xtable(mydf), type="html", include.rownames = FALSE)
+```
+
+---
+
+## Heat of cyl = <%= group %>
+
+```{r message = F, fig.height = 5}
+heatmap(as.matrix(mtcars[mtcars$cyl == <%= group %>, ]))
+```
+
+---
+
+## What Next?
+
+After you've developed a template run the functions in the `brew_slidify.R` file found in the PRESENTATION directory.
+
+--- .refs
+
+## References
+```{r, echo=FALSE, results='asis'}
+bibliography("html", bulleted = FALSE)
+```

@@ -35,7 +35,7 @@
 #' ## new_vignette()
 new_vignette <-
 function(vignette = "vignette", type = "rmd", path = getwd(),
-    bib.loc = NULL, name = getOption("name.reports"), open = is.global()) {
+    bib.loc = NULL, name = getOption("name.reports"), open = is.global(2)) {
 
     ## preparing type
     type <- tolower(type)

@@ -5,7 +5,7 @@ packs <- c("reports", "knitr", "brew", "tools", "slidify", "slidifyLibraries")
 invisible(lapply(packs, require, character.only = TRUE))
 
 ## Adjust working directory to REPORTS
-WD <- getwd(); loc <- file.path(WD, "REPORT")
+WD <- getwd(); loc <- file.path(WD, "PRESENTATION")
 setwd(loc)
 doc <- paste0(basename(WD), ".Rmd")
 

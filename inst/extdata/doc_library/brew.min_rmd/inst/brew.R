@@ -1,4 +1,4 @@
-## To be used from the main reprotsdirectory
+## To be used from the main reports directory
 
 ## Load packages
 packs <- c("reports", "knitr", "brew", "tools")

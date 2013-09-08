@@ -200,24 +200,7 @@ file.rename(fls[1], fls[2])
 #==========================
 # NEWS.md
 #==========================
-News <- readLines("NEWS")
-library(qdap)
-
-News <- mgsub(
-    c("<", ">", "&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;", "BUG FIXES", 
-        "NEW FEATURES", "MINOR FEATURES", "CHANGES", " TRUE ", " FALSE ", 
-        " NULL ", "TRUE.", "FALSE.", "NULL.", ":m:"), 
-    c("&lt;", "&gt;", "<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>", 
-        "<b>BUG FIXES</b>", "<b>NEW FEATURES</b>", "<b>MINOR FEATURES</b>", 
-        "<b>CHANGES</b>", " `TRUE` ", "`FALSE`.", "`NULL`.", "`TRUE`.", 
-        " `FALSE` ", " `NULL` ", " : m : "), 
-    News, trim = FALSE, fixed=TRUE)
-
-News <- sub(pattern="issue *# *([0-9]+)", 
-    replacement="<a href=\"https://github.com/trinker/qdap/issues/\\1\">issue #\\1</a>", 
-    x=News)
-
-cat(paste(News, collapse = "\n"), file = "NEWS.md")
+update_news()
 
 #==========================
 # NEWS new version
@@ -228,21 +211,9 @@ cat(paste(x, collapse = "\n\n"), file="clipboard")
 #==============================
 # Copy from Current R to R_dev
 #==============================
-cur <- "C:/R/R-3.0.1/library/reports"
-dev <- "C:/R/R-devel/library"
-if (file.exists(file.path(dev, "reports"))) {
-    unlink(file.path(dev, "reports"), recursive = TRUE, force = FALSE)
-}
-file.copy(cur, dev, recursive = TRUE)
+r2dev("reports")
 
 #==============================
 #QDAP UPDATE
 #==============================
-cur <- "C:/R/R-3.0.1/library/qdap"
-dev <- "C:/R/R-devel/library"
-if (file.exists(file.path(dev, "qdap"))) {
-    unlink(file.path(dev, "qdap"), recursive = TRUE, force = FALSE)
-}
-file.copy(cur, dev, recursive = TRUE)
-
-
+r2dev("qdap")
