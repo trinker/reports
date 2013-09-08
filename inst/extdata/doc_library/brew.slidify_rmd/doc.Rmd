@@ -73,9 +73,7 @@ heatmap(as.matrix(mtcars[mtcars$cyl == <%= group %>, ]))
 
 ## What Next?
 
-After you've developed a template run the functions in the brew.R file.
-
-**Note:** *that you'd want to replace the pound signs in front of title, subtitle, and author and replace with a percent sign to use md2pdf* 
+After you've developed a template run the functions in the `brew.R` file found in the main directory.
 
 --- .refs
 
