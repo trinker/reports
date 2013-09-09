@@ -186,7 +186,7 @@ wheresRstudio <-
 function() {
     myPaths <- c("rstudio",  "~/.cabal/bin/rstudio", 
         "~/Library/Haskell/bin/rstudio", "C:\\PROGRA~1\\RStudio\\bin\\rstudio.exe",
-        "C:\\RStudio\\bin\\rstudio.exe")
+        "C:\\RStudio\\bin\\rstudio.exe", "/Applications/RStudio.app/Contents/MacOS/RStudio")
     panloc <- Sys.which(myPaths)
     temp <- panloc[panloc != ""]
     if (identical(names(temp), character(0))) {
