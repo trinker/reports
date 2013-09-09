@@ -172,10 +172,11 @@ file.copy(path2, file2, TRUE, TRUE)
 ##  browseVignettes(package = 'reports')
 
 #root <- system.file("doc/reports_vignette.html", package = "reports")
-root <- "C:/Users/trinker/GitHub/reports/vignettes/reports_vignette.html"
-new <- "C:/Users/trinker/Dropbox/Public/packages"
-file.copy(root, new, TRUE, TRUE)
+# root <- "C:/Users/trinker/GitHub/reports/vignettes/reports_vignette.html"
+# new <- "C:/Users/trinker/Dropbox/Public/packages"
+# file.copy(root, new, TRUE, TRUE)
 
+copy_vign()
 #==========================
 #
 #==========================

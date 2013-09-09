@@ -125,7 +125,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
         specials <- c("brew")
         if (!slidify %in% specials) {
-            Rmd[title.] <- paste0("title      : ", report)
+            Rmd[title.] <- paste0("title      : ", presentation)
         } else {
             titlepieces <- unlist(strsplit(Rmd[title.], ":"))
             Rmd[title.] <- paste0("title      : ", presentation, titlepieces[2])
@@ -238,4 +238,3 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     }    
     return(o)    
 }
-
