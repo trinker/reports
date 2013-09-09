@@ -6,7 +6,7 @@
 }
 \arguments{
   \item{\ldots}{The directory (or nested directories)
-  withing the working directry.}
+  within the working directry.}
 }
 \value{
   Returns a path.

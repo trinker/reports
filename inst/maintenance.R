@@ -112,6 +112,8 @@ delete(path)
 file2 <- "C:/Users/trinker/GitHub/trinker.github.com/reports_dev"
 path2 <- "C:/Users/trinker/GitHub/reports/inst/dependencies/dependencies.html"
 file.copy(path2, file2, TRUE, TRUE)
+
+
 #==========================
 #staticdocs current version
 #==========================

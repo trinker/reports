@@ -1,8 +1,10 @@
 #' Quick Path
 #' 
-#' This function is a wrapper for \code{\link[base]{file.path}} and \code{\link[base]{getwd}}
+#' This function is a wrapper for \code{\link[base]{file.path}} and 
+#' \code{\link[base]{getwd}}
 #' 
-#' @param \ldots The directory (or nested directories) withing the working directry.
+#' @param \ldots The directory (or nested directories) within the working 
+#' directry.
 #' @return Returns a path.
 #' @export
 #' @seealso \code{\link[base]{file.path}},
