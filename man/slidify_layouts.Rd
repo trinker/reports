@@ -12,8 +12,9 @@
 \value{
   Creates the layout html files to extend the slidify slide
   layout framework.  Currently \code{slidify_layouts}
-  generates a thankyou.html and youtube.html.  See the
-  references for additional information.
+  generates a carousel.html, thankyou.html, and
+  youtube.html.  See the references for additional
+  information.
 }
 \description{
   A collection of additional slidify slide layouts to

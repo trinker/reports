@@ -7,8 +7,9 @@
 #' generated.  Default is \file{~assets/layouts}.
 #' 
 #' @return Creates the layout html files to extend the slidify slide layout 
-#' framework.  Currently \code{slidify_layouts} generates a thankyou.html and 
-#' youtube.html.  See the references for additional information.
+#' framework.  Currently \code{slidify_layouts} generates a carousel.html, 
+#' thankyou.html, and youtube.html.  See the references for additional 
+#' information.
 #' @note If \code{\link[reports]{new_report}} or 
 #' \code{\link[reports]{presentation}} was utilized to generate the slidify 
 #' presentation directory \code{\link[reports]{slidify_layouts}} has already 

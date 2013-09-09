@@ -24,6 +24,7 @@ list(
       "Functions to format character strings related to paths/urls.",  
       c(
         "pad",
+         "QP",
         "UF",
         "WP"
       )
@@ -92,8 +93,7 @@ list(
       "Exported tools used within reports.",
       c(
         "IE",
-        "is.global",
-        "QP"
+        "is.global"
       )
     ),   
     sd_section("Customization", 
