@@ -35,8 +35,8 @@ BUG FIXES
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
   pull request #31.
 
-* Functions requiring RStudio did not correctly find RStudio on OS X an fixed by
-  Kevin Middleton via pull request #36.
+* Functions requiring RStudio did not correctly find RStudio on OS X.  Bug 
+  caught and fixed by Kevin Middleton via pull request #36.
   
 
 NEW FEATURES

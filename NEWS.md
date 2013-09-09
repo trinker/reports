@@ -35,8 +35,8 @@ And constructed with the following guidelines:
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
   <a href="https://github.com/trinker/reports/issues/31">pull request #31</a>.
 
-* Functions requiring RStudio did not correctly find RStudio on OS X an fixed by
-  Kevin Middleton via <a href="https://github.com/trinker/reports/issues/36">pull request #36</a>.
+* Functions requiring RStudio did not correctly find RStudio on OS X.  Bug 
+  caught and fixed by Kevin Middleton via <a href="https://github.com/trinker/reports/issues/36">pull request #36</a>.
   
 
 <b>NEW FEATURES</b>
