@@ -6,7 +6,7 @@
 }
 \arguments{
   \item{\ldots}{The directory (or nested directories)
-  within the working directry.}
+  within the working directory.}
 }
 \value{
   Returns a path.
@@ -14,7 +14,7 @@
 \description{
   This function is a wrapper for
   \code{\link[base]{file.path}} and
-  \code{\link[base]{getwd}}
+  \code{\link[base]{getwd}}.
 }
 \examples{
 QP()
