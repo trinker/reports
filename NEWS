@@ -33,7 +33,10 @@ BUG FIXES
   error if the file path contained a space (see: 
   http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
-  pull request 31.
+  pull request #31.
+
+* Functions requiring RStudio did not correctly find RStudio on OS X an fixed by
+  Kevin Middleton via pull request #36.
   
 
 NEW FEATURES
