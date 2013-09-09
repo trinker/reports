@@ -68,7 +68,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
     presentation <- tail(presentation, 1)
-    
+  
     if(file.exists(file.path(path, main))) {
         message(paste0("\"", file.path(path, presentation), 
             "\" already exists:\nDo you want to overwrite?\n"))
@@ -82,8 +82,8 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     if (!is.null(slidify) && slidify %in% dir(path)) {
         slidify <- file.path(path, slidify)   
     }  
-    if (is.null(theme) & sum(type %in% "rmd") > 0) {
-        cat("Choose a theme:\n\n") 
+    if (is.null(theme) & sum(type %in% "rnw") > 0) {
+        message("Choose a theme:\n\n") 
         theme <- c(themes)[menu(c(themes))]      
     }
     suppressWarnings(invisible(dir.create(file.path(path, main),
@@ -150,6 +150,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
         cat(paste(Rmd, collapse="\n"), file = file.path(y[[2]], paste0(presentation, ".Rmd")))
         delete(file.path(y[[2]], "index.Rmd"))
     }
+
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
     EXF <- "#Source the following project functions on startup"
@@ -159,7 +160,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     pdfloc2 <- file.path(root, "pres")
     pdfloc5 <- file.path(root2, "PRESENTATION_WORKFLOW_GUIDE.pdf")
     invisible(file.copy(pdfloc5, x))
-    if(sum(type %in% c("rnw", "rmd")) > 0){
+    if(sum(type %in% c("rnw")) > 0){
         invisible(file.copy(file.path(pdfloc, c("outline.tex", 
             "preamble.tex")), y[[1]]))   
         invisible(file.copy(file.path(pdfloc2, c("temp.Rnw")), 
