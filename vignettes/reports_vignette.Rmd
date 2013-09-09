@@ -372,6 +372,7 @@ This `r HR("#tab", "table ")` lists the HTML functions and the HTML tag types pr
   <TR> <TD> `r HR("#RF", "RF")` </TD> <TD> reveal.js fragment </TD> </TR>
   <TR> <TD> `r HR("#SC", "SC")` </TD> <TD> sprecial character </TD> </TR>
   <TR> <TD> `r HR("#TB", "TB")` </TD> <TD> text box </TD> </TR>
+  <TR> <TD> `r HR("#TB", "TB2")` </TD> <TD> writable text box </TD> </TR>
   <TR> <TD> `r HR("#YT", "YT")` </TD> <TD> YouTube </TD> </TR>
   <TR> <TD> `r HR("#YT", "VM")` </TD> <TD> Vimeo </TD> </TR>
   <TR> <TD> `r HR("#col", "col2hex")` </TD> <TD> hex colors </TD> </TR>
@@ -727,7 +728,7 @@ SC("o")
 
 <hr>
 ### <p id="TB">`r HR2(LN("TB"), "TB (text box)")`</p>
-Wrap text to generate an HTML text box tag.
+Wrap text to generate an HTML text box tag.  `r FUN("TB")` is a traditional text box using div tags whereas `r FUN("TB2", "TB")` is a writable text box.
 
 `r FT(gold, 5, text="&diams;")` **Example 1** `r FT(gold, 5, text="&diams;")`
 ```{r }
@@ -739,10 +740,27 @@ TB("I like ice cream!", print=TRUE)
 
 `r FT(gold, 5, text="&diams;")` **Example 2** `r FT(gold, 5, text="&diams;")`
 ```{r }
-TB("Free cookies for a year!", print=TRUE)
+TB("Free cookies for a year!", col = "red", text.col="white", print=TRUE)
 ```
 ```{r results="asis", echo=FALSE}
-TB("Free cookies for a year!", print=TRUE)
+TB("Free cookies for a year!", col = "red", text.col="white", print=TRUE)
+```
+
+
+`r FT(gold, 5, text="&diams;")` **Example 3** `r FT(gold, 5, text="&diams;")`
+```{r }
+TB2("I like ice cream!", print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+TB2("I like ice cream!", print=TRUE)
+```
+
+`r FT(gold, 5, text="&diams;")` **Example 4** `r FT(gold, 5, text="&diams;")`
+```{r }
+TB2("Free cookies for a year!", print=TRUE)
+```
+```{r results="asis", echo=FALSE}
+TB2("Free cookies for a year!", print=TRUE)
 ```
 
 <hr>

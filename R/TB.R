@@ -1,15 +1,17 @@
 #' Wrap text in text boxes.
 #' 
-#' \code{TB} - Generates an HTML textbox tag.
+#' \code{TB} - Generates an HTML text box tag.
 #' 
-#' @param text A character vector or text copied to the clipboard.  Default is to 
-#' read from the clipboard.
+#' @param text A character vector or text copied to the clipboard.  Default is 
+#' to read from the clipboard.
 #' @param col The color(s) to fill or shade the rectangle with.
 #' @param border The color for rectangle border(s).
 #' @param padding The distance (in px) between the text and the border.
 #' @param lty The line type for borders (either \code{"solid"} or 
 #' \code{"dashed"}). 
 #' @param lwd The line width (in px) for borders and shading.
+#' @param bold logical.  If \code{TRUE} the font will be boldfaced.
+#' @param font.col The color of the font.
 #' @param bor.rad The degree (in px) to which the corners are rounded; 0 results 
 #' in square corners.
 #' @param \ldots Other arguments passed to \bold{style} in the HTML \code{div} 
@@ -27,17 +29,20 @@
 #' TB2("I like ice cream!", print=TRUE)
 #' TB2("Free cookies for a year!", print=TRUE)
 TB  <-
-function(text = "clipboard", col = "#FFFFCC", border = "black", padding = 10, 
-    lty = "solid", lwd = 1, bor.rad = 5, ..., copy2clip = TRUE, print = FALSE) {
+function(text = "clipboard", col = "white", border = "black", padding = 10, 
+    lty = "solid", lwd = 1, bor.rad = 5, ..., bold = FALSE, font.col = "black", 
+    copy2clip = TRUE, print = FALSE) {
 
     if (text == "clipboard") {
         text <- read_clip()
     }
 
-    sty <- sprintf("background-color: %s; border-radius: %spx; padding:%spx; border: %spx %s %s;",
-        col, bor.rad, padding, lwd, lty, border)
+    bold <- ifelse(bold, "font-weight:bold;", "")
+    
+    sty <- sprintf("background-color: %s; border-radius: %spx; padding:%spx; border: %spx %s %s; color: %s",
+        col, bor.rad, padding, lwd, lty, border, font.col)
 
-    style <- paste(sty, ...)
+    style <- paste(sty, bold, ...)
 
     x <- sprintf("<div style=\"%s\">\n    %s\n</div>", style, text)
 
@@ -49,7 +54,7 @@ function(text = "clipboard", col = "#FFFFCC", border = "black", padding = 10,
 
 #' Wrap text in text boxes.
 #' 
-#' \code{TB2} - Generates an HTML writeable textbox tag.
+#' \code{TB2} - Generates an HTML writable text box tag.
 #' 
 #' @param width The width, in characters, to make the box.
 #' @param text_align Alingment of text in the box; takes the values 

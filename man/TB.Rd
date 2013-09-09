@@ -3,9 +3,10 @@
 \alias{TB2}
 \title{Wrap text in text boxes.}
 \usage{
-  TB(text = "clipboard", col = "#FFFFCC", border = "black",
+  TB(text = "clipboard", col = "white", border = "black",
     padding = 10, lty = "solid", lwd = 1, bor.rad = 5, ...,
-    copy2clip = TRUE, print = FALSE)
+    bold = FALSE, font.col = "black", copy2clip = TRUE,
+    print = FALSE)
 
   TB2(text = "clipboard", width = nchar(text),
     text_align = "center", box_align = "left",
@@ -28,6 +29,11 @@
 
   \item{lwd}{The line width (in px) for borders and
   shading.}
+
+  \item{bold}{logical.  If \code{TRUE} the font will be
+  boldfaced.}
+
+  \item{font.col}{The color of the font.}
 
   \item{bor.rad}{The degree (in px) to which the corners
   are rounded; 0 results in square corners.}
@@ -56,9 +62,9 @@
   Returns a character vector of an HTML text box tag.
 }
 \description{
-  \code{TB} - Generates an HTML textbox tag.
+  \code{TB} - Generates an HTML text box tag.
 
-  \code{TB2} - Generates an HTML writeable textbox tag.
+  \code{TB2} - Generates an HTML writable text box tag.
 }
 \examples{
 TB("I like ice cream!", print=TRUE)
