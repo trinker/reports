@@ -23,8 +23,8 @@
   \item{padding}{The distance (in px) between the text and
   the border.}
 
-  \item{lty}{The line type for borders (either "solid" or
-  "dashed").}
+  \item{lty}{The line type for borders (either
+  \code{"solid"} or \code{"dashed"}).}
 
   \item{lwd}{The line width (in px) for borders and
   shading.}
@@ -38,9 +38,9 @@
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
 
-  \item{print}{logical.  If TRUE \code{\link[base]{cat}}
-  prints the output to the console.  If \code{FALSE}
-  returns to the console.}
+  \item{print}{logical.  If \code{TRUE}
+  \code{\link[base]{cat}} prints the output to the console.
+  If \code{FALSE} returns to the console.}
 
   \item{width}{The width, in characters, to make the box.}
 

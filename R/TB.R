@@ -7,7 +7,8 @@
 #' @param col The color(s) to fill or shade the rectangle with.
 #' @param border The color for rectangle border(s).
 #' @param padding The distance (in px) between the text and the border.
-#' @param lty The line type for borders (either "solid" or "dashed"). 
+#' @param lty The line type for borders (either \code{"solid"} or 
+#' \code{"dashed"}). 
 #' @param lwd The line width (in px) for borders and shading.
 #' @param bor.rad The degree (in px) to which the corners are rounded; 0 results 
 #' in square corners.
@@ -15,8 +16,8 @@
 #' tag.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.  
-#' @param print logical.  If TRUE \code{\link[base]{cat}} prints the output to the 
-#' console.  If \code{FALSE} returns to the console.
+#' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
+#' output to the console.  If \code{FALSE} returns to the console.
 #' @return Returns a character vector of an HTML text box tag. 
 #' @export
 #' @rdname TB
