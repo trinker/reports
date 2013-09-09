@@ -8,32 +8,25 @@
 \alias{tex2html}
 \title{Convert tex/markdown/html to docx/tex/html}
 \usage{
-  tex2docx(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  tex2docx(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  tex2html(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  tex2html(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  md2docx(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  md2docx(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  md2tex(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  md2tex(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  md2pdf(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  md2pdf(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  html2pdf(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  html2pdf(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
-  md2html(in.file = NULL, out.file = NULL,
-    path = paste0(getwd(), "/REPORT"),
+  md2html(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 }
 \arguments{

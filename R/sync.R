@@ -46,8 +46,8 @@ function(dir1, dir2, one_way = FALSE, recursive = TRUE, ...) {
 #' 
 #' @rdname sync
 #' @export
-sync_img <- function(dir1 = file.path(getwd(), "PRESENTATION", "figure"), 
-    dir2 = file.path(getwd(), "PRESENTATION", "assets", "img"), ...) {
+sync_img <- function(dir1 = QP("PRESENTATION/figure"), 
+    dir2 = QP("PRESENTATION/assets/img"), ...) {
     sync(dir1 = dir1, dir2 = dir2, ...)
 }
 
@@ -58,8 +58,8 @@ sync_img <- function(dir1 = file.path(getwd(), "PRESENTATION", "figure"),
 #' 
 #' @rdname sync
 #' @export
-sync_rnp <- function(dir1 = file.path(getwd(), "REPORT", "figure"), 
-    dir2 = file.path(getwd(), "PRESENTATION", "figure"), ...) {
+sync_rnp <- function(dir1 = QP("REPORT/figure"), 
+    dir2 = QP("PRESENTATION/figure"), ...) {
     sync(dir1 = dir1, dir2 = dir2, ...)
 }
 

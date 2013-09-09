@@ -3,7 +3,7 @@
 \title{Document Template}
 \usage{
   doc_temp(temp.name = "newDoc", doc.type = "rnw",
-    path = getwd(), open = is.global())
+    path = getwd())
 }
 \arguments{
   \item{temp.name}{The name of the template.}

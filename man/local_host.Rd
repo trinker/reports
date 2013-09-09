@@ -3,9 +3,9 @@
 \alias{run_lh}
 \title{Generate Local Host Bash/Batch}
 \usage{
-  local_host(loc = file.path(getwd(), "PRESENTATION"))
+  local_host(loc = QP("PRESENTATION"))
 
-  run_lh(loc = file.path(getwd(), "PRESENTATION"))
+  run_lh(loc = QP("PRESENTATION"))
 }
 \arguments{
   \item{loc}{The path to the presentation directory.}

@@ -87,3 +87,4 @@ Collate:
     'slidify_layouts.R'
     'local_host.R'
     'is.global.R'
+    'QP.R'

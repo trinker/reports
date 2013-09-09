@@ -28,8 +28,8 @@
 #' @importFrom markdown markdownToHTML
 #' @examples
 #' ## custom_css(TRUE, style.css = css_styles()[1])
-custom_css <- function(rprofile = FALSE, loc = file.path(getwd(), "REPORT"), 
-  style.css = NULL, source = TRUE) {
+custom_css <- function(rprofile = FALSE, loc = QP(), style.css = NULL, 
+    source = TRUE) {
 	
     if (!is.null(loc)) {	
     	## Check css directory existence
@@ -139,8 +139,7 @@ css_styles <- function() {
 #' @examples
 #' ## css_style_change("rinker_vignette")
 css_style_change <- 
-function(style.css, cur.style.css = file.path(getwd(), 
-    "REPORT/css/style.css")) {
+function(style.css, cur.style.css = QP("REPORT/css/style.css")) {
 	
 	## Delete current style.css
 	delete(cur.style.css)

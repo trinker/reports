@@ -9,15 +9,15 @@
 #' @importFrom tools file_ext
 update_bib <-
 function(report = getwd(), bib.loc = getOption("bib.loc")) {
-    x <- paste0(report, "/REPORT/")
-    z <- paste0(report, "/PRESENTATION/")
+    x <- file.path(report, "REPORT")
+    z <- file.path(report, "PRESENTATION")
     y <- dir(z)
     current <- y[file_ext(y) == "bib"]
-    current
     if (is.null(bib.loc)) {
         stop("please supply the path to the .bib file")    
     }
-    new <- tail(unlist(strsplit(bib.loc, "/")), 1)
+    new <- basename(bib.loc)
+    
     if (current != new) {
         cat(paste0("Current .bib file does not match updated .bib.  Do you want to continue?\n\n"))
         ans <- menu(c("Yes", "No")) 

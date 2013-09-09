@@ -4,14 +4,13 @@
 \alias{custom_css}
 \title{Generate Custom css for RStudio + knitr}
 \usage{
-  custom_css(rprofile = FALSE,
-    loc = file.path(getwd(), "REPORT"), style.css = NULL,
-    source = TRUE)
+  custom_css(rprofile = FALSE, loc = QP(),
+    style.css = NULL, source = TRUE)
 
   css_styles()
 
   css_style_change(style.css,
-    cur.style.css = file.path(getwd(), "REPORT/css/style.css"))
+    cur.style.css = QP("REPORT/css/style.css"))
 }
 \arguments{
   \item{rprofile}{logical.  If \code{TRUE} the

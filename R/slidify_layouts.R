@@ -15,7 +15,7 @@
 #' created the extra slidify slide layouts in: \file{~PRESENTATION/assets/layouts}
 #' @references INSERT LINK TO slidify tricks and tips section
 #' @export
-slidify_layouts <- function(path = file.path(getwd(), "assets/layouts")){
+slidify_layouts <- function(path = QP("assets/layouts")){
     root <- system.file("extdata/slidify_layouts", package = "reports")
     if (!file.exists(path)) stop("Supply a valid path argument")
     invisible(file.copy(file.path(root, dir(root)), path))

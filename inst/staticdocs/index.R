@@ -92,7 +92,8 @@ list(
       "Exported tools used within reports.",
       c(
         "IE",
-        "is.global"
+        "is.global",
+        "QP"
       )
     ),   
     sd_section("Customization", 

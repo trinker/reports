@@ -17,7 +17,7 @@
 #' @export
 #' @examples
 #' ## local_host()
-local_host <- function(loc = file.path(getwd(), "PRESENTATION")) {
+local_host <- function(loc = QP("PRESENTATION")) {
     OS <- Sys.info()["sysname"]
     ext <- "local_host.sh"
     if (OS == "Windows") {
@@ -57,7 +57,7 @@ local_host <- function(loc = file.path(getwd(), "PRESENTATION")) {
 #' @export
 #' @examples
 #' ## run_lh
-run_lh <- function(loc = file.path(getwd(), "PRESENTATION")) {
+run_lh <- function(loc = QP("PRESENTATION")) {
 	
 	## Create local host
     out <- local_host(loc = loc)

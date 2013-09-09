@@ -29,7 +29,7 @@
 #' tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)
 #' }
 tex2docx <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(), 
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -56,7 +56,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 #' @rdname doc2doc
 #' @export
 tex2html <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -83,7 +83,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 #' @rdname doc2doc
 #' @export
 md2docx <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -109,7 +109,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 #' @rdname doc2doc
 #' @export
 md2tex <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -135,7 +135,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 #' @rdname doc2doc
 #' @export
 md2pdf <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -160,7 +160,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 
 ## Not exported
 md2beamer <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/PRESENTATION", theme = "Warsaw"),
+function(in.file = NULL, out.file = NULL, path = QP(), theme = "Warsaw", 
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -186,7 +186,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/PRESENTATION"
 #' @rdname doc2doc
 #' @export
 html2pdf <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	
@@ -212,7 +212,7 @@ function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
 #' @rdname doc2doc
 #' @export
 md2html <-
-function(in.file = NULL, out.file = NULL, path = paste0(getwd(), "/REPORT"),
+function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
     if (!is.null(path)) {
     	

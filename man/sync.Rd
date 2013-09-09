@@ -7,13 +7,11 @@
 \usage{
   sync(dir1, dir2, one_way = FALSE, recursive = TRUE, ...)
 
-  sync_img(dir1 = file.path(getwd(), "PRESENTATION", "figure"),
-    dir2 = file.path(getwd(), "PRESENTATION", "assets", "img"),
-    ...)
+  sync_img(dir1 = QP("PRESENTATION/figure"),
+    dir2 = QP("PRESENTATION/assets/img"), ...)
 
-  sync_rnp(dir1 = file.path(getwd(), "REPORT", "figure"),
-    dir2 = file.path(getwd(), "PRESENTATION", "figure"),
-    ...)
+  sync_rnp(dir1 = QP("REPORT/figure"),
+    dir2 = QP("PRESENTATION/figure"), ...)
 
   sync_all()
 }

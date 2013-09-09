@@ -2,7 +2,7 @@
 \alias{slidify_layouts}
 \title{Generate Extra Slidify Layouts}
 \usage{
-  slidify_layouts(path = file.path(getwd(), "assets/layouts"))
+  slidify_layouts(path = QP("assets/layouts"))
 }
 \arguments{
   \item{path}{The path to the layout directory where the
