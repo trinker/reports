@@ -17,6 +17,9 @@
   md2docx(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
+  md2html(in.file = NULL, out.file = NULL, path = QP(),
+    bib.loc = getOption("bib.loc"))
+
   md2tex(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 
@@ -24,9 +27,6 @@
     bib.loc = getOption("bib.loc"))
 
   html2pdf(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
-
-  md2html(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc"))
 }
 \arguments{

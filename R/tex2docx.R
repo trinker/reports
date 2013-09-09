@@ -108,6 +108,32 @@ function(in.file = NULL, out.file = NULL, path = QP(),
 
 #' @rdname doc2doc
 #' @export
+md2html <-
+function(in.file = NULL, out.file = NULL, path = QP(),
+    bib.loc = getOption("bib.loc")) {
+    if (!is.null(path)) {
+    	
+        WD <- getwd()
+        on.exit(setwd(WD))
+        setwd(path)
+   	
+        if (is.null(in.file)) {
+            in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
+        }
+        if (is.null(out.file)) {
+            out.file <- paste0(file_path_sans_ext(in.file), ".html")
+        }          
+    }
+    action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
+    if (!is.null(bib.loc)) {
+        action <- paste0(action, " --bibliography=", shQuote(bib.loc))
+    }
+    system(action)
+    message("html file generated!")
+}
+
+#' @rdname doc2doc
+#' @export
 md2tex <-
 function(in.file = NULL, out.file = NULL, path = QP(),
     bib.loc = getOption("bib.loc")) {
@@ -207,30 +233,4 @@ function(in.file = NULL, out.file = NULL, path = QP(),
     }
     system(action)
     message("pdf file generated!")
-}
-
-#' @rdname doc2doc
-#' @export
-md2html <-
-function(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc")) {
-    if (!is.null(path)) {
-    	
-        WD <- getwd()
-        on.exit(setwd(WD))
-        setwd(path)
-   	
-        if (is.null(in.file)) {
-            in.file <- dir(path)[file_ext(dir(path)) %in% "md"]
-        }
-        if (is.null(out.file)) {
-            out.file <- paste0(file_path_sans_ext(in.file), ".html")
-        }          
-    }
-    action <- paste0(wheresPandoc(), " -s ", shQuote(in.file), " -o ", shQuote(out.file))
-    if (!is.null(bib.loc)) {
-        action <- paste0(action, " --bibliography=", shQuote(bib.loc))
-    }
-    system(action)
-    message("html file generated!")
 }
