@@ -133,6 +133,8 @@ MINOR FEATURES
   user only needs to type the name of directory or nested directories that are 
   contained within the working directory and a complete path is given.
 
+* `TB` and `TB2` functions added for the creation of text boxes and writable 
+  text boxes.
 
 IMPROVEMENTS
 

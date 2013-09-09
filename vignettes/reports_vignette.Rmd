@@ -740,10 +740,10 @@ TB("I like ice cream!", print=TRUE)
 
 `r FT(gold, 5, text="&diams;")` **Example 2** `r FT(gold, 5, text="&diams;")`
 ```{r }
-TB("Free cookies for a year!", col = "red", text.col="white", print=TRUE)
+TB("Free cookies for a year!", col = "red", font.col="white", print=TRUE)
 ```
 ```{r results="asis", echo=FALSE}
-TB("Free cookies for a year!", col = "red", text.col="white", print=TRUE)
+TB("Free cookies for a year!", col = "red", font.col="white", print=TRUE)
 ```
 
 

@@ -1048,12 +1048,12 @@ TB("I like ice cream!", print=TRUE)
 ```
 
 ```
-## <div style="background-color: #FFFFCC; border-radius: 5px; padding:10px; border: 1px solid black;">
+## <div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
 ##     I like ice cream!
 ## </div>
 ```
 
-<div style="background-color: #FFFFCC; border-radius: 5px; padding:10px; border: 1px solid black;">
+<div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
     I like ice cream!
 </div>
 
@@ -1061,16 +1061,16 @@ TB("I like ice cream!", print=TRUE)
 <font size="5" color="gold">&diams;</font> **Example 2** <font size="5" color="gold">&diams;</font>
 
 ```r
-TB("Free cookies for a year!", print=TRUE)
+TB("Free cookies for a year!", col = "red", font.col="white", print=TRUE)
 ```
 
 ```
-## <div style="background-color: #FFFFCC; border-radius: 5px; padding:10px; border: 1px solid black;">
+## <div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
 ##     Free cookies for a year!
 ## </div>
 ```
 
-<div style="background-color: #FFFFCC; border-radius: 5px; padding:10px; border: 1px solid black;">
+<div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
     Free cookies for a year!
 </div>
 
