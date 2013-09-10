@@ -144,6 +144,17 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
 
     o <- paste0("Directory \"", "vignettes", "\" created:\n", x, "\n")
     class(o) <- "reports"
+    
+    ## Send to github
+    if (github) {
+    	try(repo2github(project.dir = x))
+    }
+    
+    ## Open Project in RStudio
+    if (open) {
+        open_project(file.path(x, paste0(vignette, ".Rproj")))
+    } 
+    
     return(o)    
 }
 
@@ -273,16 +284,6 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
 
     o <- paste0("vignette append \"", vignette, "\" added to:\n", path, "\n")
     class(o) <- "reports"
-	    
-    ## Send to github
-    if (github) {
-    	try(repo2github(project.dir = x))
-    }
-    
-    ## Open Project in RStudio
-    if (open) {
-        open_project(file.path(x, paste0(vignette, ".Rproj")))
-    } 
 	
     return(o)    
 }
