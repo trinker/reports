@@ -1,40 +1,42 @@
-# NOT CURRENTLY EXPORTED OR USED
-#
-# Upload a Local Repo to GitHub (WARNING: CURRENTLY NOT FUNCTIONING)
-# 
-# (WARNING: CURRENTLY NOT FUNCTIONING)
-# 
-# Allows uploading a local repository to GitHub without first creating the 
-# repository in the clouds. 
-# 
-# @param password GitHub user password (character string).
-# @param project.dir The path to the root directory of the report/presentation.
-# @param repo A character string naming the repo; default attempts to use the 
-# report project directory name.
-# @param github.user GitHub user name (character string).
-# @param gitpath Path to the location of git.  If \code{NULL} 
-# \code{repo2github} will attempt to locate the path if necessary.
-# @return Creates GitHub repository.
-# @author Simon O'Hanlon and Tyler Rinker <tyler.rinker@@gmail.com>
-# @references \url{http://stackoverflow.com/a/15047013/1000343} 
-# @section GitHub Website: \url{https://github.com/}
-# @section Warning: The arguments \code{project.dir} and \code{repo} use 
-# \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
-# the root directory and is done for convienence.  The user should ensure that 
-# either their working directory is the root directory or supply the correct 
-# root directory/name to these arguments.
-# @note To use \code{repo2github} the user must have initialized 
-# \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
-# with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
-# user will also need to have a \href{https://github.com/}{GitHub} site 
-# established.
-# @section Suggestion: The user may want to set \code{\link[base]{options}} for 
-# \code{github.user} in the user's primary \code{.Rprofile}.
-# @export
-# @examples
-# \dontrun{
-# repo2github()
-# }
+#' Upload a Local Repo to GitHub 
+#' 
+#' Allows uploading a local repository to GitHub without first creating the 
+#' repository in the clouds. 
+#' 
+#' @param password GitHub user password (character string).  If this is not 
+#' supplied the user will be promted to enter a password.
+#' @param project.dir The path to the root directory of the report/presentation.
+#' @param repo A character string naming the repo; default attempts to use the 
+#' report project directory name.
+#' @param github.user GitHub user name (character string).
+#' @param gitpath Path to the location of git.  If \code{NULL} 
+#' \code{repo2github} will attempt to locate the path if necessary.
+#' @return Creates GitHub repository.
+#' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
+#' @references \url{http://stackoverflow.com/a/15047013/1000343} 
+#' \url{http://stackoverflow.com/a/18692400/1000343}
+#' @section GitHub Website: \url{https://github.com/}
+#' @section Warning: For Windows users this function creates a temporary _netrc 
+#' file in the temp directory and attempts to delete this file.  The _netrc 
+#' contains username and password information for github.
+#' \code{\link[base]{on.exit}}.
+#' @detailsThe arguments \code{project.dir} and \code{repo} use 
+#' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
+#' the root directory and is done for convienence.  The user should ensure that 
+#' either their working directory is the root directory or supply the correct 
+#' root directory/name to these arguments.
+#' @note To use \code{repo2github} the user must have initialized 
+#' \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
+#' with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
+#' user will also need to have a \href{https://github.com/}{GitHub} site 
+#' established.
+#' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
+#' \code{github.user} in the user's primary \code{.Rprofile}.
+#' @export
+#' @examples
+#' \dontrun{
+#' repo2github()
+#' }
 repo2github <- function(password, project.dir = getwd(), 
 	repo = basename(getwd()), github.user = getOption("github.user"), 
 	gitpath = NULL) {
@@ -47,11 +49,18 @@ repo2github <- function(password, project.dir = getwd(),
     
     OSiswin <- Sys.info()["sysname"] != "Windows"
     
+    ## .gitignore content
+    GI <- "# History files\n.Rhistory\n\n# Example code in package build process\n*-Ex.R\n\n.Rprofile"
+    
     #Create the repo
     if (OSiswin) {
         gitpath <- "git"
         cmd1 <- paste0("curl -u '", github.user, ":", password, 
             "' https://api.github.com/user/repos -d '{\"name\":\"", repo, "\"}'")
+        
+        ## Make .gitignore
+        cat(GI, file=file.path(project.dir, ".gitignore"))
+        
     } else {
         if (is.null(gitpath)){  
             test <- c(file.exists("C:/Program Files (x86)/Git/bin/git.exe"),
@@ -72,12 +81,14 @@ repo2github <- function(password, project.dir = getwd(),
 	    json <- shQuote(json , type = "cmd" )
         cmd1 <- paste0( tempdir() ,"/curl -i -u \"" , github.user , ":" , password , 
             "\" https://api.github.com/user/repos -d " , json )
+        
+        ## Make .gitignore
+        cat(GI, file=file.path(project.dir, ".gitignore"))        
 	
     }
     system(cmd1)  
-    #Now to push the directory to github
-    #be careful that github.user is correct or git will get messed up
-    #could probably do with some references to how git will get confused and how to solve it
+    
+    ## push the directory to github
     if (is.null(project.dir)) stop("\"project.dir\" must be supplied")
     
     if (!OSiswin) {    
@@ -88,7 +99,7 @@ repo2github <- function(password, project.dir = getwd(),
         system(cmd2, intern = T)
         cmd3 <- paste0(shQuote(gitpath), " add .")  
         system(cmd3, intern = T)       
-
+        
         ## Set email
         x <- file.path(path.expand("~"), ".gitconfig")
         if (file.exists(x)) {
@@ -109,26 +120,45 @@ repo2github <- function(password, project.dir = getwd(),
         cmd4 <- paste0(shQuote(gitpath), ' commit -m "Initial commit"')  
         system(cmd4, intern = T) 
 
-        
-        ## 
+        ## add a new remote
         cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com/",
             github.user, "/", repo, ".git")  
         system(cmd5, intern = T) 
         
-        ## 
+        #Make a temp _netrc file
+        temp <- tempdir()
+        loc <- file.path(temp, "_netrc")
+        home <- Sys.getenv()["HOME"]
+        on.exit(Sys.setenv(HOME = home))
+        Sys.setenv(HOME =temp)
+        netrc <- sprintf("machine github.com\nlogin %s\npassword %s\nprotocol https", 
+            github.user, password)
+        cat(netrc, file=loc)
+
+        ## Push the repo to github
         cmd6 <- paste0(shQuote(gitpath), " push -u origin master")  
         system(cmd6, intern = T) 
         
-        setwd(wd)	
+        setwd(wd)
+        
+        ## Delete the _netrc file
+        unlink(loc, recursive = TRUE, force = FALSE)
+        if (file.exists(loc)) {
+            warn <- paste("For Windows users this function creates a temporary", 
+                "_netrc\nfile in the temp directory and attempts to delete this", 
+            	"file.\nThe _netrc contains username and password information for", 
+                "github.\n\nThis file was created:\n", loc, "\n\nThe results of",
+            	"file.exists(loc) is:", file.exists(loc), "\n\nIf TRUE delete file",
+                "manually")
+            warning(warn)
+        }
     } else {
         system( paste0( "cd ", project.dir , " && " , gitpath , " init" ) )
         system( paste0( "cd ", project.dir , " && " , gitpath , " add \\." ) )
         system( paste0( "cd ", project.dir , " && " , gitpath , 
             " commit -m \"Initial commit\"" ) )
         system( paste0( "cd ", project.dir , " && " , gitpath, 
-            " remote add origin https://github.com:", github.user, "/", repo, ".git") ) 
+            " remote add origin https://github.com/", github.user, "/", repo, ".git") ) 
     }
-    message(paste(repo, "pushed to github\n"))
-}  
-
-#  password <-"pass"; project.dir = getwd(); repo = basename(getwd()); github.user = getOption("github.user"); Trim <- reports:::Trim
+    message(sprintf("%spushed to github", repo))
+} 
