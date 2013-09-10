@@ -59,14 +59,14 @@ PF <- function(path = "clipboard", copy2clip = TRUE, fill = "%"){
 ## Remove in next update of reports:
 #' Path/URL: Fill Blank Spaces
 #' 
-#' \code{UF} - A convenience function to replace black spaces of paths with 
+#' \code{US} - A convenience function to replace black spaces of paths with 
 #' underscores. 
 #'
 #' @export
-#' @section Warning: UF is deprecated and will be removed from reports in 
+#' @section Notice: \code{US} is deprecated and will be removed from reports in 
 #' a version subsequent to version 0.2.0  Please use \code{UF} instead.
 #' @rdname path_fill
-UF <- function(path = "clipboard", copy2clip = TRUE, fill = "_"){
+US <- function(path = "clipboard", copy2clip = TRUE, fill = "_"){
     if (length(path) == 1 && path == "clipboard") {
         path <- read_clip()
     } 

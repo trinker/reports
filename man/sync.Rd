@@ -41,7 +41,7 @@
   \code{sync} - Sync files between directories.
 
   \code{sync_img} - A wrapper for sync to easily sync the
-  files in \file{~/PRESENTATION/figure} and
+  files in \file{~/PRESENTATION/figure} and \cr
   \file{~/PRESENTATION/assets/img}.
 
   \code{sync_rnp} - A wrapper for sync to easily sync the

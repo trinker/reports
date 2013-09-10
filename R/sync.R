@@ -42,7 +42,7 @@ function(dir1, dir2, one_way = FALSE, recursive = TRUE, ...) {
 #' Sync Images
 #' 
 #' \code{sync_img} - A wrapper for sync to easily sync the files in 
-#' \file{~/PRESENTATION/figure} and \file{~/PRESENTATION/assets/img}.
+#' \file{~/PRESENTATION/figure} and \cr \file{~/PRESENTATION/assets/img}.
 #' 
 #' @rdname sync
 #' @export

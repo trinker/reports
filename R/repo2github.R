@@ -20,7 +20,9 @@
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the home directory and attempts to delete this file.  The _netrc 
 #' contains username and password information for github. 
-#' \code{\link[base]{on.exit}}.
+#' \code{\link[reports]{repo2github}} attempts to delete this file but care 
+#' should be taken.  The file is created in: \cr
+#' \code{file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 #' @details The arguments \code{project.dir} and \code{repo} use 
 #' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
 #' the root directory and is done for convienence.  The user should ensure that 

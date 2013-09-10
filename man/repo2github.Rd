@@ -49,7 +49,11 @@
   For Windows users this function creates a temporary
   _netrc file in the home directory and attempts to delete
   this file.  The _netrc contains username and password
-  information for github. \code{\link[base]{on.exit}}.
+  information for github.
+  \code{\link[reports]{repo2github}} attempts to delete
+  this file but care should be taken.  The file is created
+  in: \cr \code{file.path(Sys.getenv()["HOME"],
+  "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 }
 
 \section{Suggestion}{
