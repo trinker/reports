@@ -16,8 +16,8 @@
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} \cr
 #' \url{http://stackoverflow.com/a/18692400/1000343}
 #' @section Warning: For Windows users this function creates a temporary _netrc 
-#' file in the temp directory and attempts to delete this file.  The _netrc 
-#' contains username and password information for github.
+#' file in the home directory and attempts to delete this file.  The _netrc 
+#' contains username and password information for github. 
 #' \code{\link[base]{on.exit}}.
 #' @details The arguments \code{project.dir} and \code{repo} use 
 #' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
@@ -123,10 +123,12 @@ repo2github <- function(password, project.dir = getwd(),
         
         #Make a temp _netrc file
         temp <- tempdir()
-        loc <- file.path(temp, "_netrc")
         home <- Sys.getenv()["HOME"]
+        newhome <- file.path(home, "DELETE_ME_REPORTS_PACKAGE")
+        dir.create(newhome)
+        loc <- file.path(newhome, "_netrc")
         on.exit(Sys.setenv(HOME = home))
-        Sys.setenv(HOME =temp)
+        Sys.setenv(HOME = newhome)
         netrc <- sprintf("machine github.com\nlogin %s\npassword %s\nprotocol https", 
             github.user, password)
         cat(netrc, file=loc)
@@ -145,7 +147,7 @@ repo2github <- function(password, project.dir = getwd(),
             	"file.\nThe _netrc contains username and password information for", 
                 "github.\n\nThis file was created:\n", loc, "\n\nThe results of",
             	"file.exists(loc) is:", file.exists(loc), "\n\nIf TRUE delete file",
-                "manually")
+                "manually.\n\nThe file can be found via:\n", loc)
             warning(warn)
         }
     } else {

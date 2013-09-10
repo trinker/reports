@@ -44,7 +44,7 @@
 }
 \section{Warning}{
   For Windows users this function creates a temporary
-  _netrc file in the temp directory and attempts to delete
+  _netrc file in the home directory and attempts to delete
   this file.  The _netrc contains username and password
   information for github. \code{\link[base]{on.exit}}.
 }
