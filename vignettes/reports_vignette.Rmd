@@ -193,7 +193,9 @@ This means that wrapping with <code>cat</code> or the <code>print</code> argumen
 
 The reports package contains functions to help maintain directories. They can speed up workflow through automation of directory related tasks.
 
-`r FUN("rdirs")` is a function designed to recursivly create directories.  This is particularly useful when used in combination with `r FUN("new_report")`/`r FUN("presentation")` for creating weekly lecture notes for a class or other similar repeated tasks.  The following code chunks demonstrate uses for 3 directory management functions in the reports package:
+<h4 id="rdirs">`r FUN("rdirs")`, `r HR2(LN("file_handling"), "folder")`, and `r HR2(LN("file_handling"), "delete")`</h4>
+
+`r FUN("rdirs")` is a function designed to recursively create directories.  This is particularly useful when used in combination with `r FUN("new_report")`/`r FUN("presentation")` for creating weekly lecture notes for a class or other similar repeated tasks.  The following code chunks demonstrate uses for 3 directory management functions in the reports package:
 
 1. `r FUN("rdirs")` &#8211; recursive directory creation
 2. `r HR2(LN("file_handling"), "folder")` &#8211; create a directory
@@ -228,7 +230,8 @@ lapply(x, new_report)
 <pre><code class="r">delete(c(fx, gx))
 setwd(WD)</code></pre>
 
-**sync_all** `r yt("http://youtu.be/bhArI_dp4B8")`
+<h4 id="sync">Image File Synchronization `r yt("http://youtu.be/bhArI_dp4B8")`</h4> 
+
 The `r HR2(LN("sync"), "sync family of functions")` are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify `r citep(bib[["Vaidyanathan2012"]])`.  The base version in the family, `r FUN("sync")` is generic and syncs files between 2 directories.  The `r HR2(LN("sync"), "sync_all")` function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
  
 <hr>
@@ -238,9 +241,11 @@ To use `r HR2(LN("sync"), "sync_all")` simply type:
 
 There are no arguments to sync_all, just run and the files between the following directories are synced:
 
-1. ~/REPORT/figure
-2. ~/PRESENTATION/figure
-3. ~/PRESENTATION/assets/img
+1. `~/REPORT/figure`
+2. `~/PRESENTATION/figure`
+3. `~/PRESENTATION/assets/img`
+
+<h4 id="github">Push Local Repo to GitHub</h4>
 
 <hr>
 <h3 id="notes">Using notes.xlsx</h3>

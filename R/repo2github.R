@@ -126,9 +126,8 @@ repo2github <- function(password, project.dir = getwd(),
         system(cmd5, intern = T) 
         
         #Make a temp _netrc file
-        temp <- tempdir()
         home <- Sys.getenv()["HOME"]
-        newhome <- file.path(home, "DELETE_ME_REPORTS_PACKAGE")
+        newhome <- file.path(home, paste0("DELETE_ME_", UF(Sys.time())))
         dir.create(newhome)
         loc <- file.path(newhome, "_netrc")
         on.exit(Sys.setenv(HOME = home))
@@ -145,6 +144,8 @@ repo2github <- function(password, project.dir = getwd(),
         
         ## Delete the _netrc file
         unlink(loc, recursive = TRUE, force = FALSE)
+        unlink(newhome, recursive = TRUE, force = FALSE)
+
         if (file.exists(loc)) {
             warn <- paste("For Windows users this function creates a temporary", 
                 "_netrc\nfile in the temp directory and attempts to delete this", 

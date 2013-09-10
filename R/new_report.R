@@ -362,7 +362,7 @@ function(report = "report", template = getOption("temp.reports"),
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
     if (open) {
-        open_project(file.path(x, report, paste0(report, ".Rproj")))
+        open_project(file.path(x, paste0(report, ".Rproj")))
     }
     return(o)    
 }

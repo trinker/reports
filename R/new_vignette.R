@@ -271,7 +271,7 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     o <- paste0("vignette append \"", vignette, "\" added to:\n", path, "\n")
     class(o) <- "reports"
     if (open) {
-        open_project(file.path(x, vignette, paste0(vignette, ".Rproj")))
+        open_project(file.path(x, paste0(vignette, ".Rproj")))
     }      
     return(o)    
 }

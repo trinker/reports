@@ -179,7 +179,7 @@ wheresPandoc <- function() {
             }
         }
     } 
-    temp
+    temp[1]
 }
 
 wheresRstudio <- 
@@ -200,7 +200,7 @@ function() {
             }
         }
     } 
-    temp
+    temp[1]
 }
 
 open_project <- function(Rproj.loc) {

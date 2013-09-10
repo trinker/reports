@@ -235,7 +235,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     o <- paste0("Presentation \"", presentation, "\" created:\n", x, "\n")
     class(o) <- "reports"
     if (open) {
-        open_project(file.path(x, presentation, paste0(presentation, ".Rproj")))
+        open_project(file.path(x, paste0(presentation, ".Rproj")))
     }    
     return(o)    
 }
