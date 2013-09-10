@@ -31,6 +31,8 @@
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{presentation} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
+#' @param github logical.  If \code{TRUE} the repo will be sent to public 
+#' \href{https://github.com/}{GitHub} account.
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
@@ -63,7 +65,8 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     theme = "Madrid", bib.loc = getOption("bib.loc"), 
     name = getOption("name.reports"), github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), 
-	slidify = getOption("slidify.template"), open = is.global(2), ...) {
+	slidify = getOption("slidify.template"), open = is.global(2), github = FALSE,
+	...) {
 	
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	
@@ -234,8 +237,16 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     }
     o <- paste0("Presentation \"", presentation, "\" created:\n", x, "\n")
     class(o) <- "reports"
+        
+    ## Send to github
+    if (github) {
+    	try(repo2github(project.dir = x))
+    }
+    
+    ## Open Project in RStudio
     if (open) {
         open_project(file.path(x, paste0(presentation, ".Rproj")))
-    }    
+    }  
+    
     return(o)    
 }

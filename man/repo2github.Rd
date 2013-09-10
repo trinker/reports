@@ -4,7 +4,8 @@
 \usage{
   repo2github(password, project.dir = getwd(),
     repo = basename(getwd()),
-    github.user = getOption("github.user"), gitpath = NULL)
+    github.user = getOption("github.user"), gitpath = NULL,
+    readme = TRUE)
 }
 \arguments{
   \item{password}{GitHub user password (character string).
@@ -22,6 +23,9 @@
   \item{gitpath}{Path to the location of git.  If
   \code{NULL} \code{repo2github} will attempt to locate the
   path if necessary.}
+
+  \item{logical.}{If \code{TRUE} repo initializes with a
+  README.md file.}
 }
 \value{
   Creates GitHub repository.

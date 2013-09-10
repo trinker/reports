@@ -28,6 +28,8 @@
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_report} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
+#' @param github logical.  If \code{TRUE} the repo will be sent to public 
+#' \href{https://github.com/}{GitHub} account.
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
@@ -76,7 +78,8 @@ function(report = "report", template = getOption("temp.reports"),
     bib.loc = getOption("bib.loc"), name = getOption("name.reports"), 
     github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
-    slidify = getOption("slidify.template"), open = is.global(2), ...) {
+    slidify = getOption("slidify.template"), open = is.global(2), github = FALSE,
+	...) {
 
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
@@ -361,6 +364,13 @@ function(report = "report", template = getOption("temp.reports"),
     }    
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
+    
+    ## Send to github
+    if (github) {
+    	try(repo2github(project.dir = x))
+    }
+    
+    ## Open Project in RStudio
     if (open) {
         open_project(file.path(x, paste0(report, ".Rproj")))
     }

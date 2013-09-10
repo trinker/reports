@@ -10,7 +10,7 @@
     sources = getOption("sources.reports"), path = getwd(),
     AN.xlsx = TRUE,
     slidify = getOption("slidify.template"),
-    open = is.global(2), ...)
+    open = is.global(2), github = FALSE, ...)
 }
 \arguments{
   \item{report}{A character vector of length two or one:
@@ -56,6 +56,10 @@
   \code{new_report} is being used in the global
   environment, if it is then the project directory will be
   opened.}
+
+  \item{github}{logical.  If \code{TRUE} the repo will be
+  sent to public \href{https://github.com/}{GitHub}
+  account.}
 
   \item{\ldots}{Other arguments passed to
   \code{\link[slidify]{author}}.}

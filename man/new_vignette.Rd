@@ -5,7 +5,8 @@
 \usage{
   new_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"), open = is.global(2))
+    name = getOption("name.reports"), open = is.global(2),
+    github = FALSE)
 
   append_vignette(vignette = "vignette", type = "rmd",
     path = getwd(), bib.loc = NULL,
@@ -37,6 +38,10 @@
   \code{new_vignette} is being used in the global
   environment, if it is then the project directory will be
   opened.}
+
+  \item{github}{logical.  If \code{TRUE} the repo will be
+  sent to public \href{https://github.com/}{GitHub}
+  account.}
 }
 \value{
   Creates a vignette template.

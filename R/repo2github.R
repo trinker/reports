@@ -13,6 +13,7 @@
 #' @param github.user GitHub user name (character string).
 #' @param gitpath Path to the location of git.  If \code{NULL} 
 #' \code{repo2github} will attempt to locate the path if necessary.
+#' @param logical.  If \code{TRUE} repo initializes with a README.md file.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} \cr
@@ -39,18 +40,19 @@
 #' }
 repo2github <- function(password, project.dir = getwd(), 
 	repo = basename(getwd()), github.user = getOption("github.user"), 
-	gitpath = NULL) {
+	gitpath = NULL, readme = TRUE) {
 
     #check for password
     if (missing(password)) {	
-        cat ("Enter [GitHub password] to continue\n")
+        message("Enter [GitHub password] and press [Enter] to continue")
         password <- readLines(n=1)
     }
     
     OSiswin <- Sys.info()["sysname"] != "Windows"
     
     ## .gitignore content
-    GI <- "# History files\n.Rhistory\n\n# Example code in package build process\n*-Ex.R\n\n.Rprofile"
+    GI <- paste("# History files\n.Rhistory\n\n# Example code in package build",
+        sprintf("process\n*-Ex.R\n\n.Rprofile\n.Rproj.user\n%s.Rproj\n", repo))
     
     #Create the repo
     if (OSiswin) {
@@ -60,6 +62,7 @@ repo2github <- function(password, project.dir = getwd(),
         
         ## Make .gitignore
         cat(GI, file=file.path(project.dir, ".gitignore"))
+        cat(sprintf("%s\n===", repo), file=file.path(project.dir, "README.md"))    
         
     } else {
         if (is.null(gitpath)){  
@@ -82,8 +85,9 @@ repo2github <- function(password, project.dir = getwd(),
         cmd1 <- paste0( tempdir() ,"/curl -i -u \"" , github.user , ":" , password , 
             "\" https://api.github.com/user/repos -d " , json )
         
-        ## Make .gitignore
-        cat(GI, file=file.path(project.dir, ".gitignore"))        
+        ## Make .gitignore and README
+        cat(GI, file=file.path(project.dir, ".gitignore"))      
+        cat(sprintf("%s\n===", repo), file=file.path(project.dir, "README.md"))           
 	
     }
     system(cmd1)  
@@ -127,7 +131,7 @@ repo2github <- function(password, project.dir = getwd(),
         
         #Make a temp _netrc file
         home <- Sys.getenv()["HOME"]
-        newhome <- file.path(home, paste0("DELETE_ME_", UF(Sys.time())))
+        newhome <- file.path(home, paste0("DELETE_ME_", gsub(":", "\\.", UF(Sys.time()))))
         dir.create(newhome)
         loc <- file.path(newhome, "_netrc")
         on.exit(Sys.setenv(HOME = home))

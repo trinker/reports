@@ -141,6 +141,11 @@ MINOR FEATURES
 * `TB` and `TB2` functions added for the creation of text boxes and writable 
   text boxes.
 
+* The project creating functions (`presentation`, `new_report` and 
+  `new_vignette`) gain a `github` argument that optionally sends the repo to 
+  GitHub public account upon creation.
+
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 

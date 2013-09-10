@@ -16,6 +16,8 @@
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_vignette} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
+#' @param github logical.  If \code{TRUE} the repo will be sent to public 
+#' \href{https://github.com/}{GitHub} account.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{name.reports} in the user's primary \code{.Rprofile}:
 #' \enumerate{ 
@@ -35,7 +37,8 @@
 #' ## new_vignette()
 new_vignette <-
 function(vignette = "vignette", type = "rmd", path = getwd(),
-    bib.loc = NULL, name = getOption("name.reports"), open = is.global(2)) {
+    bib.loc = NULL, name = getOption("name.reports"), open = is.global(2),
+    github = FALSE) {
 
     ## preparing type
     type <- tolower(type)
@@ -270,9 +273,17 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
 
     o <- paste0("vignette append \"", vignette, "\" added to:\n", path, "\n")
     class(o) <- "reports"
+	    
+    ## Send to github
+    if (github) {
+    	try(repo2github(project.dir = x))
+    }
+    
+    ## Open Project in RStudio
     if (open) {
         open_project(file.path(x, paste0(vignette, ".Rproj")))
-    }      
+    } 
+	
     return(o)    
 }
 
