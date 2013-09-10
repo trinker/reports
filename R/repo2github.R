@@ -156,5 +156,5 @@ repo2github <- function(password, project.dir = getwd(),
         system( paste0( "cd ", project.dir , " && " , gitpath, 
             " remote add origin https://github.com/", github.user, "/", repo, ".git") ) 
     }
-    message(sprintf("%spushed to github", repo))
+    message(sprintf("%s pushed to github", repo))
 } 
