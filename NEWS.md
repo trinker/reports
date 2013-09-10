@@ -88,6 +88,8 @@ And constructed with the following guidelines:
   provides internal style.css files : see https://github.com/trinker/style.css_examples.
   The later enables changing style.css files on the fly.
 
+* `repo2github` pushes a local repo to github.
+
 
 <b>MINOR FEATURES</b>
 

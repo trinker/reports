@@ -29,6 +29,9 @@
 \description{
   Allows uploading a local repository to GitHub without
   first creating the repository in the clouds.
+  \code{\link[reports]{repo2github}} is designed for the
+  initial psuh to github.  Future pushes can be handled via
+  RStudio or other git interface.
 }
 \details{
   The arguments \code{project.dir} and \code{repo} use

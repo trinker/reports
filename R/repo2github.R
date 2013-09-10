@@ -1,7 +1,9 @@
 #' Upload a Local Repo to GitHub 
 #' 
 #' Allows uploading a local repository to GitHub without first creating the 
-#' repository in the clouds. 
+#' repository in the clouds. \code{\link[reports]{repo2github}} is designed for 
+#' the initial psuh to github.  Future pushes can be handled via RStudio or 
+#' other git interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
 #' supplied the user will be promted to enter a password.
