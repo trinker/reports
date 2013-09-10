@@ -13,22 +13,18 @@
 #' \code{repo2github} will attempt to locate the path if necessary.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
-#' @references \url{http://stackoverflow.com/a/15047013/1000343} 
+#' @references \url{http://stackoverflow.com/a/15047013/1000343} \cr
 #' \url{http://stackoverflow.com/a/18692400/1000343}
-#' @section GitHub Website: \url{https://github.com/}
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the temp directory and attempts to delete this file.  The _netrc 
 #' contains username and password information for github.
 #' \code{\link[base]{on.exit}}.
-#' @detailsThe arguments \code{project.dir} and \code{repo} use 
+#' @details The arguments \code{project.dir} and \code{repo} use 
 #' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
 #' the root directory and is done for convienence.  The user should ensure that 
 #' either their working directory is the root directory or supply the correct 
 #' root directory/name to these arguments.
-#' @note To use \code{repo2github} the user must have initialized 
-#' \code{\link[reports]{new_report}} or \code{\link[reports]{presentation}} 
-#' with a \code{.git} file by selecting the argument \code{git = TRUE}.  The 
-#' user will also need to have a \href{https://github.com/}{GitHub} site 
+#' @note The user will need to have a \href{https://github.com/}{GitHub} account 
 #' established.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{github.user} in the user's primary \code{.Rprofile}.

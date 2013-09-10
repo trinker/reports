@@ -42,7 +42,7 @@ function(dir1, dir2, one_way = FALSE, recursive = TRUE, ...) {
 #' Sync Images
 #' 
 #' \code{sync_img} - A wrapper for sync to easily sync the files in 
-#' ~/PRESENTATION/figure and ~/PRESENTATION/assets/img.
+#' \file{~/PRESENTATION/figure} and \file{~/PRESENTATION/assets/img}.
 #' 
 #' @rdname sync
 #' @export
@@ -54,7 +54,7 @@ sync_img <- function(dir1 = QP("PRESENTATION/figure"),
 #' Sync Images
 #' 
 #' \code{sync_rnp} - A wrapper for sync to easily sync the files in 
-#' ~/REPORT/figure and ~/PRESENTATION/figure.
+#' \file{~/REPORT/figure} and \file{~/PRESENTATION/figure}.
 #' 
 #' @rdname sync
 #' @export
@@ -66,7 +66,8 @@ sync_rnp <- function(dir1 = QP("REPORT/figure"),
 #' Sync Images
 #' 
 #' \code{sync_all} - A wrapper for sync to easily sync all files between 
-#' ~/REPORT/figure, ~/PRESENTATION/figure, and ~/PRESENTATION/assets/img.
+#' \file{~/REPORT/figure}, \file{~/PRESENTATION/figure}, and 
+#' \file{~/PRESENTATION/assets/img}.
 #' 
 #' @rdname sync
 #' @export

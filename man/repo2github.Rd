@@ -7,7 +7,9 @@
     github.user = getOption("github.user"), gitpath = NULL)
 }
 \arguments{
-  \item{password}{GitHub user password (character string).}
+  \item{password}{GitHub user password (character string).
+  If this is not supplied the user will be promted to enter
+  a password.}
 
   \item{project.dir}{The path to the root directory of the
   report/presentation.}
@@ -29,7 +31,7 @@
   first creating the repository in the clouds.
 }
 \details{
-  arguments \code{project.dir} and \code{repo} use
+  The arguments \code{project.dir} and \code{repo} use
   \code{\link[base]{getwd}}.  This assumes is the current
   working directoy is the root directory and is done for
   convienence.  The user should ensure that either their
@@ -37,17 +39,9 @@
   correct root directory/name to these arguments.
 }
 \note{
-  To use \code{repo2github} the user must have initialized
-  \code{\link[reports]{new_report}} or
-  \code{\link[reports]{presentation}} with a \code{.git}
-  file by selecting the argument \code{git = TRUE}.  The
-  user will also need to have a
-  \href{https://github.com/}{GitHub} site established.
+  The user will need to have a
+  \href{https://github.com/}{GitHub} account established.
 }
-\section{GitHub Website}{
-  \url{https://github.com/}
-}
-
 \section{Warning}{
   For Windows users this function creates a temporary
   _netrc file in the temp directory and attempts to delete
@@ -70,7 +64,7 @@ repo2github()
   <tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/a/15047013/1000343}
+  \url{http://stackoverflow.com/a/15047013/1000343} \cr
   \url{http://stackoverflow.com/a/18692400/1000343}
 }
 

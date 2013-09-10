@@ -206,7 +206,7 @@ function() {
 open_project <- function(Rproj.loc) {
     action <- paste(wheresRstudio(), Rproj.loc)
     message("Preparing to open project!")
-    system(action, wait = FALSE, ignore.stderr = TRUE)
+    try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
 
 read.notes <-

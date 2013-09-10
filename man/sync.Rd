@@ -41,15 +41,17 @@
   \code{sync} - Sync files between directories.
 
   \code{sync_img} - A wrapper for sync to easily sync the
-  files in ~/PRESENTATION/figure and
-  ~/PRESENTATION/assets/img.
+  files in \file{~/PRESENTATION/figure} and
+  \file{~/PRESENTATION/assets/img}.
 
   \code{sync_rnp} - A wrapper for sync to easily sync the
-  files in ~/REPORT/figure and ~/PRESENTATION/figure.
+  files in \file{~/REPORT/figure} and
+  \file{~/PRESENTATION/figure}.
 
   \code{sync_all} - A wrapper for sync to easily sync all
-  files between ~/REPORT/figure, ~/PRESENTATION/figure, and
-  ~/PRESENTATION/assets/img.
+  files between \file{~/REPORT/figure},
+  \file{~/PRESENTATION/figure}, and
+  \file{~/PRESENTATION/assets/img}.
 }
 \seealso{
   \code{\link[base]{file.copy}}

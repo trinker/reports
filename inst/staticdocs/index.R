@@ -68,6 +68,7 @@ list(
       c(
         "delete",
         "local_host",
+        "repo2github",
         "rdirs",
         "sync"
       )
