@@ -65,6 +65,7 @@ run_lh <- function(loc = QP("PRESENTATION")) {
     message("\nThe local host is opening")
     
     ## Open bat/sh file
+    out <- shQuote(out) 
     system(out)
     	   
 }

@@ -155,5 +155,20 @@ function(style.css, cur.style.css = QP("REPORT/css/style.css")) {
 	message(paste0("New style.css copied to:\n", dirname(cur.style.css)))
 }
 
-
+#' Generate Custom css for RStudio + knitr
+#' 
+#' \code{css_styl_add} - Add a style.css.  Defaults to 
+#' \file{~PRESENTATION/assets/css}.
+#' 
+#' @export
+#' @rdname custom_css
+css_style_add <- function(loc = QP("PRESENTATION/assets/css")) {
+	sty <- file.path(loc, "style.css")
+	if (file.exists(sty)) {
+	   stop(sprintf("style.css already exists in:\n\n%s", loc))	
+	} else {
+        cat("/*style.css*/\n", file = sty)
+        message(sprintf("style.css created in:\n\n%s", loc))
+	}
+}
 

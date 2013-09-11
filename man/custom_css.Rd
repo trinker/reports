@@ -1,4 +1,5 @@
 \name{custom_css}
+\alias{css_style_add}
 \alias{css_style_change}
 \alias{css_styles}
 \alias{custom_css}
@@ -11,6 +12,8 @@
 
   css_style_change(style.css,
     cur.style.css = QP("REPORT/css/style.css"))
+
+  css_style_add(loc = QP("PRESENTATION/assets/css"))
 }
 \arguments{
   \item{rprofile}{logical.  If \code{TRUE} the
@@ -44,6 +47,9 @@
   files.
 
   \code{css_style_change} - Change a style.css.
+
+  \code{css_styl_add} - Add a style.css.  Defaults to
+  \file{~PRESENTATION/assets/css}.
 }
 \details{
   \code{custom_css} - The user must add the custom contents
