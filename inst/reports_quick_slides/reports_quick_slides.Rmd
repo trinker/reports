@@ -1,0 +1,156 @@
+---
+title       : reports package
+subtitle    : Quick Start Guide
+author      : Tyler Rinker
+logo        : reports.PNG
+job         : 
+framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, quiz, bootstrap]
+mode        : selfcontained
+--- dt:10
+
+```{r setup, include=FALSE}
+# set global chunk options
+opts_chunk$set(cache=FALSE)
+## library(slidify); library(slidifyLibraries)
+library(knitr); library(knitcitations); library(reports)
+write.bibtex(c(Francois2013= citation("bibtex"), "Yihui2013" = citation("knitr"), 
+    "Boettiger2013" = citation("knitcitations"), "Rinker2013b" = citation("reports"), 
+    "Rinker2013a" = citation("qdap"), "Vaidyanathan2012" = citation("slidify")), 
+    file = "reports.bib")
+bib <- read.bibtex("reports.bib")
+```
+<style>
+body {
+  background-color: #000;
+}
+.quiz-option label{
+  display: inline;
+  font-size: 1em;
+}
+.refs {
+  padding-left: 80px;
+  text-indent: -35px;
+}
+</style>
+
+## Purpose
+reports `r citep(bib[6])` is a package that assists in writing flexible reports
+and presentations.  The package is designed to be used with RStudio,
+MiKTex/TexLive/LibreOffice, Pandoc, knitr `r citep(bib[4])`, slidify 
+`r citep(bib[8])` and knitcitations `r citep(bib[5])`.  
+</br> 
+`r IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", width=670, height=550)`
+
+--- &twocol
+
+## Why reports ##
+</br>
+`r FT(22, text="reports Will Make You...")`
+
+*** =left
+</br>
+>- `r FT(22, red, text="Efficient")`
+>- `r FT(22, red, text="Organized")`    
+>- `r FT(22, red, text="Consistent")`     
+>- `r FT(22, red, text="Happy")` 
+
+*** =right
+`r VS(2)`
+`r IM("http://png-1.findicons.com/files/icons/350/aqua_smiles/128/fun.png", width=230, height=150)`
+
+
+---
+
+## Getting Started
+
+**Download:**    
+* RStudio - [http://www.rstudio.com/](http://www.rstudio.com/)       
+* MiKTex - [http://miktex.org/](http://miktex.org/) or    
+* TexLive - [http://www.tug.org/texlive/](http://www.tug.org/texlive/)   
+* LibreOffice - [http://www.libreoffice.org/](http://www.libreoffice.org/)   
+* Pandoc - [http://johnmacfarlane.net/pandoc/](http://johnmacfarlane.net/pandoc/)     
+* knitr (Xie, 2013) - [http://yihui.name/knitr/](http://yihui.name/knitr/) 
+* slidify (Vaidyanathan, 2012) - [http://ramnathv.github.io/slidify/](http://ramnathv.github.io/slidify/)   
+* knitcitations (Boettiger, 2013)    
+<hr color="green" size="3">
+
+```{r inst, include=TRUE, eval=FALSE}
+install.packages("reports")
+```
+*This will install: knitr, knitcitations & slidify too*
+
+---
+
+## Windows Users...
+
+may want to use:
+
+```{r inst2, include=TRUE, eval=FALSE}
+install.packages("installr")
+```
+
+---
+
+## Development Version Installation
+
+`r HR("https://github.com/trinker/reports", "https://github.com/trinker/reports")` 
+
+```{r inst3, include=TRUE, eval=FALSE}
+library(devtools)         
+install_github("reports", "trinker") 
+```
+
+---
+
+## Set Up .Rprofile ##
+
+The user can add these options to their .Rprofile       
+
+```{r inst4, include=TRUE, eval=FALSE}
+options(bib.loc = "C:/Users/trinker/Desktop/PhD Program/MASTER.bib")    
+options(name.reports = "Tyler Rinker\\\\University at Buffalo\\\\Department of Learning and Instruction")
+options(sources.reports = path.expand("~/path_1"), path.expand("~/path_2"))  
+options(temp.reports = "apa6.mod.qual_tex")
+options(github.user = "trinker")   
+options(speed.temp = list(`1`="wordpress_rmd", `2`="basic_rmd", `3`="apa6.mod.qual_tex"))
+options(slidify.template = "revealjs")
+```
+
+
+---
+
+## Create Report/Paper Project ##
+### Now the user is ready to generate a new report/paper or presentation project.  
+
+Use:    
+```{r proj, include=TRUE, eval=FALSE}
+setwd(desired.location)   
+new_report("NEW")
+
+#or
+
+presentation("NEW")
+```
+
+---
+
+## Get Started!
+
+`r HR2("http://dl.dropboxusercontent.com/u/61803503/packages/reports_vignette.html", "reports_vignette")`  
+`r HR2("http://trinker.github.io/reports/", "reports Web Page")`    
+`r HR2("http://dl.dropbox.com/u/61803503/report_directory_guide.pdf", "Project Directory Workflow")`     
+`r HR2("http://trinker.github.io/reports/dependencies", "reports Dependencies")`      
+`r HR2("http://dl.dropboxusercontent.com/u/61803503/Slides/reports/reports_quick_slides.txt", ".Rmd file of these slides")`  
+`r HR2("https://github.com/ramnathv/slidifyExamples", "Slidify Examples")` 
+
+--- .YT yt:ArHQjQyIS70 &youtube
+
+
+--- .refs
+## References
+```{r, echo=FALSE, results='asis'}
+bibliography("html", bulleted = FALSE)
+```
