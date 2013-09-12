@@ -1,0 +1,57 @@
+rest
+========================================================
+author: 
+date: 
+
+```{r setup, include=FALSE}
+# set global chunk options
+library(reports); library(slidify); library(knitcitations); library(knitr)
+opts_chunk$set(cache=FALSE)
+BIB <- system.file("extdata/docs/example.bib", package = "reports") #test .bib
+bib <- read.bibtex(BIB)
+#
+#Reading in your own bib file:
+#bib <- read.bibtex(dir()[tools::file_ext(dir()) == "bib"][1])
+#cite in text using `r citet(bib[1])`
+```
+
+First Slide
+========================================================
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+`r citet(bib[3])`
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Reports YouTube Video
+========================================================
+
+`r YT("ArHQjQyIS70")`
+
+References
+========================================================
+```{r, echo=FALSE, results='asis'}
+bibliography("html", bulleted = FALSE)
+```
+
+
+
+
