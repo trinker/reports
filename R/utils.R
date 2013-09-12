@@ -201,7 +201,7 @@ function() {
         }
     } 
     short.path <- which.min(unlist(lapply(gregexpr("RStudio", temp), "[[", 1)))
-    temp[shortpath] 
+    temp[short.path] 
 }
 
 open_project <- function(Rproj.loc) {

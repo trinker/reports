@@ -20,11 +20,13 @@
 #' \bold{.Rprofile}).
 #' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
 #' .xlsx format.  If \code{FALSE} the document will be a .csv file.
-#' @param slidify  The template to be used in the \bold{PRESENTATION} .Rmd.  
-#' This can be one of the types from \code{slidify_templates} or a path to an 
-#' .Rmd file.  This argument will be overrode if a custom reports template is 
+#' @param present  The template to be used in the \bold{PRESENTATION} 
+#' .Rmd/.Rpres.  This can be one of the types from \code{slidify_templates} , 
+#' \code{"rstudio"}  (this generates a .Rpres file) or a path to an .Rmd/.Rpres 
+#' file.  This argument will be overrode if a custom reports template is 
 #' supplied with an .Rmd file in the \bold{inst} directory named slidify.Rmd 
-#' (\file{~inst/slidify.Rmd}).  
+#' (\file{~inst/slidify.Rmd}). Or an .Rpres file in the \bold{inst} directory 
+#' named rstudio.Rpres (\file{~inst/slidify.Rmd}).  
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_report} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
@@ -33,7 +35,7 @@
 #' @param \ldots Other arguments passed to \code{\link[slidify]{author}}.
 #' @section Suggestion: The user may want to set \code{\link[base]{options}} for 
 #' \code{bib.loc}, \code{github.user}, \code{name.reports} 
-#' \code{sources.reports},\code{slidify.template} and \code{reveraljs.loc} in 
+#' \code{sources.reports},\code{present.template} and \code{revealjs.loc} in 
 #' the user's primary \code{.Rprofile}:
 #' \enumerate{ 
 #'   \item{\bold{bib.loc} - The path to the users primary bibliography}
@@ -46,8 +48,8 @@
 #'   the form of:\cr \code{options(speed.temp=list(`1`="wordpress_rmd", `2`="basic_rmd"))}}
 #'   \item{\bold{sources.reports} - Path(s) to additional files/scripts that 
 #'   should be included to be sourced in the project startup}
-#'   \item{\bold{slidify.template} - Path to, or defualt, .Rmd file tempalte for 
-#'   use in as the .Rmd used in the slidify presentations (see 
+#'   \item{\bold{present.template} - Path to, or defualt, .Rmd/.Rpres file template for 
+#'   use in as the .Rmd/.Rpres used in the PRESENTATION directory (see 
 #'   \code{slidify_templates} for possible non-path arguments)}   
 #' }
 #' @return Creates a report template.
@@ -61,7 +63,8 @@
 #' @section Additional Guide: Introductory video
 #' \url{http://www.youtube.com/watch?v=ArHQjQyIS70}
 #' @references 
-#' \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify examples}
+#' \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify examples}  \cr
+#' \href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio presentations}
 #' @export
 #' @importFrom slidify author
 #' @importFrom tools file_path_sans_ext file_ext
@@ -78,9 +81,10 @@ function(report = "report", template = getOption("temp.reports"),
     bib.loc = getOption("bib.loc"), name = getOption("name.reports"), 
     github.user = getOption("github.user"), 
     sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
-    slidify = getOption("slidify.template"), open = is.global(2), github = FALSE,
+    present = getOption("present.template"), open = is.global(2), github = FALSE,
 	...) {
-
+ 
+    slidify <- present 
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
         spdTmp <- getOption("speed.temp")
@@ -145,58 +149,89 @@ function(report = "report", template = getOption("temp.reports"),
         }
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE))
         y[[4]] <- file.path(x, "PRESENTATION")  
-        suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE, ...))
-        suppressMessages(slidify_layouts(file.path(y[[4]], "assets/layouts")))        
-        if ("slidify.Rmd" %in% dir(file.path(pdfloc, "inst"))) {
-            slid.path <- file.path(pdfloc, "inst/slidify.Rmd")
-        } else {
-            if(file.exists(slidify)) {
-                slid.path <- slidify
+
+        if (!slidify %in% suppressMessages(unlist(slidify_templates(), use.names = FALSE))) {
+
+            if ("rstudio.Rpres" %in% dir(file.path(pdfloc, "inst"))) {
+                slid.path <- file.path(pdfloc, "rstudio.Rpres")
             } else {
-                if (slidify == "default") {
-                    slid.path <- file.path(y[[4]], "index.Rmd")
+                if(file.exists(slidify)) {
+                    slid.path <- slidify
                 } else {
-                    slid <- system.file("extdata/slidify_library", package = "reports")
-                    if (substring(slidify, 1, 1) == ".") {
-                        back <- "full"
-                        slidify <- substring(slidify, 2)                        
-                    } else {
-                        back <- "min"
-                    }
-                    slid.path <- file.path(slid, back, paste0(slidify, ".Rmd"))
+                    slid <- system.file("extdata/rstudio_pres_library", package = "reports")
+                    slid.path <- file.path(slid, slidify)
+                    slid.path <- file.path(slid.path, dir(slid.path)[file_ext(dir(slid.path)) %in% "Rpres"])
                 }
             }
-        }
-        suppressMessages(local_host(y[[4]]))
-        setwd(x)
-        Rmd <- suppressWarnings(readLines(slid.path)) 
-        title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
-        specials <- c("brew")
-        if (!slidify %in% specials) {
-            Rmd[title.] <- paste0("title      : ", report)
-        } else {
-            titlepieces <- unlist(strsplit(Rmd[title.], ":"))
-            Rmd[title.] <- paste0("title      : ", report, titlepieces[2])
-            slidextras <- system.file("extdata/r_script_library/slidify", package = "reports")
-            sliddest <- file.path(slidextras, slidify)
-            suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), y[[4]], recursive = TRUE))
-        }
-        if(!is.null(name)) {
-            name. <- grepl("author", Rmd) & grepl("\\:", Rmd)
-            Rmd[name.] <- paste0("author     : ", strsplit(name, "\\\\")[[1]][1])
-        }
-        if(slidify == "revealjs") {
-            title2. <- Rmd %in% "# title"
-            Rmd[title2.] <- paste0("# ", report)
+            invisible(folder(folder.name=y[[4]]))
+            suppressMessages(local_host(y[[4]]))
+            setwd(x)
+            Rpres <- suppressWarnings(readLines(slid.path)) 
+            title. <- grepl("title", Rpres) & !grepl("subtitle", Rpres)
+            Rpres[title.] <- gsub("title", report, Rpres[title.])
             if(!is.null(name)) {
-                name2. <- Rmd %in% "### name"
-                Rmd[name2.] <- paste0("### ", strsplit(name, "\\\\")[[1]][1])
+                name. <- grepl("author", Rpres) & grepl("\\:", Rpres)
+                Rpres[name.] <- paste0("author: ", strsplit(name, "\\\\")[[1]][1])
             }
-            css <- system.file("extdata/docs/style.css", package = "reports")
-            file.copy(css,  file.path(y[[4]], "assets/css"))            
+            cat(paste(Rpres, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rpres")))
+
+        } else {
+
+            suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE, ...))
+            suppressMessages(slidify_layouts(file.path(y[[4]], "assets/layouts")))        
+            if ("slidify.Rmd" %in% dir(file.path(pdfloc, "inst"))) {
+                slid.path <- file.path(pdfloc, "inst/slidify.Rmd")
+            } else {
+                if(file.exists(slidify)) {
+                    slid.path <- slidify
+                } else {
+                    if (slidify == "default") {
+                        slid.path <- file.path(y[[4]], "index.Rmd")
+                    } else {
+                        slid <- system.file("extdata/slidify_library", package = "reports")
+                        if (substring(slidify, 1, 1) == ".") {
+                            back <- "full"
+                            slidify <- substring(slidify, 2)                        
+                        } else {
+                            back <- "min"
+                        }
+                        slid.path <- file.path(slid, back, paste0(slidify, ".Rmd"))
+                    }
+                }
+            }
+
+            suppressMessages(local_host(y[[4]]))
+            setwd(x)
+            Rmd <- suppressWarnings(readLines(slid.path)) 
+            title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
+            specials <- c("brew")
+            if (!slidify %in% specials) {
+                Rmd[title.] <- paste0("title      : ", report)
+            } else {
+                titlepieces <- unlist(strsplit(Rmd[title.], ":"))
+                Rmd[title.] <- paste0("title      : ", report, titlepieces[2])
+                slidextras <- system.file("extdata/r_script_library/slidify", package = "reports")
+                sliddest <- file.path(slidextras, slidify)
+                suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), y[[4]], recursive = TRUE))
+            }
+
+            if(!is.null(name)) {
+                name. <- grepl("author", Rmd) & grepl("\\:", Rmd)
+                Rmd[name.] <- paste0("author     : ", strsplit(name, "\\\\")[[1]][1])
+            }
+            if(slidify == "revealjs") {
+                title2. <- Rmd %in% "# title"
+                Rmd[title2.] <- paste0("# ", report)
+                if(!is.null(name)) {
+                    name2. <- Rmd %in% "### name"
+                    Rmd[name2.] <- paste0("### ", strsplit(name, "\\\\")[[1]][1])
+                }
+                css <- system.file("extdata/docs/style.css", package = "reports")
+                file.copy(css,  file.path(y[[4]], "assets/css"))            
+            }
+            cat(paste(Rmd, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rmd")))
+            delete(file.path(y[[4]], "index.Rmd"))
         }
-        cat(paste(Rmd, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rmd")))
-        delete(file.path(y[[4]], "index.Rmd"))
     }
     AN <- system.file("extdata/docs", package = "reports")
     if (AN.xlsx) {
@@ -208,6 +243,7 @@ function(report = "report", template = getOption("temp.reports"),
         invisible(file.rename(file.path(y[[2]], "notes.csv"), 
             file.path(y[[2]], paste0("notes_", report, ".csv")))) 
     }
+
     cat("http://", file = file.path(y[[2]], "websites.txt"))
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
@@ -275,10 +311,10 @@ function(report = "report", template = getOption("temp.reports"),
     }
     if (!is.null(bib)) {
         dr2 <- dir(y[[4]])
-        drin2 <- dr2[file_ext(dr2) %in% "Rmd"]
+        drin2 <- dr2[file_ext(dr2) %in% c("Rmd", "Rpres")][1]
         temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
         temp2 <- gsub("read.bibtex(.bib)", paste0("read.bibtex(\"", bib, "\")"), 
-        temp2, fixed = TRUE)
+          temp2, fixed = TRUE)
         cat(paste(temp2, collapse="\n"), file=file.path(y[[4]], drin2))
     } 
     if (type %in% c("rnw", "tex")) {

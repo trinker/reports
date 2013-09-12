@@ -1,7 +1,7 @@
-rest
+title
 ========================================================
 author: 
-date: 
+date: Sys.Date()
 
 ```{r setup, include=FALSE}
 # set global chunk options

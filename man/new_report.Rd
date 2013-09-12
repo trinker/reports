@@ -9,7 +9,7 @@
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
     AN.xlsx = TRUE,
-    slidify = getOption("slidify.template"),
+    present = getOption("present.template"),
     open = is.global(2), github = FALSE, ...)
 }
 \arguments{
@@ -44,12 +44,16 @@
   (AN) will be in .xlsx format.  If \code{FALSE} the
   document will be a .csv file.}
 
-  \item{slidify}{The template to be used in the
-  \bold{PRESENTATION} .Rmd. This can be one of the types
-  from \code{slidify_templates} or a path to an .Rmd file.
-  This argument will be overrode if a custom reports
-  template is supplied with an .Rmd file in the \bold{inst}
-  directory named slidify.Rmd (\file{~inst/slidify.Rmd}).}
+  \item{present}{The template to be used in the
+  \bold{PRESENTATION} .Rmd/.Rpres.  This can be one of the
+  types from \code{slidify_templates} , \code{"rstudio"}
+  (this generates a .Rpres file) or a path to an
+  .Rmd/.Rpres file.  This argument will be overrode if a
+  custom reports template is supplied with an .Rmd file in
+  the \bold{inst} directory named slidify.Rmd
+  (\file{~inst/slidify.Rmd}). Or an .Rpres file in the
+  \bold{inst} directory named rstudio.Rpres
+  (\file{~inst/slidify.Rmd}).}
 
   \item{open}{logical.  If \code{TRUE} the project will be
   opened in RStudio. The default is to test if
@@ -73,8 +77,8 @@
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
   \code{bib.loc}, \code{github.user}, \code{name.reports}
-  \code{sources.reports},\code{slidify.template} and
-  \code{reveraljs.loc} in the user's primary
+  \code{sources.reports},\code{present.template} and
+  \code{revealjs.loc} in the user's primary
   \code{.Rprofile}: \enumerate{ \item{\bold{bib.loc} - The
   path to the users primary bibliography}
   \item{\bold{name.reports} - The name to use on reports}
@@ -88,10 +92,11 @@
   `2`="basic_rmd"))}} \item{\bold{sources.reports} -
   Path(s) to additional files/scripts that should be
   included to be sourced in the project startup}
-  \item{\bold{slidify.template} - Path to, or defualt, .Rmd
-  file tempalte for use in as the .Rmd used in the slidify
-  presentations (see \code{slidify_templates} for possible
-  non-path arguments)} }
+  \item{\bold{present.template} - Path to, or defualt,
+  .Rmd/.Rpres file template for use in as the .Rmd/.Rpres
+  used in the PRESENTATION directory (see
+  \code{slidify_templates} for possible non-path
+  arguments)} }
 }
 
 \section{Additional Guide}{
@@ -109,7 +114,9 @@
 }
 \references{
   \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
-  examples}
+  examples} \cr
+  \href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
+  presentations}
 }
 \seealso{
   \code{\link[reports]{doc_temp}},

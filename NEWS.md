@@ -145,6 +145,10 @@ And constructed with the following guidelines:
   `new_vignette`) gain a `github` argument that optionally sends the repo to 
   GitHub public account upon creation.
 
+* The `"rstudio"` template has been added as a template for project creating 
+  functions (`presentation`, `new_report` and `new_vignette`)presentations.  Use
+  `present = "rstudio"`.  For more information see:
+  http://www.rstudio.com/ide/docs/presentations/overview
 
 IMPROVEMENTS
 
@@ -184,7 +188,7 @@ IMPROVEMENTS
     - `temp.reports` - The primary template to use to generate reports (see template)
     - `github.user` - GitHub user name
     - `speed.temp` - A speed dial like interface that allows the template argument to take a number
-    - `slidify.template` - Path to, or default, .Rmd file template for use in as the 
+    - `present.template` - Path to, or default, .Rmd file template for use in as the 
         .Rmd used in the slidify presentations
     - `revealjs.loc` - The path to the user’s reveal.js full install
 
