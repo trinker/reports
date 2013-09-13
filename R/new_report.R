@@ -22,7 +22,7 @@
 #' .xlsx format.  If \code{FALSE} the document will be a .csv file.
 #' @param present  The template to be used in the \bold{PRESENTATION} 
 #' .Rmd/.Rpres.  This can be one of the types from \code{slidify_templates} , 
-#' \code{"rstudio"}  (this generates a .Rpres file) or a path to an .Rmd/.Rpres 
+#' \code{"rstudio"}  (this generates a .Rpres file), or a path to an .Rmd/.Rpres 
 #' file.  This argument will be overrode if a custom reports template is 
 #' supplied with an .Rmd file in the \bold{inst} directory named slidify.Rmd 
 #' (\file{~inst/slidify.Rmd}). Or an .Rpres file in the \bold{inst} directory 
@@ -150,7 +150,8 @@ function(report = "report", template = getOption("temp.reports"),
         y <- invisible(folder(REPORT, ARTICLES, OUTLINE))
         y[[4]] <- file.path(x, "PRESENTATION")  
 
-        if (!slidify %in% suppressMessages(unlist(slidify_templates(), use.names = FALSE))) {
+        if (!slidify %in% suppressMessages(unlist(slidify_templates(), 
+            use.names = FALSE))) {
 
             if ("rstudio.Rpres" %in% dir(file.path(pdfloc, "inst"))) {
                 slid.path <- file.path(pdfloc, "rstudio.Rpres")
@@ -158,7 +159,8 @@ function(report = "report", template = getOption("temp.reports"),
                 if(file.exists(slidify)) {
                     slid.path <- slidify
                 } else {
-                    slid <- system.file("extdata/rstudio_pres_library", package = "reports")
+                    slid <- system.file("extdata/rstudio_pres_library", 
+                        package = "reports")
                     slid.path <- file.path(slid, slidify)
                     slid.path <- file.path(slid.path, dir(slid.path)[file_ext(dir(slid.path)) %in% "Rpres"])
                 }
@@ -171,9 +173,11 @@ function(report = "report", template = getOption("temp.reports"),
             Rpres[title.] <- gsub("title", report, Rpres[title.])
             if(!is.null(name)) {
                 name. <- grepl("author", Rpres) & grepl("\\:", Rpres)
-                Rpres[name.] <- paste0("author: ", strsplit(name, "\\\\")[[1]][1])
+                Rpres[name.] <- paste0("author: ", 
+                    strsplit(name, "\\\\")[[1]][1], "    ")
             }
-            cat(paste(Rpres, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rpres")))
+            cat(paste(Rpres, collapse="\n"), file = file.path(y[[4]], 
+                paste0(report, ".Rpres")))
 
         } else {
 
@@ -188,7 +192,8 @@ function(report = "report", template = getOption("temp.reports"),
                     if (slidify == "default") {
                         slid.path <- file.path(y[[4]], "index.Rmd")
                     } else {
-                        slid <- system.file("extdata/slidify_library", package = "reports")
+                        slid <- system.file("extdata/slidify_library", 
+                            package = "reports")
                         if (substring(slidify, 1, 1) == ".") {
                             back <- "full"
                             slidify <- substring(slidify, 2)                        
@@ -210,9 +215,11 @@ function(report = "report", template = getOption("temp.reports"),
             } else {
                 titlepieces <- unlist(strsplit(Rmd[title.], ":"))
                 Rmd[title.] <- paste0("title      : ", report, titlepieces[2])
-                slidextras <- system.file("extdata/r_script_library/slidify", package = "reports")
+                slidextras <- system.file("extdata/r_script_library/slidify", 
+                    package = "reports")
                 sliddest <- file.path(slidextras, slidify)
-                suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), y[[4]], recursive = TRUE))
+                suppressWarnings(file.copy(file.path(sliddest, dir(sliddest)), 
+                    y[[4]], recursive = TRUE))
             }
 
             if(!is.null(name)) {
@@ -265,13 +272,15 @@ function(report = "report", template = getOption("temp.reports"),
     invisible(file.copy(file.path(root2, fls) , y[[3]]))
     pdfloc3 <- file.path(root2, c("temp.Rmd", "temp.Rnw", "temp.pptx"))
     dir.create(file.path(y[[4]], "figure"), FALSE)
-    present.type <- Trim(unlist(strsplit(gsub(desc.chunk2, "", desc[grepl(desc.chunk2, desc)]), ",")))
+    present.type <- Trim(unlist(strsplit(gsub(desc.chunk2, "", 
+        desc[grepl(desc.chunk2, desc)]), ",")))
     matches <- data.frame(grab = pdfloc3,
         required = tolower(file_ext(basename(pdfloc3))), stringsAsFactors = FALSE)
     present.copies <- matches[-1, ][matches[, "required"][-1] %in% present.type , "grab"]
     invisible(file.copy(present.copies, y[[4]])) #copy presentation files to folder
     old.names <- file.path(y[[4]], dir(y[[4]]))
-    new.names <- file.path(y[[4]], gsub("temp.", paste0(report, "."), dir(y[[4]]), fixed = TRUE))
+    new.names <- file.path(y[[4]], gsub("temp.", paste0(report, "."), 
+        dir(y[[4]]), fixed = TRUE))
     file.rename(old.names, new.names)
     pdfloc4 <- file.path(root2, "TEMP.txt")
     invisible(file.copy(pdfloc4, x))

@@ -16,10 +16,10 @@ mode        : selfcontained
 opts_chunk$set(cache=FALSE)
 ## library(slidify); library(slidifyLibraries)
 library(knitr); library(knitcitations); library(reports)
-write.bibtex(c(Francois2013= citation("bibtex"), "Yihui2013" = citation("knitr"), 
-    "Boettiger2013" = citation("knitcitations"), "Rinker2013b" = citation("reports"), 
-    "Rinker2013a" = citation("qdap"), "Vaidyanathan2012" = citation("slidify")), 
-    file = "reports.bib")
+#write.bibtex(c(Francois2013= citation("bibtex"), "Yihui2013" = citation("knitr"), 
+#    "Boettiger2013" = citation("knitcitations"), "Rinker2013b" = citation("reports"), 
+#    "Rinker2013a" = citation("qdap"), "Vaidyanathan2012" = citation("slidify")), 
+#    file = "reports.bib")
 bib <- read.bibtex("reports.bib")
 ```
 <style>
@@ -111,12 +111,12 @@ The user can add these options to their .Rprofile
 
 ```{r inst4, include=TRUE, eval=FALSE}
 options(bib.loc = "C:/Users/trinker/Desktop/PhD Program/MASTER.bib")    
-options(name.reports = "Tyler Rinker\\\\University at Buffalo\\\\Department of Learning and Instruction")
+options(name.reports = "Tyler Rinker\\\\University at Buffalo")
 options(sources.reports = path.expand("~/path_1"), path.expand("~/path_2"))  
 options(temp.reports = "apa6.mod.qual_tex")
 options(github.user = "trinker")   
 options(speed.temp = list(`1`="wordpress_rmd", `2`="basic_rmd", `3`="apa6.mod.qual_tex"))
-options(slidify.template = "revealjs")
+options(present.template = "revealjs")
 ```
 
 

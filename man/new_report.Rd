@@ -47,7 +47,7 @@
   \item{present}{The template to be used in the
   \bold{PRESENTATION} .Rmd/.Rpres.  This can be one of the
   types from \code{slidify_templates} , \code{"rstudio"}
-  (this generates a .Rpres file) or a path to an
+  (this generates a .Rpres file), or a path to an
   .Rmd/.Rpres file.  This argument will be overrode if a
   custom reports template is supplied with an .Rmd file in
   the \bold{inst} directory named slidify.Rmd

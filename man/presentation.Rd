@@ -8,7 +8,7 @@
     name = getOption("name.reports"),
     github.user = getOption("github.user"),
     sources = getOption("sources.reports"), path = getwd(),
-    slidify = getOption("slidify.template"),
+    present = getOption("present.template"),
     open = is.global(2), github = FALSE, ...)
 }
 \arguments{
@@ -45,12 +45,16 @@
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}
 
-  \item{slidify}{The template to be used in the
-  \bold{PRESENTATION} .Rmd. This can be one of the types
-  from \code{slidify_templates} or a path to an .Rmd file.
-  This argument will be overrode if a custom reports
-  template is supplied with an .Rmd file in the \bold{inst}
-  directory named slidify.Rmd (\file{~inst/slidify.Rmd}).}
+  \item{present}{The template to be used in the
+  \bold{PRESENTATION} .Rmd/.Rpres.  This can be one of the
+  types from \code{slidify_templates} , \code{"rstudio"}
+  (this generates a .Rpres file), or a path to an
+  .Rmd/.Rpres file.  This argument will be overrode if a
+  custom reports template is supplied with an .Rmd file in
+  the \bold{inst} directory named slidify.Rmd
+  (\file{~inst/slidify.Rmd}). Or an .Rpres file in the
+  \bold{inst} directory named rstudio.Rpres
+  (\file{~inst/slidify.Rmd}).}
 
   \item{open}{logical.  If \code{TRUE} the project will be
   opened in RStudio. The default is to test if
@@ -96,7 +100,9 @@
 }
 \references{
   \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
-  examples}
+  examples}\cr
+  \href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
+  presentations}
 }
 \seealso{
   \code{\link[reports]{new_report}},

@@ -55,11 +55,10 @@ The reports package assumes the user has some familairity with the report writin
 <div>11. `r HR("#odd", "Odds and Ends")`</div>   
 <div>`r HS(5)` A. `r HR("#odd1", "Reveal.js Slide Notes Locally")`</div>
 <div>`r HS(5)` B. `r HR("#odd2", "Custom style.css With RStudio + knitr")`</div>
-
-
-
+<div>`r HS(5)` C. `r HR("#odd3", "Presentations With slidify and RStudio")`</div>
 </ul>
 </div>
+
 <div style="float: right; width: 50%;">
 <ul>
 <div><b>Symbol Conventions:</b></div>  
@@ -81,7 +80,7 @@ x <- readLines(n=8)
 4. options(temp.reports = "apa6.mod.qual_tex")
 5. options(github.user = "trinker")
 6. options(speed.temp = list(`1` = "wordpress_web", `2` = "basic_web", `3` = "apa6.mod.qual_tex"))
-7. options(slidify.template = "revealjs")
+7. options(present.template = "revealjs")
 8. options(revealjs.loc = "C:/Users/trinker/Desktop/Copy/reveal.js")
 
 x <- Trim(head(unname(unlist(genXtract(x, "(", " ="))), -1))
@@ -104,7 +103,7 @@ The user may want to set the following options in her `r HR2("http://stat.ethz.c
   <TR> <TD align="right"> 4 </TD> <TD> temp.reports    </TD> <TD> The primary template to use to generate reports (see template) </TD> </TR>
   <TR> <TD align="right"> 5 </TD> <TD> github.user     </TD> <TD> GitHub user name </TD> </TR>
   <TR> <TD align="right"> 6 </TD> <TD> speed.temp      </TD> <TD> A speed dial like interface that allows the template argument to take a number </TD> </TR>
-  <TR> <TD align="right"> 7 </TD> <TD> slidify.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
+  <TR> <TD align="right"> 7 </TD> <TD> present.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
 </TABLE>
 </div>
 
@@ -118,7 +117,7 @@ The following is the code I added to my own .Rprofile:
 4. options(temp.reports = "apa6.mod.qual_tex")
 5. options(github.user = "trinker")
 6. options(speed.temp = list(`1` = "wordpress_rmd", `2` = "basic_rmd", `3` = "apa6.mod.qual_tex"))
-7. options(slidify.template = "revealjs")</code></pre>
+7. options(present.template = "revealjs")</code></pre>
 
 
 <hr>
@@ -246,6 +245,8 @@ There are no arguments to sync_all, just run and the files between the following
 3. `~/PRESENTATION/assets/img`
 
 <h4 id="github">Push Local Repo to GitHub</h4>
+
+The user may choose to push a project (repository).  The `r FUN("repo2github")` is designed for the initial push to github. Future pushes can be handled via RStudio or other git interface.  The user may chose to initialize a push when `r FUN("new_report")` or `r FUN("presentation")` the project is created by adjusting the argument `github = TRUE`.
 
 <hr>
 <h3 id="notes">Using notes.xlsx</h3>
@@ -848,6 +849,13 @@ After the appropriate files are created the user adds custom styling to the ~/cs
 Note that the path to a style.css can be supplied to `r FUN("custom_css")` via the `r CN("style.css")` argument.  This may be a user defined file or an internal file from the reports style.css library (see `r FUN("css_styles", "custom_css")`).  For examples see: `r HR2("https://github.com/trinker/style.css_examples", "https://github.com/trinker/style.css_examples")`.  Feel free to submit your own style.css to the reports package &lt;<a href="mailto:reports.rpackage@gmail.com" target="_blank">reports.rpackage@gmail.com</a>&gt; marked with <b>style.css template</b> in the subject line.
 
 <hr>
+
+<h4 id="odd3">Presentations (`r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` and `r HR2("http://slidify.org/", "Slidify")` `r citep(bib["Vaidyanathan2012"])`)</h4>
+
+The reports package relies on the flexible `r HR2("http://slidify.org/", "slidify package")` and lightweight `r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` framework for presentation generation.  For possible slidify templates that can be supplied to `present` in project generating functions use the `r FUN("slidify_templates")` function (for the RStudio .Rpres option use `present = "rstudio"`).  For slidify examples see: https://github.com/ramnathv/slidifyExamples.  The user will want to become familiar with both of these presentation approaches.
+
+<hr>
+
 ## Acknowledgements
 
 The reports package is just a collection of the best R tools.  A special thanks to `r HR2("http://yihui.name/", "Yihui")` `r citet(bib[['Yihui20133']])` for his work with the `r HR2("http://yihui.name/knitr/", "knitr package")` and `r HR2("http://people.mcgill.ca/ramnath.vaidyanathan/", "Ramnath Vaidyanathan")` for his `r HR2("http://slidify.org/", "slidify package")`.  These R packages are the core of the reports package.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.

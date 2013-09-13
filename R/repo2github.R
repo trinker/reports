@@ -2,7 +2,7 @@
 #' 
 #' Allows uploading a local repository to GitHub without first creating the 
 #' repository in the clouds. \code{\link[reports]{repo2github}} is designed for 
-#' the initial psuh to github.  Future pushes can be handled via RStudio or 
+#' the initial push to github.  Future pushes can be handled via RStudio or 
 #' other git interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
@@ -13,7 +13,7 @@
 #' @param github.user GitHub user name (character string).
 #' @param gitpath Path to the location of git.  If \code{NULL} 
 #' \code{repo2github} will attempt to locate the path if necessary.
-#' @param logical.  If \code{TRUE} repo initializes with a README.md file.
+#' @param readme logical.  If \code{TRUE} repo initializes with a README.md file.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
 #' @references \url{http://stackoverflow.com/a/15047013/1000343} \cr

@@ -24,8 +24,8 @@
   \code{NULL} \code{repo2github} will attempt to locate the
   path if necessary.}
 
-  \item{logical.}{If \code{TRUE} repo initializes with a
-  README.md file.}
+  \item{readme}{logical.  If \code{TRUE} repo initializes
+  with a README.md file.}
 }
 \value{
   Creates GitHub repository.
@@ -34,7 +34,7 @@
   Allows uploading a local repository to GitHub without
   first creating the repository in the clouds.
   \code{\link[reports]{repo2github}} is designed for the
-  initial psuh to github.  Future pushes can be handled via
+  initial push to github.  Future pushes can be handled via
   RStudio or other git interface.
 }
 \details{

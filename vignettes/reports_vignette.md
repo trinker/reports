@@ -35,11 +35,10 @@ The reports package assumes the user has some familairity with the report writin
 <div>11. <a href="#odd">Odds and Ends</a></div>   
 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. <a href="#odd1">Reveal.js Slide Notes Locally</a></div>
 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. <a href="#odd2">Custom style.css With RStudio + knitr</a></div>
-
-
-
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C. <a href="#odd3">Presentations With slidify and RStudio</a></div>
 </ul>
 </div>
+
 <div style="float: right; width: 50%;">
 <ul>
 <div><b>Symbol Conventions:</b></div>  
@@ -67,7 +66,7 @@ The user may want to set the following options in her <a href="http://stat.ethz.
   <TR> <TD align="right"> 4 </TD> <TD> temp.reports    </TD> <TD> The primary template to use to generate reports (see template) </TD> </TR>
   <TR> <TD align="right"> 5 </TD> <TD> github.user     </TD> <TD> GitHub user name </TD> </TR>
   <TR> <TD align="right"> 6 </TD> <TD> speed.temp      </TD> <TD> A speed dial like interface that allows the template argument to take a number </TD> </TR>
-  <TR> <TD align="right"> 7 </TD> <TD> slidify.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
+  <TR> <TD align="right"> 7 </TD> <TD> present.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
 </TABLE>
 </div>
 
@@ -81,7 +80,7 @@ The following is the code I added to my own .Rprofile:
 4. options(temp.reports = "apa6.mod.qual_tex")
 5. options(github.user = "trinker")
 6. options(speed.temp = list(`1` = "wordpress_rmd", `2` = "basic_rmd", `3` = "apa6.mod.qual_tex"))
-7. options(slidify.template = "revealjs")</code></pre>
+7. options(present.template = "revealjs")</code></pre>
 
 
 <hr>
@@ -157,7 +156,9 @@ This means that wrapping with <code>cat</code> or the <code>print</code> argumen
 
 The reports package contains functions to help maintain directories. They can speed up workflow through automation of directory related tasks.
 
-<a href="http://trinker.github.io/reports_dev/rdirs.html" target="_blank"><code>rdirs</code></a> is a function designed to recursivly create directories.  This is particularly useful when used in combination with <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a>/<a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> for creating weekly lecture notes for a class or other similar repeated tasks.  The following code chunks demonstrate uses for 3 directory management functions in the reports package:
+<h4 id="rdirs"><a href="http://trinker.github.io/reports_dev/rdirs.html" target="_blank"><code>rdirs</code></a>, <a href="http://trinker.github.io/reports_dev/file_handling.html" target="_blank">folder</a>, and <a href="http://trinker.github.io/reports_dev/file_handling.html" target="_blank">delete</a></h4>
+
+<a href="http://trinker.github.io/reports_dev/rdirs.html" target="_blank"><code>rdirs</code></a> is a function designed to recursively create directories.  This is particularly useful when used in combination with <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a>/<a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> for creating weekly lecture notes for a class or other similar repeated tasks.  The following code chunks demonstrate uses for 3 directory management functions in the reports package:
 
 1. <a href="http://trinker.github.io/reports_dev/rdirs.html" target="_blank"><code>rdirs</code></a> &#8211; recursive directory creation
 2. <a href="http://trinker.github.io/reports_dev/file_handling.html" target="_blank">folder</a> &#8211; create a directory
@@ -201,7 +202,8 @@ lapply(x, new_report)
 <pre><code class="r">delete(c(fx, gx))
 setwd(WD)</code></pre>
 
-**sync_all** <a href="http://youtu.be/bhArI_dp4B8" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+<h4 id="sync">Image File Synchronization <a href="http://youtu.be/bhArI_dp4B8" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+</h4> 
 
 The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync family of functions</a> are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>).  The base version in the family, <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank"><code>sync</code></a> is generic and syncs files between 2 directories.  The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync_all</a> function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
  
@@ -212,9 +214,13 @@ To use <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">
 
 There are no arguments to sync_all, just run and the files between the following directories are synced:
 
-1. ~/REPORT/figure
-2. ~/PRESENTATION/figure
-3. ~/PRESENTATION/assets/img
+1. `~/REPORT/figure`
+2. `~/PRESENTATION/figure`
+3. `~/PRESENTATION/assets/img`
+
+<h4 id="github">Push Local Repo to GitHub</h4>
+
+The user may choose to push a project (repository).  The <a href="http://trinker.github.io/reports_dev/repo2github.html" target="_blank"><code>repo2github</code></a> is designed for the initial push to github. Future pushes can be handled via RStudio or other git interface.  The user may chose to initialize a push when <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a> or <a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> the project is created by adjusting the argument `github = TRUE`.
 
 <hr>
 <h3 id="notes">Using notes.xlsx</h3>
@@ -1231,6 +1237,13 @@ After the appropriate files are created the user adds custom styling to the ~/cs
 Note that the path to a style.css can be supplied to <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> via the <font face="courier">style.css</font> argument.  This may be a user defined file or an internal file from the reports style.css library (see <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>css_styles</code></a>).  For examples see: <a href="https://github.com/trinker/style.css_examples" target="_blank">https://github.com/trinker/style.css_examples</a>.  Feel free to submit your own style.css to the reports package &lt;<a href="mailto:reports.rpackage@gmail.com" target="_blank">reports.rpackage@gmail.com</a>&gt; marked with <b>style.css template</b> in the subject line.
 
 <hr>
+
+<h4 id="odd3">Presentations (<a href="http://www.rstudio.com/ide/docs/presentations/overview" target="_blank">RStudio's .Rpres</a> and <a href="http://slidify.org/" target="_blank">Slidify</a> (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>))</h4>
+
+The reports package relies on the flexible <a href="http://slidify.org/" target="_blank">slidify package</a> and lightweight <a href="http://www.rstudio.com/ide/docs/presentations/overview" target="_blank">RStudio's .Rpres</a> framework for presentation generation.  For possible slidify templates that can be supplied to `present` in project generating functions use the <a href="http://trinker.github.io/reports_dev/slidify_templates.html" target="_blank"><code>slidify_templates</code></a> function (for the RStudio .Rpres option use `present = "rstudio"`).  For slidify examples see: https://github.com/ramnathv/slidifyExamples.  The user will want to become familiar with both of these presentation approaches.
+
+<hr>
+
 ## Acknowledgements
 
 The reports package is just a collection of the best R tools.  A special thanks to <a href="http://yihui.name/" target="_blank">Yihui</a> <a href="http://www.crcpress.com/product/isbn/9781466561595">Xie (2013)</a> for his work with the <a href="http://yihui.name/knitr/" target="_blank">knitr package</a> and <a href="http://people.mcgill.ca/ramnath.vaidyanathan/" target="_blank">Ramnath Vaidyanathan</a> for his <a href="http://slidify.org/" target="_blank">slidify package</a>.  These R packages are the core of the reports package.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>.
