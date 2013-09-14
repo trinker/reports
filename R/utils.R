@@ -540,3 +540,19 @@ function(dataframe, column = NULL, keep.class = FALSE) {
     return(DF3)
 }
 
+
+## Opens a new RStudio for the project and shuts down the current version
+restart_rstudio <- function(Rproj.loc = basename(getwd()), ...) {
+    if (!Sys.getenv("RSTUDIO") == "1") {
+        warning("RStudio is not being used.  `restart` will be ignored.")
+    } else {
+        loc <- paste0(Rproj.loc, ".Rproj")
+        if (!file.exists(loc)) {
+            warning(".Rproj not found.  `restart` will be ignored.")
+        } else {
+            open_project(loc)
+            q(...)
+        }
+    }
+}
+

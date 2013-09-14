@@ -6,7 +6,7 @@
 #' other git interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
-#' supplied the user will be promted to enter a password.
+#' supplied the user will be prompted to enter a password.
 #' @param project.dir The path to the root directory of the report/presentation.
 #' @param repo A character string naming the repo; default attempts to use the 
 #' report project directory name.

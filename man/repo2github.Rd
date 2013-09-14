@@ -9,8 +9,8 @@
 }
 \arguments{
   \item{password}{GitHub user password (character string).
-  If this is not supplied the user will be promted to enter
-  a password.}
+  If this is not supplied the user will be prompted to
+  enter a password.}
 
   \item{project.dir}{The path to the root directory of the
   report/presentation.}
