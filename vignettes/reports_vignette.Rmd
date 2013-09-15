@@ -852,7 +852,7 @@ Note that the path to a style.css can be supplied to `r FUN("custom_css")` via t
 
 <h4 id="odd3">Presentations (`r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` and `r HR2("http://slidify.org/", "Slidify")` `r citep(bib["Vaidyanathan2012"])`)</h4>
 
-The reports package relies on the flexible `r HR2("http://slidify.org/", "slidify package")` and lightweight `r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` framework for presentation generation.  For possible slidify templates that can be supplied to `present` in project generating functions use the `r FUN("slidify_templates")` function (for the RStudio .Rpres option use `present = "rstudio"`).  For slidify examples see: https://github.com/ramnathv/slidifyExamples.  The user will want to become familiar with both of these presentation approaches.
+The reports package relies on the flexible `r HR2("http://slidify.org/", "slidify package")` and lightweight `r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` framework for presentation generation.  For possible slidify templates that can be supplied to `r FT(green, courier_new, text="present")` in project generating functions use the `r FUN("slidify_templates")` function (for the RStudio .Rpres option use `r FT(green, courier_new, text="present = \"rstudio\"")`).  For slidify examples see: https://github.com/ramnathv/slidifyExamples.  The user will want to become familiar with both of these presentation approaches.
 
 <hr>
 
