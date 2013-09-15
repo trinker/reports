@@ -24,7 +24,8 @@ BugReports: http://github.com/trinker/reports/issues
 LazyData: TRUE
 VignetteBuilder: knitr
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.0),
+    rJava
 Imports:
     knitcitations (>= 0.4-7),
     markdown,

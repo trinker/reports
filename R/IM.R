@@ -24,19 +24,6 @@
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
 #' @rdname image
-#' Convert path/url to HTML Image Tag
-#'
-#' \code{IW} - Text wrapped images.
-#' 
-#' @param side The side the image should appear on c(\code{"left"}, \code{"right"}). 
-#' @param top Space between top margin and top of text.
-#' @param right Space on the right margin.
-#' @param left Space on the left margin..
-#' @param bottom Space between bottom margin and bottom of text (0 is defualt).
-#' @export
-#' @rdname image
-
-
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
