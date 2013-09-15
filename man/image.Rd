@@ -1,6 +1,6 @@
 \name{IM2}
 \alias{IM2}
-\alias{IS}
+\alias{IMF}
 \alias{IW}
 \title{Convert path/url to HTML Image Tag}
 \usage{
@@ -11,7 +11,7 @@
     new_win = TRUE, top = -15, right = 20, left = 20,
     bottom = 0, copy2clip = TRUE, print = FALSE)
 
-  IS(image = "clipboard", ...)
+  IMF(image = "clipboard", ...)
 }
 \arguments{
   \item{image}{A character vector name of the image.
@@ -46,6 +46,6 @@
   \code{IMF} - A wrapper for \code{IM} that attempts to
   find the image in expected image directories.  Uses the
   first available image matching the image name.  No
-  path/url is specified.  IMS stands for `image find`.
+  path/url is specified.  IMS stands for `image locate`.
 }
 

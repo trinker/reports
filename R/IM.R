@@ -161,11 +161,11 @@ function(path = "clipboard", link = NULL, side = "right", width = 540,
 #'
 #' \code{IMF} - A wrapper for \code{IM} that attempts to find the image in expected 
 #' image directories.  Uses the first available image matching the image name.  No 
-#' path/url is specified.  IMS stands for `image find`.
+#' path/url is specified.  IMS stands for `image locate`.
 #' 
 #' @export
 #' @rdname image
-IS <- 
+IMF <- 
 function(image = "clipboard", ...) { 
 	
     if (image == "clipboard") {
