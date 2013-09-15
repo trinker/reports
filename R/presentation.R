@@ -154,6 +154,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
             suppressMessages(local_host(y[[2]]))
             setwd(x)
             Rmd <- suppressWarnings(readLines(slid.path)) 
+            Rmd <- c(Rmd, "\n")
             title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
             specials <- c("brew")
             if (!slidify %in% specials) {
@@ -242,7 +243,7 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
-    if (!is.null(bib) & sum(type %in% "rmd") > 0) {
+    if (!is.null(bib) && sum(type %in% "rmd") > 0) {
         dr2 <- dir(y[[2]])
         drin2 <- dr2[file_ext(dr2) %in% c("Rmd", "Rpres")][1]
         temp2 <- suppressWarnings(readLines(file.path(y[[2]], drin2)))

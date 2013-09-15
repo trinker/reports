@@ -124,6 +124,7 @@ function(report = "report", template = getOption("temp.reports"),
             template <- basename(template)
         }        
     }
+
     if (!is.null(slidify) && slidify %in% dir(path)) {
         slidify <- file.path(path, slidify)   
     } 
@@ -180,7 +181,6 @@ function(report = "report", template = getOption("temp.reports"),
                 paste0(report, ".Rpres")))
 
         } else {
-
             suppressMessages(author(y[[4]], use_git = FALSE, open_rmd = FALSE, ...))
             suppressMessages(slidify_layouts(file.path(y[[4]], "assets/layouts")))        
             if ("slidify.Rmd" %in% dir(file.path(pdfloc, "inst"))) {
@@ -208,6 +208,7 @@ function(report = "report", template = getOption("temp.reports"),
             suppressMessages(local_host(y[[4]]))
             setwd(x)
             Rmd <- suppressWarnings(readLines(slid.path)) 
+            Rmd <- c(Rmd, "\n")
             title. <- grepl("title", Rmd) & grepl("\\:", Rmd) & !grepl("subtitle", Rmd)
             specials <- c("brew")
             if (!slidify %in% specials) {
@@ -318,7 +319,8 @@ function(report = "report", template = getOption("temp.reports"),
     if (!is.null(bib.loc) && !file.exists(bib.loc)) {
         warning("bib.loc does not exist")
     }
-    if (!is.null(bib)) {
+
+    if (!is.null(bib) && sum(type %in% "rmd") > 0) {
         dr2 <- dir(y[[4]])
         drin2 <- dr2[file_ext(dr2) %in% c("Rmd", "Rpres")][1]
         temp2 <- suppressWarnings(readLines(file.path(y[[4]], drin2)))
@@ -421,6 +423,7 @@ function(report = "report", template = getOption("temp.reports"),
     }
     return(o)    
 }
+
 
 #' Prints a reports Object
 #' 

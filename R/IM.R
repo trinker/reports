@@ -24,6 +24,19 @@
 #' @return Returns a character vector of an HTML image tag that embeds an image. 
 #' @export
 #' @rdname image
+#' Convert path/url to HTML Image Tag
+#'
+#' \code{IW} - Text wrapped images.
+#' 
+#' @param side The side the image should appear on c(\code{"left"}, \code{"right"}). 
+#' @param top Space between top margin and top of text.
+#' @param right Space on the right margin.
+#' @param left Space on the left margin..
+#' @param bottom Space between bottom margin and bottom of text (0 is defualt).
+#' @export
+#' @rdname image
+
+
 #' @examples
 #' IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
 #' IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =TRUE)
@@ -144,4 +157,35 @@ function(path = "clipboard", link = NULL, side = "right", width = 540,
 }
 
 
+#' Convert path/url to HTML Image Tag
+#'
+#' \code{IMF} - A wrapper for \code{IM} that attempts to find the image in expected 
+#' image directories.  Uses the first available image matching the image name.  No 
+#' path/url is specified.  IMS stands for `image find`.
+#' 
+#' @export
+#' @rdname image
+IS <- 
+function(image = "clipboard", ...) { 
+	
+    if (image == "clipboard") {
+        image <- read_clip()
+    } 
+    if (any(basename(getwd()) %in% c("REPORT", "PRESENTATION"))) {
+        root <- dirname(getwd())		
+    }    else {
+        root <- getwd()	
+    }
+    fls <- file.path(root, c("figure", "PRESENTATION/assets/img",
+        file.path(c("REPORT", "PRESENTATION"), "figure")))
+    fls2 <- sapply(fls, file.exists)
+    
+    if (sum(fls2) == 0) stop("no image directories found")
+       
+    fls <- fls[fls2]
+    imgs <- file.path(fls, image)
+    imgs2 <- sapply(imgs, file.exists)	
+    if (sum(imgs2) == 0)  stop(sprintf("no files match \"%s\"", image))
 
+    IM(path = imgs[imgs2][1], ...)
+}

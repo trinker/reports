@@ -556,3 +556,9 @@ restart_rstudio <- function(Rproj.loc = basename(getwd()), ...) {
     }
 }
 
+root_warn <- function() {
+    if (!any(file_ext(dir()) %in% "Rproj")) {
+        warning(paste0("The working directory does not contain a .Rproj file\n",
+            sprintf("'%s' may not be the root directory", getwd())))
+    }
+}

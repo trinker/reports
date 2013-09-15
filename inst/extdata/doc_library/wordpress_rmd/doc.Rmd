@@ -39,3 +39,6 @@ Remember to see the SEND_IT.R file to send to wordpress
 ```{r, echo=FALSE, results='asis'}
 bibliography("html") 
 ```
+
+<hr><em><font size="1">*Created using the `r HR2("https://github.com/trinker/reports", "reports")` package</font></em>
+
