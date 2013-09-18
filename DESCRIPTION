@@ -89,3 +89,5 @@ Collate:
     'utils.R'
     'WP.R'
     'YT.R'
+    'AD.R'
+    'is.url.R'

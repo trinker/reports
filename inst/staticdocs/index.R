@@ -32,6 +32,7 @@ list(
     sd_section("Insert HTML Objects",
       "Functions to format text.",  
       c(
+      	"AD",
         "CN",      	
       	"EM",
         "FT",        
@@ -94,7 +95,8 @@ list(
       "Exported tools used within reports.",
       c(
         "IE",
-        "is.global"
+        "is.global",
+        "is.url"
       )
     ),   
     sd_section("Customization", 
