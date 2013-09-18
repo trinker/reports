@@ -37,8 +37,9 @@ function(audio = "clipboard", is_url = is.url(audio), copy2clip = TRUE,
         if (file.exists(sprintf("audio/%s", audio))) {
             spath <- "audio/"
         } else {
-            if (file.exists(sprintf("../audio/%s", audio))) {
-                spath <- "../audio/"               
+        	insdir <- ifelse(basename(getwd()) == "REPORT", "PRESENTATION", "REPORT")
+            if (file.exists(sprintf("../%s/audio/%s", insdir, audio))) {
+                spath <- sprintf("../%s/audio/", insdir)           
             } else {
                 stop(paste0("The following audio file does not exist:\n",
                     sprintf(QP("audio/%s"), audio)))  
