@@ -91,7 +91,7 @@ function(text = "clipboard", copy2clip = TRUE){
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 
-    x <- text_fix(text)
+    x <- gsub("`", "'", text_fix(text))
     if(copy2clip){
         write_clip(x)
     }

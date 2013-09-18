@@ -16,7 +16,7 @@
 }
 \description{
   Allows a truncated view of your notes
-  (main_dir/ARTICLES/notes).
+  (\file{~/ARTICLES/notes}).
 }
 \examples{
 \dontrun{

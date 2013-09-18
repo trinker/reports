@@ -90,12 +90,26 @@ function(image = "clipboard", loc = 1, ...) {
         image <- read_clip()
     } 
     switch(loc, 
-        `1` = {path <- file.path("assets/img", chartr("\\", "/", image))},
-        `2` = {path <- file.path("figure", chartr("\\", "/", image))},
+        `1` = {path <- paste("assets/img", chartr("\\", "/", image), sep="/")},
+        `2` = {path <- paste("figure", chartr("\\", "/", image), sep="/")},
         stop("enter:\n  1-assets/img\n  2-figure\nfor location of image file")
     )
     IM(path = path, ...)
 }
+## Removed abs file path let's try it out for a while
+## IM2 <-
+## function(image = "clipboard", loc = 1, ...) { 
+##     if (image == "clipboard") {
+##         image <- read_clip()
+##     } 
+##     switch(loc, 
+##         `1` = {path <- file.path("assets/img", chartr("\\", "/", image))},
+##         `2` = {path <- file.path("figure", chartr("\\", "/", image))},
+##         stop("enter:\n  1-assets/img\n  2-figure\nfor location of image file")
+##     )
+##     IM(path = path, ...)
+## }
+
 
 #' Convert path/url to HTML Image Tag
 #'

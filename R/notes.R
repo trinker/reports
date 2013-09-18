@@ -1,6 +1,6 @@
 #' View Notes
 #' 
-#' Allows a truncated view of your notes (main_dir/ARTICLES/notes).
+#' Allows a truncated view of your notes (\file{~/ARTICLES/notes}).
 #' 
 #' @param col.width An integer value of the maximum width of columns.
 #' @param notes.col logical.  If \code{TRUE} the notes column will be displayed.
