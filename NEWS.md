@@ -20,7 +20,7 @@ And constructed with the following guidelines:
 
 
 
-<b>CHANGES</b> IN reports VERSION 0.2.0
+<b>CHANGES</b> IN <a href="https://github.com/trinker/reports" target="_blank">reports</a> VERSION 0.2.0
 ----------------------------------------------------------------
 
 <b>BUG FIXES</b>
@@ -33,10 +33,10 @@ And constructed with the following guidelines:
   error if the file path contained a space (see: 
   http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
-  <a href="https://github.com/trinker/qdap/issues/31">pull request #31</a>.
+  <a href="https://github.com/trinker/reports/issues/31">pull request #31</a>.
 
 * Functions requiring RStudio did not correctly find RStudio on OS X.  Bug 
-  caught and fixed by Kevin Middleton via <a href="https://github.com/trinker/qdap/issues/36">pull request #36</a>.
+  caught and fixed by Kevin Middleton via <a href="https://github.com/trinker/reports/issues/36">pull request #36</a>.
   
 
 <b>NEW FEATURES</b>
@@ -46,7 +46,7 @@ And constructed with the following guidelines:
 
 * `new_vignette` is a function that takes advantage of R (&gt;= 3.0.0)'s including
   of non-sweave vignettes.  This function utilizes knitr's capabilities to make 
-  .Rnw and .Rmd vignettes (the reports Markdown/HTML vignette was created this 
+  .Rnw and .Rmd vignettes (the <a href="https://github.com/trinker/reports" target="_blank">reports</a> Markdown/HTML vignette was created this 
   way).  Add additional vignettes to the vignettes directory with the 
   `append_vignette` function.
 
@@ -159,13 +159,13 @@ IMPROVEMENTS
 * `new_report` now allows global options to be set that allows numeric values to 
   be passed to the template option like speed dial. See ?new_report for more.
 
-* The reports package now has a staticdocs generated help site: 
+* The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a staticdocs generated help site: 
   http://trinker.github.io/reports/
   
-* The reports package now has a related programs/packages help site: 
+* The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a related programs/packages help site: 
   http://trinker.github.io/reports/dependencies
 
-* reports gains an HTML vignette (with video explanations) to better explain 
+* <a href="https://github.com/trinker/reports" target="_blank">reports</a> gains an HTML vignette (with video explanations) to better explain 
   package use.  Use `browseVignettes(package = 'reports')` to view the vignette.
 
 * `new_report` now moves a **css** directory in a template to the **REPORT** 
@@ -175,7 +175,7 @@ IMPROVEMENTS
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 
   makes maintaining these functions pointless.  These functions will be removed 
-  from the reports package upon the next update.
+  from the <a href="https://github.com/trinker/reports" target="_blank">reports</a> package upon the next update.
 
 * `US` has been renamed to `UF` (underscore fill) and gets a counterpart `PF` 
   (percent fill) for URL blank spaces.  `US` is now Deprecated and will be 
@@ -186,7 +186,7 @@ IMPROVEMENTS
     - `bib.loc` - The path to the users primary .bib file (I store this in DropBox)
     - `name.reports` - The name that will be automatically added to a report/presentation
     - `sources.reports` - Path(s) to additional scripts to be sourced on project startup
-    - `temp.reports` - The primary template to use to generate reports (see template)
+    - `temp.reports` - The primary template to use to generate <a href="https://github.com/trinker/reports" target="_blank">reports</a> (see template)
     - `github.user` - GitHub user name
     - `speed.temp` - A speed dial like interface that allows the template argument to take a number
     - `present.template` - Path to, or default, .Rmd file template for use in as the 
@@ -197,7 +197,7 @@ IMPROVEMENTS
   TO_DO.
 
 
-<b>CHANGES</b> IN reports VERSION 0.1.2
+<b>CHANGES</b> IN <a href="https://github.com/trinker/reports" target="_blank">reports</a> VERSION 0.1.2
 ----------------------------------------------------------------
 This is a bug fix release
 
@@ -220,10 +220,10 @@ This is a bug fix release
   the installr package
 
 
-<b>CHANGES</b> IN reports VERSION 0.1.1
+<b>CHANGES</b> IN <a href="https://github.com/trinker/reports" target="_blank">reports</a> VERSION 0.1.1
 ----------------------------------------------------------------
 
-* The first CRAN installation of the reports package
+* The first CRAN installation of the <a href="https://github.com/trinker/reports" target="_blank">reports</a> package
 
 * Package designed to provide efficient work flow in writing and presenting 
-  academic articles and other reports
+  academic articles and other <a href="https://github.com/trinker/reports" target="_blank">reports</a>
