@@ -33,10 +33,10 @@ And constructed with the following guidelines:
   error if the file path contained a space (see: 
   http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
-  <a href="https://github.com/trinker/reports/issues/31">pull request #31</a>.
+  <a href="https://github.com/trinker/qdap/issues/31">pull request #31</a>.
 
 * Functions requiring RStudio did not correctly find RStudio on OS X.  Bug 
-  caught and fixed by Kevin Middleton via <a href="https://github.com/trinker/reports/issues/36">pull request #36</a>.
+  caught and fixed by Kevin Middleton via <a href="https://github.com/trinker/qdap/issues/36">pull request #36</a>.
   
 
 <b>NEW FEATURES</b>

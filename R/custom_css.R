@@ -28,13 +28,18 @@
 #' @importFrom markdown markdownToHTML
 #' @examples
 #' ## custom_css(TRUE, style.css = css_styles()[1])
-custom_css <- function(rprofile = FALSE, loc = QP(), style.css = NULL, 
-    source = TRUE) {
+custom_css <-
+function(rprofile = FALSE, loc = QP("REPORT"), style.css = NULL, 
+    source = TRUE) {	
 	
     if (!is.null(loc)) {	
+    	if (!file.exists(loc)) {
+            stop(sprintf("%s does not exist", loc))	
+    	}
     	## Check css directory existence
         if (!file.exists(file.path(loc, "css"))) {
-            cssloc <- folder(folder.name = file.path(loc, "css"))
+            cssloc <- file.path(loc, "css")
+            dir.create(path = file.path(loc, "css"))
         } else {
         	cssloc <- file.path(loc, "css")
             warning(paste(file.path(loc, "css"), 
