@@ -5,7 +5,7 @@
 \alias{custom_css}
 \title{Generate Custom css for RStudio + knitr}
 \usage{
-  custom_css(rprofile = FALSE, loc = QP(),
+  custom_css(rprofile = FALSE, loc = QP("REPORT"),
     style.css = NULL, source = TRUE)
 
   css_styles()
