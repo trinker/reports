@@ -45,12 +45,12 @@ text_fix <- function(text, addhyph = FALSE) {
     text <- Trim(iconv(text, "", "ASCII", "byte"))
     ser <- c("<91>", "<92>", "<93>", "<94>", "<85>", "<e2><80><9c>", "<e2><80><9d>", 
         "<e2><80><98>", "<e2><80><99>", "<e2><80><9b>", "<ef><bc><87>", 
-    	"<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
-    	"<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
-        "<ef><ac><81>", "<ef><ac><82>")
+        "<e2><80><a6>", "<e2><80><93>", "<e2><80><94>", "<c3><a1>", "<c3><a9>", 
+        "<c2><bd>", "<97>", "<eb>", "<e1>", "<e9>", "<97>", "``", "''", 
+        "<ef><ac><81>", "<ef><ac><82>", "<95>")
     reps <- c("`", "'", "\"", "\"", "...", "", "", "'", "'", "'", "'", "...", 
         "&ndash;", "&mdash;", "a", "e", "half", "&mdash;", "&euml;", "&aacute;",
-        "&eacute;","&mdash;", "\"", "\"", "fi", "fl")
+        "&eacute;","&mdash;", "\"", "\"", "fi", "fl", "")
     if (addhyph) {
         ser <- c(ser, "- ")
         reps <- c(reps, "")  
@@ -60,11 +60,15 @@ text_fix <- function(text, addhyph = FALSE) {
 }
 
 
+#simpleCap <- function(x) { 
+#    s <- strsplit(x, " ")[[1]] 
+#    paste(toupper(substring(s, 1,1)), substring(s, 2), sep="", collapse=" ") 
+#} 
 
 simpleCap <- function(x) { 
-    s <- strsplit(x, " ")[[1]] 
-    paste(toupper(substring(s, 1,1)), substring(s, 2), sep="", collapse=" ") 
-} 
+	x <- gsub("(\\w)(\\w*)","\\U\\1\\L\\2", x, perl=T)
+    mgsub(c("And", "Of"), c("and", "of"), x)
+}
 
 prin <- function(x, print) {
     if (print) {
