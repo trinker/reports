@@ -2,11 +2,12 @@
 \alias{WP}
 \title{Convert Windows Path}
 \usage{
-  WP(path = "clipboard", quotes = TRUE, copy2clip = TRUE)
+  WP(from.clip = TRUE, quotes = TRUE, copy2clip = TRUE)
 }
 \arguments{
-  \item{path}{A character vector url/path copied to the
-  clipboard. Default is to read from the clipboard.}
+  \item{from.clip}{logical.  If \code{TRUE} path is read
+  from the clipboard. If \code{FALSE} user inputs path
+  inteactively.}
 
   \item{quotes}{logical.  If \code{TRUE} quotes will be
   added to front/end of the string.}
