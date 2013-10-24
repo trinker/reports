@@ -10,7 +10,7 @@
 
 The reports package (<a href="http://github.com/trinker/reports">Rinker, 2013</a>) is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
 
-The reports package assumes the user has some familairity with the report writing programs/packages it depends on.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>.  This manual will not help the user to understand these dependencies as they have their own help documentation.  Many functions in the reports package are set with defaults that assume the user is utilizing <a href="http://www.rstudio.com/" target="_blank">RStudio</a>.  This vignette assumes that the user is also operating out of the root directory of the new_report/presentation in RStudio.
+The reports package assumes the user has some familiarity with the report writing programs/packages it depends on.  For a complete list of reports dependencies <a href="http://trinker.github.io/reports/dependencies" target="_blank">click here</a>.  This manual will not help the user to understand these dependencies as they have their own help documentation.  Many functions in the reports package are set with defaults that assume the user is utilizing <a href="http://www.rstudio.com/" target="_blank">RStudio</a>.  This vignette assumes that the user is also operating out of the root directory of the new_report/presentation in RStudio.
 
 <div style="width:367.5px;margin:auto;">
     <p><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="350" height="250"></p>
@@ -66,7 +66,7 @@ The user may want to set the following options in her <a href="http://stat.ethz.
   <TR> <TD align="right"> 4 </TD> <TD> temp.reports    </TD> <TD> The primary template to use to generate reports (see template) </TD> </TR>
   <TR> <TD align="right"> 5 </TD> <TD> github.user     </TD> <TD> GitHub user name </TD> </TR>
   <TR> <TD align="right"> 6 </TD> <TD> speed.temp      </TD> <TD> A speed dial like interface that allows the template argument to take a number </TD> </TR>
-  <TR> <TD align="right"> 7 </TD> <TD> present.template     </TD> <TD> Path to, or defualt, .Rmd file tempalte for use in as the .Rmd used in the slidify presentations </TD> </TR>
+  <TR> <TD align="right"> 7 </TD> <TD> present.template     </TD> <TD> Path to, or default, .Rmd file template for use in as the .Rmd used in the slidify presentations </TD> </TR>
 </TABLE>
 </div>
 
@@ -88,7 +88,7 @@ The following is the code I added to my own .Rprofile:
 Creating a new report or presentation directory is easy. <a href="http://youtu.be/XVdRT95k3wk" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
   </br></br>
 
-The user can either preset the working directory or can supply a path to create the report/presentation diectory in and then use the <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a> or <a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> functions. </br></br>
+The user can either preset the working directory or can supply a path to create the report/presentation directory in and then use the <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a> or <a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> functions. </br></br>
 
 **setwd() method**
 <pre><code class="r">setwd("C:/Users/trinker/Desktop")
@@ -99,7 +99,7 @@ new_report("MY REPORT")</code></pre>
 
 You've just created your first report/presentation directory and you're ready to begin writing.
 
-\****Note*** *The user can name the main directory differently from the names used within the directy by supplying a vector of length 2 to the report/presentation arguments as seen here:* 
+\****Note*** *The user can name the main directory differently from the names used within the directly by supplying a vector of length 2 to the report/presentation arguments as seen here:* 
 
 <pre><code class="r">new_report(c("Major1", "minor"))
 presentation(c("Major2", "minor"))</code></pre>
@@ -205,7 +205,7 @@ setwd(WD)</code></pre>
 <h4 id="sync">Image File Synchronization <a href="http://youtu.be/bhArI_dp4B8" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 </h4> 
 
-The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync family of functions</a> are also useful for syncing files netween directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>).  The base version in the family, <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank"><code>sync</code></a> is generic and syncs files between 2 directories.  The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync_all</a> function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
+The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync family of functions</a> are also useful for syncing files between directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>).  The base version in the family, <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank"><code>sync</code></a> is generic and syncs files between 2 directories.  The <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync_all</a> function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
  
 <hr>
 To use <a href="http://trinker.github.io/reports_dev/sync.html" target="_blank">sync_all</a> simply type:
@@ -220,12 +220,12 @@ There are no arguments to sync_all, just run and the files between the following
 
 <h4 id="github">Push Local Repo to GitHub</h4>
 
-The user may choose to push a project (repository).  The <a href="http://trinker.github.io/reports_dev/repo2github.html" target="_blank"><code>repo2github</code></a> is designed for the initial push to github. Future pushes can be handled via RStudio or other git interface.  The user may chose to initialize a push when <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a> or <a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> the project is created by adjusting the argument `github = TRUE`.
+The user may choose to push a project (repository).  The <a href="http://trinker.github.io/reports_dev/repo2github.html" target="_blank"><code>repo2github</code></a> is designed for the initial push to github. Future pushes can be handled via RStudio or other git interface.  The user may choose to initialize a push when <a href="http://trinker.github.io/reports_dev/new_report.html" target="_blank"><code>new_report</code></a> or <a href="http://trinker.github.io/reports_dev/presentation.html" target="_blank"><code>presentation</code></a> the project is created by adjusting the argument `github = TRUE`.
 
 <hr>
 <h3 id="notes">Using notes.xlsx</h3>
 
-The notes.xlsx/notes.csv is a file located in the ARTICLES directory.  It is useful to take nores from articles/websites/etc. and organize them here.  The <a href="http://trinker.github.io/reports_dev/notes.html" target="_blank"><code>notes</code></a> function can be used to view a truncated version of the notes.  The citation functions also enables the user to insert in-text citations into a document with the quote taken from the article or other source.  It is important that the format of notes.xlsx is respected in order for the <a href="http://trinker.github.io/reports_dev/cite.html" target="_blank">citation family</a> of functions to be utilized.  In order for this workflow related to citations to be most effective the user must use a .bib file to manage citations.  I use <a href="http://jabref.sourceforge.net/" target="_blank">JabRef</a> manage my bibliography.  Here is a screen shot of notes.xlsx file.
+The notes.xlsx/notes.csv is a file located in the ARTICLES directory.  It is useful to take notes from articles/websites/etc. and organize them here.  The <a href="http://trinker.github.io/reports_dev/notes.html" target="_blank"><code>notes</code></a> function can be used to view a truncated version of the notes.  The citation functions also enables the user to insert in-text citations into a document with the quote taken from the article or other source.  It is important that the format of notes.xlsx is respected in order for the <a href="http://trinker.github.io/reports_dev/cite.html" target="_blank">citation family</a> of functions to be utilized.  In order for this workflow related to citations to be most effective the user must use a .bib file to manage citations.  I use <a href="http://jabref.sourceforge.net/" target="_blank">JabRef</a> manage my bibliography.  Here is a screen shot of notes.xlsx file.
 
 <div style="width:840px;margin:auto;">
     <p><img src="figure/excel.png" width="800" height="600"></p>
@@ -236,8 +236,8 @@ notes.xlsx contains the following columns:
 
 1. **Document (bib key)** - The bib key from the .bib file (usually authorYEAR)
 2. **Location (page)** - The page number of the quote/passage (use an integer or integers separated by a dash)
-3. **Gist/Quote** - The quote or a jist of a passage 
-4. **Q** - Is the row gist a quote?  If so use **b** if not use **n**.  Those marked **y** can be inerted as quotes into a document.
+3. **Gist/Quote** - The quote or a gist of a passage 
+4. **Q** - Is the row gist a quote?  If so use **b** if not use **n**.  Those marked **y** can be inserted as quotes into a document.
 5. **Notes** - An optional column to add notes to self
 
 The **Gist/QuoteQ** should be written in <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">markdown</a>/html.  The notes.xlsx file also contains a quick reference for html on the right side:
@@ -325,7 +325,7 @@ tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)
 ```
 
 
-\****Note*** *that all of the conversion functions can be used to convert any legitimate Pandoc conversion but if the* ***from2to*** *format is not followed the documents and paths must be explicitally supplied as arguments to the reports conversion function.*
+\****Note*** *that all of the conversion functions can be used to convert any legitimate Pandoc conversion but if the* ***from2to*** *format is not followed the documents and paths must be explicitly supplied as arguments to the reports conversion function.*
 
 <hr>
 <h3 id="html">HTML Shortcuts</h3>
@@ -341,7 +341,7 @@ The general format of the HTML examples is:
 
 <hr>
 
-This <a href="#tab">table </a> lists the HTML functions and the HTML tag types produced.  Click on the left column function names to see a demonstation of its use.  
+This <a href="#tab">table </a> lists the HTML functions and the HTML tag types produced.  Click on the left column function names to see a demonstration of its use.  
 </br></br>
 
 <TABLE id="tab" border=1>
@@ -374,7 +374,7 @@ This <a href="#tab">table </a> lists the HTML functions and the HTML tag types p
 
 ### <p id="CN"><a href="http://trinker.github.io/reports_dev/CN.html" target="_blank">CN (courrier new)</a></p>
 
-Wraps text with a courier new font tag. A specified version of <a href="#FT">FT</a> but more convient for constant use of courier new tags.
+Wraps text with a courier new font tag. A specified version of <a href="#FT">FT</a> but more convenient for constant use of courier new tags.
 
 
 ```r
@@ -708,9 +708,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=
 
 ### <p id="IM"><a href="http://trinker.github.io/reports_dev/image.html" target="_blank">IM/IM2/IW (images and text-wrapped images)</a></p>
 
-These functions geberate an HTML image tag that embeds an image.  <code>IM2</code> not demonstrated as this function assumes local image source.
+These functions generate an HTML image tag that embeds an image.  <code>IM2</code> not demonstrated as this function assumes local image source.
 
-1. **IM** - Wrap a path/url to generate an HTML tag. Often markup code: &#33;[](url&#40; lacks flexibility with centering and sizing. IM enables conrol of centering via altering the sty/center commands and control of sizing via the numeric values supplied to height and width.
+1. **IM** - Wrap a path/url to generate an HTML tag. Often markup code: &#33;[](url&#40; lacks flexibility with centering and sizing. IM enables control of centering via altering the sty/center commands and control of sizing via the numeric values supplied to height and width.
 2. **IM2** - A wrapper for IM that sets the base path to "assets/img/". This allows the users to just specify the image name that resides in one of the following directories: 1-"<code>~/assets/img</code>" or 2-"<code>~/figure</code>".
 3. **IW** - Text wrapped images.
 
@@ -861,7 +861,7 @@ PN("1) some\n2) fancy\n3) notes", print = TRUE)
 <hr>
 
 ### <p id="RF"><a href="http://trinker.github.io/reports_dev/RF.html" target="_blank">RF (reveal.js fragments)</a></p>
-Slidify uses to include animated fragments (see <a href="https://github.com/ramnathv/slidifyExamples/blob/gh-pages/examples/revealjs/index.Rmd" target="_blank">this example</a>) in reveal.js slides. This is required per each slide. Using &#96;r RF()&#96; reduces the typing invloved with this action.
+Slidify uses to include animated fragments (see <a href="https://github.com/ramnathv/slidifyExamples/blob/gh-pages/examples/revealjs/index.Rmd" target="_blank">this example</a>) in reveal.js slides. This is required per each slide. Using &#96;r RF()&#96; reduces the typing involved with this action.
 
 
 ```r
@@ -1201,14 +1201,14 @@ The user can create a document template framework for template personal use or s
 <h3 id="odd">Odds and Ends</h3>
 <h4 id="odd1">Reveal.js Slide Notes Locally (No Internet Connection)</h4>
 
-Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be unaccessible.  However, setting up a local host enables viewing slidenotes without an Internet connection.  This can be accomplished via Python.
+Often you may find yourself in situations in which you have no Internet access.  The slide notes in Reveal.js depend upon the presentation being hosted on a server, otherwise the notes will be inaccessible.  However, setting up a local host enables viewing slide notes without an Internet connection.  This can be accomplished via Python.
 
 Before a Reveal.js presentation can be shown the user must:
 
 Install <a href="http://www.python.org/" target="_blank">Python</a> and make it accessible from the command line <a href="http://youtu.be/VlqpiKHz7Gw" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 
 
-The user may then click on the bash/batch file generated by <a href="http://trinker.github.io/reports_dev/local_host.html" target="_blank"><code>local_host</code></a> and run the presetation locally. <a href="http://youtu.be/sg_lKU3n-co" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
+The user may then click on the bash/batch file generated by <a href="http://trinker.github.io/reports_dev/local_host.html" target="_blank"><code>local_host</code></a> and run the presentation locally. <a href="http://youtu.be/sg_lKU3n-co" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
  (note that this file must be clicked on outside of RStudio or the user may use `FUN("run_lh", "local_host")` to create and run the local host).  The bash/batch file that is generated automatically creates a local host and opens the directory of the presentation for automatic access to locally hosted presentations.
 
 Conversely, the user may want to operate from the command line.  If this approach is used the following must be conducted  each time you want show a presentation locally. <a href="http://youtu.be/6VRMcHyXEKc" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
@@ -1261,6 +1261,5 @@ The reports package is just a collection of the best R tools.  A special thanks 
 - Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a>
 - Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a>
 - Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>
-
 
 

@@ -82,7 +82,7 @@ HR2 <- function(path = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRU
 #' 
 #' @export
 #' @rdname hyperref
-BT <- 
+BT <-
 function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE, 
     print = FALSE) {
     if (path == "clipboard") {
@@ -95,15 +95,14 @@ function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE,
     if (new_win) {
         tar <- " target=\"_blank\""     
     } else {
-        tar <- NULL
+        tar <- ""
     }
-
-    x <- paste0("<form action=\"", path, "\">\n", 
-        paste0("    <input type=\"submit\" value=\"", text, "\">\n"), 
-        "</form>")
+    x <- sprintf("<form action=\"%s\"%s>\n    <input type=\"submit\" value=\"%s\">\n</form>", 
+        path, tar, text)
 
     if(copy2clip){
         write_clip(x)
     }
     prin(x = x, print = print)
 }
+

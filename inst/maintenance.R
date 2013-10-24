@@ -176,7 +176,7 @@ file.copy(path2, file2, TRUE, TRUE)
 # new <- "C:/Users/trinker/Dropbox/Public/packages"
 # file.copy(root, new, TRUE, TRUE)
 
-copy_vign()
+#copy_vign()
 #==========================
 #
 #==========================
