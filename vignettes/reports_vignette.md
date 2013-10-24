@@ -180,10 +180,10 @@ rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 ```
 
 ```
-##  [1] "admin_01_d_1" "admin_02_f_4" "admin_03_w_6" "admin_04_d_1"
-##  [5] "admin_05_f_4" "admin_06_w_6" "admin_07_d_1" "admin_08_f_4"
-##  [9] "admin_09_w_6" "admin_10_d_1" "admin_11_f_4" "admin_12_w_6"
-## [13] "admin_13_d_1" "admin_14_f_4" "admin_15_w_6"
+ [1] "admin_01_d_1" "admin_02_f_4" "admin_03_w_6" "admin_04_d_1"
+ [5] "admin_05_f_4" "admin_06_w_6" "admin_07_d_1" "admin_08_f_4"
+ [9] "admin_09_w_6" "admin_10_d_1" "admin_11_f_4" "admin_12_w_6"
+[13] "admin_13_d_1" "admin_14_f_4" "admin_15_w_6"
 ```
 
 
@@ -263,13 +263,13 @@ head(BV())
 ```
 
 ```
-##   num bibkey           title                                   
-## 1   1 Yihui20131       knitr: A general-purpose package for dyn
-## 2   2 Yihui20132       Dynamic Documents with {R} and knitr    
-## 3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
-## 4   4 Boettiger2013    knitcitations: Citations for knitr markd
-## 5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
-## 6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
+  num bibkey           title                                   
+1   1 Yihui20131       knitr: A general-purpose package for dyn
+2   2 Yihui20132       Dynamic Documents with {R} and knitr    
+3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
+4   4 Boettiger2013    knitcitations: Citations for knitr markd
+5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
+6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
 ```
 
 <hr>
@@ -382,7 +382,7 @@ CN("new_report()")
 ```
 
 ```
-## [1] <font face="courier">new_report()</font>
+[1] <font face="courier">new_report()</font>
 ```
 
 <font face="courier">new_report()</font>
@@ -397,7 +397,7 @@ EM("tyler.rinker@gmail.com", print = TRUE)
 ```
 
 ```
-## <a href="mailto:tyler.rinker@gmail.com" target="_blank">tyler.rinker@gmail.com</a>
+<a href="mailto:tyler.rinker@gmail.com" target="_blank">tyler.rinker@gmail.com</a>
 ```
 
 <a href="mailto:tyler.rinker@gmail.com" target="_blank">tyler.rinker@gmail.com</a>
@@ -414,7 +414,7 @@ FT(6, text="guy")
 ```
 
 ```
-## [1] <font size="6">guy</font>
+[1] <font size="6">guy</font>
 ```
 
 [1] <font size="6">guy</font>
@@ -427,7 +427,7 @@ FT(6, blue, text="guy")
 ```
 
 ```
-## [1] <font size="6" color="blue">guy</font>
+[1] <font size="6" color="blue">guy</font>
 ```
 
 [1] <font size="6" color="blue">guy</font>
@@ -440,7 +440,7 @@ FT(6, red, times_new_roman, text="guy")
 ```
 
 ```
-## [1] <font size="6" color="red" face="times new roman">guy</font>
+[1] <font size="6" color="red" face="times new roman">guy</font>
 ```
 
 [1] <font size="6" color="red" face="times new roman">guy</font>
@@ -456,7 +456,7 @@ cat(HL("Do not trust robots!"), "They are bent on destruction.")
 ```
 
 ```
-## <font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.
+<font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.
 ```
 
 <font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.
@@ -469,7 +469,7 @@ cat(HL("Jake is a cookie scientist,", color="pink"), "an honorable profession.")
 ```
 
 ```
-## <font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.
+<font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.
 ```
 
 <font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.
@@ -491,7 +491,7 @@ HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)
 ```
 
 ```
-## <a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a>
+<a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a>
 ```
 
 <a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a>
@@ -504,7 +504,7 @@ HR("http://cran.r-project.org/", print = TRUE)
 ```
 
 ```
-## <a href="http://cran.r-project.org/">cran.r-project.org</a>
+<a href="http://cran.r-project.org/">cran.r-project.org</a>
 ```
 
 <a href="http://cran.r-project.org/">cran.r-project.org</a>
@@ -517,7 +517,7 @@ HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)
 ```
 
 ```
-## <a href="http://www.rstudio.com/ide/download/desktop">click me</a>
+<a href="http://www.rstudio.com/ide/download/desktop">click me</a>
 ```
 
 <a href="http://www.rstudio.com/ide/download/desktop">click me</a>
@@ -530,7 +530,7 @@ HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 ```
 
 ```
-## <a href="https://github.com/trinker/reports" target="_blank">reports</a>
+<a href="https://github.com/trinker/reports" target="_blank">reports</a>
 ```
 
 <a href="https://github.com/trinker/reports" target="_blank">reports</a>
@@ -543,9 +543,9 @@ BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
 ```
 
 ```
-## <form action="http://trinker.github.io/reports/dependencies">
-##     <input type="submit" value="Click Here!">
-## </form>
+<form action="http://trinker.github.io/reports/dependencies">
+    <input type="submit" value="Click Here!">
+</form>
 ```
 
 <form action="http://trinker.github.io/reports/dependencies">
@@ -566,7 +566,7 @@ cat(paste0("reports", HS(10), "end"))
 ```
 
 ```
-## reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
+reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
 ```
 
 reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
@@ -579,7 +579,7 @@ cat(paste0("the", VS(), "end"))
 ```
 
 ```
-## the</br>end
+the</br>end
 ```
 
 the</br>end</br>
@@ -592,7 +592,7 @@ cat(paste0("the", VS(3), "end"))
 ```
 
 ```
-## the</br></br></br>end
+the</br></br></br>end
 ```
 
 the</br></br></br>end</br>
@@ -610,9 +610,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE, height
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="https://dl.dropboxusercontent.com/u/61803503/MWE.html" width="640" height="250">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="https://dl.dropboxusercontent.com/u/61803503/MWE.html" width="640" height="250">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -627,9 +627,9 @@ IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, c
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="http://www.online-stopwatch.com/countdown-clock/full-screen/" width="640" height="400">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="http://www.online-stopwatch.com/countdown-clock/full-screen/" width="640" height="400">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -644,9 +644,9 @@ IF("http://www.dosketch.com/", width=1100, height=650, print=TRUE)
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -661,9 +661,9 @@ IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", height=650,
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="http://glimmer.rstudio.com/pssguy/TVShowRatings/" width="100%" height="650">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="http://glimmer.rstudio.com/pssguy/TVShowRatings/" width="100%" height="650">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -678,9 +678,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", wid
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html" width="1150" height="750">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html" width="1150" height="750">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -695,9 +695,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=
 ```
 
 ```
-## <div style="text-align:center;">
-##      <iframe src="https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html" width="770" height="680">Your browser does not support iframes.</iframe>
-## </div>
+<div style="text-align:center;">
+     <iframe src="https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html" width="770" height="680">Your browser does not support iframes.</iframe>
+</div>
 ```
 
 <div style="text-align:center;">
@@ -721,9 +721,9 @@ IM("http://cran.r-project.org/Rlogo.jpg", width=NULL, print=TRUE)
 ```
 
 ```
-## <div style="width:480px;margin:auto;">
-##     <p><img src="http://cran.r-project.org/Rlogo.jpg"></p>
-## </div>
+<div style="width:480px;margin:auto;">
+    <p><img src="http://cran.r-project.org/Rlogo.jpg"></p>
+</div>
 ```
 
 <div style="width:480px;margin:auto;">
@@ -738,9 +738,9 @@ IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print=TR
 ```
 
 ```
-## <div style="width:567px;margin:auto;">
-##     <p><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></p>
-## </div>
+<div style="width:567px;margin:auto;">
+    <p><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></p>
+</div>
 ```
 
 <div style="width:567px;margin:auto;">
@@ -755,9 +755,9 @@ IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.
 ```
 
 ```
-## <div style="width:480px;margin:auto;">
-##     <p><a href="http://cran.r-project.org" target="_blank"><img src="http://cran.r-project.org/Rlogo.jpg"></a></p>
-## </div>
+<div style="width:480px;margin:auto;">
+    <p><a href="http://cran.r-project.org" target="_blank"><img src="http://cran.r-project.org/Rlogo.jpg"></a></p>
+</div>
 ```
 
 <div style="width:480px;margin:auto;">
@@ -772,7 +772,7 @@ IM2("Rlogo.jpg", center=FALSE)
 ```
 
 ```
-## [1] "<img src=\"assets/img/Rlogo.jpg\" width=\"540\" height=\"360\">"
+[1] "<img src=\"assets/img/Rlogo.jpg\" width=\"540\" height=\"360\">"
 ```
 
 ```r
@@ -780,7 +780,7 @@ IM2("Rlogo.jpg", loc=2, center=FALSE)
 ```
 
 ```
-## [1] "<img src=\"figure/Rlogo.jpg\" width=\"540\" height=\"360\">"
+[1] "<img src=\"figure/Rlogo.jpg\" width=\"540\" height=\"360\">"
 ```
 
 
@@ -807,9 +807,9 @@ PN("some fancy notes", print = TRUE)
 ```
 
 ```
-## <aside class="notes">
-## some fancy notes <br>
-## </aside>
+<aside class="notes">
+some fancy notes <br>
+</aside>
 ```
 
 <aside class="notes">
@@ -824,11 +824,11 @@ PN("1) some\n2) fancy\n3) notes", print = TRUE)
 ```
 
 ```
-## <aside class="notes">
-## 1) some <br>
-## 2) fancy <br>
-## 3) notes <br>
-## </aside>
+<aside class="notes">
+1) some <br>
+2) fancy <br>
+3) notes <br>
+</aside>
 ```
 
 <aside class="notes">
@@ -843,11 +843,11 @@ PN("1) some\n2) fancy\n3) notes", print = TRUE)
 
 
 ```
-## <aside class="notes">
-## 1) some  <br>
-## 2) fancy  <br>
-## 3) notes <br>
-## </aside>
+<aside class="notes">
+1) some  <br>
+2) fancy  <br>
+3) notes <br>
+</aside>
 ```
 
 
@@ -869,7 +869,7 @@ RF()
 ```
 
 ```
-## [1] "<script>\n$('ul.incremental li').addClass('fragment')\n</script>\n"
+[1] "<script>\n$('ul.incremental li').addClass('fragment')\n</script>\n"
 ```
 
 
@@ -1054,9 +1054,9 @@ TB("I like ice cream!", print=TRUE)
 ```
 
 ```
-## <div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
-##     I like ice cream!
-## </div>
+<div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
+    I like ice cream!
+</div>
 ```
 
 <div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
@@ -1071,9 +1071,9 @@ TB("Free cookies for a year!", col = "red", font.col="white", print=TRUE)
 ```
 
 ```
-## <div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
-##     Free cookies for a year!
-## </div>
+<div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
+    Free cookies for a year!
+</div>
 ```
 
 <div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
@@ -1089,9 +1089,9 @@ TB2("I like ice cream!", print=TRUE)
 ```
 
 ```
-## <div align="left">
-##     <input style="text-align:center" name="box1" type="text" value="I like ice cream!" size="17" />
-## </div>
+<div align="left">
+    <input style="text-align:center" name="box1" type="text" value="I like ice cream!" size="17" />
+</div>
 ```
 
 <div align="left">
@@ -1106,9 +1106,9 @@ TB2("Free cookies for a year!", print=TRUE)
 ```
 
 ```
-## <div align="left">
-##     <input style="text-align:center" name="box1" type="text" value="Free cookies for a year!" size="24" />
-## </div>
+<div align="left">
+    <input style="text-align:center" name="box1" type="text" value="Free cookies for a year!" size="24" />
+</div>
 ```
 
 <div align="left">
@@ -1127,7 +1127,7 @@ YT("ArHQjQyIS70", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
 
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
@@ -1140,7 +1140,7 @@ YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 ```
 
 ```
-## <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
+<iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
 
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
@@ -1153,7 +1153,7 @@ VM("http://vimeo.com/54007714", print = TRUE)
 ```
 
 ```
-## <iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 ```
 
 <iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
@@ -1169,7 +1169,7 @@ col2hex("darkblue")
 ```
 
 ```
-## [1] "#00008B"
+[1] "#00008B"
 ```
 
 ```r
@@ -1177,7 +1177,7 @@ col2hex(c("darkblue", "red"))
 ```
 
 ```
-## [1] "#00008B" "#FF0000"
+[1] "#00008B" "#FF0000"
 ```
 
 ```r
@@ -1185,7 +1185,7 @@ cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
 ```
 
 ```
-## <hr color="#FF0000" size="4">
+<hr color="#FF0000" size="4">
 ```
 
 <hr color="#FF0000" size="4">

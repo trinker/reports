@@ -499,10 +499,10 @@ rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6))</code></pre>
 <pre><code class="r">rdirs(admin, 1:15, c(&quot;d&quot;, &quot;f&quot;, &quot;w&quot;), c(1, 4, 6), text.only = TRUE)
 </code></pre>
 
-<pre><code>##  [1] &quot;admin_01_d_1&quot; &quot;admin_02_f_4&quot; &quot;admin_03_w_6&quot; &quot;admin_04_d_1&quot;
-##  [5] &quot;admin_05_f_4&quot; &quot;admin_06_w_6&quot; &quot;admin_07_d_1&quot; &quot;admin_08_f_4&quot;
-##  [9] &quot;admin_09_w_6&quot; &quot;admin_10_d_1&quot; &quot;admin_11_f_4&quot; &quot;admin_12_w_6&quot;
-## [13] &quot;admin_13_d_1&quot; &quot;admin_14_f_4&quot; &quot;admin_15_w_6&quot;
+<pre><code> [1] &quot;admin_01_d_1&quot; &quot;admin_02_f_4&quot; &quot;admin_03_w_6&quot; &quot;admin_04_d_1&quot;
+ [5] &quot;admin_05_f_4&quot; &quot;admin_06_w_6&quot; &quot;admin_07_d_1&quot; &quot;admin_08_f_4&quot;
+ [9] &quot;admin_09_w_6&quot; &quot;admin_10_d_1&quot; &quot;admin_11_f_4&quot; &quot;admin_12_w_6&quot;
+[13] &quot;admin_13_d_1&quot; &quot;admin_14_f_4&quot; &quot;admin_15_w_6&quot;
 </code></pre>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Chunk 3</strong>- <em>Create dated folders</em> <font size="5" color="gold">&diams;</font></p>
@@ -587,13 +587,13 @@ setwd(WD)</code></pre>
 <pre><code class="r">head(BV())
 </code></pre>
 
-<pre><code>##   num bibkey           title                                   
-## 1   1 Yihui20131       knitr: A general-purpose package for dyn
-## 2   2 Yihui20132       Dynamic Documents with {R} and knitr    
-## 3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
-## 4   4 Boettiger2013    knitcitations: Citations for knitr markd
-## 5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
-## 6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
+<pre><code>  num bibkey           title                                   
+1   1 Yihui20131       knitr: A general-purpose package for dyn
+2   2 Yihui20132       Dynamic Documents with {R} and knitr    
+3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
+4   4 Boettiger2013    knitcitations: Citations for knitr markd
+5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
+6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
 </code></pre>
 
 <hr>
@@ -704,7 +704,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">CN(&quot;new_report()&quot;)
 </code></pre>
 
-<pre><code>## [1] &lt;font face=&quot;courier&quot;&gt;new_report()&lt;/font&gt;
+<pre><code>[1] &lt;font face=&quot;courier&quot;&gt;new_report()&lt;/font&gt;
 </code></pre>
 
 <p><font face="courier">new_report()</font></p>
@@ -718,7 +718,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">EM(&quot;tyler.rinker@gmail.com&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;a href=&quot;mailto:tyler.rinker@gmail.com&quot; target=&quot;_blank&quot;&gt;tyler.rinker@gmail.com&lt;/a&gt;
+<pre><code>&lt;a href=&quot;mailto:tyler.rinker@gmail.com&quot; target=&quot;_blank&quot;&gt;tyler.rinker@gmail.com&lt;/a&gt;
 </code></pre>
 
 <p><a href="mailto:tyler.rinker@gmail.com" target="_blank"><a href="mailto:tyler.rinker@gmail.com">tyler.rinker@gmail.com</a></a></p>
@@ -734,7 +734,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">FT(6, text=&quot;guy&quot;)
 </code></pre>
 
-<pre><code>## [1] &lt;font size=&quot;6&quot;&gt;guy&lt;/font&gt;
+<pre><code>[1] &lt;font size=&quot;6&quot;&gt;guy&lt;/font&gt;
 </code></pre>
 
 <p>[1] <font size="6">guy</font></p>
@@ -744,7 +744,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">FT(6, blue, text=&quot;guy&quot;)
 </code></pre>
 
-<pre><code>## [1] &lt;font size=&quot;6&quot; color=&quot;blue&quot;&gt;guy&lt;/font&gt;
+<pre><code>[1] &lt;font size=&quot;6&quot; color=&quot;blue&quot;&gt;guy&lt;/font&gt;
 </code></pre>
 
 <p>[1] <font size="6" color="blue">guy</font></p>
@@ -754,7 +754,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">FT(6, red, times_new_roman, text=&quot;guy&quot;)
 </code></pre>
 
-<pre><code>## [1] &lt;font size=&quot;6&quot; color=&quot;red&quot; face=&quot;times new roman&quot;&gt;guy&lt;/font&gt;
+<pre><code>[1] &lt;font size=&quot;6&quot; color=&quot;red&quot; face=&quot;times new roman&quot;&gt;guy&lt;/font&gt;
 </code></pre>
 
 <p>[1] <font size="6" color="red" face="times new roman">guy</font></p>
@@ -768,7 +768,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">cat(HL(&quot;Do not trust robots!&quot;), &quot;They are bent on destruction.&quot;)
 </code></pre>
 
-<pre><code>## &lt;font style=&quot;background-color: #FFFF00;&quot;&gt;Do not trust robots!&lt;/font&gt; They are bent on destruction.
+<pre><code>&lt;font style=&quot;background-color: #FFFF00;&quot;&gt;Do not trust robots!&lt;/font&gt; They are bent on destruction.
 </code></pre>
 
 <p><font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.</p>
@@ -778,7 +778,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">cat(HL(&quot;Jake is a cookie scientist,&quot;, color=&quot;pink&quot;), &quot;an honorable profession.&quot;)
 </code></pre>
 
-<pre><code>## &lt;font style=&quot;background-color: #FFC0CB;&quot;&gt;Jake is a cookie scientist,&lt;/font&gt; an honorable profession.
+<pre><code>&lt;font style=&quot;background-color: #FFC0CB;&quot;&gt;Jake is a cookie scientist,&lt;/font&gt; an honorable profession.
 </code></pre>
 
 <p><font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.</p>
@@ -798,7 +798,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">HR(path=&quot;http://dl.dropbox.com/u/61803503/Likert.pdf&quot;, print = TRUE)  
 </code></pre>
 
-<pre><code>## &lt;a href=&quot;http://dl.dropbox.com/u/61803503/Likert.pdf&quot;&gt;Likert.pdf&lt;/a&gt;
+<pre><code>&lt;a href=&quot;http://dl.dropbox.com/u/61803503/Likert.pdf&quot;&gt;Likert.pdf&lt;/a&gt;
 </code></pre>
 
 <p><a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a></p>
@@ -808,7 +808,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">HR(&quot;http://cran.r-project.org/&quot;, print = TRUE) 
 </code></pre>
 
-<pre><code>## &lt;a href=&quot;http://cran.r-project.org/&quot;&gt;cran.r-project.org&lt;/a&gt;
+<pre><code>&lt;a href=&quot;http://cran.r-project.org/&quot;&gt;cran.r-project.org&lt;/a&gt;
 </code></pre>
 
 <p><a href="http://cran.r-project.org/">cran.r-project.org</a></p>
@@ -818,7 +818,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">HR(&quot;http://www.rstudio.com/ide/download/desktop&quot;, &quot;click me&quot;, print = TRUE)  
 </code></pre>
 
-<pre><code>## &lt;a href=&quot;http://www.rstudio.com/ide/download/desktop&quot;&gt;click me&lt;/a&gt;
+<pre><code>&lt;a href=&quot;http://www.rstudio.com/ide/download/desktop&quot;&gt;click me&lt;/a&gt;
 </code></pre>
 
 <p><a href="http://www.rstudio.com/ide/download/desktop">click me</a></p>
@@ -828,7 +828,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">HR2(&quot;https://github.com/trinker/reports&quot;, &quot;reports&quot;, print = TRUE)  
 </code></pre>
 
-<pre><code>## &lt;a href=&quot;https://github.com/trinker/reports&quot; target=&quot;_blank&quot;&gt;reports&lt;/a&gt;
+<pre><code>&lt;a href=&quot;https://github.com/trinker/reports&quot; target=&quot;_blank&quot;&gt;reports&lt;/a&gt;
 </code></pre>
 
 <p><a href="https://github.com/trinker/reports" target="_blank">reports</a></p>
@@ -838,9 +838,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">BT(&quot;http://trinker.github.io/reports/dependencies&quot;, &quot;Click Here!&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;form action=&quot;http://trinker.github.io/reports/dependencies&quot;&gt;
-##     &lt;input type=&quot;submit&quot; value=&quot;Click Here!&quot;&gt;
-## &lt;/form&gt;
+<pre><code>&lt;form action=&quot;http://trinker.github.io/reports/dependencies&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Click Here!&quot;&gt;
+&lt;/form&gt;
 </code></pre>
 
 <form action="http://trinker.github.io/reports/dependencies">
@@ -858,7 +858,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">cat(paste0(&quot;reports&quot;, HS(10), &quot;end&quot;))
 </code></pre>
 
-<pre><code>## reports&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end
+<pre><code>reports&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end
 </code></pre>
 
 <p>reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br></p>
@@ -868,7 +868,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">cat(paste0(&quot;the&quot;, VS(), &quot;end&quot;))
 </code></pre>
 
-<pre><code>## the&lt;/br&gt;end
+<pre><code>the&lt;/br&gt;end
 </code></pre>
 
 <p>the</br>end</br></p>
@@ -878,7 +878,7 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">cat(paste0(&quot;the&quot;, VS(3), &quot;end&quot;))
 </code></pre>
 
-<pre><code>## the&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;end
+<pre><code>the&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;end
 </code></pre>
 
 <p>the</br></br></br>end</br></p>
@@ -894,9 +894,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;https://dl.dropboxusercontent.com/u/61803503/MWE.html&quot;, print = TRUE, height=250)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/MWE.html&quot; width=&quot;640&quot; height=&quot;250&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/MWE.html&quot; width=&quot;640&quot; height=&quot;250&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -908,9 +908,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;http://www.online-stopwatch.com/countdown-clock/full-screen/&quot;, height=400, center = TRUE, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;http://www.online-stopwatch.com/countdown-clock/full-screen/&quot; width=&quot;640&quot; height=&quot;400&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;http://www.online-stopwatch.com/countdown-clock/full-screen/&quot; width=&quot;640&quot; height=&quot;400&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -922,9 +922,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;http://www.dosketch.com/&quot;, width=1100, height=650, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;http://www.dosketch.com/&quot; width=&quot;1100&quot; height=&quot;650&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;http://www.dosketch.com/&quot; width=&quot;1100&quot; height=&quot;650&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -936,9 +936,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;http://glimmer.rstudio.com/pssguy/TVShowRatings/&quot;, width=&quot;100%&quot;, height=650, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;http://glimmer.rstudio.com/pssguy/TVShowRatings/&quot; width=&quot;100%&quot; height=&quot;650&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;http://glimmer.rstudio.com/pssguy/TVShowRatings/&quot; width=&quot;100%&quot; height=&quot;650&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -950,9 +950,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html&quot;, width=1150, height=750, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html&quot; width=&quot;1150&quot; height=&quot;750&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html&quot; width=&quot;1150&quot; height=&quot;750&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -964,9 +964,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IF(&quot;https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html&quot;, width=770, height=680, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;text-align:center;&quot;&gt;
-##      &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html&quot; width=&quot;770&quot; height=&quot;680&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;text-align:center;&quot;&gt;
+     &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html&quot; width=&quot;770&quot; height=&quot;680&quot;&gt;Your browser does not support iframes.&lt;/iframe&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="text-align:center;">
@@ -990,9 +990,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IM(&quot;http://cran.r-project.org/Rlogo.jpg&quot;, width=NULL, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;width:480px;margin:auto;&quot;&gt;
-##     &lt;p&gt;&lt;img src=&quot;http://cran.r-project.org/Rlogo.jpg&quot;&gt;&lt;/p&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;width:480px;margin:auto;&quot;&gt;
+    &lt;p&gt;&lt;img src=&quot;http://cran.r-project.org/Rlogo.jpg&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="width:480px;margin:auto;">
@@ -1004,9 +1004,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IM(&quot;https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG&quot;, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;width:567px;margin:auto;&quot;&gt;
-##     &lt;p&gt;&lt;img src=&quot;https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG&quot; width=&quot;540&quot; height=&quot;360&quot;&gt;&lt;/p&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;width:567px;margin:auto;&quot;&gt;
+    &lt;p&gt;&lt;img src=&quot;https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG&quot; width=&quot;540&quot; height=&quot;360&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="width:567px;margin:auto;">
@@ -1018,9 +1018,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IM(&quot;http://cran.r-project.org/Rlogo.jpg&quot;, NULL, print=TRUE, link = &quot;http://cran.r-project.org&quot;)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;width:480px;margin:auto;&quot;&gt;
-##     &lt;p&gt;&lt;a href=&quot;http://cran.r-project.org&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://cran.r-project.org/Rlogo.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;width:480px;margin:auto;&quot;&gt;
+    &lt;p&gt;&lt;a href=&quot;http://cran.r-project.org&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://cran.r-project.org/Rlogo.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div style="width:480px;margin:auto;">
@@ -1032,13 +1032,13 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">IM2(&quot;Rlogo.jpg&quot;, center=FALSE)
 </code></pre>
 
-<pre><code>## [1] &quot;&lt;img src=\&quot;assets/img/Rlogo.jpg\&quot; width=\&quot;540\&quot; height=\&quot;360\&quot;&gt;&quot;
+<pre><code>[1] &quot;&lt;img src=\&quot;assets/img/Rlogo.jpg\&quot; width=\&quot;540\&quot; height=\&quot;360\&quot;&gt;&quot;
 </code></pre>
 
 <pre><code class="r">IM2(&quot;Rlogo.jpg&quot;, loc=2, center=FALSE)
 </code></pre>
 
-<pre><code>## [1] &quot;&lt;img src=\&quot;figure/Rlogo.jpg\&quot; width=\&quot;540\&quot; height=\&quot;360\&quot;&gt;&quot;
+<pre><code>[1] &quot;&lt;img src=\&quot;figure/Rlogo.jpg\&quot; width=\&quot;540\&quot; height=\&quot;360\&quot;&gt;&quot;
 </code></pre>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 5</strong> - <em>IW demo: text wrapped image with hyperlink</em> <font size="5" color="gold">&diams;</font> </br></br></p>
@@ -1064,9 +1064,9 @@ tex2docx(DOC, file.path(getwd(), &quot;test.docx&quot;), path = NULL, bib.loc = 
 <pre><code class="r">PN(&quot;some fancy notes&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;aside class=&quot;notes&quot;&gt;
-## some fancy notes &lt;br&gt;
-## &lt;/aside&gt;
+<pre><code>&lt;aside class=&quot;notes&quot;&gt;
+some fancy notes &lt;br&gt;
+&lt;/aside&gt;
 </code></pre>
 
 <p><aside class="notes">
@@ -1078,11 +1078,11 @@ some fancy notes <br>
 <pre><code class="r">PN(&quot;1) some\n2) fancy\n3) notes&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;aside class=&quot;notes&quot;&gt;
-## 1) some &lt;br&gt;
-## 2) fancy &lt;br&gt;
-## 3) notes &lt;br&gt;
-## &lt;/aside&gt;
+<pre><code>&lt;aside class=&quot;notes&quot;&gt;
+1) some &lt;br&gt;
+2) fancy &lt;br&gt;
+3) notes &lt;br&gt;
+&lt;/aside&gt;
 </code></pre>
 
 <p><aside class="notes">
@@ -1095,11 +1095,11 @@ some fancy notes <br>
 
 <pre><code class="r">PN("1) some<br>2) fancy<br>3) notes", print = TRUE)</code></pre>    
 
-<pre><code>## &lt;aside class=&quot;notes&quot;&gt;
-## 1) some  &lt;br&gt;
-## 2) fancy  &lt;br&gt;
-## 3) notes &lt;br&gt;
-## &lt;/aside&gt;
+<pre><code>&lt;aside class=&quot;notes&quot;&gt;
+1) some  &lt;br&gt;
+2) fancy  &lt;br&gt;
+3) notes &lt;br&gt;
+&lt;/aside&gt;
 </code></pre>
 
 <p><aside class="notes">
@@ -1117,7 +1117,7 @@ some fancy notes <br>
 <pre><code class="r">RF()
 </code></pre>
 
-<pre><code>## [1] &quot;&lt;script&gt;\n$(&#39;ul.incremental li&#39;).addClass(&#39;fragment&#39;)\n&lt;/script&gt;\n&quot;
+<pre><code>[1] &quot;&lt;script&gt;\n$(&#39;ul.incremental li&#39;).addClass(&#39;fragment&#39;)\n&lt;/script&gt;\n&quot;
 </code></pre>
 
 <hr>
@@ -1271,9 +1271,9 @@ some fancy notes <br>
 <pre><code class="r">TB(&quot;I like ice cream!&quot;, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; &quot;&gt;
-##     I like ice cream!
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; &quot;&gt;
+    I like ice cream!
+&lt;/div&gt;
 </code></pre>
 
 <div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
@@ -1285,9 +1285,9 @@ some fancy notes <br>
 <pre><code class="r">TB(&quot;Free cookies for a year!&quot;, col = &quot;red&quot;, font.col=&quot;white&quot;, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div style=&quot;background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; &quot;&gt;
-##     Free cookies for a year!
-## &lt;/div&gt;
+<pre><code>&lt;div style=&quot;background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; &quot;&gt;
+    Free cookies for a year!
+&lt;/div&gt;
 </code></pre>
 
 <div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
@@ -1299,9 +1299,9 @@ some fancy notes <br>
 <pre><code class="r">TB2(&quot;I like ice cream!&quot;, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div align=&quot;left&quot;&gt;
-##     &lt;input style=&quot;text-align:center&quot; name=&quot;box1&quot; type=&quot;text&quot; value=&quot;I like ice cream!&quot; size=&quot;17&quot; /&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div align=&quot;left&quot;&gt;
+    &lt;input style=&quot;text-align:center&quot; name=&quot;box1&quot; type=&quot;text&quot; value=&quot;I like ice cream!&quot; size=&quot;17&quot; /&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div align="left">
@@ -1313,9 +1313,9 @@ some fancy notes <br>
 <pre><code class="r">TB2(&quot;Free cookies for a year!&quot;, print=TRUE)
 </code></pre>
 
-<pre><code>## &lt;div align=&quot;left&quot;&gt;
-##     &lt;input style=&quot;text-align:center&quot; name=&quot;box1&quot; type=&quot;text&quot; value=&quot;Free cookies for a year!&quot; size=&quot;24&quot; /&gt;
-## &lt;/div&gt;
+<pre><code>&lt;div align=&quot;left&quot;&gt;
+    &lt;input style=&quot;text-align:center&quot; name=&quot;box1&quot; type=&quot;text&quot; value=&quot;Free cookies for a year!&quot; size=&quot;24&quot; /&gt;
+&lt;/div&gt;
 </code></pre>
 
 <div align="left">
@@ -1333,7 +1333,7 @@ some fancy notes <br>
 <pre><code class="r">YT(&quot;ArHQjQyIS70&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+<pre><code>&lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </code></pre>
 
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
@@ -1343,7 +1343,7 @@ some fancy notes <br>
 <pre><code class="r">YT(&quot;http://www.youtube.com/watch?v=ArHQjQyIS70&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+<pre><code>&lt;iframe class=&quot;youtube-player&quot; type=&quot;text/html&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </code></pre>
 
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
@@ -1353,7 +1353,7 @@ some fancy notes <br>
 <pre><code class="r">VM(&quot;http://vimeo.com/54007714&quot;, print = TRUE)
 </code></pre>
 
-<pre><code>## &lt;iframe src=&quot;http://player.vimeo.com/video/54007714&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
+<pre><code>&lt;iframe src=&quot;http://player.vimeo.com/video/54007714&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 </code></pre>
 
 <iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
@@ -1367,19 +1367,19 @@ some fancy notes <br>
 <pre><code class="r">col2hex(&quot;darkblue&quot;)
 </code></pre>
 
-<pre><code>## [1] &quot;#00008B&quot;
+<pre><code>[1] &quot;#00008B&quot;
 </code></pre>
 
 <pre><code class="r">col2hex(c(&quot;darkblue&quot;, &quot;red&quot;))
 </code></pre>
 
-<pre><code>## [1] &quot;#00008B&quot; &quot;#FF0000&quot;
+<pre><code>[1] &quot;#00008B&quot; &quot;#FF0000&quot;
 </code></pre>
 
 <pre><code class="r">cat(paste0(&quot;&lt;hr color=\&quot;&quot;, col2hex(&quot;red&quot;), &quot;\&quot; size=\&quot;4\&quot;&gt;&quot;))
 </code></pre>
 
-<pre><code>## &lt;hr color=&quot;#FF0000&quot; size=&quot;4&quot;&gt;
+<pre><code>&lt;hr color=&quot;#FF0000&quot; size=&quot;4&quot;&gt;
 </code></pre>
 
 <hr color="#FF0000" size="4">
