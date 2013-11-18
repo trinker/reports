@@ -17,7 +17,8 @@ Description: reports is a package that assists in writing reports and
     pulling of quotes with citations (in Markdown or LaTeX format).
 Note: Many functions in reports assume (a) you're using RStudio (b) the main
     report directory is set as the working directory.  While the default
-    behavior is less flexible it increases efficiency.
+    behavior is less flexible it increases efficiency.  Windows users may want
+    to use the installr package to manage program dependencies.
 License: GPL-2
 URL: http://github.com/trinker/reports
 BugReports: http://github.com/trinker/reports/issues
@@ -35,7 +36,6 @@ Imports:
 Suggests:
     ascii,
     brew,
-    installr,
     slidifyLibraries,
     knitr,
     xtable,
