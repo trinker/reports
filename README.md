@@ -1,5 +1,8 @@
 reports
 =======
+
+[![Build Status](https://travis-ci.org/trinker/reports.png?branch=master)](https://travis-ci.org/trinker/reports)
+
 reports is a package that assists in writing reports and presentations by providing a frame work that brings together existing R, LaTeX/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs to maximize the effectiveness of the reports package.
 
 <p><a href="http://trinker.github.io/reports/dependencies"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG"></a></p>
