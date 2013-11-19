@@ -5,7 +5,7 @@
 #' 
 #' @param audio A url, path or file located in the audio directory which is an 
 #' audio file.
-#' @param in_url logical.  If \code{TRUE} \file{audio} is located in the 
+#' @param is_url logical.  If \code{TRUE} \file{audio} is located in the 
 #' \file{~audio} or \file{../audio} directory of \file{REPORTS} or 
 #' \file{PRESENTATION} directories.
 #' @param copy2clip  If \code{TRUE} attempts to copy the output to the clipboard.

@@ -9,7 +9,7 @@
   \item{audio}{A url, path or file located in the audio
   directory which is an audio file.}
 
-  \item{in_url}{logical.  If \code{TRUE} \file{audio} is
+  \item{is_url}{logical.  If \code{TRUE} \file{audio} is
   located in the \file{~audio} or \file{../audio} directory
   of \file{REPORTS} or \file{PRESENTATION} directories.}
 
