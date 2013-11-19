@@ -6,6 +6,7 @@ before_install:
   - chmod 755 ./travis-tool.sh
   - ./travis-tool.sh bootstrap
   - "sudo apt-get install xclip xsel --no-install-recommends --yes"
+  - sudo apt-get install pandoc
 install:
   - sh -e /etc/init.d/xvfb start
   - sudo R CMD javareconf
