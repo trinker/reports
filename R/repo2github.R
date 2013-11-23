@@ -42,6 +42,12 @@ repo2github <- function(password, project.dir = getwd(),
 	repo = basename(getwd()), github.user = getOption("github.user"), 
 	gitpath = NULL, readme = TRUE) {
 
+	#check for github user name
+    if (is.null(github.user)) {	
+        message("Enter [GitHub username] and press [Enter] to continue")
+        github.user <- readLines(n=1)
+    }	
+	
     #check for password
     if (missing(password)) {	
         message("Enter [GitHub password] and press [Enter] to continue")
@@ -100,9 +106,9 @@ repo2github <- function(password, project.dir = getwd(),
         wd <- getwd()
         setwd(project.dir)
         cmd2 <- paste0(shQuote(gitpath), " init")
-        system(cmd2, intern = T)
+        system(cmd2, intern = TRUE)
         cmd3 <- paste0(shQuote(gitpath), " add .")  
-        system(cmd3, intern = T)       
+        system(cmd3, intern = TRUE)       
         
         ## Set email
         x <- file.path(path.expand("~"), ".gitconfig")
@@ -122,12 +128,12 @@ repo2github <- function(password, project.dir = getwd(),
         
         ## Initial commit
         cmd4 <- paste0(shQuote(gitpath), ' commit -m "Initial commit"')  
-        system(cmd4, intern = T) 
+        system(cmd4, intern = TRUE) 
 
         ## add a new remote
         cmd5 <- paste0(shQuote(gitpath), " remote add origin https://github.com/",
             github.user, "/", repo, ".git")  
-        system(cmd5, intern = T) 
+        system(cmd5, intern = TRUE) 
         
         #Make a temp _netrc file
         home <- Sys.getenv()["HOME"]
@@ -142,7 +148,7 @@ repo2github <- function(password, project.dir = getwd(),
 
         ## Push the repo to github
         cmd6 <- paste0(shQuote(gitpath), " push -u origin master")  
-        system(cmd6, intern = T) 
+        system(cmd6, intern = TRUE) 
         
         setwd(wd)
         

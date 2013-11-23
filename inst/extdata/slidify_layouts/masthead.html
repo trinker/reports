@@ -1,0 +1,13 @@
+---
+layout: slide
+---
+
+<div class="masthead">
+  <h2 class="muted">{{{ slide.title }}}</h2>
+  <ul class="nav nav-pills pull-right">
+  {{# slide.menu }}
+    <li class='{{ class }}'><a href="{{ href }}">{{ item }}</a></li>
+  {{/ slide.menu }}
+  </ul>
+</div>
+

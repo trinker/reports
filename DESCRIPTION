@@ -42,7 +42,8 @@ Suggests:
     xtable,
     pander,
     ProjectTemplate,
-    qdap
+    qdap,
+    reporttools
 Collate:
     'BV.R'
     'CA.R'

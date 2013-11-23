@@ -1,0 +1,18 @@
+---
+layout: slide
+---
+<div class="tabbable">
+  <ul class="nav nav-pills">
+    {{# slide.blocks }}
+    <li class="tab {{class}}"><a href="#{{id}}" data-toggle="pill">{{{ id }}}</a></li>
+    {{/ slide.blocks }}
+  </ul>
+  <div class="tab-content">
+    {{# slide.blocks }}
+    <div class="tab-pane fade in {{class}}" id="{{{ id }}}">
+      {{{ html }}}
+    </div>
+    {{/ slide.blocks }}
+  </div>
+</div>
+
