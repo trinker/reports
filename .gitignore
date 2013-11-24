@@ -8,4 +8,7 @@ reports_vignette.Rproj
 knitcitations.bib
 FAQ.html
 NEWS.html
-inst\reports_quick_slides
+inst/reports_quick_slides/reports_quick_slides.html
+inst/reports_quick_slides/reports_quick_slides.md
+inst/reports_quick_slides/libraries
+inst/reports_quick_slides/assets
