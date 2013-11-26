@@ -23,7 +23,7 @@ write_clip <- function(x) {
         "Windows"=writeClipboard(x, format = 1),
         "Linux"={
             if(Sys.which("xclip") == "") {
-              stop("Clipboard on Linux requires 'xclip'. Try using:\nsudo apt-get install xclip")
+              warning("Clipboard on Linux requires 'xclip'. Try using:\nsudo apt-get install xclip")
             }
             con <- pipe("xclip -i", "w")
             writeLines(x, con=con)
