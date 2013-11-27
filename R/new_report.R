@@ -18,8 +18,9 @@
 #' @param sources A vector of path(s) to other scripts to be sourced in the 
 #' report project upon startup (adds this location to the report project's 
 #' \bold{.Rprofile}).
-#' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) will be in 
-#' .xlsx format.  If \code{FALSE} the document will be a .csv file.
+#' @param AN.xlsx logical.  If \code{TRUE} the article notes (AN) and websites 
+#' documents will be in .xlsx format.  If \code{FALSE} the document will be a 
+#' .csv file.
 #' @param present  The template to be used in the \bold{PRESENTATION} 
 #' .Rmd/.Rpres.  This can be one of the types from \code{slidify_templates} , 
 #' \code{"rstudio"}  (this generates a .Rpres file), or a path to an .Rmd/.Rpres 
@@ -245,14 +246,15 @@ function(report = "report", template = getOption("temp.reports"),
     if (AN.xlsx) {
         invisible(file.copy(file.path(AN, "notes.xlsx"), y[[2]]))   
         invisible(file.rename(file.path(y[[2]], "notes.xlsx"), 
-            file.path(y[[2]], paste0("notes_", report, ".xlsx"))))          
+            file.path(y[[2]], paste0("notes_", report, ".xlsx"))))  
+        invisible(file.copy(file.path(AN, "websites.xlsx"), y[[2]]))         
     } else {
         invisible(file.copy(file.path(AN, "notes.csv"), y[[2]])) 
         invisible(file.rename(file.path(y[[2]], "notes.csv"), 
             file.path(y[[2]], paste0("notes_", report, ".csv")))) 
+        invisible(file.copy(file.path(AN, "websites.csv"), y[[2]])) 
     }
 
-    cat("http://", file = file.path(y[[2]], "websites.txt"))
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
     EXF <- "#Source the following project functions on startup"

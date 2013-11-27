@@ -56,8 +56,9 @@ And constructed with the following guidelines:
 * `FT` a new function that detects face, color and size and generates a font tag 
   for supplied text.
 
-* `YT` and `VM` are new functions that wraps a YouTube/Vimeo tag or url to 
-  generate an HTML iframe tag.
+* `YT` and `VM` wrap a YouTube/Vimeo tag or url to generate an HTML iframe tag.
+
+* `VD` wraps an .mp4 local path to generate an HTML video tag.
 
 * `IF` a new function that wraps a url to generate an HTML iframe tag.  This is 
   useful for embedding a document within another document.
@@ -90,6 +91,9 @@ And constructed with the following guidelines:
   The later enables changing style.css files on the fly.
 
 * `repo2github` makes the initial push of a local repo to github.
+
+* The `web` family of functions provide functions to read, write and browse
+  Internet sites related to the report.
 
 
 <b>MINOR FEATURES</b>

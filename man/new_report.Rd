@@ -41,8 +41,8 @@
   location to the report project's \bold{.Rprofile}).}
 
   \item{AN.xlsx}{logical.  If \code{TRUE} the article notes
-  (AN) will be in .xlsx format.  If \code{FALSE} the
-  document will be a .csv file.}
+  (AN) and websites documents will be in .xlsx format.  If
+  \code{FALSE} the document will be a .csv file.}
 
   \item{present}{The template to be used in the
   \bold{PRESENTATION} .Rmd/.Rpres.  This can be one of the

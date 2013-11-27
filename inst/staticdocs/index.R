@@ -61,7 +61,8 @@ list(
         "possciteL",
         "textciteL",
         "textciteM",
-        "update_bib"
+        "update_bib",
+      	"web"
       )
     ),
     sd_section("Directory Management", 

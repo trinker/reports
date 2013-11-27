@@ -52,16 +52,15 @@
 % force abstract removal
 %-----------------------
 \makeatletter
+ \def\authornote#1{}
 \renewcommand{\maketitle}{%
-\thispagestyle{titlepage}%
-\vspace*{1in}%
-\Centering\@title\\\@author%
-\vfill%
-\ifdefined%
-\apaSIXe@leavefloats{}
-\fi
-\RaggedRight%
-\mspart{\@title}%
+ \thispagestyle{titlepage}%
+  \vspace*{3in}
+ {\Centering\@title\par\@author\par}
+   \mspart{Abstract}  %use to include an abstract
+   \@abstract         %use to include an abstract
+ \vfill
+ \mspart{\@title}%
 }
 \makeatother
 

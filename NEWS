@@ -92,6 +92,9 @@ NEW FEATURES
 
 * `repo2github` makes the initial push of a local repo to github.
 
+* The `web` family of functions provide functions to read, write and browse
+  Internet sites related to the report.
+
 
 MINOR FEATURES
 

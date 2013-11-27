@@ -22,7 +22,7 @@ The \textbf{new\_report} template includes these main directories and scripts:
 \begin{enumerate}
   \item \textbf{ARTICLES} - A directory to store related articles:
   \begin{enumerate}
-    \item \textbf{website.txt} a txt file to store websites related to the project
+    \item \textbf{websites.xlsx/website.csv} a speadsheet to store websites related to the project; the \href{http://trinker.github.io/reports_dev/web.html}{web family} of functions are useful for reeading, writing, and browsing Internet sites related to the report
     \item \textbf{notes\_xxx.xlsx/notes\_xxx.csv} a speadsheet to store notes on the articles; the \textbf{QQ} function is useful to import PDF text; the \href{http://trinker.github.io/reports/cite.html}{cite family} of functions are useful for formatting quoted text from the notes\_xxx document (where xxx is the report name)
   \end{enumerate}
   \item \textbf{OUTLINE} - A directory containing the following .tex files:
