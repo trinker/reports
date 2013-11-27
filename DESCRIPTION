@@ -32,6 +32,7 @@ Imports:
     markdown,
     slidify,
     tools,
+    XLConnect,
     xlsx
 Suggests:
     ascii,
