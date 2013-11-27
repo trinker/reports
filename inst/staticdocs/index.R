@@ -103,6 +103,7 @@ list(
       "Tools for customized css and layouts.",
       c(
         "custom_css",
+      	"js_copy", 
         "slidify_layouts"
       )
     ),          

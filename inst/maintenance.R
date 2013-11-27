@@ -75,8 +75,8 @@ cat(paste(c(top, new), collapse="\n"), file=file.path(getwd(), "inst/dependencie
 #staticdocs dev version
 #========================
 #packages
-# library(devtools); install_github("staticdocs", "hadley")
-#
+# install.packages("highlight"); library(devtools); install_github("staticdocs", "hadley")
+
 library(highlight); 
 library(staticdocs)
 
@@ -90,7 +90,7 @@ path <- "C:/Users/trinker/Desktop/reports_dev"
 path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 expand_statdoc(path2, readme = rdme, 
-    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
+    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "VD", "IM2", "IW", 
     "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change",
     "run_lh", "append_vignette", "TB2", "css_style_add"))
 
@@ -139,7 +139,7 @@ path2 <- paste0(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/reports/inst/extra_statdoc/readme.R"
 #extras <- qcv(folder, QQ)
 expand_statdoc(path2, readme = rdme, 
-    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "IM2", "IW", 
+    to.icon = c("sync_img", "sync_rnp", "sync_all", "VS", "VM", "VD", "IM2", "IW", 
     "HR2", "BT", "PF", "slidify_templates", "css_styles", "css_style_change", 
     "run_lh", "append_vignette", "TB2", "css_style_add"))
 

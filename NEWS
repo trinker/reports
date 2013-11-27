@@ -56,8 +56,9 @@ NEW FEATURES
 * `FT` a new function that detects face, color and size and generates a font tag 
   for supplied text.
 
-* `YT` and `VM` are new functions that wraps a YouTube/Vimeo tag or url to 
-  generate an HTML iframe tag.
+* `YT` and `VM` wrap a YouTube/Vimeo tag or url to generate an HTML iframe tag.
+
+* `VD` wraps an .mp4 local path to generate an HTML video tag.
 
 * `IF` a new function that wraps a url to generate an HTML iframe tag.  This is 
   useful for embedding a document within another document.

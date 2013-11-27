@@ -1,9 +1,9 @@
-#' Video (YouTube/Vimeo) url to HTML iframe Tag
+#' Video (YouTube/Vimeo/local) url to HTML iframe/video Tag
 #' 
-#' Wrap a YouTube/Vimeo tag or url to generate an HTML iframe tag. 
+#' \code{YT} - Wrap a YouTube tag or url to generate an HTML iframe tag. 
 #' 
-#' @param path A character vector url/tag copied to the clipboard. Default is to 
-#' read from the clipboard.
+#' @param path A url/tag/path. Default is to read from the clipboard.  Note that 
+#' \code{VD} requires a .mp4 file.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard. 
 #' @param width The width of the player.
@@ -20,7 +20,9 @@
 #' the youtube tag.
 #' @export
 #' @rdname video
-#' @seealso \code{\link[reports]{slidify_layouts}}
+#' @references url{http://blog.teamtreehouse.com/building-custom-controls-for-html5-videos}
+#' @seealso \code{\link[reports]{slidify_layouts}},
+#' \code{\link[reports]{js_copy}}
 #' @examples
 #' YT("ArHQjQyIS70", print = TRUE)
 #' YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
@@ -42,7 +44,10 @@ YT <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
     prin(x = x, print = print)
 } 
 
-
+#' Video (YouTube/Vimeo/local) url to HTML iframe/video Tag
+#' 
+#' \code{VM} - Wrap a Vimeo tag or url OR to generate an HTML iframe tag. 
+#' 
 #' @export
 #' @rdname video
 VM <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
@@ -60,3 +65,50 @@ VM <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
     }
     prin(x = x, print = print)
 }
+
+
+#' Video (YouTube/Vimeo/local) url to HTML iframe/video Tag
+#' 
+#' \code{VD} - Wrap a local path to generate an HTML video tag. 
+#' 
+#' @param video.js.path The path to the vidscript.js.  If the file is not found 
+#' in the \code{\link[base]{dirname}} of \code{video.js.path} then 
+#' \code{\link[reports]{js_copy}} will be utilized to place the appropriate 
+#' video file in the correct location.
+#' @param indent.controls An integer value for number of indents to push the 
+#' control panel.
+#' @keywords video
+#' @export
+#' @rdname video
+VD <- function(path = "clipboard", video.js.path = "assets/js/vidscript.js", 
+    width = "100%", height = 520, indent.controls = 4, copy2clip = TRUE, 
+	print = FALSE) {
+
+    if (path == "clipboard") {
+        path <- read_clip()
+    } 
+
+    check <- file.exists(video.js.path)
+    check2 <- file.exists(dirname(video.js.path))
+    check3 <- sum(check, check2) 
+    if (check3 == 0) {
+        warning("javascript folder not located; use `video.js.path`")
+    }
+    if (check3 == 1) {
+        suppressMessages(js_copy(dirname(video.js.path)))
+    }
+    
+
+    vid <- system.file("extdata/reports_layouts/video.html", 
+        package = "reports")
+    vid <- readLines(vid)
+
+    x <- sprintf(paste(vid, collapse = "\n"), as.character(width), 
+    	as.character(height), path, HS(indent.controls, copy2clip = FALSE), 
+    	video.js.path)
+    if(copy2clip){
+        write_clip(x)
+    }
+    prin(x = x, print = print)    
+}
+
