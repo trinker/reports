@@ -58,7 +58,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [CRAN](http://cran.us.r-project.org/)  
 <hr>
 # Libre Office
-`r IM("http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png", 80, 80, center=FALSE, link="http://www.libreoffice.org/")`
+`r IM("http://fc07.deviantart.net/fs70/i/2011/088/a/7/libreoffice_icons_by_yumakino-d3cqf2y.png", 120, 80, center=FALSE, link="http://www.libreoffice.org/")`
    
 [Website](http://www.libreoffice.org/)    
 [Download](http://www.libreoffice.org/download)

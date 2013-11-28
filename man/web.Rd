@@ -4,8 +4,7 @@
 \alias{write.web}
 \title{Functions for Internet Articles/Information}
 \usage{
-  web(category = NULL, select = NULL, desc.width = 80,
-    path = NULL)
+  web(category = NULL, select = NULL, path = NULL)
 
   read.web(path, ...)
 

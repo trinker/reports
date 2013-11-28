@@ -25,7 +25,7 @@
 #' @importFrom xlsx read.xlsx
 #' @importFrom tools file_ext
 #' @importFrom XLConnect loadWorkbook appendWorksheet saveWorkbook	
-web <- function(category = NULL, select = NULL, desc.width = 80, path = NULL) {
+web <- function(category = NULL, select = NULL, path = NULL) {
 	
 	## Read in the websites from websites.csv/websites.xlsx
     dat <- read.web(path = path)

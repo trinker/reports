@@ -61,7 +61,7 @@ Linux users [www.tug.org/texlive](http://www.tug.org/texlive/)
 [CRAN](http://cran.us.r-project.org/)  
 <hr>
 # Libre Office
-<a href="http://www.libreoffice.org/" target="_blank"><img src="http://coolasgeek.com/wp-content/uploads/2013/02/libreofficelogo.png" width="80" height="80"></a>
+<a href="http://www.libreoffice.org/" target="_blank"><img src="http://fc07.deviantart.net/fs70/i/2011/088/a/7/libreoffice_icons_by_yumakino-d3cqf2y.png" width="120" height="80"></a>
 
    
 [Website](http://www.libreoffice.org/)    
