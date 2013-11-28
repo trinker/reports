@@ -54,31 +54,34 @@ web <- function(category = NULL, select = NULL, desc.width = 80, path = NULL) {
 
 #' @export
 #' @rdname web
-read.web <- function(path, ...) {
+read.web <- 
+function(path, ...) {
 
-	## If missing path assume it's in ARTICLES
-	if (missing(path) | is.null(path)) {
-		fls <- dir("ARTICLES")
-		isweb <- fls[grepl("websites\\.", fls)]
-		path <- sprintf("ARTICLES/%s", isweb[1])	
-	}
+    ## If missing path assume it's in ARTICLES
+    if (missing(path) || is.null(path)) {
+        fls <- dir("ARTICLES")
+        isweb <- fls[grepl("websites\\.", fls)]
+        path <- sprintf("ARTICLES/%s", isweb[1])        
+    }
 
-	## Make sure pathe exists
-	if (!file.exists(path)) {
-		stop(sprintf(paste0("\nThe following path does not exist:\n\n  %s\n\n", 
-			"Check your working directory"), path))
-	}
-	
-	## Read it in
-	switch(file_ext(path),  
-	    xlsx = {x <- read.xlsx(path, 1, ...)},
-		csv = {x <- read.csv(path, ...)},
-		stop(sprintf(".%s is not currently supported", file_ext(path)))
-	)
-	
-	## Remove the example
-    dat <- data.frame(x[x[, "category"] != "example_reports", ], row.names = NULL)
-	class(dat) <- c("read.web", class(dat))
+    ## Make sure pathe exists
+    if (!file.exists(path)) {
+        stop(sprintf(paste0("\nThe following path does not exist:\n\n  %s\n\n", 
+            "Check your working directory"), path))
+    }
+       
+    ## Read it in
+    switch(file_ext(path),  
+        xlsx = {x <- read.xlsx(path, 1, ...)},
+        csv = {x <- read.csv(path, ...)},
+        stop(sprintf(".%s is not currently supported", file_ext(path)))
+    )
+        
+    ## Remove the example
+        lens <- seq_len(nrow(x))
+	  these <- lens[!lens %in% which(x[, "category"] == "example_reports")]
+    dat <- data.frame(x[these, ], row.names = NULL)
+    class(dat) <- c("read.web", class(dat))
     dat
 }
 
@@ -102,35 +105,33 @@ function(x, ...) {
 #' @export
 #' @rdname web
 write.web <- function(url, description=NA, category = NA, path, 
-	sheet = "Sheet1", ...) {
+    sheet = "Sheet1", ...) {
 	
-	## If missing path assume it's in ARTICLES
-	if (missing(path)) {
-		fls <- dir("ARTICLES")
-		isweb <- fls[grepl("websites\\.", fls)]
-		path <- sprintf("ARTICLES/%s", isweb[1])	
-	}
+    ## If missing path assume it's in ARTICLES
+    if (missing(path)) {
+        fls <- dir("ARTICLES")
+        isweb <- fls[grepl("websites\\.", fls)]
+        path <- sprintf("ARTICLES/%s", isweb[1])	
+    }
 
-	## Make sure pathe exists
-	if (!file.exists(path)) {
-		stop(sprintf(paste0("\nThe following path does not exist:\n\n  %s\n\n", 
-			"Check your working directory"), path))
-	}
+    ## Make sure pathe exists
+    if (!file.exists(path)) {
+        stop(sprintf(paste0("\nThe following path does not exist:\n\n  %s\n\n", 
+        "Check your working directory"), path))
+    }
 	
-	dat <- data.frame(url = url, description = description, category = category)
+    dat <- data.frame(url = url, description = description, category = category)
 
-	## Read it in
-	switch(file_ext(path), 
-	    xlsx = {wb <- loadWorkbook(path)
-	    	appendWorksheet(wb, dat, sheet = sheet)
-	    	saveWorkbook(wb)},
-		csv = {cn <- ifelse(append, FALSE, TRUE) 
-			write.table(dat, path, append = TRUE, ..., row.names = FALSE,  
-			sep = ",",  qmethod = "double", col.names = cn)},
-		stop(sprintf(".%s is not currently supported", file_ext(path)))
-	)
-	message("url has been saved")
+    ## Read it in
+    switch(file_ext(path), 
+        xlsx = {wb <- loadWorkbook(path)
+            appendWorksheet(wb, dat, sheet = sheet)
+            saveWorkbook(wb)},
+        csv = {cn <- ifelse(append, FALSE, TRUE) 
+            write.table(dat, path, append = TRUE, ..., row.names = FALSE,  
+            sep = ",",  qmethod = "double", col.names = cn)},
+        stop(sprintf(".%s is not currently supported", file_ext(path)))
+    )
+    message("url has been saved")
 }
-	
 
-	
