@@ -33,6 +33,7 @@ list(
       "Functions to format text.",  
       c(
       	"AD",
+      	"CM",
         "CN",      	
       	"EM",
         "FT",        
