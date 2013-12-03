@@ -71,7 +71,7 @@ YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 VM("http://vimeo.com/54007714", print = TRUE)
 }
 \references{
-  url{http://blog.teamtreehouse.com/building-custom-controls-for-html5-videos}
+  \url{http://blog.teamtreehouse.com/building-custom-controls-for-html5-videos}
 }
 \seealso{
   \code{\link[reports]{slidify_layouts}},

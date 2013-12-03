@@ -20,7 +20,7 @@
 #' the youtube tag.
 #' @export
 #' @rdname video
-#' @references url{http://blog.teamtreehouse.com/building-custom-controls-for-html5-videos}
+#' @references \url{http://blog.teamtreehouse.com/building-custom-controls-for-html5-videos}
 #' @seealso \code{\link[reports]{slidify_layouts}},
 #' \code{\link[reports]{js_copy}}
 #' @examples
