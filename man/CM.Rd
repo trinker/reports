@@ -1,6 +1,6 @@
 \name{CM}
 \alias{CM}
-\title{HTML Comment CHaracter}
+\title{HTML Comment Character}
 \usage{
   CM(comment = "clipboard", copy2clip = TRUE,
     print = FALSE)

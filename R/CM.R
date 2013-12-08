@@ -1,4 +1,4 @@
-#' HTML Comment CHaracter
+#' HTML Comment Character
 #' 
 #' Converts text to an HTML comment tag
 #' 
