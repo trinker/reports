@@ -40,7 +40,8 @@ web <- function(category = NULL, select = NULL, path = NULL) {
         WD <- options()[["width"]]
         options(width=3000)    	
     	dat2 <- data.frame(dat, row.names = NULL)
-        print(truncdf(left.just(dat2), end = desc.width))
+        #print(truncdf(left.just(dat2), end = desc.width)) #removed 12-13-13
+    	print(left.just(dat2))                             #added 12-13-13
     	message("===============\n\nEnter a rownumber from the frame above")
         select <- as.numeric(readLines(n=1))
         options(width=WD)
