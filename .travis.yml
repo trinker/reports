@@ -8,6 +8,7 @@ before_install:
 install:
   - sh -e /etc/init.d/xvfb start
   - sudo R CMD javareconf
+  - install_cran devtools
   - ./travis-tool.sh github_package ramnathv/slidifyLibraries
   - ./travis-tool.sh github_package ramnathv/slidify/tree/dev
   - ./travis-tool.sh github_package cboettig/knitcitations
