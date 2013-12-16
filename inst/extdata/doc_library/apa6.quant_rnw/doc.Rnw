@@ -58,6 +58,9 @@
 %  Other
 %====================
 
+% Single space knitr code chunks
+\renewenvironment{knitrout}{\begin{singlespace}}{\end{singlespace}}
+
 \addbibresource{.bib} %change this
 \begin{document}
 

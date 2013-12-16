@@ -39,6 +39,11 @@
 %====================
 %  Custom Commands
 %====================
+%-------------------------------
+% Single space knitr code chunks
+%-------------------------------
+\renewenvironment{knitrout}{\begin{singlespace}}{\end{singlespace}}
+
 %--------------------
 % possessive citation
 %--------------------
