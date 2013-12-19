@@ -56,8 +56,9 @@ HR <- function(path = "clipboard", text = NULL, new_win = FALSE,
 #' 
 #' @export
 #' @rdname hyperref
-HR2 <- function(path = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRUE, 
-    print = FALSE) {
+HR2 <- function(path = "clipboard", text = NULL, new_win = TRUE, 
+	copy2clip = interactive(), print = FALSE) {
+	
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -84,8 +85,9 @@ HR2 <- function(path = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRU
 #' @export
 #' @rdname hyperref
 BT <-
-function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE, 
-    print = FALSE) {
+function(path = "clipboard", text = NULL, new_win = FALSE, 
+	copy2clip = interactive(), print = FALSE) {
+	
     if (path == "clipboard") {
         path <- read_clip()
     } 

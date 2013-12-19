@@ -8,10 +8,10 @@
     copy2clip = interactive(), print = FALSE)
 
   HR2(path = "clipboard", text = NULL, new_win = TRUE,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 
   BT(path = "clipboard", text = NULL, new_win = FALSE,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{path}{A character vector url/path copied to the
