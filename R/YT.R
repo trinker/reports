@@ -4,10 +4,10 @@
 #' 
 #' @param path A url/tag/path. Default is to read from the clipboard.  Note that 
 #' \code{VD} requires a .mp4 file.
-#' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
-#' clipboard. 
 #' @param width The width of the player.
 #' @param height The height of the player.
+#' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
+#' clipboard. 
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
 #' output to the  console.  If \code{FALSE} returns to the console. 
 #' @details Use \code{YT} for YouTube videos and \code{VM} for Vimeo videos.
@@ -27,8 +27,9 @@
 #' YT("ArHQjQyIS70", print = TRUE)
 #' YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 #' VM("http://vimeo.com/54007714", print = TRUE)
-YT <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
-    print = FALSE) { 
+YT <- function(path = "clipboard", width = 640, height = 360, 
+	copy2clip = interactive(), print = FALSE) { 
+	
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -50,8 +51,8 @@ YT <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
 #' 
 #' @export
 #' @rdname video
-VM <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
-    print = FALSE) { 
+VM <- function(path = "clipboard", width = 640, height = 360,
+    copy2clip = interactive(), print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -81,8 +82,8 @@ VM <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360,
 #' @export
 #' @rdname video
 VD <- function(path = "clipboard", video.js.path = "assets/js/vidscript.js", 
-    width = "100%", height = 520, indent.controls = 4, copy2clip = TRUE, 
-	print = FALSE) {
+    width = "100%", height = 520, indent.controls = 4, 
+	copy2clip = interactive(), print = FALSE) {
 
     if (path == "clipboard") {
         path <- read_clip()

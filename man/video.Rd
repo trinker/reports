@@ -4,27 +4,27 @@
 \alias{YT}
 \title{Video (YouTube/Vimeo/local) url to HTML iframe/video Tag}
 \usage{
-  YT(path = "clipboard", copy2clip = TRUE, width = 640,
-    height = 360, print = FALSE)
+  YT(path = "clipboard", width = 640, height = 360,
+    copy2clip = interactive(), print = FALSE)
 
-  VM(path = "clipboard", copy2clip = TRUE, width = 640,
-    height = 360, print = FALSE)
+  VM(path = "clipboard", width = 640, height = 360,
+    copy2clip = interactive(), print = FALSE)
 
   VD(path = "clipboard",
     video.js.path = "assets/js/vidscript.js",
     width = "100\%", height = 520, indent.controls = 4,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{path}{A url/tag/path. Default is to read from the
   clipboard.  Note that \code{VD} requires a .mp4 file.}
 
-  \item{copy2clip}{logical.  If \code{TRUE} attempts to
-  copy the output to the clipboard.}
-
   \item{width}{The width of the player.}
 
   \item{height}{The height of the player.}
+
+  \item{copy2clip}{logical.  If \code{TRUE} attempts to
+  copy the output to the clipboard.}
 
   \item{print}{logical.  If \code{TRUE}
   \code{\link[base]{cat}} prints the output to the console.

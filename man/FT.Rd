@@ -2,7 +2,7 @@
 \alias{FT}
 \title{Wrap Text With HTML Font Tag}
 \usage{
-  FT(..., text = "clipboard", copy2clip = TRUE)
+  FT(..., text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{\ldots}{1 to 3 arguments of c(`face`, `size` and/or

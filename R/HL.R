@@ -15,7 +15,9 @@
 #' cat(HL("Do not trust robots!"), "They are bent on destruction.")
 #' cat(HL("Jake is a cookie scientist,", color="pink"), "an honrable profession.")
 HL <-
-function(text = "clipboard", color = "yellow", copy2clip = TRUE, print = FALSE) { 
+function(text = "clipboard", color = "yellow", copy2clip = interactive(), 
+	print = FALSE) { 
+	
     if (text == "clipboard") {
         text <- read_clip()
     }

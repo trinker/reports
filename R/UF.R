@@ -19,7 +19,7 @@
 #' @examples
 #' UF("bad path with spaces")
 #' PF("https://github.com/trinker/reports/fictional path to nowhere.pdf")
-UF <- function(path = "clipboard", copy2clip = TRUE, fill = "_"){
+UF <- function(path = "clipboard", copy2clip = interactive(), fill = "_"){
     if (length(path) == 1 && path == "clipboard") {
         path <- read_clip()
     } 
@@ -41,7 +41,7 @@ UF <- function(path = "clipboard", copy2clip = TRUE, fill = "_"){
 #' 
 #' @export
 #' @rdname path_fill
-PF <- function(path = "clipboard", copy2clip = TRUE, fill = "%"){
+PF <- function(path = "clipboard", copy2clip = interactive(), fill = "%"){
     if (length(path) == 1 && path == "clipboard") {
         path <- read_clip()
     } 
@@ -66,7 +66,7 @@ PF <- function(path = "clipboard", copy2clip = TRUE, fill = "%"){
 #' @section Notice: \code{US} is deprecated and will be removed from reports in 
 #' a version subsequent to version 0.2.0  Please use \code{UF} instead.
 #' @rdname path_fill
-US <- function(path = "clipboard", copy2clip = TRUE, fill = "_"){
+US <- function(path = "clipboard", copy2clip = interactive(), fill = "_"){
     if (length(path) == 1 && path == "clipboard") {
         path <- read_clip()
     } 

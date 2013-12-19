@@ -4,12 +4,12 @@
 #' 
 #' @param path A character vector url/tag copied to the clipboard. Default is to 
 #' read from the clipboard.
-#' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
-#' clipboard. 
 #' @param width The width of the iframe.
 #' @param height The height of the iframe.
 #' @param center logical. If \code{TRUE} the image will be centered, if 
 #' \code{FALSE} image will be left justified.
+#' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
+#' clipboard. 
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
 #' output to the  console.  If \code{FALSE}returns to the console. 
 #' @param text character vector of text to display for browser that do not support 
@@ -29,8 +29,10 @@
 #'   width=1150, height=750, print=TRUE)
 #' IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", 
 #'   width=770, height=680, print=TRUE)
-IF <- function(path = "clipboard", copy2clip = TRUE, width = 640, height = 360, 
-    center = TRUE, print = FALSE, text = "Your browser does not support iframes.") {
+IF <- function(path = "clipboard", width = 640, height = 360, center = TRUE, 
+	print = FALSE, copy2clip = interactive(),
+	text = "Your browser does not support iframes.") {
+	
     if (path == "clipboard") {
         path <- read_clip()
     } 

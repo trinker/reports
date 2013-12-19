@@ -14,7 +14,7 @@
 #' ## WP(FALSE)  #using readline <br>    
 #' ## C:\Users\trinker\Desktop\doc
 WP <- 
-function(from.clip = TRUE, quotes = TRUE, copy2clip = TRUE) {
+function(from.clip = TRUE, quotes = TRUE, copy2clip = interactive()) {
     if (!from.clip) {
         message("Please enter the path:\n\n")
         path <- readline()

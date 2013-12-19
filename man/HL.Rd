@@ -3,7 +3,7 @@
 \title{Highlight HTML Text}
 \usage{
   HL(text = "clipboard", color = "yellow",
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the

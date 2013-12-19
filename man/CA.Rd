@@ -2,7 +2,7 @@
 \alias{CA}
 \title{Capitalize Every Word of String}
 \usage{
-  CA(text = "clipboard", copy2clip = TRUE)
+  CA(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{text}{A character vector or text copied to the

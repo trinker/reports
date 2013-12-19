@@ -3,7 +3,7 @@
 \title{Audio url/path to HTML Audio Tag}
 \usage{
   AD(audio = "clipboard", is_url = is.url(audio),
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{audio}{A url, path or file located in the audio

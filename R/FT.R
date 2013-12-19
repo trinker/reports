@@ -27,7 +27,7 @@
 #' FT(6, blue, text="guy")
 #' FT(6, red, times_new_roman, text="guy")
 FT <-
-function(..., text = "clipboard", copy2clip = TRUE) { 
+function(..., text = "clipboard", copy2clip = interactive()) { 
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 

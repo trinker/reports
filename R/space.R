@@ -13,7 +13,7 @@
 #' paste0("reports", HS(10), "end")
 #' cat(paste0("the", VS(), "end"))
 #' cat(paste0("the", VS(3), "end"))
-HS <- function(n=1, copy2clip = TRUE) {
+HS <- function(n=1, copy2clip = interactive()) {
     x <- paste(rep("&nbsp;", n), collapse="")
     if(copy2clip){
         write_clip(x)
@@ -23,7 +23,7 @@ HS <- function(n=1, copy2clip = TRUE) {
 
 #' @export
 #' @rdname space
-VS <- function(n=1, copy2clip = TRUE) {
+VS <- function(n=1, copy2clip = interactive()) {
     x <- paste(rep("</br>", n), collapse="")
     if(copy2clip){
         write_clip(x)

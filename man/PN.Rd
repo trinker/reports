@@ -2,7 +2,8 @@
 \alias{PN}
 \title{Insert Presenter Notes}
 \usage{
-  PN(text = "clipboard", copy2clip = TRUE, print = FALSE)
+  PN(text = "clipboard", copy2clip = interactive(),
+    print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the

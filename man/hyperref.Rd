@@ -5,7 +5,7 @@
 \title{Convert path/url to HTML href Tag}
 \usage{
   HR(path = "clipboard", text = NULL, new_win = FALSE,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 
   HR2(path = "clipboard", text = NULL, new_win = TRUE,
     copy2clip = TRUE, print = FALSE)

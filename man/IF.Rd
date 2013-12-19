@@ -2,16 +2,14 @@
 \alias{IF}
 \title{url to HTML iframe Tag}
 \usage{
-  IF(path = "clipboard", copy2clip = TRUE, width = 640,
-    height = 360, center = TRUE, print = FALSE,
+  IF(path = "clipboard", width = 640, height = 360,
+    center = TRUE, print = FALSE,
+    copy2clip = interactive(),
     text = "Your browser does not support iframes.")
 }
 \arguments{
   \item{path}{A character vector url/tag copied to the
   clipboard. Default is to read from the clipboard.}
-
-  \item{copy2clip}{logical.  If \code{TRUE} attempts to
-  copy the output to the clipboard.}
 
   \item{width}{The width of the iframe.}
 
@@ -19,6 +17,9 @@
 
   \item{center}{logical. If \code{TRUE} the image will be
   centered, if \code{FALSE} image will be left justified.}
+
+  \item{copy2clip}{logical.  If \code{TRUE} attempts to
+  copy the output to the clipboard.}
 
   \item{print}{logical.  If \code{TRUE}
   \code{\link[base]{cat}} prints the output to the console.

@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' CA("the flexible, efficient way to do reports.")
-CA <- function(text = "clipboard", copy2clip = TRUE) { 
+CA <- function(text = "clipboard", copy2clip = interactive()) { 
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 

@@ -15,8 +15,8 @@
 #' \dontrun{
 #' CM("strike me from the record")
 #' }
-CM <- function(comment = "clipboard", copy2clip = TRUE, print = FALSE) {
-
+CM <- function(comment = "clipboard", copy2clip = interactive(), 
+	print = FALSE) {
 
     ## Optional read from the clipboard
     if (comment == "clipboard") {

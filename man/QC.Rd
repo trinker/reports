@@ -3,7 +3,7 @@
 \title{Quick Convert: Pandoc Convert a String}
 \usage{
   QC(to = "latex", from = "markdown", text = "clipboard",
-    copy2clip = TRUE)
+    copy2clip = interactive())
 }
 \arguments{
   \item{to}{Pandoc type you're converting to (defualt is

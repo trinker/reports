@@ -4,9 +4,9 @@
 \title{Format Quotes}
 \usage{
   GQ(quotes = TRUE, block = TRUE, text = "clipboard",
-    copy2clip = TRUE, invisible = FALSE)
+    copy2clip = interactive(), invisible = FALSE)
 
-  QQ(text = "clipboard", copy2clip = TRUE)
+  QQ(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{quotes}{logical or c(\code{l}, \code{r}, \code{L},

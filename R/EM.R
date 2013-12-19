@@ -17,8 +17,9 @@
 #' @export
 #' @examples
 #' EM("tyler.rinker@@gmail.com", print = TRUE)
-EM <- function(email = "clipboard", text = NULL, new_win = TRUE, copy2clip = TRUE, 
-    print = FALSE) {
+EM <- function(email = "clipboard", text = NULL, new_win = TRUE, 
+	copy2clip = interactive(), print = FALSE) {
+	
     if (email == "clipboard") {
         email <- read_clip()
     } 

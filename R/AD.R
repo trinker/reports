@@ -22,7 +22,7 @@
 #' AD("foo.mp4")
 #' }
 AD <- 
-function(audio = "clipboard", is_url = is.url(audio), copy2clip = TRUE, 
+function(audio = "clipboard", is_url = is.url(audio), copy2clip = interactive(), 
     print = FALSE) { 
 
     ## Optional read from the clipboard

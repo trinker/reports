@@ -4,11 +4,14 @@
 \alias{US}
 \title{Path/URL: Fill Blank Spaces}
 \usage{
-  UF(path = "clipboard", copy2clip = TRUE, fill = "_")
+  UF(path = "clipboard", copy2clip = interactive(),
+    fill = "_")
 
-  PF(path = "clipboard", copy2clip = TRUE, fill = "\%")
+  PF(path = "clipboard", copy2clip = interactive(),
+    fill = "\%")
 
-  US(path = "clipboard", copy2clip = TRUE, fill = "_")
+  US(path = "clipboard", copy2clip = interactive(),
+    fill = "_")
 }
 \arguments{
   \item{path}{A character vector or url/path copied to the

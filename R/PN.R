@@ -16,7 +16,7 @@
 #' PN("1) some 
 #' 2) fancy 
 #' 3) notes", print = TRUE)
-PN <- function(text = "clipboard", copy2clip = TRUE, print = FALSE) { 
+PN <- function(text = "clipboard", copy2clip = interactive(), print = FALSE) { 
     if (text == "clipboard") {
         text <- read_clip()
     } 

@@ -14,7 +14,8 @@
 #' @export
 #' @examples
 #' CN("new_report()")
-CN <- function(text = "clipboard", copy2clip = TRUE) { 
+CN <- function(text = "clipboard", copy2clip = interactive()) { 
+	
     if (text == "clipboard") {
         text <- read_clip()
     } 

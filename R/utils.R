@@ -126,7 +126,9 @@ function(text.var) {
 }
 
 strWrap <-
-function(text = "clipboard", width = 70, copy2clip = TRUE, invisible = FALSE) {
+function(text = "clipboard", width = 70, copy2clip = interactive(), 
+	invisible = FALSE) {
+	
     if (text == "clipboard") {
         text <- read_clip()
     } 
@@ -443,7 +445,7 @@ function(pattern, replacement = NULL, text.var, fixed = TRUE, ...){
 }
 
 CITEhelper <- function(text.loc = NULL, from = "markdown", to = "latex",
-    copy2clip = TRUE, citation = TRUE){
+    copy2clip = interactive(), citation = TRUE){
     if (is.null(text.loc)) {
         nts <- notes2()[, -4]
         cat("\n\n\bPlease select a row number from the entries above:\n\n")
@@ -566,3 +568,4 @@ root_warn <- function() {
             sprintf("'%s' may not be the root directory", getwd())))
     }
 }
+

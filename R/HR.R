@@ -27,8 +27,9 @@
 #' HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)
 #' HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 #' BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
-HR <- function(path = "clipboard", text = NULL, new_win = FALSE, copy2clip = TRUE, 
-    print = FALSE) {
+HR <- function(path = "clipboard", text = NULL, new_win = FALSE, 
+	copy2clip = interactive(), print = FALSE) {
+	
     if (path == "clipboard") {
         path <- read_clip()
     } 

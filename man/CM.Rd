@@ -2,7 +2,7 @@
 \alias{CM}
 \title{HTML Comment Character}
 \usage{
-  CM(comment = "clipboard", copy2clip = TRUE,
+  CM(comment = "clipboard", copy2clip = interactive(),
     print = FALSE)
 }
 \arguments{

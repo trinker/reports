@@ -29,8 +29,9 @@
 #' GQ(text=x1)
 #' QQ(x1)
 GQ <- 
-function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE, 
-    invisible = FALSE){
+function(quotes = TRUE, block = TRUE, text = "clipboard", 
+	copy2clip = interactive(), invisible = FALSE){
+	
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 
@@ -87,7 +88,7 @@ function(quotes = TRUE, block = TRUE, text = "clipboard", copy2clip = TRUE,
 #' @rdname QQ
 #' @export
 QQ <- 
-function(text = "clipboard", copy2clip = TRUE){
+function(text = "clipboard", copy2clip = interactive()){
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 

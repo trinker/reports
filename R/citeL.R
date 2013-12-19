@@ -36,7 +36,7 @@
 #' @rdname cite 
 #' @return Returns a character vector with LaTeX/markdown formatted text.
 #' @export
-citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+citeL <- function(text.loc = NULL, copy2clip = interactive(), citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -89,7 +89,8 @@ citeL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 
 #' @rdname cite 
 #' @export 
-parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+parenciteL <- function(text.loc = NULL, copy2clip = interactive(), 
+	citation = TRUE) {
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -149,7 +150,9 @@ parenciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 
 #' @rdname cite 
 #' @export 
-textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+textciteL <- function(text.loc = NULL, copy2clip = interactive(), 
+	citation = TRUE) {
+	
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -212,7 +215,9 @@ textciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 
 #' @rdname cite 
 #' @export 
-possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+possciteL <- function(text.loc = NULL, copy2clip = interactive(), 
+	citation = TRUE) {
+	
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -275,7 +280,9 @@ possciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 
 #' @rdname cite 
 #' @export 
-posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
+posciteL <- function(text.loc = NULL, copy2clip = interactive(), 
+	citation = TRUE) {
+	
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -343,7 +350,8 @@ posciteL <- function(text.loc = NULL, copy2clip = TRUE, citation = TRUE) {
 #' @rdname cite 
 #' @export
 parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
-	copy2clip = TRUE, citation = TRUE, bib.name = "bib") {
+	copy2clip = interactive(), citation = TRUE, bib.name = "bib") {
+	
 	out <- CITEhelper(text.loc = text.loc, to = "markdown")
     text <- out[[1]]
     if ((wc(text) > 39) | force.block) {
@@ -384,7 +392,8 @@ parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE,
 #' @rdname cite 
 #' @export
 textciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
-	copy2clip = TRUE, citation = TRUE, bib.name = "bib") {
+	copy2clip = interactive(), citation = TRUE, bib.name = "bib") {
+	
 	out <- CITEhelper(text.loc = text.loc, to = "markdown")
     text <- out[[1]]
     if ((wc(text) > 39) | force.block) {

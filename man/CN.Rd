@@ -2,7 +2,7 @@
 \alias{CN}
 \title{Wrap Text With HTML Courier New Font Tag}
 \usage{
-  CN(text = "clipboard", copy2clip = TRUE)
+  CN(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{text}{A character vector or text copied to the

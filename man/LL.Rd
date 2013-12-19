@@ -3,7 +3,7 @@
 \title{Format Text Lines to LaTeX List}
 \usage{
   LL(enumerate = TRUE, text = "clipboard",
-    copy2clip = TRUE)
+    copy2clip = interactive())
 }
 \arguments{
   \item{enumerate}{logical.  If \code{TRUE} uses the

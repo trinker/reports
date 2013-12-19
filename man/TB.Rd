@@ -6,11 +6,11 @@
   TB(text = "clipboard", ..., col = "white",
     border = "black", padding = 10, lty = "solid", lwd = 1,
     bor.rad = 5, bold = FALSE, font.col = "black",
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 
   TB2(text = "clipboard", width = nchar(text),
     text_align = "center", box_align = "left",
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the

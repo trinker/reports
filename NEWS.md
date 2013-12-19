@@ -175,6 +175,10 @@ IMPROVEMENTS
 * `new_report` now moves a **css** directory in a template to the **REPORT** 
   directory rather than the main directory.
 
+* Functions that utilize the `copy2clip` argument were set to `TRUE` as the 
+  defualt.  This has been changed to `copy2clip = interactive()` to accommodate
+  use with knitr.
+
 <b>CHANGES</b>
 
 * `html5` and `reveal.js` are now Deprecated.  The birth of the slidify package 

@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' ## RF()
-RF <- function(print = FALSE, copy2clip = TRUE) {
+RF <- function(print = FALSE, copy2clip = interactive()) {
     x <- c("<script>", "$('ul.incremental li').addClass('fragment')",
         "</script>")
     x <- paste0(paste(x, collapse = "\n"), "\n")

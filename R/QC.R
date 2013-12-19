@@ -23,7 +23,7 @@
 #' QC(text=x)
 #' QC(text=x, "html")
 QC <- function(to = "latex", from = "markdown", text = "clipboard", 
-    copy2clip = TRUE) {
+    copy2clip = interactive()) {
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 

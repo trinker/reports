@@ -2,7 +2,8 @@
 \alias{WP}
 \title{Convert Windows Path}
 \usage{
-  WP(from.clip = TRUE, quotes = TRUE, copy2clip = TRUE)
+  WP(from.clip = TRUE, quotes = TRUE,
+    copy2clip = interactive())
 }
 \arguments{
   \item{from.clip}{logical.  If \code{TRUE} path is read

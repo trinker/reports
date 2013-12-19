@@ -4,13 +4,13 @@
 \alias{caption_table}
 \title{Captions for Figures and Tables}
 \usage{
-  caption(type = 1, label, caption, copy2clip = TRUE,
+  caption(type = 1, label, caption,
+    copy2clip = interactive(), print = FALSE)
+
+  caption_figure(label, caption, copy2clip = interactive(),
     print = FALSE)
 
-  caption_figure(label, caption, copy2clip = TRUE,
-    print = FALSE)
-
-  caption_table(label, caption, copy2clip = TRUE,
+  caption_table(label, caption, copy2clip = interactive(),
     print = FALSE)
 }
 \arguments{

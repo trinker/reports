@@ -8,27 +8,28 @@
 \alias{textciteM}
 \title{Format Quotes with Citations}
 \usage{
-  citeL(text.loc = NULL, copy2clip = TRUE, citation = TRUE)
-
-  parenciteL(text.loc = NULL, copy2clip = TRUE,
+  citeL(text.loc = NULL, copy2clip = interactive(),
     citation = TRUE)
 
-  textciteL(text.loc = NULL, copy2clip = TRUE,
+  parenciteL(text.loc = NULL, copy2clip = interactive(),
     citation = TRUE)
 
-  possciteL(text.loc = NULL, copy2clip = TRUE,
+  textciteL(text.loc = NULL, copy2clip = interactive(),
     citation = TRUE)
 
-  posciteL(text.loc = NULL, copy2clip = TRUE,
+  possciteL(text.loc = NULL, copy2clip = interactive(),
+    citation = TRUE)
+
+  posciteL(text.loc = NULL, copy2clip = interactive(),
     citation = TRUE)
 
   parenciteM(text.loc = NULL, width = 70,
-    force.block = TRUE, copy2clip = TRUE, citation = TRUE,
-    bib.name = "bib")
+    force.block = TRUE, copy2clip = interactive(),
+    citation = TRUE, bib.name = "bib")
 
   textciteM(text.loc = NULL, width = 70,
-    force.block = TRUE, copy2clip = TRUE, citation = TRUE,
-    bib.name = "bib")
+    force.block = TRUE, copy2clip = interactive(),
+    citation = TRUE, bib.name = "bib")
 }
 \arguments{
   \item{text.loc}{The row number (integer value) from

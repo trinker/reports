@@ -3,7 +3,7 @@
 \title{Convert email to HTML email Tag}
 \usage{
   EM(email = "clipboard", text = NULL, new_win = TRUE,
-    copy2clip = TRUE, print = FALSE)
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{email}{A character vector email copied to the

@@ -32,7 +32,7 @@
 #'     width=140, height=75), rep("So much text! ", 100))
 IM <- function(path = "clipboard", link = NULL, width = 540,  
 	height = IE(width, round(width/1.5)), sty = IE(width, width*1.05, 480), 
-    center = TRUE, new_win = TRUE, copy2clip = TRUE, print = FALSE) { 
+    center = TRUE, new_win = TRUE, copy2clip = interactive(), print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 
@@ -125,7 +125,7 @@ function(image = "clipboard", loc = 1, ...) {
 IW <- 
 function(path = "clipboard", link = NULL, side = "right", width = 540, 
     height = IE(width, round(width/1.5)), new_win = TRUE, top = -15, right = 20, 
-    left = 20, bottom = 0, copy2clip = TRUE, print = FALSE) { 
+    left = 20, bottom = 0, copy2clip = interactive(), print = FALSE) { 
     if (path == "clipboard") {
         path <- read_clip()
     } 

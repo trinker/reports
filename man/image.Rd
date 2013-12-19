@@ -8,14 +8,15 @@
   IM(path = "clipboard", link = NULL, width = 540,
     height = IE(width, round(width/1.5)),
     sty = IE(width, width * 1.05, 480), center = TRUE,
-    new_win = TRUE, copy2clip = TRUE, print = FALSE)
+    new_win = TRUE, copy2clip = interactive(),
+    print = FALSE)
 
   IM2(image = "clipboard", loc = 1, ...)
 
   IW(path = "clipboard", link = NULL, side = "right",
     width = 540, height = IE(width, round(width/1.5)),
     new_win = TRUE, top = -15, right = 20, left = 20,
-    bottom = 0, copy2clip = TRUE, print = FALSE)
+    bottom = 0, copy2clip = interactive(), print = FALSE)
 
   IMF(image = "clipboard", ...)
 }

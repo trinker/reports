@@ -22,7 +22,7 @@
 #' LL(, x)
 #' LL(FALSE, x)
 LL <- latexlist <- function(enumerate=TRUE, text = "clipboard", 
-	copy2clip = TRUE) {
+	copy2clip = interactive()) {
     if (length(text) == 1 && text == "clipboard") {
         text <- read_clip()
     } 

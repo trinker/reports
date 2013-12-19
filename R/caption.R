@@ -19,7 +19,8 @@
 #' caption_figure("fig1", "A random figure.")
 #' caption_table("tab1", "A table")
 #' }
-caption <- function(type = 1, label, caption, copy2clip = TRUE, print = FALSE) {
+caption <- function(type = 1, label, caption, copy2clip = interactive(), 
+	print = FALSE) {
 	
 	if (any(type %in% c(1, "figure"))) {
         caption_figure(label = label, caption = caption, copy2clip = copy2clip, 
@@ -42,7 +43,8 @@ caption <- function(type = 1, label, caption, copy2clip = TRUE, print = FALSE) {
 #' 
 #' @export
 #' @rdname caption
-caption_figure <- function(label, caption, copy2clip = TRUE, print = FALSE) {
+caption_figure <- function(label, caption, copy2clip = interactive(), 
+	print = FALSE) {
 
     if (is.null(.fig)) .fig <- 0
     .fig <<- .fig <- .fig + 1
@@ -61,7 +63,8 @@ caption_figure <- function(label, caption, copy2clip = TRUE, print = FALSE) {
 #' 
 #' @export
 #' @rdname caption
-caption_table <- function(label, caption, copy2clip = TRUE, print = FALSE) {
+caption_table <- function(label, caption, copy2clip = interactive(), 
+	print = FALSE) {
 
     if (is.null(.tab)) .tab <- 0
     .tab <<- .tab <- .tab + 1

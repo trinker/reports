@@ -2,7 +2,7 @@
 \alias{SC}
 \title{HTML Special Characters}
 \usage{
-  SC(text, copy2clip = TRUE)
+  SC(text, copy2clip = interactive())
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -58,5 +58,6 @@ SC(">")
 SC("~")
 SC("o")
 SC("_")
+SC("...")
 }
 

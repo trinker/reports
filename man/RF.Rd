@@ -2,7 +2,7 @@
 \alias{RF}
 \title{Slidify Shortcut to Include reveal.js Animated Fragments}
 \usage{
-  RF(print = FALSE, copy2clip = TRUE)
+  RF(print = FALSE, copy2clip = interactive())
 }
 \arguments{
   \item{print}{logical.  If \code{TRUE}

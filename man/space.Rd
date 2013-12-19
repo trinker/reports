@@ -3,9 +3,9 @@
 \alias{VS}
 \title{Insert HTML Space}
 \usage{
-  HS(n = 1, copy2clip = TRUE)
+  HS(n = 1, copy2clip = interactive())
 
-  VS(n = 1, copy2clip = TRUE)
+  VS(n = 1, copy2clip = interactive())
 }
 \arguments{
   \item{n}{Number of spaces to insert.}
