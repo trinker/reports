@@ -220,3 +220,16 @@ r2dev("reports")
 #QDAP UPDATE
 #==============================
 r2dev("qdap")
+
+
+#==============================
+#INSTALL DEPENDENCIES
+#==============================
+library(pacman);library(qdap)
+x <- p_info(reports)
+imps <- unlist(strsplit(bracketX(x["Imports"]), ", "))
+suggs <- unlist(strsplit(bracketX(x["Suggests"]), ", "))
+out <- lapply(c(imps, suggs), require, character.only=TRUE)
+
+
+

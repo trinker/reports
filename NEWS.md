@@ -155,6 +155,9 @@ And constructed with the following guidelines:
   `present = "rstudio"`.  For more information see:
   http://www.rstudio.com/ide/docs/presentations/overview
 
+* `folder` takes a nested directory, in other words it generates multiple 
+  non-existent nested directories.
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 

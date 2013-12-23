@@ -41,6 +41,8 @@ which(dir() == "DELETE.ME")
 delete("DELETE.ME")
 which(dir() == "DELETE.ME")
 
+folder("the/next/big/thing", "hello world", "now/is/the/time")
+
 folder(cat, dog)
 lapply(c("cat", "dog"), delete)
 }

@@ -26,6 +26,8 @@
 #' delete("DELETE.ME")
 #' which(dir() == "DELETE.ME")
 #' 
+#' folder("the/next/big/thing", "hello world", "now/is/the/time")
+#' 
 #' folder(cat, dog)
 #' lapply(c("cat", "dog"), delete)
 #' }
@@ -56,21 +58,6 @@ folder <- function(..., folder.name = NULL) {
         x <- unblanker(scrubber(unlist(lapply(x, function(y) {
             as.character(y)}))))
     }
-    hfolder <- function(folder.name = NULL) {
-        if (is.null(folder.name)) {
-            FN <- mgsub(c(":", " "), c(".", "_"), 
-                substr(Sys.time(), 1, 19))
-        } else {
-            FN <-folder.name
-        }
-        if (length(unlist(strsplit(FN, "/"))) == 1) {
-            x <- paste(getwd(), "/", FN, sep = "")
-        } else {
-            x <- FN
-        }
-        dir.create(x)
-        return(x)
-    }
     if (is.null(x)) {
         hfolder()
     } else {
@@ -82,4 +69,41 @@ folder <- function(..., folder.name = NULL) {
             })
         }
     }
+}
+
+hfolder <- function(folder.name = NULL) {
+    if (is.null(folder.name)) {
+        FN <- mgsub(c(":", " "), c(".", "_"), 
+            substr(Sys.time(), 1, 19))
+    } else {
+        FN <-folder.name
+    }
+    parts <- unlist(strsplit(FN, "/"))
+    if (length(parts) == 1) {
+        x <- paste(getwd(), "/", FN, sep = "")
+    } else {
+
+        ## If nested path (multiple directories created)
+        if (!file.exists(dirname(FN))) {
+
+            y <- FN
+            z <- length(parts)
+            for (i in rev(seq_along(parts))) {
+                if(file.exists(y)) {
+                    z <- z + 1
+                    break
+                }
+                y <- dirname(paste(parts[1:i], collapse ="/"))
+                z <- z - 1
+            }
+            
+            for (i in z:(length(parts) - 1)) {
+                suppressWarnings(dir.create(paste(parts[1:i], collapse ="/")))
+            }
+        
+        }
+        x <- FN
+    }
+    dir.create(x)
+    return(x)
 }
