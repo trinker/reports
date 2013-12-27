@@ -21,7 +21,9 @@
   Generate mousever events for text.
 }
 \details{
-  The user must become familiar with Nicolas Honing's
+  \code{popup} adds the css/js scripts necessary to create
+  hight quality mouseover popup events.  The user must
+  become familiar with Nicolas Honing's
   \href{https://github.com/nhoening/popup.js}{popup.js}.
   Currently no shortcut reports package tag generating
   function is offered for popups that utilize popup.js.  To
@@ -40,6 +42,11 @@
   src="./assets/js/nhpup_1.1.js"></script>} \cr
 
   to the document.
+}
+\examples{
+\dontrun{
+popup()
+}
 }
 \references{
   \url{https://github.com/nhoening/popup.js}

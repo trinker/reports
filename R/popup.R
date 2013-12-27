@@ -9,10 +9,12 @@
 #' \code{presentation = FALSE}.
 #' @return Generates an assets directory with appropriate javascript and css to
 #' make mousever popups.
-#' @details The user must become familiar with Nicolas Honing's 
-#' \href{https://github.com/nhoening/popup.js}{popup.js}.  Currently no shortcut
-#' reports package tag generating function is offered for popups that utilize 
-#' popup.js.  To view example uses see \url{https://github.com/trinker/popup_example}.
+#' @details \code{popup} adds the css/js scripts necessary to create hight 
+#' quality mouseover popup events.  The user must become familiar with Nicolas 
+#' Honing's \href{https://github.com/nhoening/popup.js}{popup.js}.  Currently no 
+#' shortcut reports package tag generating function is offered for popups that 
+#' utilize popup.js.  To view example uses see 
+#' \url{https://github.com/trinker/popup_example}.
 #' @note If adding popup.js documents to non-slidify, .Rmd based presentations 
 #' the user will have to manually add: \cr 
 #'      
@@ -26,6 +28,10 @@
 #' @keywords popup mouseover
 #' @export
 #' @importFrom tools file_ext
+#' @examples
+#' \dontrun{
+#' popup()
+#' }
 popup <- function(presentation = FALSE, rmd.path = NULL) {
      
     ## Function based on the work of:
