@@ -184,6 +184,21 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
             delete(file.path(y[[2]], "index.Rmd"))
         }
 
+        ## popup.js documents (added 12-27-13)
+        if (!file.exists(file.path(y[[2]], "assets"))) {
+            folder(folder.name = file.path(y[[2]], 
+            c("assets/css", "assets/js")))
+        } 
+
+        ### Location of popup.js documents
+        poproot <- system.file("extdata/popup", package = "reports")
+        css <- file.path(poproot, "popup_style.css")
+        js <- file.path(poproot, "popup_js")
+
+        ### Copy popup.js Contents
+        file.copy(css, file.path(y[[2]], "assets/css"))
+        file.copy(file.path(js, dir(js)), file.path(y[[2]], "assets/js"))    
+
     }
 
     cat(file = file.path(x, "TO_DO"))

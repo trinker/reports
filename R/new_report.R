@@ -241,6 +241,22 @@ function(report = "report", template = getOption("temp.reports"),
             cat(paste(Rmd, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rmd")))
             delete(file.path(y[[4]], "index.Rmd"))
         }
+
+        ## popup.js documents (added 12-27-13)
+        if (!file.exists(file.path(y[[4]], "assets"))) {
+            folder(folder.name = file.path(y[[4]], 
+            c("assets/css", "assets/js")))
+        } 
+
+        ### Location of popup.js documents
+        poproot <- system.file("extdata/popup", package = "reports")
+        css <- file.path(poproot, "popup_style.css")
+        js <- file.path(poproot, "popup_js")
+
+        ### Copy popup.js Contents
+        file.copy(css, file.path(y[[4]], "assets/css"))
+        file.copy(file.path(js, dir(js)), file.path(y[[4]], "assets/js"))     
+
     }
     AN <- system.file("extdata/docs", package = "reports")
     if (AN.xlsx) {
@@ -440,3 +456,4 @@ function(x, ...) {
     class(x) <- NULL
     cat(x)
 }
+

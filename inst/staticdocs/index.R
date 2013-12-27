@@ -106,6 +106,7 @@ list(
       c(
         "custom_css",
       	"js_copy", 
+      	"popup",
         "slidify_layouts"
       )
     ),          
