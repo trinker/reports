@@ -102,7 +102,16 @@ FIX <- grep("<div class='input'>is.global()", ISGin) + 2
 ISGin[FIX] <- "<div class='output'>[1] TRUE"
 cat(paste(ISGin, collapse="\n"), file=ISG)
 
-#STEP 3: move to trinker.guthub
+#STEP 2c: copy js/css dependencies
+file.copy("C:/Users/trinker/GitHub/reports/inst/extdata/core_REPORT/js/reports.js", 
+	file.path(path, "js"))
+js1 <- "\n<script type=\"text/javascript\" src=\"./js/reports.js\"></script>"
+t1 <- suppressWarnings(readLines(file.path(path, "image.html")))
+val1 <- max(which(grepl("<link href=", t1)))
+t1[val1] <- paste0(t1[val1], js1)
+cat(paste(t1, collapse = "\n"), file = file.path(path, "image.html"))
+
+#STEP 3: move to trinker.github
 library(reports)
 file <- "C:/Users/trinker/GitHub/trinker.github.com/"
 delete(paste0(file, "reports_dev"))
@@ -152,7 +161,7 @@ FIX <- grep("<div class='input'>is.global()", ISGin) + 2
 ISGin[FIX] <- "<div class='output'>[1] TRUE"
 cat(paste(ISGin, collapse="\n"), file=ISG)
 
-#STEP 3: move to trinker.guthub
+#STEP 3: move to trinker.github
 library(reports)
 file <- "C:/Users/trinker/GitHub/trinker.github.com/"
 delete(paste0(file, "reports"))

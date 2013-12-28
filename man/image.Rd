@@ -124,8 +124,6 @@ IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =T
 IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/",
     width=140, height=75), rep("So much text! ", 100))
-\dontrun{
-IM_MO("http://i.imgur.com/VClk4DS.png")
-}
+IM_MO("http://i.imgur.com/VClk4DS.png", print =TRUE)
 }
 
