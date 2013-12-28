@@ -38,25 +38,33 @@ popup <- function(presentation = FALSE, rmd.path = NULL) {
     ## Nicolas Honing
     ## https://github.com/nhoening/popup.js/blob/master/test/test.html
 
-    ## Location of popup.js documents
-    root <- system.file("extdata/popup", package = "reports")
-    css <- file.path(root, "popup_style.css")
-    js <- file.path(root, "popup_js")
-	
     if (is.logical(presentation) && isTRUE(presentation)) {
+    	
+        ## Location of popup.js documents
+        root <- system.file("extdata/popup", package = "reports")
+        css <- file.path(root, "popup_style.css")
+        js <- file.path(root, "popup_js")
+    	
         file.copy(css, "PRESENTATION/assets/css")
         file.copy(file.path(js, dir(js)), "PRESENTATION/assets/js")    	
     } else {
+	
+        ## Location of popup.js documents
+        root <- system.file("extdata/popup2", package = "reports")
+        css <- file.path(root, "popup_style.css")
+        js <- file.path(root, "popup_js")
+    	
         if (is.logical(presentation) && !isTRUE(presentation)) {
+        	
             folder(folder.name = c("REPORT/assets/css", "REPORT/assets/js"))
             file.copy(css, "REPORT/assets/css")
             file.copy(file.path(js, dir(js)), "REPORT/assets/js") 
         	if (is.null(rmd.path)) {
         	    rmds <- file_ext(dir("REPORT")) == "Rmd"
         		if (sum(rmds) == 0) {
-        			warning(sprintf("No .Rmd file founf in %s/REPORT", getwd()))
+        			warning(sprintf("No .Rmd file found in %s/REPORT", getwd()))
         		}
-        		outfile <- file.path("REPORT", outfile)
+        		outfile <- file.path("REPORT", dir("REPORT")[rmds][1])
         		infile <- readLines(outfile)	
         	}
         	
@@ -74,7 +82,7 @@ popup <- function(presentation = FALSE, rmd.path = NULL) {
             "<script type=\"text/javascript\" src=\"./assets/js/jquery-1.9.1.min.js\"></script>",
             "<script type=\"text/javascript\" src=\"./assets/js/nhpup_1.1.js\"></script>\n"
         )
-        cat(paste(c(top, infile), collapse = "\n"), file = outfile)
+        cat(paste(c(top, infile, "\n"), collapse = "\n"), file = outfile)
 
     }
     message("popup.js documents generate")
