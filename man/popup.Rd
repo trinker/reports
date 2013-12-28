@@ -32,7 +32,7 @@
 }
 \note{
   If adding popup.js documents to non-slidify, .Rmd based
-  presentations the user will have to manually add: \cr
+  presentations the user may have to manually add: \cr
 
   \code{<link rel="stylesheet"
   href="./assets/css/pop_style.css" />} \cr \code{<script

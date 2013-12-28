@@ -21,7 +21,11 @@
 #' clipboard.  
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the output to the 
 #' console.  If FALSE returns to the console.
-#' @return Returns a character vector of an HTML image tag that embeds an image. 
+#' @return Returns a character vector of an HTML image tag that embeds an image.
+#' @note \code{IM_MO} Requires a link to the \file{js/reports.js} in the 
+#' document as well as the document itself.  Usually this is done automatically 
+#' upon the use of \code{new_report}/\code{presentation}.  \code{IM_MO} only 
+#' takes integer width/height values which are converted to px.
 #' @export
 #' @rdname image
 #' @examples
@@ -30,6 +34,9 @@
 #' IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 #' cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", 
 #'     width=140, height=75), rep("So much text! ", 100))
+#' \dontrun{
+#' IM_MO("http://i.imgur.com/VClk4DS.png")
+#' }
 IM <- function(path = "clipboard", link = NULL, width = 540,  
 	height = IE(width, round(width/1.5)), sty = IE(width, width*1.05, 480), 
     center = TRUE, new_win = TRUE, copy2clip = interactive(), print = FALSE) { 
@@ -189,4 +196,61 @@ function(image = "clipboard", ...) {
     if (sum(imgs2) == 0)  stop(sprintf("no files match \"%s\"", image))
 
     IM(path = imgs[imgs2][1], ...)
+}
+
+#' Convert path/url to HTML Image Tag
+#'
+#' \code{IM_MO} - Creates an HTML image tag with mouseover grow/shrink 
+#' properties.  Only takes integer width/height values converted to px.
+#' 
+#' @param width2 The width to grow to during mouseover.
+#' @param height2 The height to grow to during mouseover.
+#' 
+#' @export
+#' @rdname image
+IM_MO <- function(path = "clipboard", link = NULL, width = 32,  
+    height = 32, width2 = width * 10, height2 = height * 10,
+    sty = width*1.05, center = FALSE, new_win = TRUE, 
+    copy2clip = interactive(), print = FALSE) { 
+
+    grow <- "onmouseover=\"bigImg(this, '%spx', '%spx')\" onmouseout=\"regImg(this, '%spx', '%spx')\" border=\"0\" "
+    grow <- sprintf(grow, width2, height2, width, height)
+
+    if (path == "clipboard") {
+        path <- read_clip()
+    } 
+    path <- chartr("\\", "/", path)
+    sty <- sty 
+    front <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p><img %s src=\"")
+    front <- sprintf(front, grow)
+    if(!is.null(height)){
+        height <- paste0(" ", "height=\"", height, "\"")
+    }
+    if(!is.null(width)) {
+        width <- paste0(" ", "width=\"", width, "\"")
+    }
+    end <- paste0(width, height, "></p>\n</div>\n")
+    if (center & is.null(link)) {
+        x <- paste0(front, path, "\"", end)
+    } else {
+        x <- paste0("<img ", grow, "src=\"", path, "\"", width, height, ">")
+    }
+    if (!is.null(link)) {
+        if (new_win) {
+            tar <- " target=\"_blank\"" 
+        } else {
+            tar <- NULL
+        }       
+        x <- paste0("<a href=\"", link, "\"", tar, ">", x, "</a>")
+        if (center) {
+            x <- paste0("<div style=\"width:", sty, "px;margin:auto;\">\n    <p>", x,
+                "</p>\n</div>\n")
+        } else {
+            x <- paste0(x, "\n") 
+        }
+    }
+    if(copy2clip){
+        write_clip(x)
+    }
+    prin(x = x, print = print)
 }

@@ -16,7 +16,7 @@
 #' utilize popup.js.  To view example uses see 
 #' \url{https://github.com/trinker/popup_example}.
 #' @note If adding popup.js documents to non-slidify, .Rmd based presentations 
-#' the user will have to manually add: \cr 
+#' the user may have to manually add: \cr 
 #'      
 #' \code{<link rel="stylesheet" href="./assets/css/pop_style.css" />} \cr      
 #' \code{<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>} \cr    
@@ -56,9 +56,9 @@ popup <- function(presentation = FALSE, rmd.path = NULL) {
     	
         if (is.logical(presentation) && !isTRUE(presentation)) {
         	
-            folder(folder.name = c("REPORT/assets/css", "REPORT/assets/js"))
-            file.copy(css, "REPORT/assets/css")
-            file.copy(file.path(js, dir(js)), "REPORT/assets/js") 
+            folder(folder.name = c("REPORT/css", "REPORT/js"))
+            file.copy(css, "REPORT/css")
+            file.copy(file.path(js, dir(js)), "REPORT/js") 
         	if (is.null(rmd.path)) {
         	    rmds <- file_ext(dir("REPORT")) == "Rmd"
         		if (sum(rmds) == 0) {
@@ -70,17 +70,17 @@ popup <- function(presentation = FALSE, rmd.path = NULL) {
         	
         } else {
             folder(folder.name = file.path(dirname(rmd.path), 
-            	c("assets/css", "assets/js")))
-            file.copy(css, file.path(dirname(rmd.path), "assets/css"))
+            	c("css", "js")))
+            file.copy(css, file.path(dirname(rmd.path), "css"))
             file.copy(file.path(js, dir(js)), 
-            	file.path(dirname(rmd.path), "assets/js")) 
+            	file.path(dirname(rmd.path), "js")) 
             outfile <- rmd.path
             infile <- readLines(outfile)
         }
         top <- c(
-            "<link rel=\"stylesheet\" href=\"./assets/css/pop_style.css\" />",
-            "<script type=\"text/javascript\" src=\"./assets/js/jquery-1.9.1.min.js\"></script>",
-            "<script type=\"text/javascript\" src=\"./assets/js/nhpup_1.1.js\"></script>\n"
+            "<link rel=\"stylesheet\" href=\"./css/pop_style.css\" />",
+            "<script type=\"text/javascript\" src=\"./js/jquery-1.9.1.min.js\"></script>",
+            "<script type=\"text/javascript\" src=\"./js/nhpup_1.1.js\"></script>\n"
         )
         cat(paste(c(top, infile, "\n"), collapse = "\n"), file = outfile)
 

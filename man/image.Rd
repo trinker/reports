@@ -1,5 +1,6 @@
 \name{IM}
 \alias{IM}
+\alias{IM_MO}
 \alias{IM2}
 \alias{IMF}
 \alias{IW}
@@ -19,6 +20,12 @@
     bottom = 0, copy2clip = interactive(), print = FALSE)
 
   IMF(image = "clipboard", ...)
+
+  IM_MO(path = "clipboard", link = NULL, width = 32,
+    height = 32, width2 = width * 10,
+    height2 = height * 10, sty = width * 1.05,
+    center = FALSE, new_win = TRUE,
+    copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{path}{A character vector url/path to the image.
@@ -69,6 +76,10 @@
 
   \item{bottom}{Space between bottom margin and bottom of
   text (0 is defualt).}
+
+  \item{width2}{The width to grow to during mouseover.}
+
+  \item{height2}{The height to grow to during mouseover.}
 }
 \value{
   Returns a character vector of an HTML image tag that
@@ -94,6 +105,18 @@
   find the image in expected image directories.  Uses the
   first available image matching the image name.  No
   path/url is specified.  IMS stands for `image locate`.
+
+  \code{IM_MO} - Creates an HTML image tag with mouseover
+  grow/shrink properties.  Only takes integer width/height
+  values converted to px.
+}
+\note{
+  \code{IM_MO} Requires a link to the \file{js/reports.js}
+  in the document as well as the document itself.  Usually
+  this is done automatically upon the use of
+  \code{new_report}/\code{presentation}.  \code{IM_MO} only
+  takes integer width/height values which are converted to
+  px.
 }
 \examples{
 IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)
@@ -101,5 +124,8 @@ IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print =T
 IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.r-project.org")
 cat(IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/",
     width=140, height=75), rep("So much text! ", 100))
+\dontrun{
+IM_MO("http://i.imgur.com/VClk4DS.png")
+}
 }
 

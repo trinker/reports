@@ -190,15 +190,23 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
             c("assets/css", "assets/js")))
         } 
 
-        ### Location of popup.js documents
+        ## Location of popup.js documents
         poproot <- system.file("extdata/popup", package = "reports")
         css <- file.path(poproot, "popup_style.css")
         js <- file.path(poproot, "popup_js")
 
-        ### Copy popup.js Contents
+        ## Copy popup.js Contents
         file.copy(css, file.path(y[[2]], "assets/css"))
         file.copy(file.path(js, dir(js)), file.path(y[[2]], "assets/js"))    
 
+        ## Location of core PRESENTATION documents documents
+        coreroot <- system.file("extdata/core_PRESENTATION", package = "reports")
+        css <- file.path(coreroot, "css")
+        js <- file.path(coreroot, "js")
+
+        ## Copy All Core PRESENTATION Contents
+        file.copy(file.path(css, dir(css)), file.path(y[[2]], "assets/css")) 
+        file.copy(file.path(js, dir(js)), file.path(y[[2]], "assets/js"))  
     }
 
     cat(file = file.path(x, "TO_DO"))

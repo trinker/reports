@@ -248,14 +248,23 @@ function(report = "report", template = getOption("temp.reports"),
             c("assets/css", "assets/js")))
         } 
 
-        ### Location of popup.js documents
+        ## Location of popup.js documents
         poproot <- system.file("extdata/popup", package = "reports")
         css <- file.path(poproot, "popup_style.css")
         js <- file.path(poproot, "popup_js")
 
-        ### Copy popup.js Contents
+        ## Copy popup.js Contents
         file.copy(css, file.path(y[[4]], "assets/css"))
         file.copy(file.path(js, dir(js)), file.path(y[[4]], "assets/js"))     
+
+        ## Location of core PRESENTATION documents documents
+        coreroot <- system.file("extdata/core_PRESENTATION", package = "reports")
+        css <- file.path(coreroot, "css")
+        js <- file.path(coreroot, "js")
+
+        ## Copy All Core PRESENTATION Contents
+        file.copy(file.path(css, dir(css)), file.path(y[[4]], "assets/css")) 
+        file.copy(file.path(js, dir(js)), file.path(y[[4]], "assets/js"))  
 
     }
     AN <- system.file("extdata/docs", package = "reports")
@@ -427,12 +436,43 @@ function(report = "report", template = getOption("temp.reports"),
         }
         delete(file.path(x, "slidify.Rmd"))
     }    
+
+    ## Copy over core REPORT css/js
+    if (type %in% c("rmd", "html")) {
+    	
+        ## create css/js folders
+        suppressWarnings(folder(folder.name = file.path(y[[1]], c("css", "js"))))
+    
+        ## Location of core REPORTS documents documents
+        coreroot <- system.file("extdata/core_REPORT", package = "reports")
+        css <- file.path(coreroot, "css")
+        js <- file.path(coreroot, "js")
+    
+        ## Copy All Core REPORTS Contents
+        file.copy(file.path(css, dir(css)), file.path(y[[1]], "css")) 
+        file.copy(file.path(js, dir(js)), file.path(y[[1]], "js"))  
+
+        ## Generate paths to css/js scripts to add to .Rmd  	
+    	  css_path <- file.path(y[[1]], "css")
+    	  js_path <- file.path(y[[1]], "js")
+        CSS <- "<link rel=\"stylesheet\" href=\"./css/%s\" />"
+        JS <- "<script type=\"text/javascript\" src=\"./js/%s\"></script>"
+        css_links <- sapply(dir(css_path), function(x) sprintf(CSS, x))
+        js_links <- sapply(dir(js_path), function(x) sprintf(JS, x))
+
+        ## Read in .Rmd and copy paths to css/js scripts 	
+        RMD <- file.path(y[[1]], dir(y[[1]])[file_ext(dir(y[[1]])) == "Rmd"])
+        infile <- readLines(RMD)
+        cat(paste(c(css_links, js_links, "", infile, "\n"), collapse = "\n"), 
+            file = RMD)
+    }
+    
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
     
     ## Send to github
     if (github) {
-    	try(repo2github(project.dir = x))
+        try(repo2github(project.dir = x))
     }
     
     ## Open Project in RStudio
@@ -456,4 +496,3 @@ function(x, ...) {
     class(x) <- NULL
     cat(x)
 }
-
