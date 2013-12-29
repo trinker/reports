@@ -1,0 +1,156 @@
+/* David Walsh's Flip */
+/* http://davidwalsh.name/demo/css-flip.php */
+
+
+        /* simple */
+		.flip-container {
+			-webkit-perspective: 1000;
+			-moz-perspective: 1000;
+			perspective: 1000;
+
+			border: 1px solid #ccc;
+		}
+
+			
+			.flip-container:hover .flipper, .flip-container.hover .flipper, #flip-toggle.flip .flipper {
+				-webkit-transform: rotateY(180deg);
+				-moz-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+				filter: FlipH;
+    			-ms-filter: "FlipH";
+			}
+
+		.flip-container, .front, .back {
+			width: 320px;
+			height: 427px;
+		}
+
+		.flipper {
+			-webkit-transition: 0.6s;
+			-webkit-transform-style: preserve-3d;
+
+			-moz-transition: 0.6s;
+			-moz-transform-style: preserve-3d;
+
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		.front, .back {
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			backface-visibility: hidden;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.front {
+			background: lightgreen;
+			z-index: 2;
+			background: url(http://i.imgur.com/Ia8ABdd.png) 0 0 no-repeat; 
+			background-size:480px 430px;
+			background-position:center;			
+		}
+
+		.back {
+			background: lightblue;
+			-webkit-transform: rotateY(180deg);
+			-moz-transform: rotateY(180deg);
+			transform: rotateY(180deg);
+		}
+
+		.front .name {
+			font-size: 2em;
+			display: inline-block;
+			background: rgba(33, 33, 33, 0.9);
+			color: #f8f8f8;
+			font-family: Courier;
+			padding: 5px 5px;
+			border-radius: 5px;
+			bottom: 60px;
+			left: 15%;
+			position: absolute;
+			text-shadow: 0.1em 0.1em 0.05em #333;
+
+			-webkit-transform: rotate(-20deg);
+			-moz-transform: rotate(-20deg);
+			transform: rotate(-20deg);
+		}
+		
+		.front .name2 {
+			font-size: 2em;
+			display: inline-block;
+			background: rgba(33, 33, 33, 0.9);
+			color: #f8f8f8;
+			font-family: Courier;
+			padding: 5px 5px;
+			border-radius: 5px;
+			bottom: 20px;
+			left: 37%;
+			position: absolute;
+			text-shadow: 0.1em 0.1em 0.05em #333;
+		}		
+
+		.back-logo {
+			position: absolute;
+			top: 40px;
+			left: 100px;
+			width: 160px;
+			height: 117px;
+			background-size:100px 100px;
+			background: url(http://i.imgur.com/GF7tc3m.jpg) 0 0 no-repeat; 
+		}
+
+		.back-title {
+			font-weight: bold;
+			color: #00304a;
+			position: absolute;
+			top: 180px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			text-shadow: 0.1em 0.1em 0.05em #acd7e5;
+			font-family: Courier;
+			font-size: 1.3em;
+		}
+
+		.front.title {
+			background: url(http://i.imgur.com/Ia8ABdd.png) 0 0 no-repeat; 
+			background-size:390px 430px;
+			background-position:center;
+		}
+		.back p {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			padding: 0 20px;
+		}
+
+		/* vertical */
+		.vertical.flip-container {
+			position: relative;
+		}
+
+			.vertical .back {
+				-webkit-transform: rotateX(180deg);
+				-moz-transform: rotateX(180deg);
+				transform: rotateX(180deg);
+			}
+
+			.vertical.flip-container .flipper {
+				-webkit-transform-origin: 100% 213.5px;
+				-moz-transform-origin: 100% 213.5px;
+				transform-origin: 100% 213.5px;
+			}
+
+			.vertical.flip-container:hover .flipper {
+				-webkit-transform: rotateX(-180deg);
+				-moz-transform: rotateX(-180deg);
+				transform: rotateX(-180deg);
+			}
