@@ -1,1 +1,66 @@
 
+aside.gdbar img {
+  width: 85px; 
+  height: 85px; 
+  position: absolute;
+  right: 0;
+  margin: 8px 15px;
+}
+
+
+.logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10
+}
+
+.title-slide hgroup p {
+  font-size: 28px;
+  color: #797979;
+  line-height: 1.3;
+  margin-top: 2em;
+}
+
+/* line 884, ../scss/default.scss */
+aside.gdbar {
+  height: 97px;
+  width: 215px;
+  position: absolute;
+  left: -1px;
+  top: 125px;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(right, #F0F2FF 0%, #7EAEC2 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(right, #F0F2FF 0%, #7EAEC2 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(right, #F0F2FF 0%, #7EAEC2 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #F0F2FF), color-stop(1, #7EAEC2));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(right, #F0F2FF 0%, #7EAEC2 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to left, #F0F2FF 0%, #7EAEC2 100%);
+
+  -webkit-background-size: 0% 100%;
+  -moz-background-size: 0% 100%;
+  -o-background-size: 0% 100%;
+  background-size: 0% 100%;
+  -webkit-transition: all 0.5s ease-out 0.5s;
+  -moz-transition: all 0.5s ease-out 0.5s;
+  -ms-transition: all 0.5s ease-out 0.5s;
+  -o-transition: all 0.5s ease-out 0.5s;
+  transition: all 0.5s ease-out 0.5s;
+  /* Better to transition only on background-size, but not sure how to do that with the mixin. */
+}
