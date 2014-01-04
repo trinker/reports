@@ -240,22 +240,7 @@ function(report = "report", template = getOption("temp.reports"),
             }
             cat(paste(Rmd, collapse="\n"), file = file.path(y[[4]], paste0(report, ".Rmd")))
             delete(file.path(y[[4]], "index.Rmd"))
-        }
-
-        ## popup.js documents (added 12-27-13)
-        if (!file.exists(file.path(y[[4]], "assets"))) {
-            folder(folder.name = file.path(y[[4]], 
-            c("assets/css", "assets/js")))
-        } 
-
-        ## Location of popup.js documents
-        poproot <- system.file("extdata/popup", package = "reports")
-        css <- file.path(poproot, "popup_style.css")
-        js <- file.path(poproot, "popup_js")
-
-        ## Copy popup.js Contents
-        file.copy(css, file.path(y[[4]], "assets/css"))
-        file.copy(file.path(js, dir(js)), file.path(y[[4]], "assets/js"))     
+        }    
 
         ## Location of core PRESENTATION documents documents
         coreroot <- system.file("extdata/core_PRESENTATION", package = "reports")
@@ -453,8 +438,8 @@ function(report = "report", template = getOption("temp.reports"),
         file.copy(file.path(js, dir(js)), file.path(y[[1]], "js"))  
 
         ## Generate paths to css/js scripts to add to .Rmd  	
-    	  css_path <- file.path(y[[1]], "css")
-    	  js_path <- file.path(y[[1]], "js")
+    	css_path <- file.path(y[[1]], "css")
+    	js_path <- file.path(y[[1]], "js")
         CSS <- "<link rel=\"stylesheet\" href=\"./css/%s\" />"
         JS <- "<script type=\"text/javascript\" src=\"./js/%s\"></script>"
         css_links <- sapply(dir(css_path), function(x) sprintf(CSS, x))
