@@ -22,4 +22,6 @@ notifications:
 
 env:
   global:
+    - R_BUILD_ARGS="--resave-data=best" 
+    - R_CHECK_ARGS="--as-cran"
     - DISPLAY=:99.0
