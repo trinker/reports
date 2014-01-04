@@ -8,28 +8,21 @@
 \alias{textciteM}
 \title{Format Quotes with Citations}
 \usage{
-  citeL(text.loc = NULL, copy2clip = interactive(),
-    citation = TRUE)
+citeL(text.loc = NULL, copy2clip = interactive(), citation = TRUE)
 
-  parenciteL(text.loc = NULL, copy2clip = interactive(),
-    citation = TRUE)
+parenciteL(text.loc = NULL, copy2clip = interactive(), citation = TRUE)
 
-  textciteL(text.loc = NULL, copy2clip = interactive(),
-    citation = TRUE)
+textciteL(text.loc = NULL, copy2clip = interactive(), citation = TRUE)
 
-  possciteL(text.loc = NULL, copy2clip = interactive(),
-    citation = TRUE)
+possciteL(text.loc = NULL, copy2clip = interactive(), citation = TRUE)
 
-  posciteL(text.loc = NULL, copy2clip = interactive(),
-    citation = TRUE)
+posciteL(text.loc = NULL, copy2clip = interactive(), citation = TRUE)
 
-  parenciteM(text.loc = NULL, width = 70,
-    force.block = TRUE, copy2clip = interactive(),
-    citation = TRUE, bib.name = "bib")
+parenciteM(text.loc = NULL, width = 70, force.block = TRUE,
+  copy2clip = interactive(), citation = TRUE, bib.name = "bib")
 
-  textciteM(text.loc = NULL, width = 70,
-    force.block = TRUE, copy2clip = interactive(),
-    citation = TRUE, bib.name = "bib")
+textciteM(text.loc = NULL, width = 70, force.block = TRUE,
+  copy2clip = interactive(), citation = TRUE, bib.name = "bib")
 }
 \arguments{
   \item{text.loc}{The row number (integer value) from
@@ -54,33 +47,33 @@
   \item{bib.name}{Optional path to a .bib resource.}
 }
 \value{
-  Returns a character vector with LaTeX/markdown formatted
-  text.
+Returns a character vector with LaTeX/markdown formatted
+text.
 }
 \description{
-  Citation tools to grab a quote and format the text taken
-  from the notes.xlsx/notes.csv for LaTeX/Rmd with optional
-  citation included.  Functions attempt to copy the output
-  to the clipboard for easy paste inclusion.
+Citation tools to grab a quote and format the text taken
+from the notes.xlsx/notes.csv for LaTeX/Rmd with optional
+citation included.  Functions attempt to copy the output to
+the clipboard for easy paste inclusion.
 }
 \details{
-  Each of the functions in the cite family follow a pattern
-  of (cite, parencite, textcite, posscite, poscite) prefix
-  and (L or M) suffix (note that currently only parencite
-  and textcite functions exist for markdown). The cite and
-  textcite are in the form of LaTeX commands by the same
-  name. posscite and poscite are user defined LaTeX
-  function styles that are extensions of the textcite
-  command to fit possessive and -s- ending possessives.
-  They can be defined as:
+Each of the functions in the cite family follow a pattern
+of (cite, parencite, textcite, posscite, poscite) prefix
+and (L or M) suffix (note that currently only parencite and
+textcite functions exist for markdown). The cite and
+textcite are in the form of LaTeX commands by the same
+name. posscite and poscite are user defined LaTeX function
+styles that are extensions of the textcite command to fit
+possessive and -s- ending possessives.  They can be defined
+as:
 
-  \code{\\newcommand\\posscite[1]{\\citeauthor{#1}'s
-  (\\citeyear{#1})}} \cr
-  \code{\\newcommand\\poscite[1]{\\citeauthor{#1}'
-  (\\citeyear{#1})}} \cr
+\code{\\newcommand\\posscite[1]{\\citeauthor{#1}'s
+(\\citeyear{#1})}} \cr
+\code{\\newcommand\\poscite[1]{\\citeauthor{#1}'
+(\\citeyear{#1})}} \cr
 
-  The L and M correspond to LaTeX or markdown outputs;
-  markdown relies on the \code{knitcitations} package.
+The L and M correspond to LaTeX or markdown outputs;
+markdown relies on the \code{knitcitations} package.
 }
 \section{Note}{
   It is expected that the user maintains

@@ -2,11 +2,10 @@
 \alias{reveal.js}
 \title{Convert md to HTML5 reveal.js}
 \usage{
-  reveal.js(theme = "default", transition = "default",
-    in.file = NULL, out.dir = path,
-    ref.page = "References", refs.cex = 15,
-    path = file.path(getwd(), "PRESENTATION"),
-    figure.dir = "figure", hi.cex = 25)
+reveal.js(theme = "default", transition = "default", in.file = NULL,
+  out.dir = path, ref.page = "References", refs.cex = 15,
+  path = file.path(getwd(), "PRESENTATION"), figure.dir = "figure",
+  hi.cex = 25)
 }
 \arguments{
   \item{theme}{possible reveal.js themes: c(\code{"sky"},
@@ -46,19 +45,18 @@
   coded text if \code{hi} code chunk is used.}
 }
 \description{
-  Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert md to HTML5
-  \href{http://lab.hakim.se/reveal-js/}{reveal.js} slides
-  and provides minor modifications (e.g., embedded youtube
-  and hanging indent text, etc.).
+Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
+convert md to HTML5
+\href{http://lab.hakim.se/reveal-js/}{reveal.js} slides and
+provides minor modifications (e.g., embedded youtube and
+hanging indent text, etc.).
 }
 \details{
-  Outputs a directory, revel_js, with an index.html and
-  necessary
-  \href{http://lab.hakim.se/reveal-js/}{reveal.js} files.
-  The user must have Pandoc installed and on their path.
-  Pandoc can be installed from: \cr
-  \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+Outputs a directory, revel_js, with an index.html and
+necessary \href{http://lab.hakim.se/reveal-js/}{reveal.js}
+files. The user must have Pandoc installed and on their
+path. Pandoc can be installed from: \cr
+\href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \section{Code Chunks}{
   The following convenience code chunks are implemented:
@@ -119,6 +117,6 @@ system.file("extdata/docs/example.Rmd", package = "reports")
 }
 }
 \seealso{
-  \code{\link[reports]{html5}}
+\code{\link[reports]{html5}}
 }
 

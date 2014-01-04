@@ -2,8 +2,8 @@
 \alias{pad}
 \title{Pad Strings}
 \usage{
-  pad(x, padding = max(nchar(as.character(x))),
-    sort = TRUE, type = "detect")
+pad(x, padding = max(nchar(as.character(x))), sort = TRUE,
+  type = "detect")
 }
 \arguments{
   \item{x}{A character, factor, numeric vector.}
@@ -22,14 +22,14 @@
   determine if x is numeric (d) or not (s).}
 }
 \value{
-  Returns a character vector every element padded with
-  0/spaces.
+Returns a character vector every element padded with
+0/spaces.
 }
 \description{
-  A convenience wrapper for \code{\link[base]{sprintf}}
-  that pads the front end of strings with spaces or 0s.
-  Useful for creating multiple uniform directories that
-  will maintain correct order.
+A convenience wrapper for \code{\link[base]{sprintf}} that
+pads the front end of strings with spaces or 0s. Useful for
+creating multiple uniform directories that will maintain
+correct order.
 }
 \examples{
 pad(sample(1:10, 10))
@@ -39,6 +39,6 @@ pad(as.character(sample(1:10, 10)), sort=FALSE)
 pad(as.character(sample(1:10, 10)), 4)
 }
 \seealso{
-  \code{\link[base]{sprintf}}
+\code{\link[base]{sprintf}}
 }
 

@@ -2,8 +2,8 @@
 \alias{EM}
 \title{Convert email to HTML email Tag}
 \usage{
-  EM(email = "clipboard", text = NULL, new_win = TRUE,
-    copy2clip = interactive(), print = FALSE)
+EM(email = "clipboard", text = NULL, new_win = TRUE,
+  copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{email}{A character vector email copied to the
@@ -23,15 +23,15 @@
   returns to the console.}
 }
 \value{
-  Returns a character vector of an HTML email tag.
+Returns a character vector of an HTML email tag.
 }
 \description{
-  Wrap an email to generate an HTML email tag.
+Wrap an email to generate an HTML email tag.
 }
 \examples{
 EM("tyler.rinker@gmail.com", print = TRUE)
 }
 \references{
-  \url{http://www.w3schools.com/tags/tag_address.asp}
+\url{http://www.w3schools.com/tags/tag_address.asp}
 }
 

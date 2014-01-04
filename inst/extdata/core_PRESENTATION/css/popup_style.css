@@ -1,0 +1,48 @@
+/* From Nicolas Honing  */
+/* https://github.com/nhoening/popup.js/blob/master/test/test.html */
+
+/* test case for the hover over popup */
+.testpup{
+  width: 700px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+#rather_wide {
+  margin-top: 100px;
+}
+#rather_tall {
+  height: 200px;
+}
+
+/*  hover over popup style */
+.pup, .pup_class2, .pup_class3 {
+  position:absolute;
+  z-index:200; /* aaaalways on top*/
+  padding: 3px; /* padding around text*/
+  margin-left: 10px;
+  line-height: 1.2;  /* space between text lines*/
+  margin-top: 5px;
+  width: 450px;
+  border: 1px solid black;
+  color: white;    /* text color*/
+  background-color: #777;
+  font-size: 1.75em;  /* text size*/
+}
+
+.pup_class2 {
+  background-color: red !important;
+}
+.pup_class3 {
+  background-color: blue;
+}
+
+p#tests {
+  margin-top: 300px;
+  margin-bottom: 1000px;
+}
+.poptable {
+    background-color:grey;
+    color: black;
+}

@@ -2,9 +2,9 @@
 \alias{html5}
 \title{Convert md to HTML5 Slides}
 \usage{
-  html5(in.file = NULL, out.file = NULL, type = "dzslides",
-    ref.page = "References", refs.cex = 15,
-    path = file.path(getwd(), "PRESENTATION"), hi.cex = 25)
+html5(in.file = NULL, out.file = NULL, type = "dzslides",
+  ref.page = "References", refs.cex = 15, path = file.path(getwd(),
+  "PRESENTATION"), hi.cex = 25)
 }
 \arguments{
   \item{in.file}{A character vector of the md file.}
@@ -35,16 +35,16 @@
   coded text if \code{hi} code chunk is used.}
 }
 \description{
-  Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert md to HTML5
-  \href{http://paulrouget.com/dzslides/}{DZSlides} slides
-  or slidy and provides minor modifications (e.g., embedded
-  youtube and hanging indent text).
+Uses \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
+convert md to HTML5
+\href{http://paulrouget.com/dzslides/}{DZSlides} slides or
+slidy and provides minor modifications (e.g., embedded
+youtube and hanging indent text).
 }
 \details{
-  The user must have Pandoc installed and on their path.
-  Pandoc can be installed from: \cr
-  \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+The user must have Pandoc installed and on their path.
+Pandoc can be installed from: \cr
+\href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \section{Code Chunks}{
   The following convenience code chunks are implemented:
@@ -80,12 +80,12 @@ html5()  #assumes location of html file out of the box
 }
 }
 \author{
-  Ananda Mahto & Tyler Rinker <tyler.rinker@gmail.com>
+Ananda Mahto & Tyler Rinker <tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/a/14971683/1000343}
+\url{http://stackoverflow.com/a/14971683/1000343}
 }
 \seealso{
-  \code{\link[reports]{reveal.js}}
+\code{\link[reports]{reveal.js}}
 }
 

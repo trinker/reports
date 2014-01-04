@@ -2,8 +2,8 @@
 \alias{HL}
 \title{Highlight HTML Text}
 \usage{
-  HL(text = "clipboard", color = "yellow",
-    copy2clip = interactive(), print = FALSE)
+HL(text = "clipboard", color = "yellow", copy2clip = interactive(),
+  print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -20,7 +20,7 @@
   returns to the console.}
 }
 \description{
-  Wraps text with a background color specific font tags.
+Wraps text with a background color specific font tags.
 }
 \examples{
 cat(HL("Do not trust robots!"), "They are bent on destruction.")

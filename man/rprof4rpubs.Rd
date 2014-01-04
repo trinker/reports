@@ -2,7 +2,7 @@
 \alias{rprof4rpubs}
 \title{Rpubs .Rprofile}
 \usage{
-  rprof4rpubs(path = 1)
+rprof4rpubs(path = 1)
 }
 \arguments{
   \item{path}{The path to the directory with the document
@@ -11,25 +11,24 @@
   corresponding to \file{~REPORT}.}
 }
 \description{
-  When publishing to Rpubs an error may occur as seen
-  below. \code{rprof4rpubs} adds/appends a .Rprofile with
-  \code{options(rpubs.upload.method = "internal")}
-  necessary for publishing to
-  \href{http://rpubs.com/}{Rpubs} from
-  \href{http://www.rstudio.com/}{Rstudio}.
+When publishing to Rpubs an error may occur as seen below.
+\code{rprof4rpubs} adds/appends a .Rprofile with
+\code{options(rpubs.upload.method = "internal")} necessary
+for publishing to \href{http://rpubs.com/}{Rpubs} from
+\href{http://www.rstudio.com/}{Rstudio}.
 }
 \details{
-  If you see the following error \code{rprof4rpubs} may be
-  of help:
+If you see the following error \code{rprof4rpubs} may be of
+help:
 
-  Error in function (type, msg, asError = TRUE) : \cr SSL
-  certificate problem, verify that the CA cert is OK.
-  Details: \cr error:14090086:SSL
-  routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify
-  failed \cr Calls: rpubsUpload ... <Anonymous> ->
-  .postForm -> .Call -> <Anonymous> -> fun
+Error in function (type, msg, asError = TRUE) : \cr SSL
+certificate problem, verify that the CA cert is OK.
+Details: \cr error:14090086:SSL
+routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify
+failed \cr Calls: rpubsUpload ... <Anonymous> -> .postForm
+-> .Call -> <Anonymous> -> fun
 }
 \references{
-  \url{http://support.rstudio.org/help/discussions/problems/2582-publishing-to-rpubs-from-behind-proxy#comment_16691989}
+\url{http://support.rstudio.org/help/discussions/problems/2582-publishing-to-rpubs-from-behind-proxy#comment_16691989}
 }
 

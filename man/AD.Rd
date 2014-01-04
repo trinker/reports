@@ -2,8 +2,8 @@
 \alias{AD}
 \title{Audio url/path to HTML Audio Tag}
 \usage{
-  AD(audio = "clipboard", is_url = is.url(audio),
-    copy2clip = interactive(), print = FALSE)
+AD(audio = "clipboard", is_url = is.url(audio), copy2clip = interactive(),
+  print = FALSE)
 }
 \arguments{
   \item{audio}{A url, path or file located in the audio
@@ -22,13 +22,13 @@
   console.}
 }
 \value{
-  Returns a character vector of an HTML source tag that
-  embeds an audio file.
+Returns a character vector of an HTML source tag that
+embeds an audio file.
 }
 \description{
-  Converts a url/path to an HTML audio tag.  \code{AD}
-  attempts to determine the location of the audio file if
-  it is not a path or url.
+Converts a url/path to an HTML audio tag.  \code{AD}
+attempts to determine the location of the audio file if it
+is not a path or url.
 }
 \examples{
 \dontrun{
@@ -36,7 +36,7 @@ AD("foo.mp4")
 }
 }
 \references{
-  \url{http://www.w3schools.com/html/html5_audio.asp}
+\url{http://www.w3schools.com/html/html5_audio.asp}
 }
 \keyword{audio}
 

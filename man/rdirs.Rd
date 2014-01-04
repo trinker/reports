@@ -2,8 +2,7 @@
 \alias{rdirs}
 \title{Recursive Directory Creation}
 \usage{
-  rdirs(..., path = getwd(), sep = "_", pad.num = TRUE,
-    text.only = FALSE)
+rdirs(..., path = getwd(), sep = "_", pad.num = TRUE, text.only = FALSE)
 }
 \arguments{
   \item{\ldots}{The pieces of the names to put together.
@@ -26,13 +25,13 @@
   \code{presentation}.}
 }
 \value{
-  Generates recursive sub directories.  Invisibly returns
-  the names of the sub-directories.
+Generates recursive sub directories.  Invisibly returns the
+names of the sub-directories.
 }
 \description{
-  Allows the user to input pieces of directory names to
-  quickly generate multiple sub-directories with similar
-  names nested in the same directory.
+Allows the user to input pieces of directory names to
+quickly generate multiple sub-directories with similar
+names nested in the same directory.
 }
 \examples{
 ## fx <- folder(delete_me)
@@ -46,8 +45,8 @@ x <- rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 ## setwd(owd); delete(fx)
 }
 \seealso{
-  \code{\link[reports]{folder}}, \code{delete},
-  \code{\link[base]{dir.create}}
+\code{\link[reports]{folder}}, \code{delete},
+\code{\link[base]{dir.create}}
 }
 \keyword{directory,}
 \keyword{file,}

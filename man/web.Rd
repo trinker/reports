@@ -4,12 +4,12 @@
 \alias{write.web}
 \title{Functions for Internet Articles/Information}
 \usage{
-  web(category = NULL, select = NULL, path = NULL)
+web(category = NULL, select = NULL, path = NULL)
 
-  read.web(path, ...)
+read.web(path, ...)
 
-  write.web(url, description = NA, category = NA, path,
-    sheet = "Sheet1", ...)
+write.web(url, description = NA, category = NA, path, sheet = "Sheet1",
+  ...)
 }
 \arguments{
   \item{category}{An optional category subest to be
@@ -38,9 +38,9 @@
   file.  The defualt is \code{"Sheet1"}.}
 }
 \description{
-  The web family of functions enable quick reading, writing
-  and browsing of Internet urls related to the project, all
-  housed in a central location.
+The web family of functions enable quick reading, writing
+and browsing of Internet urls related to the project, all
+housed in a central location.
 }
 \keyword{Internet,}
 \keyword{url}

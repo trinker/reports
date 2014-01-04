@@ -4,14 +4,12 @@
 \alias{caption_table}
 \title{Captions for Figures and Tables}
 \usage{
-  caption(type = 1, label, caption,
-    copy2clip = interactive(), print = FALSE)
+caption(type = 1, label, caption, copy2clip = interactive(),
+  print = FALSE)
 
-  caption_figure(label, caption, copy2clip = interactive(),
-    print = FALSE)
+caption_figure(label, caption, copy2clip = interactive(), print = FALSE)
 
-  caption_table(label, caption, copy2clip = interactive(),
-    print = FALSE)
+caption_table(label, caption, copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{type}{Either "figure" or "table" or accompanying
@@ -30,17 +28,17 @@
   If \code{FALSE} returns to the console.}
 }
 \value{
-  Returns a character vector of a caption.
+Returns a character vector of a caption.
 }
 \description{
-  \code{caption} - Keep track of numbering for table and
-  figure captions.
+\code{caption} - Keep track of numbering for table and
+figure captions.
 
-  \code{caption_figure} - Keep track of numbering for
-  figure captions.
+\code{caption_figure} - Keep track of numbering for figure
+captions.
 
-  \code{caption_table} - Keep track of numbering for table
-  captions.
+\code{caption_table} - Keep track of numbering for table
+captions.
 }
 \examples{
 \dontrun{

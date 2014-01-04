@@ -4,14 +4,11 @@
 \alias{US}
 \title{Path/URL: Fill Blank Spaces}
 \usage{
-  UF(path = "clipboard", copy2clip = interactive(),
-    fill = "_")
+UF(path = "clipboard", copy2clip = interactive(), fill = "_")
 
-  PF(path = "clipboard", copy2clip = interactive(),
-    fill = "\%")
+PF(path = "clipboard", copy2clip = interactive(), fill = "\%")
 
-  US(path = "clipboard", copy2clip = interactive(),
-    fill = "_")
+US(path = "clipboard", copy2clip = interactive(), fill = "_")
 }
 \arguments{
   \item{path}{A character vector or url/path copied to the
@@ -24,19 +21,19 @@
   with.}
 }
 \value{
-  Returns a character vector every space replaced with an
-  underscore/percent And apostophes removed.  \code{UF}
-  also converts the text to lower case.
+Returns a character vector every space replaced with an
+underscore/percent And apostophes removed.  \code{UF} also
+converts the text to lower case.
 }
 \description{
-  \code{UF} - A convenience function to replace black
-  spaces of paths with underscores.
+\code{UF} - A convenience function to replace black spaces
+of paths with underscores.
 
-  \code{PF} - A convenience function to replace black
-  spaces of URLs with percents.
+\code{PF} - A convenience function to replace black spaces
+of URLs with percents.
 
-  \code{US} - A convenience function to replace black
-  spaces of paths with underscores.
+\code{US} - A convenience function to replace black spaces
+of paths with underscores.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

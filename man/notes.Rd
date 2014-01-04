@@ -2,7 +2,7 @@
 \alias{notes}
 \title{View Notes}
 \usage{
-  notes(col.width = 70, notes.col = FALSE)
+notes(col.width = 70, notes.col = FALSE)
 }
 \arguments{
   \item{col.width}{An integer value of the maximum width of
@@ -12,11 +12,11 @@
   column will be displayed.}
 }
 \value{
-  Returns a truncated view of user notes.
+Returns a truncated view of user notes.
 }
 \description{
-  Allows a truncated view of your notes
-  (\file{~/ARTICLES/notes}).
+Allows a truncated view of your notes
+(\file{~/ARTICLES/notes}).
 }
 \examples{
 \dontrun{

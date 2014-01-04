@@ -2,15 +2,12 @@
 \alias{new_report}
 \title{Report Template}
 \usage{
-  new_report(report = "report",
-    template = getOption("temp.reports"),
-    bib.loc = getOption("bib.loc"),
-    name = getOption("name.reports"),
-    github.user = getOption("github.user"),
-    sources = getOption("sources.reports"), path = getwd(),
-    AN.xlsx = TRUE,
-    present = getOption("present.template"),
-    open = is.global(2), github = FALSE, ...)
+new_report(report = "report", template = getOption("temp.reports"),
+  bib.loc = getOption("bib.loc"), name = getOption("name.reports"),
+  github.user = getOption("github.user"),
+  sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE,
+  present = getOption("present.template"), open = is.global(2),
+  github = FALSE, ...)
 }
 \arguments{
   \item{report}{A character vector of length two or one:
@@ -69,10 +66,10 @@
   \code{\link[slidify]{author}}.}
 }
 \value{
-  Creates a report template.
+Creates a report template.
 }
 \description{
-  Generate a report/paper template to increase efficiency.
+Generate a report/paper template to increase efficiency.
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
@@ -113,19 +110,19 @@
 ## setwd(owd); delete(fx)
 }
 \references{
-  \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
-  examples} \cr
-  \href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
-  presentations}
+\href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
+examples} \cr
+\href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
+presentations}
 }
 \seealso{
-  \code{\link[reports]{doc_temp}},
-  \code{\link[reports]{presentation}},
-  \code{\link[reports]{templates}},
-  \code{\link[reports]{slidify_templates}},
-  \code{\link[slidify]{author}}
+\code{\link[reports]{doc_temp}},
+\code{\link[reports]{presentation}},
+\code{\link[reports]{templates}},
+\code{\link[reports]{slidify_templates}},
+\code{\link[slidify]{author}}
 
-  \href{https://github.com/hakimel/reveal.js/}{Installation
-  section of reveal.js GitHub}
+\href{https://github.com/hakimel/reveal.js/}{Installation
+section of reveal.js GitHub}
 }
 

@@ -2,8 +2,7 @@
 \alias{CM}
 \title{HTML Comment Character}
 \usage{
-  CM(comment = "clipboard", copy2clip = interactive(),
-    print = FALSE)
+CM(comment = "clipboard", copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{comment}{A text comment.  Default copies from the
@@ -18,10 +17,10 @@
   console.}
 }
 \value{
-  Returns a character vector of an HTML comment tag.
+Returns a character vector of an HTML comment tag.
 }
 \description{
-  Converts text to an HTML comment tag
+Converts text to an HTML comment tag
 }
 \examples{
 \dontrun{
@@ -29,7 +28,7 @@ CM("strike me from the record")
 }
 }
 \references{
-  \url{http://www.w3schools.com/tags/tag_comment.asp}
+\url{http://www.w3schools.com/tags/tag_comment.asp}
 }
 \keyword{comment}
 

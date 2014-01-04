@@ -64,3 +64,15 @@ background-image: linear-gradient(to left, #F0F2FF 0%, #7EAEC2 100%);
   transition: all 0.5s ease-out 0.5s;
   /* Better to transition only on background-size, but not sure how to do that with the mixin. */
 }
+
+.title-slide {
+  background-color: #FFFFFF; /* #EDE0CF; ; #CA9F9D*/
+}
+
+.rl {
+   text-align: right;
+}
+
+.cent {
+   text-align: centert;
+}

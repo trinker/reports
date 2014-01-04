@@ -2,18 +2,18 @@
 \alias{is.global}
 \title{Test If Environment is Global}
 \usage{
-  is.global(n = 1)
+is.global(n = 1)
 }
 \arguments{
   \item{n}{The number of generations to go back.  If used
   as a function argument n should be set to 2.}
 }
 \value{
-  A logical response.
+A logical response.
 }
 \description{
-  A logical test to determine if the current environment is
-  the global environment.
+A logical test to determine if the current environment is
+the global environment.
 }
 \examples{
 is.global()
@@ -21,13 +21,13 @@ lapply(1:3, function(i) is.global())
 FUN <- function() is.global(); FUN()
 }
 \author{
-  Simon O'Hanlon and Tyler Rinker <tyler.rinker@gmail.com>
+Simon O'Hanlon and Tyler Rinker <tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/questions/18637656/detect-if-environment-is-global-enviroment}
+\url{http://stackoverflow.com/questions/18637656/detect-if-environment-is-global-enviroment}
 }
 \seealso{
-  \code{\link[base]{globalenv}},
-  \code{\link[base]{parent.frame}}
+\code{\link[base]{globalenv}},
+\code{\link[base]{parent.frame}}
 }
 

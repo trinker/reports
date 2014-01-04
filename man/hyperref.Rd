@@ -4,14 +4,14 @@
 \alias{HR2}
 \title{Convert path/url to HTML href Tag}
 \usage{
-  HR(path = "clipboard", text = NULL, new_win = FALSE,
-    copy2clip = interactive(), print = FALSE)
+HR(path = "clipboard", text = NULL, new_win = FALSE,
+  copy2clip = interactive(), print = FALSE)
 
-  HR2(path = "clipboard", text = NULL, new_win = TRUE,
-    copy2clip = interactive(), print = FALSE)
+HR2(path = "clipboard", text = NULL, new_win = TRUE,
+  copy2clip = interactive(), print = FALSE)
 
-  BT(path = "clipboard", text = NULL, new_win = FALSE,
-    copy2clip = interactive(), print = FALSE)
+BT(path = "clipboard", text = NULL, new_win = FALSE,
+  copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{path}{A character vector url/path copied to the
@@ -34,16 +34,16 @@
   If \code{FALSE} returns to the console.}
 }
 \value{
-  Returns a character vector of an HTML href tag.
+Returns a character vector of an HTML href tag.
 }
 \description{
-  \code{HR} - Wrap a path/url to generate an HTML href tag.
+\code{HR} - Wrap a path/url to generate an HTML href tag.
 
-  \code{HR2} - Convenience version of \code{HR} with
-  \code{new_win} set to \code{TRUE}.
+\code{HR2} - Convenience version of \code{HR} with
+\code{new_win} set to \code{TRUE}.
 
-  \code{BT} - Wrap a path/url to generate an HTML
-  hyperlinked text button tag.
+\code{BT} - Wrap a path/url to generate an HTML hyperlinked
+text button tag.
 }
 \examples{
 ## HR("assets/img/fry_admin_1.mp4","new")
@@ -55,8 +55,8 @@ HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
 }
 \references{
-  \url{http://www.w3schools.com/tags/att_a_href.asp}
+\url{http://www.w3schools.com/tags/att_a_href.asp}
 
-  \url{http://www.w3schools.com/tags/tag_button.asp}
+\url{http://www.w3schools.com/tags/tag_button.asp}
 }
 

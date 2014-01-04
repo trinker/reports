@@ -2,8 +2,7 @@
 \alias{LL}
 \title{Format Text Lines to LaTeX List}
 \usage{
-  LL(enumerate = TRUE, text = "clipboard",
-    copy2clip = interactive())
+LL(enumerate = TRUE, text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{enumerate}{logical.  If \code{TRUE} uses the
@@ -17,14 +16,14 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector with a LaTeX list formatted
-  text.
+Returns a character vector with a LaTeX list formatted
+text.
 }
 \description{
-  Itemizes lines of text into a LaTeX list.
+Itemizes lines of text into a LaTeX list.
 }
 \details{
-  This function formats text for use with LaTeX as a list.
+This function formats text for use with LaTeX as a list.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

@@ -2,10 +2,8 @@
 \alias{repo2github}
 \title{Upload a Local Repo to GitHub}
 \usage{
-  repo2github(password, project.dir = getwd(),
-    repo = basename(getwd()),
-    github.user = getOption("github.user"), gitpath = NULL,
-    readme = TRUE)
+repo2github(password, project.dir = getwd(), repo = basename(getwd()),
+  github.user = getOption("github.user"), gitpath = NULL, readme = TRUE)
 }
 \arguments{
   \item{password}{GitHub user password (character string).
@@ -28,26 +26,26 @@
   with a README.md file.}
 }
 \value{
-  Creates GitHub repository.
+Creates GitHub repository.
 }
 \description{
-  Allows uploading a local repository to GitHub without
-  first creating the repository in the clouds.
-  \code{\link[reports]{repo2github}} is designed for the
-  initial push to github.  Future pushes can be handled via
-  RStudio or other git interface.
+Allows uploading a local repository to GitHub without first
+creating the repository in the clouds.
+\code{\link[reports]{repo2github}} is designed for the
+initial push to github.  Future pushes can be handled via
+RStudio or other git interface.
 }
 \details{
-  The arguments \code{project.dir} and \code{repo} use
-  \code{\link[base]{getwd}}.  This assumes is the current
-  working directoy is the root directory and is done for
-  convienence.  The user should ensure that either their
-  working directory is the root directory or supply the
-  correct root directory/name to these arguments.
+The arguments \code{project.dir} and \code{repo} use
+\code{\link[base]{getwd}}.  This assumes is the current
+working directoy is the root directory and is done for
+convienence.  The user should ensure that either their
+working directory is the root directory or supply the
+correct root directory/name to these arguments.
 }
 \note{
-  The user will need to have a
-  \href{https://github.com/}{GitHub} account established.
+The user will need to have a
+\href{https://github.com/}{GitHub} account established.
 }
 \section{Warning}{
   For Windows users this function creates a temporary
@@ -71,11 +69,11 @@ repo2github()
 }
 }
 \author{
-  Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
-  <tyler.rinker@gmail.com>
+Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker
+<tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/a/15047013/1000343} \cr
-  \url{http://stackoverflow.com/a/18692400/1000343}
+\url{http://stackoverflow.com/a/15047013/1000343} \cr
+\url{http://stackoverflow.com/a/18692400/1000343}
 }
 

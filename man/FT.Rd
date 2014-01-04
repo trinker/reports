@@ -2,7 +2,7 @@
 \alias{FT}
 \title{Wrap Text With HTML Font Tag}
 \usage{
-  FT(..., text = "clipboard", copy2clip = interactive())
+FT(..., text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{\ldots}{1 to 3 arguments of c(`face`, `size` and/or
@@ -23,12 +23,12 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector wrapped with a font tag.
+Returns a character vector wrapped with a font tag.
 }
 \description{
-  Wraps text with a font tags. Conveniently detects
-  c(`face`, `size` and/or `color`) and creates a font tag
-  with the supplied text.
+Wraps text with a font tags. Conveniently detects c(`face`,
+`size` and/or `color`) and creates a font tag with the
+supplied text.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

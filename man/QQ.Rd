@@ -3,10 +3,10 @@
 \alias{QQ}
 \title{Format Quotes}
 \usage{
-  GQ(quotes = TRUE, block = TRUE, text = "clipboard",
-    copy2clip = interactive(), invisible = FALSE)
+GQ(quotes = TRUE, block = TRUE, text = "clipboard",
+  copy2clip = interactive(), invisible = FALSE)
 
-  QQ(text = "clipboard", copy2clip = interactive())
+QQ(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{quotes}{logical or c(\code{l}, \code{r}, \code{L},
@@ -30,22 +30,21 @@
   to the console.}
 }
 \value{
-  \code{GQ} - Returns formatted text for use with LaTeX
-  documents.
+\code{GQ} - Returns formatted text for use with LaTeX
+documents.
 
-  \code{QQ} - Returns formatted text for use with
-  notes.xslx or notes.csv.
+\code{QQ} - Returns formatted text for use with notes.xslx
+or notes.csv.
 }
 \description{
-  \code{GQ} - Tool to grab quote and format the text taken
-  from articles for LaTeX. Combines multiple stringed text
-  into one string.  Removes non ascii characters and
-  hyphens.
+\code{GQ} - Tool to grab quote and format the text taken
+from articles for LaTeX. Combines multiple stringed text
+into one string.  Removes non ascii characters and hyphens.
 
-  \code{QQ} - Tool to grab a quote and format the text
-  taken from articles for use in the directory notes.xslx
-  or notes.csv.  Combines multiple stringed text into one
-  string.  Removes non ascii characters and hyphens.
+\code{QQ} - Tool to grab a quote and format the text taken
+from articles for use in the directory notes.xslx or
+notes.csv.  Combines multiple stringed text into one
+string.  Removes non ascii characters and hyphens.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

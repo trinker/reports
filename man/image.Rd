@@ -1,31 +1,28 @@
 \name{IM}
 \alias{IM}
-\alias{IM_MO}
 \alias{IM2}
 \alias{IMF}
+\alias{IM_MO}
 \alias{IW}
 \title{Convert path/url to HTML Image Tag}
 \usage{
-  IM(path = "clipboard", link = NULL, width = 540,
-    height = IE(width, round(width/1.5)),
-    sty = IE(width, width * 1.05, 480), center = TRUE,
-    new_win = TRUE, copy2clip = interactive(),
-    print = FALSE)
+IM(path = "clipboard", link = NULL, width = 540, height = IE(width,
+  round(width/1.5)), sty = IE(width, width * 1.05, 480), center = TRUE,
+  new_win = TRUE, copy2clip = interactive(), print = FALSE)
 
-  IM2(image = "clipboard", loc = 1, ...)
+IM2(image = "clipboard", loc = 1, ...)
 
-  IW(path = "clipboard", link = NULL, side = "right",
-    width = 540, height = IE(width, round(width/1.5)),
-    new_win = TRUE, top = -15, right = 20, left = 20,
-    bottom = 0, copy2clip = interactive(), print = FALSE)
+IW(path = "clipboard", link = NULL, side = "right", width = 540,
+  height = IE(width, round(width/1.5)), new_win = TRUE, top = -15,
+  right = 20, left = 20, bottom = 0, copy2clip = interactive(),
+  print = FALSE)
 
-  IMF(image = "clipboard", ...)
+IMF(image = "clipboard", ...)
 
-  IM_MO(path = "clipboard", link = NULL, width = 32,
-    height = 32, width2 = width * 10,
-    height2 = height * 10, sty = width * 1.05,
-    center = FALSE, new_win = TRUE,
-    copy2clip = interactive(), print = FALSE)
+IM_MO(path = "clipboard", link = NULL, width = 32, height = 32,
+  width2 = width * 10, height2 = height * 10, sty = width * 1.05,
+  center = FALSE, new_win = TRUE, copy2clip = interactive(),
+  print = FALSE)
 }
 \arguments{
   \item{path}{A character vector url/path to the image.
@@ -82,41 +79,41 @@
   \item{height2}{The height to grow to during mouseover.}
 }
 \value{
-  Returns a character vector of an HTML image tag that
-  embeds an image.
+Returns a character vector of an HTML image tag that embeds
+an image.
 }
 \description{
-  \code{IM} - Wrap a path/url to generate an HTML tag.
-  Often markup code: \code{![](url)} lacks flexibility with
-  centering and sizing.  \code{IM} enables conrol of
-  centering via altering the sty/center commands and
-  control of sizing via the numeric values supplied to
-  height and width.
+\code{IM} - Wrap a path/url to generate an HTML tag.  Often
+markup code: \code{![](url)} lacks flexibility with
+centering and sizing.  \code{IM} enables conrol of
+centering via altering the sty/center commands and control
+of sizing via the numeric values supplied to height and
+width.
 
-  \code{IM2} - A wrapper for \code{IM} that sets the base
-  path to "assets/img/". This allows the users to just
-  specify the image name that resides in one of the
-  following directories: 1-"\code{~/assets/img}" or
-  2-"\code{~/figure}".
+\code{IM2} - A wrapper for \code{IM} that sets the base
+path to "assets/img/". This allows the users to just
+specify the image name that resides in one of the following
+directories: 1-"\code{~/assets/img}" or
+2-"\code{~/figure}".
 
-  \code{IW} - Text wrapped images.
+\code{IW} - Text wrapped images.
 
-  \code{IMF} - A wrapper for \code{IM} that attempts to
-  find the image in expected image directories.  Uses the
-  first available image matching the image name.  No
-  path/url is specified.  IMS stands for `image locate`.
+\code{IMF} - A wrapper for \code{IM} that attempts to find
+the image in expected image directories.  Uses the first
+available image matching the image name.  No path/url is
+specified.  IMS stands for `image locate`.
 
-  \code{IM_MO} - Creates an HTML image tag with mouseover
-  grow/shrink properties.  Only takes integer width/height
-  values converted to px.
+\code{IM_MO} - Creates an HTML image tag with mouseover
+grow/shrink properties.  Only takes integer width/height
+values converted to px.
 }
 \note{
-  \code{IM_MO} Requires a link to the \file{js/reports.js}
-  in the document as well as the document itself.  Usually
-  this is done automatically upon the use of
-  \code{new_report}/\code{presentation}.  \code{IM_MO} only
-  takes integer width/height values which are converted to
-  px.
+\code{IM_MO} Requires a link to the \file{js/reports.js} in
+the document as well as the document itself.  Usually this
+is done automatically upon the use of
+\code{new_report}/\code{presentation}.  \code{IM_MO} only
+takes integer width/height values which are converted to
+px.
 }
 \examples{
 IM("http://cran.r-project.org/Rlogo.jpg", width= NULL, print=TRUE)

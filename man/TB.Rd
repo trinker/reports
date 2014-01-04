@@ -3,14 +3,12 @@
 \alias{TB2}
 \title{Wrap text in text boxes.}
 \usage{
-  TB(text = "clipboard", ..., col = "white",
-    border = "black", padding = 10, lty = "solid", lwd = 1,
-    bor.rad = 5, bold = FALSE, font.col = "black",
-    copy2clip = interactive(), print = FALSE)
+TB(text = "clipboard", ..., col = "white", border = "black",
+  padding = 10, lty = "solid", lwd = 1, bor.rad = 5, bold = FALSE,
+  font.col = "black", copy2clip = interactive(), print = FALSE)
 
-  TB2(text = "clipboard", width = nchar(text),
-    text_align = "center", box_align = "left",
-    copy2clip = interactive(), print = FALSE)
+TB2(text = "clipboard", width = nchar(text), text_align = "center",
+  box_align = "left", copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -59,12 +57,12 @@
   \code{"middle"}, \code{"bottom"}).}
 }
 \value{
-  Returns a character vector of an HTML text box tag.
+Returns a character vector of an HTML text box tag.
 }
 \description{
-  \code{TB} - Generates an HTML text box tag.
+\code{TB} - Generates an HTML text box tag.
 
-  \code{TB2} - Generates an HTML writable text box tag.
+\code{TB2} - Generates an HTML writable text box tag.
 }
 \examples{
 TB("I like ice cream!", print=TRUE)

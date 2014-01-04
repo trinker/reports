@@ -3,14 +3,12 @@
 \alias{new_vignette}
 \title{Vignette Template}
 \usage{
-  new_vignette(vignette = "vignette", type = "rmd",
-    path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"), open = is.global(2),
-    github = FALSE)
+new_vignette(vignette = "vignette", type = "rmd", path = getwd(),
+  bib.loc = NULL, name = getOption("name.reports"), open = is.global(2),
+  github = FALSE)
 
-  append_vignette(vignette = "vignette", type = "rmd",
-    path = getwd(), bib.loc = NULL,
-    name = getOption("name.reports"))
+append_vignette(vignette = "vignette", type = "rmd", path = getwd(),
+  bib.loc = NULL, name = getOption("name.reports"))
 }
 \arguments{
   \item{vignette}{A character string of the vignette name
@@ -44,14 +42,14 @@
   account.}
 }
 \value{
-  Creates a vignette template.
+Creates a vignette template.
 }
 \description{
-  \code{new_vignette} - Generate a vignettes template to
-  increase efficiency.
+\code{new_vignette} - Generate a vignettes template to
+increase efficiency.
 
-  \code{append_vignette} - Add vignettes to a pre-existing
-  vignettes directory.
+\code{append_vignette} - Add vignettes to a pre-existing
+vignettes directory.
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
@@ -64,11 +62,11 @@
 ## new_vignette()
 }
 \references{
-  \url{http://yihui.name/knitr/demo/vignette/}
+\url{http://yihui.name/knitr/demo/vignette/}
 
-  \url{http://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Writing-package-vignettes}
+\url{http://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Writing-package-vignettes}
 }
 \seealso{
-  \code{\link[utils]{browseVignettes}}
+\code{\link[utils]{browseVignettes}}
 }
 

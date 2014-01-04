@@ -2,14 +2,12 @@
 \alias{presentation}
 \title{Presentation Template}
 \usage{
-  presentation(presentation = "presentation",
-    type = c("rnw", "rmd"), theme = "Madrid",
-    bib.loc = getOption("bib.loc"),
-    name = getOption("name.reports"),
-    github.user = getOption("github.user"),
-    sources = getOption("sources.reports"), path = getwd(),
-    present = getOption("present.template"),
-    open = is.global(2), github = FALSE, ...)
+presentation(presentation = "presentation", type = c("rnw", "rmd"),
+  theme = "Madrid", bib.loc = getOption("bib.loc"),
+  name = getOption("name.reports"), github.user = getOption("github.user"),
+  sources = getOption("sources.reports"), path = getwd(),
+  present = getOption("present.template"), open = is.global(2),
+  github = FALSE, ...)
 }
 \arguments{
   \item{presentation}{A character vector of length two or
@@ -70,13 +68,13 @@
   \code{\link[slidify]{author}}.}
 }
 \value{
-  Creates a presentation template.
+Creates a presentation template.
 }
 \description{
-  Generate a presentation template to increase efficiency.
-  This is a lighter weight version of
-  \code{\link[reports]{new_report}} that focuses on the
-  presentation.
+Generate a presentation template to increase efficiency.
+This is a lighter weight version of
+\code{\link[reports]{new_report}} that focuses on the
+presentation.
 }
 \section{Suggestion}{
   The user may want to set \code{\link[base]{options}} for
@@ -99,17 +97,17 @@
 ## presentation("New")
 }
 \references{
-  \href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
-  examples}\cr
-  \href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
-  presentations}
+\href{https://github.com/ramnathv/slidifyExamples/tree/gh-pages/examples}{slidify
+examples}\cr
+\href{http://www.rstudio.com/ide/docs/presentations/overview}{RStudio
+presentations}
 }
 \seealso{
-  \code{\link[reports]{new_report}},
-  \code{\link[reports]{slidify_templates}},
-  \code{\link[slidify]{author}}
+\code{\link[reports]{new_report}},
+\code{\link[reports]{slidify_templates}},
+\code{\link[slidify]{author}}
 
-  \href{https://github.com/hakimel/reveal.js/}{Installation
-  section of reveal.js GitHub}
+\href{https://github.com/hakimel/reveal.js/}{Installation
+section of reveal.js GitHub}
 }
 

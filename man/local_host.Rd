@@ -3,41 +3,40 @@
 \alias{run_lh}
 \title{Generate Local Host Bash/Batch}
 \usage{
-  local_host(loc = QP("PRESENTATION"))
+local_host(loc = QP("PRESENTATION"))
 
-  run_lh(loc = QP("PRESENTATION"))
+run_lh(loc = QP("PRESENTATION"))
 }
 \arguments{
   \item{loc}{The path to the presentation directory.}
 }
 \value{
-  Creates a .sh/.bat file that opens a local host to that
-  directory.
+Creates a .sh/.bat file that opens a local host to that
+directory.
 }
 \description{
-  \code{local_host} - Create a .sh/.bat file to open a
-  presentation with a local host.
+\code{local_host} - Create a .sh/.bat file to open a
+presentation with a local host.
 
-  \code{run_lh} - Create and run a local host.
+\code{run_lh} - Create and run a local host.
 }
 \details{
-  The user must have \href{http://www.python.org/}{Python}
-  installed and on their path to be able to utilize this
-  function.  For more details see:
-  \url{http://www.youtube.com/watch?v=VlqpiKHz7Gw&feature=youtu.be}.
+The user must have \href{http://www.python.org/}{Python}
+installed and on their path to be able to utilize this
+function.  For more details see:
+\url{http://www.youtube.com/watch?v=VlqpiKHz7Gw&feature=youtu.be}.
 }
 \note{
-  The .sh/.bat file can not be ran by clicking on the file
-  from within RStudio.  Either open the directory and click
-  the file or use \code{run_lh}.
+The .sh/.bat file can not be ran by clicking on the file
+from within RStudio.  Either open the directory and click
+the file or use \code{run_lh}.
 }
 \examples{
 ## local_host()
 ## run_lh
 }
 \author{
-  Dason Kurkiewicz and Tyler Rinker
-  <tyler.rinker@gmail.com>
+Dason Kurkiewicz and Tyler Rinker <tyler.rinker@gmail.com>
 }
 \keyword{localhost}
 

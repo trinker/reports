@@ -2,7 +2,7 @@
 \alias{CA}
 \title{Capitalize Every Word of String}
 \usage{
-  CA(text = "clipboard", copy2clip = interactive())
+CA(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -12,13 +12,13 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector every word capitalized.
+Returns a character vector every word capitalized.
 }
 \description{
-  Capitalizes every word of a string.
+Capitalizes every word of a string.
 }
 \details{
-  This capitalizes every word of a string.
+This capitalizes every word of a string.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

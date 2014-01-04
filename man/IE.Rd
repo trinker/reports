@@ -2,7 +2,7 @@
 \alias{IE}
 \title{Flexible ifelse Like Functionality for Arguments}
 \usage{
-  IE(input, out1, out2 = NULL, FUN = is.numeric)
+IE(input, out1, out2 = NULL, FUN = is.numeric)
 }
 \arguments{
   \item{input}{An object to be tested.}
@@ -14,12 +14,12 @@
   \item{FUN}{A function that results in a logical output.}
 }
 \value{
-  Returns output 1 (out1) or output 2 (out2) as a function
-  of the logical test.
+Returns output 1 (out1) or output 2 (out2) as a function of
+the logical test.
 }
 \description{
-  Use in the place of \code{ifelse} for arguments
-  (particularly if \code{NULL} is an option).
+Use in the place of \code{ifelse} for arguments
+(particularly if \code{NULL} is an option).
 }
 \examples{
 IE(25, 360)

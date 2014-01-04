@@ -2,8 +2,8 @@
 \alias{QC}
 \title{Quick Convert: Pandoc Convert a String}
 \usage{
-  QC(to = "latex", from = "markdown", text = "clipboard",
-    copy2clip = interactive())
+QC(to = "latex", from = "markdown", text = "clipboard",
+  copy2clip = interactive())
 }
 \arguments{
   \item{to}{Pandoc type you're converting to (defualt is
@@ -19,13 +19,13 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector every word capitalized.
+Returns a character vector every word capitalized.
 }
 \description{
-  Uses Pandoc to convert from one form to another.
+Uses Pandoc to convert from one form to another.
 }
 \details{
-  This capitalizes every word of a string.
+This capitalizes every word of a string.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements
@@ -38,11 +38,10 @@ QC(text=x)
 QC(text=x, "html")
 }
 \author{
-  Michael Nelson and Tyler Rinker<tyler.rinker@gmail.com>.
+Michael Nelson and Tyler Rinker<tyler.rinker@gmail.com>.
 }
 \references{
-  \href{http://johnmacfarlane.net/pandoc/demos.html}{Pandoc
-  Website}
-  \url{http://stackoverflow.com/a/15539563/1000343}
+\href{http://johnmacfarlane.net/pandoc/demos.html}{Pandoc
+Website} \url{http://stackoverflow.com/a/15539563/1000343}
 }
 

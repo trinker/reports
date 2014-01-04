@@ -3,9 +3,9 @@
 \alias{folder}
 \title{Easy File Handling}
 \usage{
-  delete(file = NULL)
+delete(file = NULL)
 
-  folder(..., folder.name = NULL)
+folder(..., folder.name = NULL)
 }
 \arguments{
   \item{file}{The name of the file in the working directory
@@ -25,14 +25,14 @@
   spaces.}
 }
 \value{
-  \code{delete} permanently removes a file/directory.
+\code{delete} permanently removes a file/directory.
 
-  \code{folder} creates a folder/directory.
+\code{folder} creates a folder/directory.
 }
 \description{
-  \code{delete} - Deletes files and directories.
+\code{delete} - Deletes files and directories.
 
-  \code{folder} - Create a folder/directory.
+\code{folder} - Create a folder/directory.
 }
 \examples{
 \dontrun{
@@ -48,9 +48,9 @@ lapply(c("cat", "dog"), delete)
 }
 }
 \seealso{
-  \code{\link[base]{unlink}},
-  \code{\link[base]{file.remove}},
-  \code{\link[base]{dir.create}}
+\code{\link[base]{unlink}},
+\code{\link[base]{file.remove}},
+\code{\link[base]{dir.create}}
 }
 \keyword{delete,}
 \keyword{file,}

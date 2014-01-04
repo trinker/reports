@@ -2,8 +2,7 @@
 \alias{PN}
 \title{Insert Presenter Notes}
 \usage{
-  PN(text = "clipboard", copy2clip = interactive(),
-    print = FALSE)
+PN(text = "clipboard", copy2clip = interactive(), print = FALSE)
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -17,11 +16,11 @@
   If \code{FALSE} returns to the console.}
 }
 \value{
-  Returns a character vector wrapped with HTML aside tags.
+Returns a character vector wrapped with HTML aside tags.
 }
 \description{
-  Creates an aside of the class "notes" for slides (e.g.,
-  reveal.js slides).
+Creates an aside of the class "notes" for slides (e.g.,
+reveal.js slides).
 }
 \examples{
 PN("some fancy notes", print = TRUE)

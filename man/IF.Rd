@@ -2,10 +2,9 @@
 \alias{IF}
 \title{url to HTML iframe Tag}
 \usage{
-  IF(path = "clipboard", width = 640, height = 360,
-    center = TRUE, print = FALSE,
-    copy2clip = interactive(),
-    text = "Your browser does not support iframes.")
+IF(path = "clipboard", width = 640, height = 360, center = TRUE,
+  print = FALSE, copy2clip = interactive(),
+  text = "Your browser does not support iframes.")
 }
 \arguments{
   \item{path}{A character vector url/tag copied to the
@@ -29,11 +28,11 @@
   browser that do not support iframe tags.}
 }
 \value{
-  Returns a character vector of an HTML iframe tag that
-  embeds a document.
+Returns a character vector of an HTML iframe tag that
+embeds a document.
 }
 \description{
-  Wrap a url to generate an HTML iframe tag.
+Wrap a url to generate an HTML iframe tag.
 }
 \examples{
 IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE)
@@ -48,6 +47,6 @@ IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html",
   width=770, height=680, print=TRUE)
 }
 \references{
-  \url{http://www.w3schools.com/tags/tag_iframe.asp}
+\url{http://www.w3schools.com/tags/tag_iframe.asp}
 }
 

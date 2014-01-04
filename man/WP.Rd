@@ -2,8 +2,7 @@
 \alias{WP}
 \title{Convert Windows Path}
 \usage{
-  WP(from.clip = TRUE, quotes = TRUE,
-    copy2clip = interactive())
+WP(from.clip = TRUE, quotes = TRUE, copy2clip = interactive())
 }
 \arguments{
   \item{from.clip}{logical.  If \code{TRUE} path is read
@@ -17,11 +16,11 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector path with slashes oriented for
-  R.
+Returns a character vector path with slashes oriented for
+R.
 }
 \description{
-  Reorients Windows path backslashes to forward slashes.
+Reorients Windows path backslashes to forward slashes.
 }
 \examples{
 ## WP(FALSE)  #using readline <br>

@@ -2,7 +2,7 @@
 \alias{CN}
 \title{Wrap Text With HTML Courier New Font Tag}
 \usage{
-  CN(text = "clipboard", copy2clip = interactive())
+CN(text = "clipboard", copy2clip = interactive())
 }
 \arguments{
   \item{text}{A character vector or text copied to the
@@ -12,13 +12,13 @@
   copy the output to the clipboard.}
 }
 \value{
-  Returns a character vector wrapped with a courier new
-  font tag.
+Returns a character vector wrapped with a courier new font
+tag.
 }
 \description{
-  Wraps text with a courier new font tag. A specified
-  version of \code{FT} but more convient for constant use
-  of courier new tags.
+Wraps text with a courier new font tag. A specified version
+of \code{FT} but more convient for constant use of courier
+new tags.
 }
 \section{Warning}{
   Ligatures parsing is very good, however, these elements

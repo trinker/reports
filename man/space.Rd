@@ -3,9 +3,9 @@
 \alias{VS}
 \title{Insert HTML Space}
 \usage{
-  HS(n = 1, copy2clip = interactive())
+HS(n = 1, copy2clip = interactive())
 
-  VS(n = 1, copy2clip = interactive())
+VS(n = 1, copy2clip = interactive())
 }
 \arguments{
   \item{n}{Number of spaces to insert.}
@@ -14,12 +14,11 @@
   copy the output to the clipboard.}
 }
 \description{
-  Insert n iterations of HTML spacing into a document.
+Insert n iterations of HTML spacing into a document.
 }
 \details{
-  \code{HS} returns horizontal space (using \code{&nbsp;})
-  and \code{VS} returns vertical space (using
-  \code{</br>}).
+\code{HS} returns horizontal space (using \code{&nbsp;})
+and \code{VS} returns vertical space (using \code{</br>}).
 }
 \examples{
 paste0("reports", HS(10), "end")

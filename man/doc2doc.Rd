@@ -8,26 +8,26 @@
 \alias{tex2html}
 \title{Convert tex/markdown/html to docx/tex/html}
 \usage{
-  tex2docx(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+tex2docx(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  tex2html(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+tex2html(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  md2docx(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+md2docx(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  md2html(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+md2html(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  md2tex(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+md2tex(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  md2pdf(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+md2pdf(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 
-  html2pdf(in.file = NULL, out.file = NULL, path = QP(),
-    bib.loc = getOption("bib.loc"))
+html2pdf(in.file = NULL, out.file = NULL, path = QP(),
+  bib.loc = getOption("bib.loc"))
 }
 \arguments{
   \item{in.file}{A character vector of the tex/md file.}
@@ -47,19 +47,19 @@
   \item{bib.loc}{Optional path to a .bib resource.}
 }
 \description{
-  Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
-  convert tex/markdown/html to docx (or tex/html) for those
-  colleagues who use docx.
+Use \href{pandoc}{http://johnmacfarlane.net/pandoc/} to
+convert tex/markdown/html to docx (or tex/html) for those
+colleagues who use docx.
 }
 \details{
-  The user must have pandoc installed and on their path.
-  pandoc can be installed from: \cr
-  \href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
+The user must have pandoc installed and on their path.
+pandoc can be installed from: \cr
+\href{http://johnmacfarlane.net/pandoc/installing.html}{http://johnmacfarlane.net/pandoc/installing.html}
 }
 \note{
-  \code{md2docx}, \code{md2tex} and \code{md2pdf} converts
-  markdown (a .md file) not Rmarkdown (.Rmd).  Use knitr to
-  knit to HTML first (this creates the .md file).
+\code{md2docx}, \code{md2tex} and \code{md2pdf} converts
+markdown (a .md file) not Rmarkdown (.Rmd).  Use knitr to
+knit to HTML first (this creates the .md file).
 }
 \examples{
 \dontrun{
