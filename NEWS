@@ -108,7 +108,8 @@ MINOR FEATURES
 * New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, 
   `brew.slidify_rmd` `apa6.qual_rmd` and `apa6.quant_rmd` have been added.  
   
-    - See: http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/ for an example of the `apa6.qual_rmd` in html format.
+    - See: http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/ 
+      for an example of the `apa6.qual_rmd` in html format.
 
 * `SC` a function to quickly generate special HTML characters.
 
