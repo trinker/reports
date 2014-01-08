@@ -108,7 +108,7 @@ And constructed with the following guidelines:
 * New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, 
   `brew.slidify_rmd` `apa6.qual_rmd` and `apa6.quant_rmd` have been added.  
   
-  See: <a href="http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/" target="_blank">http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/</a> for an example of the `apa6.qual_rmd` in html format.
+    - See: <a href="http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/" target="_blank">http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/</a> for an example of the `apa6.qual_rmd` in html format.
 
 * `SC` a function to quickly generate special HTML characters.
 
