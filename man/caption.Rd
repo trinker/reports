@@ -1,15 +1,17 @@
-\name{caption}
-\alias{caption}
+\name{cap}
+\alias{cap}
 \alias{caption_figure}
 \alias{caption_table}
 \title{Captions for Figures and Tables}
 \usage{
-caption(type = 1, label, caption, copy2clip = interactive(),
-  print = FALSE)
+cap(type = 1, label, caption, style = "margin-bottom: 3em;",
+  copy2clip = interactive(), print = FALSE)
 
-caption_figure(label, caption, copy2clip = interactive(), print = FALSE)
+caption_figure(label, caption, style = "margin-bottom: 3em;",
+  copy2clip = interactive(), print = FALSE)
 
-caption_table(label, caption, copy2clip = interactive(), print = FALSE)
+caption_table(label, caption, style = "margin-top: 4em;",
+  copy2clip = interactive(), print = FALSE, spaces = 2)
 }
 \arguments{
   \item{type}{Either "figure" or "table" or accompanying
@@ -19,6 +21,9 @@ caption_table(label, caption, copy2clip = interactive(), print = FALSE)
 
   \item{caption}{A caption to place below/above a
   figure/table.}
+
+  \item{style}{Additional style elements to be passed to
+  the html \code{p} tag.}
 
   \item{copy2clip}{logical.  If \code{TRUE} attempts to
   copy the output to the clipboard.}
@@ -41,10 +46,8 @@ captions.
 captions.
 }
 \examples{
-\dontrun{
 caption_figure("fig1", "A random figure.")
 caption_table("tab1", "A table")
-}
 }
 \keyword{caption}
 

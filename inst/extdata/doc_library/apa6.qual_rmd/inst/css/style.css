@@ -1,0 +1,225 @@
+h1 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:normal;}
+
+h2 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:bold; padding-left: 10%;}
+
+h3 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; font-weight:bold; margin-left:1.25cm; padding-left: 10%;}
+
+h4 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; font-style:italic; font-weight:bold; margin-left:1.25cm; padding-left: 10%;}
+
+h5 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; font-style:italic; margin-left:1.25cm; padding-left: 10%; font-weight:normal;}
+
+h6 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; margin-left:1.25cm; padding-left: 10%;}
+
+h {margin-bottom:1.25cm;}
+
+body, td {
+   font-family:Serif;
+   font-face: times new roman ;
+   text-align: justify ;
+   background-color: white;
+   font-size: 18px;
+   margin: 8px;
+}
+
+body {
+    width: 80%;
+    margin: 5em auto auto 7em;
+}
+
+
+pre, code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+pre {
+   margin-left:3.35cm;
+   margin-right:2.5cm;
+}
+
+
+table, td, th {
+  border: none;
+}
+
+table { 
+    margin-left: auto; 
+    margin-right: auto ; 
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+blockquote {
+   margin:0;
+   margin-left:.7cm;
+   margin-bottom: 1em;
+   margin-top: 1em;
+   line-height: 2em;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:18pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+}
+
+
+@page { 
+   @top-left{
+       font-family: Helvetica, Arial, sans-serif; 
+       font-size: 18pt; 
+       font-weight: bolder; 
+       content: "XHTML-Print: A Proposal --- August 25, 2000"; 
+   } 
+ } 
+
+.icon img {
+  float: right;
+  border: 1px solid #ccc;
+}
+
+.index .internal {display: none;}
+
+ul.index li {
+	margin-bottom: 1.5em; 
+    margin-top: 1.5em; 
+	clear: both;
+}
+ol {
+	padding-left: 10%; 
+	margin-left: 1.5em;
+}
+
+div, iframe {
+    margin: 0 auto;
+	display:block;
+}
+
+
+img, iframe { display: block; margin-left: auto; margin-right: auto ; margin-top: 3em;}
+
+
+.hangingindent {	
+    padding-left: 50px ;
+    text-indent: -50px ;
+}
+
+.tab { text-indent: 50px; }
+
+.block { 
+    margin-bottom: 3.5em; 
+    margin-top: 1.5em; 
+	margin-left: 50px; 
+	margin-right: 50px; 	
+}
+
+
+.rChart {
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  width: 1600px;
+  height: 1200px;
+} 
+ 
+
+.stan {
+ 	margin-top: 1.5em;
+ 	line-height: 2em;
+ 	text-indent: 2.6em;
+}
+ 	
+.SingleSpace{line-height: 0em;}
+.DoubleSpace{line-height: 2em;}
+
+.textbox {
+    border-radius: 5px; 
+    color: #FFFFFF;
+    font-weight:bold;
+    padding:10px; 
+    border: 3px solid #990000;
+    background-color: #FF0000;
+}
+
+.form_left {
+    float:left;
+}
+
+
+.container {
+    box-shadow: 10px 10px 5px #888888;
+    width: 100%;
+    margin: 15em auto 5em;
+    margin-top:5em;
+    background: #FFF;
+}
+.container p {
+    padding-left: 10%;
+	padding-right: 10%;
+}
+
+.intro {
+    padding-left: 10%;
+	padding-right: 10%;
+    padding-top: 10%;
+	padding-bottom: 0%;
+}
+
+.end {
+    padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 8%;
+}
+
+body {
+   background: #efefef;
+}
+
+
+footer p {
+  margin-bottom: 0px;
+  color: #555;
+}
+
+.breaks {
+	margin-bottom:10%; 
+	margin-top:10%; 
+	color: #CDCDCD; 
+	width: 80%; 
+	background-color: #CDCDCD;
+}

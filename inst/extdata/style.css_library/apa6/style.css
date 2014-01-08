@@ -1,4 +1,4 @@
-h1 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:bold; }
+h1 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:normal;}
 
 h2 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:bold; }
 
@@ -8,7 +8,7 @@ h4 { font-family:Serif; text-align: left; font-face: times new roman ; font-size
 
 h5 { font-family:Serif; text-align: left; font-face: times new roman ; font-size: 18px; color: #000000; font-style:italic}
 
-h6 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; }
+h6 { font-family:Serif; text-align: center; font-face: times new roman ; font-size: 18px; color: #000000; text-transform:capitalize; font-weight:normal;}
 
 body, td {
    font-family:Serif;

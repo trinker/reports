@@ -452,6 +452,8 @@ function(report = "report", template = getOption("temp.reports"),
             file = RMD)
     }
     
+	delete("css")
+	
     o <- paste0("Report \"", report, "\" created:\n", x, "\n")
     class(o) <- "reports"
     

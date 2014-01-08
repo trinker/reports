@@ -1,0 +1,125 @@
+<div class="container">
+<p class="intro"></p>
+
+# Title
+# Name
+# Affiliation
+```{r setup, include=FALSE}
+# set global chunk options
+library(knitr); library(knitcitations); library(reports); library(ggplot2)
+library(rCharts); library(xtable)
+
+opts_chunk$set(
+	tidy = FALSE,
+    cache=FALSE
+)
+
+write.bibtex(c(                         ## temp bib delete these lines
+	rinker2013 = citation("reports"), 
+	ramnath2013 = citation("slidify"),
+    xie2013 = citation("knitr")
+))                                                
+bib <- read.bibtex("knitcitations.bib") ## temp bib delete these lines
+#bib <- read.bibtex(file.path(getwd(), basename(getOption("bib.loc"))))
+#cite in text using `r citet(bib[1])`
+```
+
+<hr class="breaks">
+
+# Abstract
+# *Keywords:*
+
+<hr class="breaks">
+
+## Introduction paragraphs...
+
+<p class="stan">Be sure to run the `r CN("custom_css")` function to style the RStudio preview html.</p>
+
+... research questions:
+
+1.    
+2.	 
+
+### Level 3 Header. 
+
+```{r fig.cap = "A caption"}
+ggplot(mtcars, aes(mpg, hp, color=as.factor(cyl))) + geom_point(size=3)
+```
+`r cap(1, "scatter1", "A simple ggplot image.")`
+
+### Level 3 Header. 
+
+> Here's a block quote... 
+
+<p class="stan">Content here.  Created using the reports package `r citep(bib[["rinker2013"]])`.  I've done my best to maintain APA6 standards in this document but within HTML5 some rules do not make sense.  For instance, there are no page breaks.</p>
+
+<hr class="breaks">
+
+## Method
+### Site.
+### Participants.
+### Data Collection. 
+### Analysis.
+### Researcher Role. 
+
+<hr class="breaks">
+
+## Findings
+### Level 3 Header.
+#### Level 4 Header.
+##### Level 5 Header.
+
+### Level 3 Header.
+### Level 3 Header.
+
+<hr class="breaks">
+
+## Discussion
+
+I can embed a video (see `r HR("#youtube", "Figure 2")`).
+
+`r YT("ArHQjQyIS70")`
+
+`r cap(1, "youtube", "A YouTube video.")`
+
+Using rCharts is easy too (see `r HR("#rchart", "Figure 3")`).
+
+
+``````{r nvd3plot2, results = 'asis', comment = NA, message = FALSE, echo = TRUE} 
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = 'multiBarChart')
+n1$set(width = 800, height=600)
+n1
+```
+
+`r cap(1, "rchart", "An rChart.")`
+
+### Implications.
+
+<p class="stan">We have a nice view of `r HR("#mtcars", "Table 1")`:</p>
+
+`r cap(2, "xtable", "A Nice Little xtable Output", style="margin-top: 3em;")`
+```{r results = "asis", comment=NA, echo=FALSE}
+data(tli)
+fm2 <- lm(tlimth ~ sex * ethnicty, data = tli)
+print(xtable(anova(fm2)), type="html")
+```
+
+### Limitations.
+
+### Conclusions. 
+
+<p class="stan">Yihui `r citet(bib[["xie20132"]])` and Ramnath `r citet(bib[["ramnath2013"]])` and others have created terrific report and presentation framework.</p>
+
+<hr class="breaks">
+
+# References
+<div class="hangingindent" style="padding-top:.5%;">  
+
+<p style="padding-top:0%;">
+```{r, echo=FALSE, results='asis'}
+bibliography("html", bulleted = FALSE) 
+```
+</p>
+
+<p class = "end"></p>
