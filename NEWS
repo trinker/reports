@@ -78,7 +78,7 @@ NEW FEATURES
 * Conversion functions: `md2docx`, `md2pdf`, `tex2html`, `html2pdf`, `tex2docx`, 
   `md2tex` have been added for a convenient way to convert between file types.
 
-* `rdirs` reclusively creates multiple directories.
+* `rdirs` recursively creates multiple directories.
 
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.

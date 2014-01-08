@@ -31,7 +31,7 @@ And constructed with the following guidelines:
 * `tex2docx` and other document conversion functions (see: 
   https://github.com/trinker/reports/blob/master/R/tex2docx.R) generated an 
   error if the file path contained a space (see: 
-  <a href="http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).">http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).</a>
+  <a href="http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package)." target="_blank">http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).</a>
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
   <a href="https://github.com/trinker/reports/issues/31">pull request #31</a>.
 
@@ -78,14 +78,14 @@ And constructed with the following guidelines:
 * Conversion functions: `md2docx`, `md2pdf`, `tex2html`, `html2pdf`, `tex2docx`, 
   `md2tex` have been added for a convenient way to convert between file types.
 
-* `rdirs` reclusively creates multiple directories.
+* `rdirs` recursively creates multiple directories.
 
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.
 
 * `custom_css` function for creating the components necessary for custom css 
   file for use with RStudio + knitr.  See: 
-  <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering">http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering</a>
+  <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering" target="_blank">http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering</a>
 
 * `css_styles` and `css_style_change` compliment `custom_css`.  The former 
   provides internal style.css files : see https://github.com/trinker/style.css_examples.
@@ -108,7 +108,7 @@ And constructed with the following guidelines:
 * New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, 
   `brew.slidify_rmd` `apa6.qual_rmd` and `apa6.quant_rmd` have been added.  
   
-  See: <a href="http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/">http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/</a> for an example of the `apa6.qual_rmd` in html format.
+  See: <a href="http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/" target="_blank">http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/</a> for an example of the `apa6.qual_rmd` in html format.
 
 * `SC` a function to quickly generate special HTML characters.
 
@@ -156,7 +156,7 @@ And constructed with the following guidelines:
 * The `"rstudio"` template has been added as a template for project creating 
   functions (`presentation`, `new_report` and `new_vignette`) presentations.  Use
   `present = "rstudio"`.  For more information see:
-  <a href="http://www.rstudio.com/ide/docs/presentations/overview">http://www.rstudio.com/ide/docs/presentations/overview</a>
+  <a href="http://www.rstudio.com/ide/docs/presentations/overview" target="_blank">http://www.rstudio.com/ide/docs/presentations/overview</a>
 
 * `folder` takes a nested directory, in other words it generates multiple 
   non-existent nested directories.
@@ -170,10 +170,10 @@ IMPROVEMENTS
   be passed to the template option like speed dial. See ?new_report for more.
 
 * The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a staticdocs generated help site: 
-  <a href="http://trinker.github.io/reports/">http://trinker.github.io/reports/</a>
+  <a href="http://trinker.github.io/reports/" target="_blank">http://trinker.github.io/reports/</a>
   
 * The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a related programs/packages help site: 
-  <a href="http://trinker.github.io/reports/dependencies">http://trinker.github.io/reports/dependencies</a>
+  <a href="http://trinker.github.io/reports/dependencies" target="_blank">http://trinker.github.io/reports/dependencies</a>
 
 * <a href="https://github.com/trinker/reports" target="_blank">reports</a> gains an HTML vignette (with video explanations) to better explain 
   package use.  Use `browseVignettes(package = 'reports')` to view the vignette.
