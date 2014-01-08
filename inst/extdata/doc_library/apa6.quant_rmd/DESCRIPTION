@@ -1,0 +1,9 @@
+Template: apa6.quant
+Date: 2014-01-07
+Doc Type: rmd
+Author: Tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: A minimal APA6 compliant .Rmd quantitative template.  Some APA9 rules are not followed such as page breaks and inline headers.
+License: GPL-2
+Presentation: rmd
+Outline: rmd 
