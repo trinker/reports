@@ -11,6 +11,8 @@
 #' clipboard. 
 #' @param print logical.  If \code{TRUE} \code{\link[base]{cat}} prints the 
 #' output to the  console.  If \code{FALSE} returns to the console. 
+#' @param spaces An integer value dictating the number of lines to skip after 
+#' the table caption header.
 #' @return Returns a character vector of a caption.
 #' @keywords caption
 #' @rdname caption
@@ -19,7 +21,7 @@
 #' caption_figure("fig1", "A random figure.")
 #' caption_table("tab1", "A table")
 cap <- function(type = 1, label, caption, style="margin-bottom: 3em;",
-	copy2clip = interactive(), print = FALSE) {
+	copy2clip = interactive(), print = FALSE, spaces = 2) {
 	
 	if (any(type %in% c(1, "figure"))) {
         caption_figure(label = label, caption = caption, style = style, 
@@ -27,7 +29,8 @@ cap <- function(type = 1, label, caption, style="margin-bottom: 3em;",
 	} else {
         if (any(type %in% c(2, "table"))) {
     		    caption_table(label = label, caption = caption, 
-    		    	style = style, copy2clip = copy2clip, print = print)
+    		    	style = style, copy2clip = copy2clip, print = print, 
+    		    	spaces = spaces)
     		
         } else {
         	stop("type must be \"figure\", \"table\", 1, or 2")

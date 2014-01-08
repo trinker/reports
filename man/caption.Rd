@@ -5,7 +5,7 @@
 \title{Captions for Figures and Tables}
 \usage{
 cap(type = 1, label, caption, style = "margin-bottom: 3em;",
-  copy2clip = interactive(), print = FALSE)
+  copy2clip = interactive(), print = FALSE, spaces = 2)
 
 caption_figure(label, caption, style = "margin-bottom: 3em;",
   copy2clip = interactive(), print = FALSE)
@@ -31,6 +31,9 @@ caption_table(label, caption, style = "margin-top: 4em;",
   \item{print}{logical.  If \code{TRUE}
   \code{\link[base]{cat}} prints the output to the console.
   If \code{FALSE} returns to the console.}
+
+  \item{spaces}{An integer value dictating the number of
+  lines to skip after the table caption header.}
 }
 \value{
 Returns a character vector of a caption.
