@@ -31,7 +31,7 @@ And constructed with the following guidelines:
 * `tex2docx` and other document conversion functions (see: 
   https://github.com/trinker/reports/blob/master/R/tex2docx.R) generated an 
   error if the file path contained a space (see: 
-  http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).
+  <a href="http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).">http://stackoverflow.com/questions/17897359/error-with-tex2docx-function-from-reports-r-package).</a>
   Bug caught by MYaseen208 of stackoverflow.com and fixed by Gergely Daróczi via 
   <a href="https://github.com/trinker/reports/issues/31">pull request #31</a>.
 
@@ -85,7 +85,7 @@ And constructed with the following guidelines:
 
 * `custom_css` function for creating the components necessary for custom css 
   file for use with RStudio + knitr.  See: 
-  http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering
+  <a href="http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering">http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering</a>
 
 * `css_styles` and `css_style_change` compliment `custom_css`.  The former 
   provides internal style.css files : see https://github.com/trinker/style.css_examples.
@@ -105,8 +105,10 @@ And constructed with the following guidelines:
 * `BV` a function, bibliography viewer, that allows the user to view their 
   bibliographies stored in the .bib file.
 ,
-* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, and 
-  `brew.slidify_rmd` have been added.
+* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, 
+  `brew.slidify_rmd` `apa6.qual_rmd` and `apa6.quant_rmd` have been added.  
+  
+  See: <a href="http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/">http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/</a> for an example of the `apa6.qual_rmd` in html format.
 
 * `SC` a function to quickly generate special HTML characters.
 
@@ -152,9 +154,9 @@ And constructed with the following guidelines:
   GitHub public account upon creation.
 
 * The `"rstudio"` template has been added as a template for project creating 
-  functions (`presentation`, `new_report` and `new_vignette`)presentations.  Use
+  functions (`presentation`, `new_report` and `new_vignette`) presentations.  Use
   `present = "rstudio"`.  For more information see:
-  http://www.rstudio.com/ide/docs/presentations/overview
+  <a href="http://www.rstudio.com/ide/docs/presentations/overview">http://www.rstudio.com/ide/docs/presentations/overview</a>
 
 * `folder` takes a nested directory, in other words it generates multiple 
   non-existent nested directories.
@@ -168,10 +170,10 @@ IMPROVEMENTS
   be passed to the template option like speed dial. See ?new_report for more.
 
 * The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a staticdocs generated help site: 
-  http://trinker.github.io/reports/
+  <a href="http://trinker.github.io/reports/">http://trinker.github.io/reports/</a>
   
 * The <a href="https://github.com/trinker/reports" target="_blank">reports</a> package now has a related programs/packages help site: 
-  http://trinker.github.io/reports/dependencies
+  <a href="http://trinker.github.io/reports/dependencies">http://trinker.github.io/reports/dependencies</a>
 
 * <a href="https://github.com/trinker/reports" target="_blank">reports</a> gains an HTML vignette (with video explanations) to better explain 
   package use.  Use `browseVignettes(package = 'reports')` to view the vignette.

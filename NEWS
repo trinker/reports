@@ -105,8 +105,10 @@ MINOR FEATURES
 * `BV` a function, bibliography viewer, that allows the user to view their 
   bibliographies stored in the .bib file.
 ,
-* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, and 
-  `brew.slidify_rmd` have been added.
+* New templates `wordpress_rmd`, `hw_rmd` `hw_rnw`, `brew.min_rmd`, 
+  `brew.slidify_rmd` `apa6.qual_rmd` and `apa6.quant_rmd` have been added.  
+  
+  See: http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/ for an example of the `apa6.qual_rmd` in html format.
 
 * `SC` a function to quickly generate special HTML characters.
 
@@ -152,7 +154,7 @@ MINOR FEATURES
   GitHub public account upon creation.
 
 * The `"rstudio"` template has been added as a template for project creating 
-  functions (`presentation`, `new_report` and `new_vignette`)presentations.  Use
+  functions (`presentation`, `new_report` and `new_vignette`) presentations.  Use
   `present = "rstudio"`.  For more information see:
   http://www.rstudio.com/ide/docs/presentations/overview
 
