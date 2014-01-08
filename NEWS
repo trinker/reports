@@ -167,7 +167,7 @@ IMPROVEMENTS
   effectively, whereas previously "fi" was assumed if a ligature was detected.
 
 * `new_report` now allows global options to be set that allows numeric values to 
-  be passed to the template option like speed dial. See ?new_report for more.
+  be passed to the template option like speed dial. See `?new_report` for more.
 
 * The reports package now has a staticdocs generated help site: 
   http://trinker.github.io/reports/
