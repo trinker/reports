@@ -33,7 +33,7 @@ pre, code.r, code.cpp {
 
 pre {
    margin-left:3.35cm;
-   margin-right:2.5cm;
+   margin-right:3cm;
 }
 
 
@@ -50,7 +50,7 @@ table {
 
 blockquote {
    margin:0;
-   margin-left:.7cm;
+   margin-left:1.35cm;
    margin-bottom: 1em;
    margin-top: 1em;
    line-height: 2em;
