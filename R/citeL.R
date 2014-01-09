@@ -91,6 +91,10 @@ citeL <- function(text.loc = NULL, copy2clip = interactive(), citation = TRUE) {
 #' @export 
 parenciteL <- function(text.loc = NULL, copy2clip = interactive(), 
 	citation = TRUE) {
+	
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    }  	
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -152,7 +156,10 @@ parenciteL <- function(text.loc = NULL, copy2clip = interactive(),
 #' @export 
 textciteL <- function(text.loc = NULL, copy2clip = interactive(), 
 	citation = TRUE) {
-	
+
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    }  
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -217,7 +224,10 @@ textciteL <- function(text.loc = NULL, copy2clip = interactive(),
 #' @export 
 possciteL <- function(text.loc = NULL, copy2clip = interactive(), 
 	citation = TRUE) {
-	
+
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    } 	
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -282,7 +292,10 @@ possciteL <- function(text.loc = NULL, copy2clip = interactive(),
 #' @export 
 posciteL <- function(text.loc = NULL, copy2clip = interactive(), 
 	citation = TRUE) {
-	
+
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    } 
 	out <- CITEhelper(text.loc = text.loc)
     text <- mgsub(
     	c("\\&\\#8212;", "\\&\\#8211;", "``\\&euml;''", "\\&aacute;",
@@ -352,6 +365,9 @@ posciteL <- function(text.loc = NULL, copy2clip = interactive(),
 parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
 	copy2clip = interactive(), citation = TRUE, bib.name = "bib") {
 	
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    } 	
 	out <- CITEhelper(text.loc = text.loc, to = "markdown")
     text <- out[[1]]
     if ((wc(text) > 39) | force.block) {
@@ -393,7 +409,10 @@ parenciteM <- function(text.loc = NULL, width = 70, force.block = TRUE,
 #' @export
 textciteM <- function(text.loc = NULL, width = 70, force.block = TRUE, 
 	copy2clip = interactive(), citation = TRUE, bib.name = "bib") {
-	
+
+    if (Sys.info()["sysname"] != "Windows") {
+        writeClipboard <- NULL
+    } 
 	out <- CITEhelper(text.loc = text.loc, to = "markdown")
     text <- out[[1]]
     if ((wc(text) > 39) | force.block) {
