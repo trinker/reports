@@ -1,6 +1,5 @@
 language: java
 
-script: ./travis-tool.sh run_tests
 before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
@@ -15,6 +14,7 @@ install:
   - ./travis-tool.sh install_deps
   - "sudo apt-get install xclip xsel --no-install-recommends --yes"
   - sudo apt-get install pandoc
+script: ./travis-tool.sh run_tests
 notifications:
   email:
     on_success: change
