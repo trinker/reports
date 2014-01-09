@@ -3,7 +3,7 @@ Date: 2014-01-07
 Doc Type: rmd
 Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
-Description: A minimal APA6 compliant quantitative .Rmd template.  Some APA9 rules are not followed such as page breaks and inline headers.
+Description: A minimal APA6 compliant quantitative .Rmd template.  Some APA9 rules are not followed such as page breaks and inline headers.  See: http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/inst/ex_files/index.html/ for an example.
 License: GPL-2
 Presentation: rmd
 Outline: rmd 
