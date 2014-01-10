@@ -92,8 +92,10 @@ repo2github <- function(password, project.dir = getwd(),
             "\" https://api.github.com/user/repos -d " , json )
         
         ## Make .gitignore and README
-        cat(GI, file=file.path(project.dir, ".gitignore"))      
-        cat(sprintf("%s\n===", repo), file=file.path(project.dir, "README.md"))           
+        cat(GI, file=file.path(project.dir, ".gitignore"))     
+    	if (!file.exists(file.path(project.dir, "README.md"))) {
+            cat(sprintf("%s\n===", repo), file=file.path(project.dir, "README.md"))     
+    	}
 	
     }
     system(cmd1)  
