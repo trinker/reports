@@ -162,6 +162,8 @@ And constructed with the following guidelines:
 * `folder` takes a nested directory, in other words it generates multiple 
   non-existent nested directories.
 
+* `qrepo` has been addded to make quick minimal repositories read for GitHub.
+
 IMPROVEMENTS
 
 * `GQ`, `CA`, `LL` and `US` parse out both "fi" and "fl" ligatures more 

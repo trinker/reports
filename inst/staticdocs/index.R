@@ -7,6 +7,7 @@ list(
         "new_report",
         "new_vignette",
         "presentation",
+      	"qrepo",
         "templates"
       )
     ),
