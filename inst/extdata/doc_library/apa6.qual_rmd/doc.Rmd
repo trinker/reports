@@ -98,7 +98,7 @@ n1
 
 <p class="stan">We have a nice view of `r HR("#mtcars", "Table 1")`:</p>
 
-`r cap(2, "xtable", "A Nice Little xtable Output", style="margin-top: 3em;")`
+`r cap(2, "mtcars", "A Nice Little xtable Output", style="margin-top: 3em;")`
 ```{r results = "asis", comment=NA, echo=FALSE}
 data(tli)
 fm2 <- lm(tlimth ~ sex * ethnicty, data = tli)
