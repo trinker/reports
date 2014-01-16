@@ -14,10 +14,9 @@ qrepo(repo = "repo", github.user = getOption("github.user"),
   created.  Default is the current working directory.}
 
   \item{open}{logical.  If \code{TRUE} the project will be
-  opened in RStudio. The default is to test if
-  \code{presentation} is being used in the global
-  environment, if it is then the project directory will be
-  opened.}
+  opened in RStudio. The default is to test if \code{qrepo}
+  is being used in the global environment, if it is then
+  the project directory will be opened.}
 
   \item{github}{logical.  If \code{TRUE} the repo will be
   sent to public \href{https://github.com/}{GitHub}

@@ -7,7 +7,7 @@
 #' @param path The path to where the project should be created.  Default is the 
 #' current working directory.
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
-#' The default is to test if \code{presentation} is being used in the global 
+#' The default is to test if \code{qrepo} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
 #' @param github logical.  If \code{TRUE} the repo will be sent to public 
 #' \href{https://github.com/}{GitHub} account.
