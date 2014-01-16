@@ -391,21 +391,111 @@ http://htmlpreview.github.io/?https://github.com/trinker/reports/blob/master/ins
 
 <h3>Implications.</h3>
 
-<p class="stan">We have a nice view of <a href="#mtcars">Table 1</a>:</p>
+<p class="stan">We have a nice view of <a href="#mtcars">Table 1</a>.  Here we use the <a href="">texreg</a> package as seen in the following code:</p>  
 
-<p id="mtcars" style="margin-top: 3em;">Table 1<br><br><em>A Nice Little xtable Output</em></p>
+<pre><code class="r">library(nlme); library(texreg)
+model.1 &lt;- lme(distance ~ age, data = Orthodont, random = ~ 1)
+model.2 &lt;- lme(distance ~ age + Sex, data = Orthodont, random = ~ 1)
 
-<!-- html table generated in R 3.1.0 by xtable 1.7-1 package -->
+htmlreg(list(model.1, model.2),  
+    inline.css = FALSE, doctype = FALSE, caption = &quot;&quot;,
+    head.tag = TRUE, body.tag = TRUE)
+</code></pre>
 
-<!-- Wed Jan 08 14:08:11 2014 -->
+<p>And then the output:</p>
 
-<TABLE border=1>
-<TR> <TH>  </TH> <TH> Df </TH> <TH> Sum Sq </TH> <TH> Mean Sq </TH> <TH> F value </TH> <TH> Pr(&gt F) </TH>  </TR>
-  <TR> <TD> sex </TD> <TD align="right"> 1 </TD> <TD align="right"> 75.37 </TD> <TD align="right"> 75.37 </TD> <TD align="right"> 0.38 </TD> <TD align="right"> 0.5395 </TD> </TR>
-  <TR> <TD> ethnicty </TD> <TD align="right"> 3 </TD> <TD align="right"> 2572.15 </TD> <TD align="right"> 857.38 </TD> <TD align="right"> 4.31 </TD> <TD align="right"> 0.0068 </TD> </TR>
-  <TR> <TD> sex:ethnicty </TD> <TD align="right"> 2 </TD> <TD align="right"> 298.43 </TD> <TD align="right"> 149.22 </TD> <TD align="right"> 0.75 </TD> <TD align="right"> 0.4748 </TD> </TR>
-  <TR> <TD> Residuals </TD> <TD align="right"> 93 </TD> <TD align="right"> 18480.04 </TD> <TD align="right"> 198.71 </TD> <TD align="right">  </TD> <TD align="right">  </TD> </TR>
-   </TABLE>
+<p id="mtcars" style="margin-top: 3em;">Table 1<br><br><em>A Nice Little texreg Output</em></p>
+
+<p><head>
+  <title></title>
+  <style type="text/css">
+    table {
+      border: none;
+    }
+    th {
+      text-align: left;
+      border-top: 2px solid black;
+      border-bottom: 1px solid black;
+      padding-right: 12px;
+    }
+    .midRule {
+      border-top: 1px solid black;
+    }
+    .bottomRule {
+      border-bottom: 2px solid black;
+    }
+    td {
+      padding-right: 12px;
+      border: none;
+    }
+    sup {
+      vertical-align: 4px;
+    }
+  </style>
+</head></p>
+
+<p><body>
+  <table cellspacing="0" align="center">
+    <tr>
+      <th></th>
+      <th><b>Model 1</b></th>
+      <th><b>Model 2</b></th>
+    </tr>
+    <tr>
+      <td>(Intercept)</td>
+      <td>16.76<sup><strong><em></sup></td>
+      <td>17.71<sup></em></strong></sup></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>(0.80)</td>
+      <td>(0.83)</td>
+    </tr>
+    <tr>
+      <td>age</td>
+      <td>0.66<sup><strong><em></sup></td>
+      <td>0.66<sup></em></strong></sup></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>(0.06)</td>
+      <td>(0.06)</td>
+    </tr>
+    <tr>
+      <td>SexFemale</td>
+      <td></td>
+      <td>-2.32<sup><strong></sup></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>(0.76)</td>
+    </tr>
+    <tr>
+      <td class="midRule">AIC</td>
+      <td class="midRule">455.00</td>
+      <td class="midRule">447.51</td>
+    </tr>
+    <tr>
+      <td>BIC</td>
+      <td>465.66</td>
+      <td>460.78</td>
+    </tr>
+    <tr>
+      <td>Log Likelihood</td>
+      <td>-223.50</td>
+      <td>-218.76</td>
+    </tr>
+    <tr>
+      <td class="bottomRule">Num. obs.</td>
+      <td class="bottomRule">108</td>
+      <td class="bottomRule">108</td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="font-size:0.8em"><sup></strong><em></sup>p &lt; 0.001, <sup></em><em></sup>p &lt; 0.01, <sup></em></sup>p &lt; 0.05</span></td>
+    </tr>
+  </table>
+</body></p>
 
 <h3>Limitations.</h3>
 
