@@ -10,10 +10,6 @@ qrepo(repo = "repo", github.user = getOption("github.user"),
 
   \item{github.user}{GitHub user name (character string).}
 
-  \item{sources}{A vector of path(s) to other scripts to be
-  sourced in the report project upon startup (adds this
-  location to the report project's \code{.Rprofile}).}
-
   \item{path}{The path to where the project should be
   created.  Default is the current working directory.}
 
