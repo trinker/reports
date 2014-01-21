@@ -38,10 +38,10 @@
 \date{\today}
 \maketitle
 
-To enable Markdown vignettes in an R package, you need to:
+To enable knitr + Rnw vignettes in an R package, you need to:
 
 \begin{enumerate}
-  \item add `*.Rmd` files under the `inst/doc` or `vignettes` directory
+  \item add `*.Rnw` files under the `inst/doc` or `vignettes` directory
   \item add `VignetteBuilder: knitr` to the `DESCRIPTION` file
   \item specify the vignette engine `\VignetteEngine{knitr}`
 \end{enumerate}
