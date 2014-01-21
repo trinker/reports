@@ -15,8 +15,8 @@
 %====================
 \renewcommand{\sfdefault}{lmss}
 \renewcommand{\ttdefault}{lmtt}
-\code{\\newcommand\\posscite[1]{\\citeauthor{#1}'s (\\citeyear{#1})}} 
-\code{\\newcommand\\poscite[1]{\\citeauthor{#1}' (\\citeyear{#1})}} 
+\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})}
+\newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}
 %====================
 %  Formatting
 %====================
