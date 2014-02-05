@@ -80,7 +80,7 @@ prin <- function(x, print) {
 }
 
 read_clip <- function() {
-	    ## The code for this helper function comes from the oveRflow package.  
+    ## The code for this helper function comes from the oveRflow package.  
     ## # https://raw.github.com/sebastian-c/oveRflow/master/R/writeClip.R
     ## This is code I submitted but was modified by the package maintainers.
     ## The idea to keep this function as a modular unit makes sense and was 
