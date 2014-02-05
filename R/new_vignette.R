@@ -40,13 +40,17 @@ function(vignette = "vignette", type = "rmd", path = getwd(),
     bib.loc = NULL, name = getOption("name.reports"), open = is.global(2),
     github = FALSE) {
 
+
+    ## Warning for path = R home
+	if (path == Sys.getenv("R_HOME")) stop("path can not be `R_HOME`")
+	
     ## preparing type
     type <- tolower(type)
     TYPE <- type
 
     ## Check type make sure valid rmd or rnw
     if (!type %in% c("rnw", "rmd")) {
-        stop("Please select either \"rnw\" or \"rmd\" for type")
+        stop("Please select either \"rnw\" or \"rmd\" for `type`")
     }
 
     ## reconfigure vignette name and type 

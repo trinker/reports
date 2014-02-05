@@ -21,6 +21,9 @@ qrepo <- function(repo = "repo", github.user = getOption("github.user"),
     ## Replace spaces in repo name with underscore
     repo <- gsub("\\s+", "_", repo)
 
+    ## Warning for path = R home
+	if (path == Sys.getenv("R_HOME")) stop("path can not be `R_HOME`")
+	
     ## Check if repo already exists; user inputs handling of conflicts
     if(file.exists(file.path(path, repo))) {
         message(paste0("\"", file.path(path, repo), 

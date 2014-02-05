@@ -70,6 +70,10 @@ presentation <- function(presentation = "presentation", type = c("rnw", "rmd"),
     sources = getOption("sources.reports"), path = getwd(), 
     present = getOption("present.template"), open = is.global(2), github = FALSE,
     ...) {
+
+
+    ## Warning for path = R home
+	if (path == Sys.getenv("R_HOME")) stop("path can not be `R_HOME`")
 	
     presentation <- gsub("\\s+", "_", presentation)
     main <- head(presentation, 1)	

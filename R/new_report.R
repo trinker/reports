@@ -84,7 +84,11 @@ function(report = "report", template = getOption("temp.reports"),
     sources = getOption("sources.reports"), path = getwd(), AN.xlsx = TRUE, 
     present = getOption("present.template"), open = is.global(2), github = FALSE,
 	...) {
- 
+
+	
+    ## Warning for path = R home
+	if (path == Sys.getenv("R_HOME")) stop("path can not be `R_HOME`")
+
     slidify <- present 
     if (is.null(template)) template <- "apa6.mod.quant_rnw"
     if (is.numeric(template)) {
