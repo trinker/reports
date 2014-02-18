@@ -38,14 +38,14 @@ rdirs <- function(..., path = getwd(), sep = "_", pad.num = TRUE,
     plist[nums] <- invisible(lapply(pieces[nums], function(x) {
         x <- eval(parse(text=x))
         if (pad.num) {
-            x <- pad(x)
+            x <- pad(x, sort = FALSE)
         }
         x
     }))
     nms <- paste2(plist, sep=sep)
     if (!text.only) {
         invisible(lapply(file.path(path, nms), dir.create))
-        cat(paste0("directories create in: \n", path, "\n"))
+        message(paste0("directories create in: \n", path, "\n"))
         invisible(nms)
     } else {
         return(nms)
