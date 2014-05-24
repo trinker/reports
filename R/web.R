@@ -93,7 +93,7 @@ function(path, ...) {
 #' @param x The read.web object
 #' @param \ldots ignored
 #' @method print read.web
-#' @S3method print read.web
+#' @export
 print.read.web <-
 function(x, ...) {
     WD <- options()[["width"]]

@@ -481,7 +481,7 @@ function(report = "report", template = getOption("temp.reports"),
 #' @param x The reports object.
 #' @param \ldots ignored
 #' @method print reports
-#' @S3method print reports
+#' @export
 print.reports <-
 function(x, ...) {
     class(x) <- NULL
