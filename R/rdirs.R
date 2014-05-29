@@ -20,6 +20,7 @@
 #' \code{\link[base]{dir.create}}
 #' @keywords file, directory, folder
 #' @export
+#' @importFrom qdapTools pad
 #' @examples
 #' ## fx <- folder(delete_me)
 #' ## owd <- getwd(); setwd(fx)

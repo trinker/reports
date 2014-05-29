@@ -1,8 +1,21 @@
+---
+title:  "reports Package Vignette"
+author: "Tyler Rinker"
+date:   '2014-05-28'
+output: 
+  html_document:
+    css: assets/fix-bootstrap.css
+    toc: yes  
+    pandoc_args: [
+      "--biblio", "references.bib",
+      "--csl", "ecology.csl"
+      ]
+---
+
 <!--
 %\VignetteEngine{knitr}
 %\VignetteIndexEntry{A Markdown Vignette with knitr}
 -->
-
 
 
 # reports Package Vignette
@@ -51,7 +64,6 @@ The reports package assumes the user has some familiarity with the report writin
 
 <hr>
 <h3 id="rprofile">Setting Up .Rprofile</h3>
-
 
 
 The user may want to set the following options in her <a href="http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html" target="_blank">.Rprofile</a>.  This will add efficiency to your workflow. <a href="http://www.youtube.com/watch?v=oZrVlsWMDBc&feature=youtu.be" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
@@ -186,7 +198,6 @@ rdirs(admin, 1:15, c("d", "f", "w"), c(1, 4, 6), text.only = TRUE)
 [13] "admin_13_d_1" "admin_14_f_4" "admin_15_w_6"
 ```
 
-
 <font size="5" color="gold">&diams;</font> **Chunk 3**- *Create dated folders* <font size="5" color="gold">&diams;</font>
 <pre><code class="r">rdirs(session, 1:12, seq(as.Date("2000/1/1"), by = "month", length.out = 12))</code></pre>
 
@@ -257,21 +268,17 @@ The reports package has an integrated system citation related functions that can
 The user can view the bibkey and document title of the references in the .bib files via the <a href="http://trinker.github.io/reports_dev/BV.html" target="_blank"><code>BV</code></a> (bib view) function.
 
 <font size="5" color="gold">&diams;</font> **Example** <font size="5" color="gold">&diams;</font>
+<pre><code class="r">head(BV())
+</code></pre>
 
-```r
-head(BV())
-```
-
-```
-  num bibkey           title                                   
+<pre><code>  num bibkey           title                                   
 1   1 Yihui20131       knitr: A general-purpose package for dyn
 2   2 Yihui20132       Dynamic Documents with {R} and knitr    
 3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
 4   4 Boettiger2013    knitcitations: Citations for knitr markd
 5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
 6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
-```
-
+</code></pre>
 <hr>
 
 **Citation Family of Functions**
@@ -282,15 +289,14 @@ Each of the functions in the cite family follow a pattern of (cite, parencite, t
 <pre><code class="r">\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})} 
 \newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}</code></pre>
 
-The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the <a href="https://github.com/cboettig/knitcitations" target="_blank">knitcitations</a> (<a href="https://github.com/cboettig/knitcitations">Boettiger, 2013</a>) package.
+The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the <a href="https://github.com/cboettig/knitcitations" target="_blank">knitcitations</a> (<a href="http://CRAN.R-project.org/package=knitcitations">Boettiger, 2014</a>) package.
 
 <font size="5" color="gold">&diams;</font> **Example 1** - *parenthesis cite* <font size="5" color="gold">&diams;</font>
 
 ```r
 parenciteM(1, force.block = FALSE)
 ```
-
-<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)</code></pre>
+<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" &#180;r  citep("Rinker2013a")&#180;</code></pre>
  
 "An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)
 
@@ -300,9 +306,8 @@ parenciteM(1, force.block = FALSE)
 ```r
 textciteM(1, force.block = FALSE)
 ```
-
-<pre><code>&#180;r  citet(x=bib[["Rinker2013a"]])&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
-<a href="http://github.com/trinker/qdap">Rinker (2013)</a> "An **EXAMPLE**; feel "free" to *delete* it ***soon***"
+<pre><code>&#180;r  citet("Rinker2013a")&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
+<a href="http://github.com/trinker/qdap">Rinker (2013b)</a>"An **EXAMPLE**; feel "free" to *delete* it ***soon***"
 
 The <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> (L) versions of the functions work in a similar fashion but are used in .Rnw documents.
 <hr>
@@ -324,12 +329,10 @@ BIB <- system.file("extdata/docs/example.bib", package = "reports")
 tex2docx(DOC, file.path(getwd(), "test.docx"), path = NULL, bib.loc = BIB)
 ```
 
-
 \****Note*** *that all of the conversion functions can be used to convert any legitimate Pandoc conversion but if the* ***from2to*** *format is not followed the documents and paths must be explicitly supplied as arguments to the reports conversion function.*
 
 <hr>
 <h3 id="html">HTML Shortcuts</h3>
-
 
 
 
@@ -384,7 +387,6 @@ CN("new_report()")
 ```
 [1] <font face="courier">new_report()</font>
 ```
-
 <font face="courier">new_report()</font>
 <hr>
 
@@ -399,9 +401,7 @@ EM("tyler.rinker@gmail.com", print = TRUE)
 ```
 <a href="mailto:tyler.rinker@gmail.com" target="_blank">tyler.rinker@gmail.com</a>
 ```
-
 <a href="mailto:tyler.rinker@gmail.com" target="_blank">tyler.rinker@gmail.com</a>
-
 <hr>
 
 ### <p id="FT"><a href="http://trinker.github.io/reports_dev/FT.html" target="_blank">FT (font)</a></p>
@@ -416,9 +416,7 @@ FT(6, text="guy")
 ```
 [1] <font size="6">guy</font>
 ```
-
 [1] <font size="6">guy</font>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** <font size="5" color="gold">&diams;</font>
 
@@ -429,9 +427,7 @@ FT(6, blue, text="guy")
 ```
 [1] <font size="6" color="blue">guy</font>
 ```
-
 [1] <font size="6" color="blue">guy</font>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** <font size="5" color="gold">&diams;</font>
 
@@ -442,9 +438,7 @@ FT(6, red, times_new_roman, text="guy")
 ```
 [1] <font size="6" color="red" face="times new roman">guy</font>
 ```
-
 [1] <font size="6" color="red" face="times new roman">guy</font>
-
 <hr>
 
 ### <p id="HL"><a href="http://trinker.github.io/reports_dev/HL.html" target="_blank">HL (highlight text)</a></p>
@@ -458,9 +452,7 @@ cat(HL("Do not trust robots!"), "They are bent on destruction.")
 ```
 <font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.
 ```
-
 <font style="background-color: #FFFF00;">Do not trust robots!</font> They are bent on destruction.
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** <font size="5" color="gold">&diams;</font>
 
@@ -471,9 +463,7 @@ cat(HL("Jake is a cookie scientist,", color="pink"), "an honorable profession.")
 ```
 <font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.
 ```
-
 <font style="background-color: #FFC0CB;">Jake is a cookie scientist,</font> an honorable profession.
-
 
 
 ### <p id="HR"><a href="http://trinker.github.io/reports_dev/hyperref.html" target="_blank">HR/HR2/BT (hyperrefs and buttons)</a></p>
@@ -493,9 +483,7 @@ HR(path="http://dl.dropbox.com/u/61803503/Likert.pdf", print = TRUE)
 ```
 <a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a>
 ```
-
 <a href="http://dl.dropbox.com/u/61803503/Likert.pdf">Likert.pdf</a>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** - *HR demo: no text given--<a href="http://stat.ethz.ch/R-manual/R-patched/library/base/html/basename.html">basename</a> used; opens in same window* <font size="5" color="gold">&diams;</font>
 
@@ -506,9 +494,7 @@ HR("http://cran.r-project.org/", print = TRUE)
 ```
 <a href="http://cran.r-project.org/">cran.r-project.org</a>
 ```
-
 <a href="http://cran.r-project.org/">cran.r-project.org</a>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** - *HR demo: text given; opens in same window* <font size="5" color="gold">&diams;</font>
 
@@ -519,9 +505,7 @@ HR("http://www.rstudio.com/ide/download/desktop", "click me", print = TRUE)
 ```
 <a href="http://www.rstudio.com/ide/download/desktop">click me</a>
 ```
-
 <a href="http://www.rstudio.com/ide/download/desktop">click me</a>
-
 
 <font size="5" color="gold">&diams;</font> **Example 4** - *HR2 demo: text given; opens in new window* <font size="5" color="gold">&diams;</font>
 
@@ -532,9 +516,7 @@ HR2("https://github.com/trinker/reports", "reports", print = TRUE)
 ```
 <a href="https://github.com/trinker/reports" target="_blank">reports</a>
 ```
-
 <a href="https://github.com/trinker/reports" target="_blank">reports</a>
-
 
 <font size="5" color="gold">&diams;</font> **Example 5** - *BT demo* <font size="5" color="gold">&diams;</font>
 
@@ -547,11 +529,9 @@ BT("http://trinker.github.io/reports/dependencies", "Click Here!", print = TRUE)
     <input type="submit" value="Click Here!">
 </form>
 ```
-
 <form action="http://trinker.github.io/reports/dependencies">
     <input type="submit" value="Click Here!">
 </form>
-
 
 
 <hr>
@@ -568,9 +548,7 @@ cat(paste0("reports", HS(10), "end"))
 ```
 reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
 ```
-
 reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</br>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** - *VS demo: single space* <font size="5" color="gold">&diams;</font>
 
@@ -581,9 +559,7 @@ cat(paste0("the", VS(), "end"))
 ```
 the</br>end
 ```
-
 the</br>end</br>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** - *HS demo: multiple spaces* <font size="5" color="gold">&diams;</font>
 
@@ -594,9 +570,7 @@ cat(paste0("the", VS(3), "end"))
 ```
 the</br></br></br>end
 ```
-
 the</br></br></br>end</br>
-
 
 <hr>
 
@@ -614,11 +588,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/MWE.html", print = TRUE, height
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/MWE.html" width="640" height="250">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/MWE.html" width="640" height="250">Your browser does not support iframes.</iframe>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** <font size="5" color="gold">&diams;</font>
 
@@ -631,11 +603,9 @@ IF("http://www.online-stopwatch.com/countdown-clock/full-screen/", height=400, c
      <iframe src="http://www.online-stopwatch.com/countdown-clock/full-screen/" width="640" height="400">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="http://www.online-stopwatch.com/countdown-clock/full-screen/" width="640" height="400">Your browser does not support iframes.</iframe>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** <font size="5" color="gold">&diams;</font>
 
@@ -648,11 +618,9 @@ IF("http://www.dosketch.com/", width=1100, height=650, print=TRUE)
      <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="http://www.dosketch.com/" width="1100" height="650">Your browser does not support iframes.</iframe>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 4** <font size="5" color="gold">&diams;</font>
 
@@ -665,11 +633,9 @@ IF("http://glimmer.rstudio.com/pssguy/TVShowRatings/", width="100%", height=650,
      <iframe src="http://glimmer.rstudio.com/pssguy/TVShowRatings/" width="100%" height="650">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="http://glimmer.rstudio.com/pssguy/TVShowRatings/" width="100%" height="650">Your browser does not support iframes.</iframe>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 5** <font size="5" color="gold">&diams;</font>
 
@@ -682,13 +648,11 @@ IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", wid
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html" width="1150" height="750">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html" width="1150" height="750">Your browser does not support iframes.</iframe>
 </div>
 
-
-<font size="5" color="gold">&diams;</font> **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package (<a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">Gesmann & Castillo, 2011</a>)* <font size="5" color="gold">&diams;</font>
+<font size="5" color="gold">&diams;</font> **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package (<a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">Gesmann &amp; Castillo, 2011</a>)* <font size="5" color="gold">&diams;</font>
 
 ```r
 IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
@@ -699,11 +663,9 @@ IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html" width="770" height="680">Your browser does not support iframes.</iframe>
 </div>
 ```
-
 <div style="text-align:center;">
      <iframe src="https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html" width="770" height="680">Your browser does not support iframes.</iframe>
 </div>
-
 <hr>
 
 ### <p id="IM"><a href="http://trinker.github.io/reports_dev/image.html" target="_blank">IM/IM2/IW (images and text-wrapped images)</a></p>
@@ -725,11 +687,9 @@ IM("http://cran.r-project.org/Rlogo.jpg", width=NULL, print=TRUE)
     <p><img src="http://cran.r-project.org/Rlogo.jpg"></p>
 </div>
 ```
-
 <div style="width:480px;margin:auto;">
     <p><img src="http://cran.r-project.org/Rlogo.jpg"></p>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** - *IM demo: uses default <code>width = 540, height = IE(width, 360)</code> to size* <font size="5" color="gold">&diams;</font>
 
@@ -742,11 +702,9 @@ IM("https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG", print=TR
     <p><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></p>
 </div>
 ```
-
 <div style="width:567px;margin:auto;">
     <p><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" width="540" height="360"></p>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** - *IM demo: hyperlinked image* <font size="5" color="gold">&diams;</font>
 
@@ -759,11 +717,9 @@ IM("http://cran.r-project.org/Rlogo.jpg", NULL, print=TRUE, link = "http://cran.
     <p><a href="http://cran.r-project.org" target="_blank"><img src="http://cran.r-project.org/Rlogo.jpg"></a></p>
 </div>
 ```
-
 <div style="width:480px;margin:auto;">
     <p><a href="http://cran.r-project.org" target="_blank"><img src="http://cran.r-project.org/Rlogo.jpg"></a></p>
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 4** - *IM demo: assumed image directory* <font size="5" color="gold">&diams;</font>
 
@@ -782,7 +738,6 @@ IM2("Rlogo.jpg", loc=2, center=FALSE)
 ```
 [1] "<img src=\"figure/Rlogo.jpg\" width=\"540\" height=\"360\">"
 ```
-
 
 <font size="5" color="gold">&diams;</font> **Example 5** - *IW demo: text wrapped image with hyperlink* <font size="5" color="gold">&diams;</font> </br></br>
 <pre><code class="r">&#96;r IW("http://www.talkstats.com/images/misc/logo.png", "http://www.talkstats.com/", width=140, height=75)&#96;</code></pre>
@@ -811,11 +766,9 @@ PN("some fancy notes", print = TRUE)
 some fancy notes <br>
 </aside>
 ```
-
 <aside class="notes">
 some fancy notes <br>
 </aside>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** - *multiline with \n as separator* <font size="5" color="gold">&diams;</font>
 
@@ -830,13 +783,11 @@ PN("1) some\n2) fancy\n3) notes", print = TRUE)
 3) notes <br>
 </aside>
 ```
-
 <aside class="notes">
 1) some <br>
 2) fancy <br>
 3) notes <br>
 </aside>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3** - *multiline on separate lines* <font size="5" color="gold">&diams;</font>
 <pre><code class="r">PN("1) some<br>2) fancy<br>3) notes", print = TRUE)</code></pre>    
@@ -850,13 +801,11 @@ PN("1) some\n2) fancy\n3) notes", print = TRUE)
 </aside>
 ```
 
-
 <aside class="notes">
 1) some  <br>
 2) fancy  <br>
 3) notes <br>
 </aside>
-
 
 <hr>
 
@@ -873,11 +822,9 @@ RF()
 ```
 
 
-
 <hr>
 ### <p id="SC"><a href="http://trinker.github.io/reports_dev/SC.html" target="_blank">SC (special character)</a></p>
 The general use of SCis to provide a character string of length 2. The first character is a letter and the second is one of the following symbols (left column) and HTML equivalent (right column): 
-
 
 
 
@@ -1042,7 +989,6 @@ SC("o")
 
 [1] "&deg;"
 
-
 <hr>
 ### <p id="TB"><a href="http://trinker.github.io/reports_dev/TB.html" target="_blank">TB (text box)</a></p>
 Wrap text to generate an HTML text box tag.  <a href="http://trinker.github.io/reports_dev/TB.html" target="_blank"><code>TB</code></a> is a traditional text box using div tags whereas <a href="http://trinker.github.io/reports_dev/TB.html" target="_blank"><code>TB2</code></a> is a writable text box.
@@ -1058,11 +1004,9 @@ TB("I like ice cream!", print=TRUE)
     I like ice cream!
 </div>
 ```
-
 <div style="background-color: white; border-radius: 5px; padding:10px; border: 1px solid black; color: black; ">
     I like ice cream!
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2** <font size="5" color="gold">&diams;</font>
 
@@ -1075,11 +1019,9 @@ TB("Free cookies for a year!", col = "red", font.col="white", print=TRUE)
     Free cookies for a year!
 </div>
 ```
-
 <div style="background-color: red; border-radius: 5px; padding:10px; border: 1px solid black; color: white; ">
     Free cookies for a year!
 </div>
-
 
 
 <font size="5" color="gold">&diams;</font> **Example 3** <font size="5" color="gold">&diams;</font>
@@ -1093,11 +1035,9 @@ TB2("I like ice cream!", print=TRUE)
     <input style="text-align:center" name="box1" type="text" value="I like ice cream!" size="17" />
 </div>
 ```
-
 <div align="left">
     <input style="text-align:center" name="box1" type="text" value="I like ice cream!" size="17" />
 </div>
-
 
 <font size="5" color="gold">&diams;</font> **Example 4** <font size="5" color="gold">&diams;</font>
 
@@ -1110,11 +1050,9 @@ TB2("Free cookies for a year!", print=TRUE)
     <input style="text-align:center" name="box1" type="text" value="Free cookies for a year!" size="24" />
 </div>
 ```
-
 <div align="left">
     <input style="text-align:center" name="box1" type="text" value="Free cookies for a year!" size="24" />
 </div>
-
 
 <hr>
 ### <p id="YT"><a href="http://trinker.github.io/reports_dev/video.html" target="_blank">YT/VM (insert video)</a></p>
@@ -1129,9 +1067,7 @@ YT("ArHQjQyIS70", print = TRUE)
 ```
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
-
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
-
 
 <font size="5" color="gold">&diams;</font> **Example 2**- *YouTube using full url* <font size="5" color="gold">&diams;</font>
 
@@ -1142,9 +1078,7 @@ YT("http://www.youtube.com/watch?v=ArHQjQyIS70", print = TRUE)
 ```
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
 ```
-
 <iframe class="youtube-player" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/ArHQjQyIS70?autoplay=0" frameborder="0"></iframe>
-
 
 <font size="5" color="gold">&diams;</font> **Example 3**- *Vimeo video* <font size="5" color="gold">&diams;</font>
 
@@ -1155,9 +1089,7 @@ VM("http://vimeo.com/54007714", print = TRUE)
 ```
 <iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 ```
-
 <iframe src="http://player.vimeo.com/video/54007714" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
 
 <hr>
 ### <p id="color"><a href="http://trinker.github.io/reports_dev/col2hex.html" target="_blank">col2hex (colors)</a></p>
@@ -1187,9 +1119,7 @@ cat(paste0("<hr color=\"", col2hex("red"), "\" size=\"4\">"))
 ```
 <hr color="#FF0000" size="4">
 ```
-
 <hr color="#FF0000" size="4">
-
 <hr>
 <h3 id="temp">Custom Templates <a href="http://youtu.be/CMmHOvMrEvQ" target="_blank" style="text-decoration: none"><b><font size="5" color="#B22222">[YT]</font></b></a>
 </h3> 
@@ -1231,7 +1161,6 @@ When using <a href="http://yihui.name/knitr/" target="_blank">knitr</a> with RSt
 custom_css()
 ```
 
-
 After the appropriate files are created the user adds custom styling to the ~/css/style.css.  The user has to source before the custom styles will be applied. The user may specify <font face="courier">rfprofile = TRUE</font> in <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> to add the style.R to the .Rprofile for sourcing upon startup. Otherwise, the user must open the style.R as the active tab in RStudio, check the `Source on Save` box and the click the save icon.
 
 Note that the path to a style.css can be supplied to <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>custom_css</code></a> via the <font face="courier">style.css</font> argument.  This may be a user defined file or an internal file from the reports style.css library (see <a href="http://trinker.github.io/reports_dev/custom_css.html" target="_blank"><code>css_styles</code></a>).  For examples see: <a href="https://github.com/trinker/style.css_examples" target="_blank">https://github.com/trinker/style.css_examples</a>.  Feel free to submit your own style.css to the reports package &lt;<a href="mailto:reports.rpackage@gmail.com" target="_blank">reports.rpackage@gmail.com</a>&gt; marked with <b>style.css template</b> in the subject line.
@@ -1252,14 +1181,15 @@ The reports package is just a collection of the best R tools.  A special thanks 
 
 
 
-
 ## References
 
-- Carl Boettiger,   (2013) knitcitations: Citations for knitr markdown files.  <a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a>
-- Markus Gesmann, Diego Castillo,   (2011) googleVis: Interface between R and the Google Visualisation API.  <em>The R Journal</em>  <strong>3</strong>  (2)   40-44  <a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf</a>
-- Tyler Rinker,   (2013) {qdap}: {Q}uantitative Discourse Analysis Package.  <a href="http://github.com/trinker/qdap">http://github.com/trinker/qdap</a>
-- Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a>
-- Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a>
-- Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a>
+<ul>
+<li>Carl Boettiger,   (2013) knitcitations: Citations for knitr markdown files.  <a href="https://github.com/cboettig/knitcitations"><a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a></a></li>
+<li>Markus Gesmann, Diego Castillo,   (2011) googleVis: Interface between R and the Google Visualisation API.  <em>The R Journal</em>  <strong>3</strong>  (2)   40-44  <a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf"><a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de%7ECastillo.pdf">http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf</a></a></li>
+<li>Tyler Rinker,   (2013) {qdap}: {Q}uantitative Discourse Analysis Package.  <a href="http://github.com/trinker/qdap"><a href="http://github.com/trinker/qdap">http://github.com/trinker/qdap</a></a></li>
+<li>Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports"><a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a></a></li>
+<li>Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/"><a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a></a></li>
+<li>Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595"><a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a></a></li>
+</ul>
 
 

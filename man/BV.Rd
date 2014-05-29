@@ -13,7 +13,7 @@ last "main_dir/PRESENTATION/_.bib" in that order).}
 \item{col.width}{An integer value of the maximum width of columns.}
 }
 \value{
-Returns a truncated view of user notes.
+Returns a truncated view of user references (.bib file).
 }
 \description{
 Allows a truncated view of your .bib.

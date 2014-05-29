@@ -1,3 +1,17 @@
+---
+title:  "reports Package Vignette"
+author: "Tyler Rinker"
+date:   '`r Sys.Date()`'
+output: 
+  html_document:
+    css: assets/fix-bootstrap.css
+    toc: yes  
+    pandoc_args: [
+      "--biblio", "references.bib",
+      "--csl", "ecology.csl"
+      ]
+---
+
 <!--
 %\VignetteEngine{knitr}
 %\VignetteIndexEntry{A Markdown Vignette with knitr}
@@ -5,16 +19,18 @@
 
 ```{r setup, include=FALSE}
 # set global chunk options
-library(knitr)
+library(knitr); library(qdapTools)
 opts_chunk$set(cache=FALSE, tidy=FALSE, comment = NA)
 options(xtable.type = 'html')
 # library(googleVis)
-library(knitcitations); library(reports); library(pander); library(qdap); library(xtable)
+#library(knitcitations); 
+library(reports); library(pander); library(qdap); library(xtable)
 
-write.bibtex(c(Yihui2013 = citation("knitr"), Boettiger2013 = citation("knitcitations"), 
-    Vaidyanathan2012=citation("slidify"), Rinker2013a = citation("qdap"), 
-	Rinker2013b = citation("reports"), Gesmann2011 = citation("googleVis")))
-bib <- read.bibtex("knitcitations.bib")
+#names(bib)
+#write.bibtex(c(Yihui2013 = citation("knitr"), Boettiger2013 = citation("knitcitations"), 
+#    Vaidyanathan2012=citation("slidify"), Rinker2013a = citation("qdap"), 
+#	Rinker2013b = citation("reports"), Gesmann2011 = citation("googleVis")))
+#bib <- read.bibtex("knitcitations.bib")
 
 #names(bib)
 
@@ -31,7 +47,7 @@ yt <- function(url) {
 # reports Package Vignette
 ## Tyler Rinker
 
-The reports package `r citep(bib[["Rinker2013b"]])` is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
+The reports package (<a href="http://github.com/trinker/reports">Rinker, 2013</a>) is designed to bring together the best R has to offer in report writing in an intuitive fashion. The user houses everything related to the writing process in one accessible location.  The reports package assists in writing reports and presentations by providing a frame work that brings together existing R, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs/packages to maximize the effectiveness of the reports package.
 
 The reports package assumes the user has some familiarity with the report writing programs/packages it depends on.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.  This manual will not help the user to understand these dependencies as they have their own help documentation.  Many functions in the reports package are set with defaults that assume the user is utilizing `r HR2("http://www.rstudio.com/", "RStudio")`.  This vignette assumes that the user is also operating out of the root directory of the new_report/presentation in RStudio.
 
@@ -231,7 +247,7 @@ setwd(WD)</code></pre>
 
 <h4 id="sync">Image File Synchronization `r yt("http://youtu.be/bhArI_dp4B8")`</h4> 
 
-The `r HR2(LN("sync"), "sync family of functions")` are also useful for syncing files between directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify `r citep(bib[["Vaidyanathan2012"]])`.  The base version in the family, `r FUN("sync")` is generic and syncs files between 2 directories.  The `r HR2(LN("sync"), "sync_all")` function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
+The `r HR2(LN("sync"), "sync family of functions")` are also useful for syncing files between directories.  This is particularly useful with the figure files in the REPORT and PRESENTATION directories and/or the img directory used by slidify (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>).  The base version in the family, `r FUN("sync")` is generic and syncs files between 2 directories.  The `r HR2(LN("sync"), "sync_all")` function is specifically designed to sync any files between the three image directories in a new_report/presentation directory.  
  
 <hr>
 To use `r HR2(LN("sync"), "sync_all")` simply type:
@@ -279,9 +295,17 @@ The reports package has an integrated system citation related functions that can
 The user can view the bibkey and document title of the references in the .bib files via the `r FUN("BV")` (bib view) function.
 
 `r FT(gold, 5, text="&diams;")` **Example** `r FT(gold, 5, text="&diams;")`
-```{r }
-head(BV())
-```
+<pre><code class="r">head(BV())
+</code></pre>
+
+<pre><code>  num bibkey           title                                   
+1   1 Yihui20131       knitr: A general-purpose package for dyn
+2   2 Yihui20132       Dynamic Documents with {R} and knitr    
+3   3 Yihui20133       knitr: A Comprehensive Tool for Reproduc
+4   4 Boettiger2013    knitcitations: Citations for knitr markd
+5   5 Vaidyanathan2012 slidify: Generate reproducible html5 sli
+6   6 Rinker2013a      {qdap}: {Q}uantitative Discourse Analysi
+</code></pre>
 <hr>
 
 **Citation Family of Functions**
@@ -292,23 +316,23 @@ Each of the functions in the cite family follow a pattern of (cite, parencite, t
 <pre><code class="r">\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})} 
 \newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}</code></pre>
 
-The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the `r HR2("https://github.com/cboettig/knitcitations")` `r citep(bib[["Boettiger2013"]])` package.
+The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the `r HR2("https://github.com/cboettig/knitcitations")` (<a href="http://CRAN.R-project.org/package=knitcitations">Boettiger, 2014</a>) package.
 
 `r FT(gold, 5, text="&diams;")` **Example 1** - *parenthesis cite* `r FT(gold, 5, text="&diams;")`
 ```{r eval=FALSE}
 parenciteM(1, force.block = FALSE)
 ```
-<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`</code></pre>
+<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" &#180;r  citep("Rinker2013a")&#180;</code></pre>
  
-"An **EXAMPLE**; feel "free" to *delete* it ***soon***" `r  citep(x=bib[["Rinker2013a"]], page="12")`
+"An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)
 
  
 `r FT(gold, 5, text="&diams;")` **Example 2** - *textcite* `r FT(gold, 5, text="&diams;")`
 ```{r eval=FALSE}
 textciteM(1, force.block = FALSE)
 ```
-<pre><code>&#180;r  citet(x=bib[["Rinker2013a"]])&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
-`r  citet(x=bib[["Rinker2013a"]])` "An **EXAMPLE**; feel "free" to *delete* it ***soon***"
+<pre><code>&#180;r  citet("Rinker2013a")&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
+<a href="http://github.com/trinker/qdap">Rinker (2013b)</a>"An **EXAMPLE**; feel "free" to *delete* it ***soon***"
 
 The <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> (L) versions of the functions work in a similar fashion but are used in .Rnw documents.
 <hr>
@@ -577,7 +601,7 @@ IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", wid
 IF("https://dl.dropboxusercontent.com/u/61803503/Slides/reports/index.html", width=1150, height=750, print=TRUE)
 ```
 
-`r FT(gold, 5, text="&diams;")` **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package `r citep(bib[["Gesmann2011"]])`* `r FT(gold, 5, text="&diams;")`
+`r FT(gold, 5, text="&diams;")` **Example 6** *Here's an example of embedding a beautiful interactive visualization compliments of the googleVis package (<a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf">Gesmann &amp; Castillo, 2011</a>)* `r FT(gold, 5, text="&diams;")`
 ```{r }
 IF("https://dl.dropboxusercontent.com/u/61803503/presentations/tmp.html", width=770, height=680, print=TRUE)
 ```
@@ -850,7 +874,7 @@ Note that the path to a style.css can be supplied to `r FUN("custom_css")` via t
 
 <hr>
 
-<h4 id="odd3">Presentations (`r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` and `r HR2("http://slidify.org/", "Slidify")` `r citep(bib["Vaidyanathan2012"])`)</h4>
+<h4 id="odd3">Presentations (`r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` and `r HR2("http://slidify.org/", "Slidify")` (<a href="http://ramnathv.github.com/slidify/">Vaidyanathan, 2012</a>))</h4>
 
 The reports package relies on the flexible `r HR2("http://slidify.org/", "slidify package")` and lightweight `r HR2("http://www.rstudio.com/ide/docs/presentations/overview", "RStudio's .Rpres")` framework for presentation generation.  For possible slidify templates that can be supplied to `r FT(green, courier_new, text="present")` in project generating functions use the `r FUN("slidify_templates")` function (for the RStudio .Rpres option use `r FT(green, courier_new, text="present = \"rstudio\"")`).  For slidify examples see: https://github.com/ramnathv/slidifyExamples.  The user will want to become familiar with both of these presentation approaches.
 
@@ -858,7 +882,7 @@ The reports package relies on the flexible `r HR2("http://slidify.org/", "slidif
 
 ## Acknowledgements
 
-The reports package is just a collection of the best R tools.  A special thanks to `r HR2("http://yihui.name/", "Yihui")` `r citet(bib[['Yihui20133']])` for his work with the `r HR2("http://yihui.name/knitr/", "knitr package")` and `r HR2("http://people.mcgill.ca/ramnath.vaidyanathan/", "Ramnath Vaidyanathan")` for his `r HR2("http://slidify.org/", "slidify package")`.  These R packages are the core of the reports package.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.
+The reports package is just a collection of the best R tools.  A special thanks to `r HR2("http://yihui.name/", "Yihui")` <a href="http://www.crcpress.com/product/isbn/9781466561595">Xie (2013)</a> for his work with the `r HR2("http://yihui.name/knitr/", "knitr package")` and `r HR2("http://people.mcgill.ca/ramnath.vaidyanathan/", "Ramnath Vaidyanathan")` for his `r HR2("http://slidify.org/", "slidify package")`.  These R packages are the core of the reports package.  For a complete list of reports dependencies `r HR2("http://trinker.github.io/reports/dependencies", "click here")`.
 <hr> 
 
 ```{r css, echo = FALSE}
@@ -867,7 +891,17 @@ options(markdown.HTML.stylesheet = "css/style.css")
 
 
 ## References
-```{r, echo=FALSE, results='asis'}
-bibliography("html") 
-```
 
+<ul>
+<li>Carl Boettiger,   (2013) knitcitations: Citations for knitr markdown files.  <a href="https://github.com/cboettig/knitcitations"><a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a></a></li>
+<li>Markus Gesmann, Diego Castillo,   (2011) googleVis: Interface between R and the Google Visualisation API.  <em>The R Journal</em>  <strong>3</strong>  (2)   40-44  <a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf"><a href="http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de%7ECastillo.pdf">http://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf</a></a></li>
+<li>Tyler Rinker,   (2013) {qdap}: {Q}uantitative Discourse Analysis Package.  <a href="http://github.com/trinker/qdap"><a href="http://github.com/trinker/qdap">http://github.com/trinker/qdap</a></a></li>
+<li>Tyler Rinker,   (2013) {reports}: {P}ackage to asssist in report writing.  <a href="http://github.com/trinker/reports"><a href="http://github.com/trinker/reports">http://github.com/trinker/reports</a></a></li>
+<li>Ramnath Vaidyanathan,   (2012) slidify: Generate reproducible html5 slides from R markdown.  <a href="http://ramnathv.github.com/slidify/"><a href="http://ramnathv.github.com/slidify/">http://ramnathv.github.com/slidify/</a></a></li>
+<li>Yihui Xie,   (2013) knitr: A Comprehensive Tool for Reproducible Research in {R}.  <a href="http://www.crcpress.com/product/isbn/9781466561595"><a href="http://www.crcpress.com/product/isbn/9781466561595">http://www.crcpress.com/product/isbn/9781466561595</a></a></li>
+</ul>
+
+```{r clean-up, include=FALSE}
+# R compiles all vignettes in the same session, which can be bad
+rm(list = ls(all = TRUE))
+```

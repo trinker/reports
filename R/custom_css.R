@@ -177,3 +177,67 @@ css_style_add <- function(loc = QP("PRESENTATION/assets/css")) {
 	}
 }
 
+
+#' Generate Custom css for RStudio + knitr
+#'
+#' \code{custom_pandoc_style} - Generate the components necessary for a custom 
+#' pandoc styling for use with RStudio and knitr.
+#'  
+#' @rdname custom_css
+#' @export
+custom_pandoc_style <-
+function(rprofile = FALSE, loc = QP("REPORT"), source = TRUE) {	
+	
+    if (!is.null(loc)) {	
+    	if (!file.exists(loc)) {
+            stop(sprintf("%s does not exist", loc))	
+    	}
+    }
+
+    ## Create the pandoc style
+    x <- c("options(rstudio.markdownToHTML =", 
+        "  function(inputFile, outputFile) { ",     
+        "    system(paste(\"pandoc\", shQuote(inputFile), \"-o\", shQuote(outputFile)))",
+        "  }",
+        ")\n"  
+    )
+	
+    if (!is.null(loc)) {
+        cat(paste(x, collapse = "\n"), file = file.path(loc, "style.R"))
+        
+        ## Direct where to change css options
+            message("Custom pandoc styling has been generated for your report.\n\n")        
+    }
+    
+    ## Add style.R to .Rprofile for sourcing on load
+    if (rprofile) {
+    	if (sum(dir(all.files = TRUE) == ".Rprofile") > 0) {
+        
+        ## Test if .Rprofile already contains the style.R function
+        RP <- gsub("\\s", "", paste(suppressWarnings(readLines(".Rprofile")), 
+            collapse = ""))
+        XP <- gsub("\\s", "", paste(x, collapse=""))
+            if (!grepl(XP, RP, fixed = TRUE)) {
+                cat(paste(c("\n\n", x), collapse = "\n"), file = ".Rprofile", 
+                append=TRUE)
+            } else {
+                warning(paste0(".Rprofile already contains style.R function:\n",
+                    "`rprofile = TRUE` argument ignored")) 
+            }
+    	} else {
+    		cat(paste(x, collapse = "\n"), file = ".Rprofile")
+    	}
+    }    
+    
+    ## Source it for the first time
+    if (source) {
+        options(rstudio.markdownToHTML = 
+          function(inputFile, outputFile) {      
+            system(paste("pandoc", shQuote(inputFile), "-o", shQuote(outputFile)))
+          }
+        )  
+    }
+}
+
+ 
+

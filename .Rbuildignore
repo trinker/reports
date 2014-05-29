@@ -25,3 +25,4 @@ vignettes/TO_DO
 vignettes/knitcitations.bib
 vignettes/extra_functions.R
 inst/staticdocs
+inst/build.R

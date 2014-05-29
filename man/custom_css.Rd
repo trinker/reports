@@ -4,6 +4,7 @@
 \alias{css_style_change}
 \alias{css_styles}
 \alias{custom_css}
+\alias{custom_pandoc_style}
 \title{Generate Custom css for RStudio + knitr}
 \usage{
 custom_css(rprofile = FALSE, loc = QP("REPORT"), style.css = NULL,
@@ -14,6 +15,8 @@ css_styles()
 css_style_change(style.css, cur.style.css = QP("REPORT/css/style.css"))
 
 css_style_add(loc = QP("PRESENTATION/assets/css"))
+
+custom_pandoc_style(rprofile = FALSE, loc = QP("REPORT"), source = TRUE)
 }
 \arguments{
 \item{rprofile}{logical.  If \code{TRUE} the \bold{style.R} is added to the
@@ -44,6 +47,9 @@ use with RStudio and knitr.
 
 \code{css_styl_add} - Add a style.css.  Defaults to
 \file{~PRESENTATION/assets/css}.
+
+\code{custom_pandoc_style} - Generate the components necessary for a custom
+pandoc styling for use with RStudio and knitr.
 }
 \details{
 \code{custom_css} - The user must add the custom contents to the

@@ -13,19 +13,21 @@
    }
 
    pre .literal {
-     color: rgb(88, 72, 246)
+     color: #990073
    }
 
    pre .number {
-     color: rgb(0, 0, 205);
+     color: #099;
    }
 
    pre .comment {
-     color: rgb(76, 136, 107);
+     color: #998;
+     font-style: italic
    }
 
    pre .keyword {
-     color: rgb(0, 0, 255);
+     color: #900;
+     font-weight: bold
    }
 
    pre .identifier {
@@ -33,7 +35,7 @@
    }
 
    pre .string {
-     color: rgb(3, 106, 7);
+     color: #d14;
    }
 </style>
 
@@ -44,7 +46,7 @@ hljs.initHighlightingOnLoad();
 </script>
 
 <!-- MathJax scripts -->
-<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -606,14 +608,14 @@ The <a href="http://trinker.github.io/reports_dev/cite.html" target="_blank">cit
 <pre><code class="r">\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})} 
 \newcommand\poscite[1]{\citeauthor{#1}' (\citeyear{#1})}</code></pre>
 
-<p>The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the <a href="https://github.com/cboettig/knitcitations" target="_blank">knitcitations</a> (<a href="https://github.com/cboettig/knitcitations">Boettiger, 2013</a>) package.</p>
+<p>The L and M correspond to <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> or markdown outputs; markdown relies on the <a href="https://github.com/cboettig/knitcitations" target="_blank">knitcitations</a> (<a href="http://CRAN.R-project.org/package=knitcitations">Boettiger, 2014</a>) package.</p>
 
 <p><font size="5" color="gold">&diams;</font> <strong>Example 1</strong> - <em>parenthesis cite</em> <font size="5" color="gold">&diams;</font></p>
 
 <pre><code class="r">parenciteM(1, force.block = FALSE)
 </code></pre>
 
-<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)</code></pre>
+<pre><code> "An **EXAMPLE**; feel "free" to *delete* it ***soon***" &#180;r  citep("Rinker2013a")&#180;</code></pre>
  
 
 <p>&ldquo;An <strong>EXAMPLE</strong>; feel &quot;free&rdquo; to <em>delete</em> it <strong><em>soon</em></strong>&ldquo; (<a href="http://github.com/trinker/qdap">Rinker, 2013b</a>, p. 12)</p>
@@ -623,9 +625,9 @@ The <a href="http://trinker.github.io/reports_dev/cite.html" target="_blank">cit
 <pre><code class="r">textciteM(1, force.block = FALSE)
 </code></pre>
 
-<pre><code>&#180;r  citet(x=bib[["Rinker2013a"]])&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
+<pre><code>&#180;r  citet("Rinker2013a")&#180; "An **EXAMPLE**; feel "free" to *delete* it ***soon***"</code></pre>
 
-<p><a href="http://github.com/trinker/qdap">Rinker (2013)</a> &quot;An <strong>EXAMPLE</strong>; feel &quot;free&rdquo; to <em>delete</em> it <strong><em>soon</em></strong>&ldquo;</p>
+<p><a href="http://github.com/trinker/qdap">Rinker (2013b)</a>&quot;An <strong>EXAMPLE</strong>; feel &quot;free&rdquo; to <em>delete</em> it <strong><em>soon</em></strong>&ldquo;</p>
 
 <p>The <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> (L) versions of the functions work in a similar fashion but are used in .Rnw documents.</p>
 

@@ -83,8 +83,8 @@ NEW FEATURES
 * The sync family of functions has been introduced.  These functions provide 
   quick syncing between directories.  See `?sync` for more details.
 
-* `custom_css` function for creating the components necessary for custom css 
-  file for use with RStudio + knitr.  See: 
+* `custom_css` and `custom_pandoc_style` functions for creating the components 
+  necessary for custom css file for use with RStudio + rmarkdown + knitr.  See: 
   http://www.rstudio.com/ide/docs/authoring/markdown_custom_rendering
 
 * `css_styles` and `css_style_change` compliment `custom_css`.  The former 
@@ -212,6 +212,13 @@ CHANGES
 
 * The NOTES.txt and TO_DO.txt files lose the file extensions to become NOTES and 
   TO_DO.
+
+* `knitr 1.6` and `knitcitations 0.6.0` that incorporate the `rmarkdown` package
+  and utilize yaml + pandoc have significant changes.  These changes are 
+  reflected in the `reports` package.
+
+* `pad` removed from reports package and added to `qdapTools` which is now 
+  imported.
 
 
 CHANGES IN reports VERSION 0.1.2
