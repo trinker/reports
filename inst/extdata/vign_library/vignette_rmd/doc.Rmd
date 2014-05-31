@@ -7,8 +7,7 @@ output:
     css: assets/fix-bootstrap.css
     toc: yes  
     pandoc_args: [
-      "--biblio", "references.bib",
-      "--csl", "ecology.csl"
+      "--biblio", "references.bib"
       ]
 ---
 
@@ -29,9 +28,9 @@ options("citation_format" = "pandoc")
 
 To enable Markdown vignettes in an R package, you need to
 
-- add `*.Rmd` files under the `inst/doc` or `vignettes` directory
-- add `VignetteBuilder: knitr` to the `DESCRIPTION` file
-- specify the vignette engine `\VignetteEngine{knitr}` in the `Rmd` files (inside HTML comments)
+- [ ] add `*.Rmd` files under the `inst/doc` or `vignettes` directory
+- [ ] add `VignetteBuilder: knitr` to the `DESCRIPTION` file
+- [ ] specify the vignette engine `\VignetteEngine{knitr}` in the `Rmd` files (inside HTML comments)
 
 You can use your own CSS file instead of the built-in style in the **markdown** package -- just set the css in the yaml.
 

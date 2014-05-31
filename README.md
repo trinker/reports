@@ -21,6 +21,7 @@ library(devtools)
 #Install the development versions of slidify and its libraries
 install_github('slidify', 'ramnathv', ref = 'dev')
 install_github('slidifyLibraries', 'ramnathv', ref = 'dev')
+install_github("rstudio/rmarkdown")
 
 install_github("reports", "trinker")
 ```
