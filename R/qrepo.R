@@ -49,9 +49,11 @@ qrepo <- function(repo = "repo", github.user = getOption("github.user"),
     ## Add notes, to do, extra_functions, and Rmd
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
+	
     date1 <- "### `r as.character(format(Sys.Date(), format=\"%B %d, %Y\"))`"
     cat(sprintf("# %s\n%s\n\n", repo, date1),
-        file = file.path(x, paste0(repo, ".Rmd")))  
+        file = file.path(x, paste0(repo, ".Rmd")))
+	
     cat("## Extra functions here", 
         file = file.path(x, "extra_functions.R"))
 
@@ -64,7 +66,7 @@ qrepo <- function(repo = "repo", github.user = getOption("github.user"),
     rpro <- c("#Load the packages used",
         "library(reports); library(knitr)", "")  
     rpro2 <- c("", "#Source \"extra_functions.R\":",
-        "source(file.path(getwd(), \"extra_functions.R\"))")
+        "source(\"extra_functions.R\")")
 
     if (!is.null(!is.null(github.user) && file.exists(github.user))) {
         git <- paste0("options(github.user = \"", github.user, "\")")
