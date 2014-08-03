@@ -442,8 +442,8 @@ function(report = "report", template = getOption("temp.reports"),
         file.copy(file.path(js, dir(js)), file.path(y[[1]], "js"))  
 
         ## Generate paths to css/js scripts to add to .Rmd  	
-    	css_path <- file.path(y[[1]], "css")
-    	js_path <- file.path(y[[1]], "js")
+    	  css_path <- file.path(y[[1]], "css")
+    	  js_path <- file.path(y[[1]], "js")
         CSS <- "<link rel=\"stylesheet\" href=\"./css/%s\" />"
         JS <- "<script type=\"text/javascript\" src=\"./js/%s\"></script>"
         css_links <- sapply(dir(css_path), function(x) sprintf(CSS, x))
@@ -451,7 +451,7 @@ function(report = "report", template = getOption("temp.reports"),
 
         ## Read in .Rmd and copy paths to css/js scripts 	
         RMD <- file.path(y[[1]], dir(y[[1]])[file_ext(dir(y[[1]])) == "Rmd"])
-        infile <- readLines(RMD)
+        infile <- suppressWarnings(readLines(RMD))
         cat(paste(c(css_links, js_links, "", infile, "\n"), collapse = "\n"), 
             file = RMD)
     }
@@ -487,3 +487,4 @@ function(x, ...) {
     class(x) <- NULL
     cat(x)
 }
+

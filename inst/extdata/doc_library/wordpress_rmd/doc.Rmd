@@ -45,3 +45,4 @@ bibliography("html")
 ```{r, echo=FALSE, results="hide"}
 knitr::purl("space_manikin.Rmd")
 ```
+

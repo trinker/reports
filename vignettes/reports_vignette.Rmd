@@ -7,8 +7,7 @@ output:
     css: assets/fix-bootstrap.css
     toc: yes  
     pandoc_args: [
-      "--biblio", "references.bib",
-      "--csl", "ecology.csl"
+      "--biblio", "references.bib"
       ]
 ---
 
