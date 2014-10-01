@@ -26,7 +26,7 @@ LazyData: TRUE
 VignetteBuilder: knitr
 Depends:
     R (>= 3.0.0),
-    qdapTools (>= 1.0.1)
+    qdapTools (>= 1.0.3)
 Imports:
     knitcitations (>= 0.6-0),
     markdown,
