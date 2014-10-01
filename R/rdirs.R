@@ -39,7 +39,7 @@ rdirs <- function(..., path = getwd(), sep = "_", pad.num = TRUE,
     plist[nums] <- invisible(lapply(pieces[nums], function(x) {
         x <- eval(parse(text=x))
         if (pad.num) {
-            x <- pad(x, sort = FALSE)
+            x <- qdapTools::pad(x, sort = FALSE)
         }
         x
     }))

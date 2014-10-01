@@ -43,6 +43,6 @@ bibliography("html")
 <hr><em><font size="1">*Created using the `r HR2("https://github.com/trinker/reports", "reports")` package</font></em>
 
 ```{r, echo=FALSE, results="hide"}
-knitr::purl("space_manikin.Rmd")
+# knitr::purl(".Rmd")
 ```
 
