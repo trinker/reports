@@ -23,7 +23,7 @@ install_github('slidify', 'ramnathv', ref = 'dev')
 install_github('slidifyLibraries', 'ramnathv', ref = 'dev')
 install_github("rstudio/rmarkdown")
 
-install_github("reports", "trinker")
+install_github("trinker/reports")
 ```
 
 Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
