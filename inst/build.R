@@ -1,8 +1,8 @@
 curd <- getwd()
-loc <- "C:/Users/trinker/Desktop"
+loc <- "C:/Users/Tyler/Desktop"
 setwd(loc)
 
-qman <- function(x = "reports", db = "C:/Users/trinker/Dropbox/Public", dir=loc) {
+qman <- function(x = "reports", db = "C:/Users/Tyler/Dropbox/Public", dir=loc) {
     path <- file.path(dir, paste0(x, ".pdf"))
     if (!file.exists(path)) stop(paste(x, "does not exist..."))
     opath <- file.path(db, paste0(x, ".pdf"))
@@ -12,7 +12,7 @@ qman <- function(x = "reports", db = "C:/Users/trinker/Dropbox/Public", dir=loc)
 
 
 repo <- pack <- "reports"
-base.git = "C:/Users/trinker/GitHub"
+base.git = "C:/Users/Tyler/GitHub"
 quick = TRUE
 library(devtools)
 

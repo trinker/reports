@@ -50,13 +50,14 @@ qrepo <- function(repo = "repo", github.user = getOption("github.user"),
     cat(file = file.path(x, "TO_DO"))
     cat(file = file.path(x, "NOTES"))
 	
-    date1 <- "### `r as.character(format(Sys.Date(), format=\"%B %d, %Y\"))`"
-    cat(sprintf("# %s\n%s\n\n", repo, date1),
+    cat(sprintf(paste0(qrepo_rmd, collapse="\n"), repo),
         file = file.path(x, paste0(repo, ".Rmd")))
 	
     cat("## Extra functions here", 
         file = file.path(x, "extra_functions.R"))
 
+    cat(sprintf(rend, repo), "\n", file="render.R")
+    
     ## Add .rproj
     invisible(file.copy(file.path(root, "TEMP.txt"), x))
     invisible(file.rename(file.path(x, "TEMP.txt"), 
@@ -92,3 +93,13 @@ qrepo <- function(repo = "repo", github.user = getOption("github.user"),
     return(o)    
 }
 
+
+qrepo_rmd <- c("---", "title: \"%s\"", 
+    "date: \"`r format(Sys.time(), '%%d %%B, %%Y')`\"", 
+    "output:", "  html_document:", "    toc: true", "    theme: journal", 
+    "    number_sections: true", "  pdf_document:", "    toc: true", 
+    "    number_sections: true", "  word_document:", "    fig_width: 5", 
+    "    fig_height: 5", "    fig_caption: true", "---"
+)
+
+rend <- 'rmarkdown::render("%s.Rmd", "all")'
