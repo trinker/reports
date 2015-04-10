@@ -1,12 +1,11 @@
 Package: reports
 Type: Package
-Title: An R package to assist in the workflow of writing academic articles and
-    other reports
+Title: An R Package to Assist in the Workflow of Writing Academic Articles and Other Reports
 Version: 0.3.0
 Date: 2013-07-01
 Author: Tyler Rinker
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
-Description: reports is a package that assists in writing reports and
+Description: Assists in writing reports and
     presentations by providing a frame work that brings together existing R,
     LaTeX/.docx and Pandoc tools. The package is designed to be used with
     RStudio, MiKTex/Tex Live/LibreOffice, knitr, knitcitations, slidify, Pandoc

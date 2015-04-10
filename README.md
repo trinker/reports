@@ -5,7 +5,7 @@ reports
 
 reports is a package that assists in writing reports and presentations by providing a frame work that brings together existing R, LaTeX/.docx and Pandoc tools.  The package is designed to be used with [RStudio](http://www.rstudio.com/), [MikTex](http://miktex.org/)/[Tex Live](http://www.tug.org/texlive/)/[LibreOffice](http://www.libreoffice.org/), [knitr](http://yihui.name/knitr/), [slidify](http://ramnathv.github.com/slidify/), [knitcitations](http://www.carlboettiger.info/2012/05/30/knitcitations.html), [Pandoc](http://johnmacfarlane.net/pandoc/) and [pander](https://github.com/rapporter/pander).  The user will want to download these free programs to maximize the effectiveness of the reports package.
 
-<p><a href="http://trinker.github.io/reports/dependencies"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG"></a></p>
+<p><a href="http://trinker.github.io/reports/dependencies"><img src="https://dl.dropboxusercontent.com/u/61803503/packages/reports.PNG" alt="Image Not Displayed"></a></p>
 
 
 ## Installation
@@ -23,7 +23,7 @@ install_github('slidify', 'ramnathv', ref = 'dev')
 install_github('slidifyLibraries', 'ramnathv', ref = 'dev')
 install_github("rstudio/rmarkdown")
 
-install_github("reports", "trinker")
+install_github("trinker/reports")
 ```
 
 Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
