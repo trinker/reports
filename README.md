@@ -15,15 +15,13 @@ To download the [development version of reports](http://trinker.github.com/repor
 download the [zip ball](https://github.com/trinker/reports/zipball/master) or [tar ball](https://github.com/trinker/reports/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
 
 ```r
-# install.packages("devtools")
-
-library(devtools)
-#Install the development versions of slidify and its libraries
-install_github('slidify', 'ramnathv', ref = 'dev')
-install_github('slidifyLibraries', 'ramnathv', ref = 'dev')
-install_github("rstudio/rmarkdown")
-
-install_github("trinker/reports")
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh(
+    "ramnathv/slidify@dev",
+    "ramnathv/slidifyLibraries@dev",
+    "rstudio/rmarkdown",
+    "trinker/reports"
+)
 ```
 
 Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
