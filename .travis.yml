@@ -12,6 +12,7 @@ install:
   - ./travis-tool.sh install_github ramnathv/slidify@dev
   - ./travis-tool.sh install_github ramnathv/slidifyLibraries@dev
   - ./travis-tool.sh install_github cboettig/knitcitations
+  - ./travis-tool.sh github_package ropensci/gender  
   - ./travis-tool.sh install_github trinker/qdap
   - ./travis-tool.sh install_github trinker/qdapDictionaries
   - ./travis-tool.sh install_github trinker/qdapTools
