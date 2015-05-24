@@ -18,7 +18,7 @@ function(report = getwd(), bib.loc = getOption("bib.loc")) {
     }
     new <- basename(bib.loc)
     
-    if (current != new) {
+    if (identical(current, character(0)) || current != new) {
         cat(paste0("Current .bib file does not match updated .bib.  Do you want to continue?\n\n"))
         ans <- menu(c("Yes", "No")) 
         if (ans == "2") {
