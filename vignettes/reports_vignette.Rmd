@@ -268,7 +268,7 @@ The user may choose to push a project (repository).  The `r FUN("repo2github")` 
 
 The notes.xlsx/notes.csv is a file located in the ARTICLES directory.  It is useful to take notes from articles/websites/etc. and organize them here.  The `r FUN("notes")` function can be used to view a truncated version of the notes.  The citation functions also enables the user to insert in-text citations into a document with the quote taken from the article or other source.  It is important that the format of notes.xlsx is respected in order for the `r HR2(LN("cite"), "citation family")` of functions to be utilized.  In order for this workflow related to citations to be most effective the user must use a .bib file to manage citations.  I use `r HR2("http://jabref.sourceforge.net/", "JabRef")` manage my bibliography.  Here is a screen shot of notes.xlsx file.
 
-`r IM2("excel.png", 2, width=800, height=600)`
+`r IM("myfigure/excel.png", 2, width=800, height=600)`
 
 notes.xlsx contains the following columns:
 

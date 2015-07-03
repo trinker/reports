@@ -18,8 +18,8 @@ report project directory name.}
 
 \item{github.user}{GitHub user name (character string).}
 
-\item{gitpath}{Path to the location of git.  If \code{NULL}
-\code{repo2github} will attempt to locate the path if necessary.}
+\item{gitpath}{Path to the location of \href{http://git-scm.com/}{Git}.  If
+\code{NULL} \code{repo2github} will attempt to locate the path if necessary.}
 
 \item{readme}{logical.  If \code{TRUE} repo initializes with a README.md file.}
 }
@@ -27,15 +27,16 @@ report project directory name.}
 Creates GitHub repository.
 }
 \description{
-Allows uploading a local repository to GitHub without first creating the
-repository in the clouds. \code{\link[reports]{repo2github}} is designed for
-the initial push to github.  Future pushes can be handled via RStudio or
-other git interface.
+Allows uploading a local repository to \href{https://github.com/}{GitHub}
+without first creating the repository in the clouds.
+\code{\link[qdapTools]{repo2github}} is designed for the initial push to
+GitHub.  Future pushes can be handled via RStudio or other
+\href{http://git-scm.com/}{Git} interface.
 }
 \details{
 The arguments \code{project.dir} and \code{repo} use
-\code{\link[base]{getwd}}.  This assumes is the current working directoy is
-the root directory and is done for convienence.  The user should ensure that
+\code{\link[base]{getwd}}.  This assumes is the current working directory is
+the root directory and is done for convenience.  The user should ensure that
 either their working directory is the root directory or supply the correct
 root directory/name to these arguments.
 }
@@ -46,8 +47,8 @@ established.
 \section{Warning}{
  For Windows users this function creates a temporary _netrc
 file in the home directory and attempts to delete this file.  The _netrc
-contains username and password information for github.
-\code{\link[reports]{repo2github}} attempts to delete this file but care
+contains username and password information for GitHub.
+\code{\link[qdapTools]{repo2github}} attempts to delete this file but care
 should be taken.  The file is created in: \cr
 \code{file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 }

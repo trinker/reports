@@ -1,9 +1,10 @@
 #' Upload a Local Repo to GitHub 
 #' 
-#' Allows uploading a local repository to GitHub without first creating the 
-#' repository in the clouds. \code{\link[reports]{repo2github}} is designed for 
-#' the initial push to github.  Future pushes can be handled via RStudio or 
-#' other git interface.
+#' Allows uploading a local repository to \href{https://github.com/}{GitHub} 
+#' without first creating the repository in the clouds. 
+#' \code{\link[qdapTools]{repo2github}} is designed for the initial push to 
+#' GitHub.  Future pushes can be handled via RStudio or other 
+#' \href{http://git-scm.com/}{Git} interface.
 #' 
 #' @param password GitHub user password (character string).  If this is not 
 #' supplied the user will be prompted to enter a password.
@@ -11,8 +12,8 @@
 #' @param repo A character string naming the repo; default attempts to use the 
 #' report project directory name.
 #' @param github.user GitHub user name (character string).
-#' @param gitpath Path to the location of git.  If \code{NULL} 
-#' \code{repo2github} will attempt to locate the path if necessary.
+#' @param gitpath Path to the location of \href{http://git-scm.com/}{Git}.  If 
+#' \code{NULL} \code{repo2github} will attempt to locate the path if necessary.
 #' @param readme logical.  If \code{TRUE} repo initializes with a README.md file.
 #' @return Creates GitHub repository.
 #' @author Simon O'Hanlon, Daniel Chaffiol, and Tyler Rinker <tyler.rinker@@gmail.com>
@@ -20,13 +21,13 @@
 #' \url{http://stackoverflow.com/a/18692400/1000343}
 #' @section Warning: For Windows users this function creates a temporary _netrc 
 #' file in the home directory and attempts to delete this file.  The _netrc 
-#' contains username and password information for github. 
-#' \code{\link[reports]{repo2github}} attempts to delete this file but care 
+#' contains username and password information for GitHub. 
+#' \code{\link[qdapTools]{repo2github}} attempts to delete this file but care 
 #' should be taken.  The file is created in: \cr
 #' \code{file.path(Sys.getenv()["HOME"], "DELETE_ME_REPORTS_PACKAGE/_nectrc")}.
 #' @details The arguments \code{project.dir} and \code{repo} use 
-#' \code{\link[base]{getwd}}.  This assumes is the current working directoy is 
-#' the root directory and is done for convienence.  The user should ensure that 
+#' \code{\link[base]{getwd}}.  This assumes is the current working directory is 
+#' the root directory and is done for convenience.  The user should ensure that 
 #' either their working directory is the root directory or supply the correct 
 #' root directory/name to these arguments.
 #' @note The user will need to have a \href{https://github.com/}{GitHub} account 
@@ -39,7 +40,7 @@
 #' repo2github()
 #' }
 repo2github <- function(password, project.dir = getwd(), 
-	repo = basename(getwd()), github.user = getOption("github.user"), 
+    repo = basename(getwd()), github.user = getOption("github.user"), 
 	gitpath = NULL, readme = TRUE) {
 
 	#check for github user name
@@ -82,8 +83,8 @@ repo2github <- function(password, project.dir = getwd(),
         }
         url <- "http://curl.askapache.com/download/curl-7.23.1-win64-ssl-sspi.zip"
         tmp <- tempfile( fileext = ".zip" )
-        download.file(url,tmp)
-        unzip(tmp, exdir = tempdir())       
+        utils::download.file(url,tmp)
+        utils::unzip(tmp, exdir = tempdir())       
         system(paste0(tempdir(), "/curl http://curl.haxx.se/ca/cacert.pem -o " , 
             tempdir() , "/curl-ca-bundle.crt"))
      	json <- paste0(" { \"name\":\"" , repo , "\" } ") #string we desire formatting
@@ -139,7 +140,8 @@ repo2github <- function(password, project.dir = getwd(),
         
         #Make a temp _netrc file
         home <- Sys.getenv()["HOME"]
-        newhome <- file.path(home, paste0("DELETE_ME_", gsub(":", "\\.", UF(Sys.time()))))
+        newhome <- file.path(home, paste0("DELETE_ME_", gsub(":", "\\.", 
+            gsub("'", "", gsub("\\s+", "_", Sys.time())))))
         dir.create(newhome)
         loc <- file.path(newhome, "_netrc")
         on.exit(Sys.setenv(HOME = home))
